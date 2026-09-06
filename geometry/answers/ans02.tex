@@ -216,185 +216,225 @@
 \end{enumerate}
 
 %═══════════════════════════════════════════════════════════════════════════════
-\section*{Section C \quad Substitution \& Structure}
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90 s each)}}
 %═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Harder: hidden tangency, chord bisection, and the distance-vs-discriminant decision. No brute substitution.}
+
 \begin{enumerate}
 
 %── C1 ──────────────────────────────────────────────────────────────────────────
-\item The line $\;y = 2x + 5$ is a tangent to the circle $\;x^2+y^2=r^2$. Find $r^2$.
+\item \textit{\small(after TMUA 2017 Paper 1 Q6)} A tangent to the circle $x^2+y^2=144$ passes through $(20,0)$ and meets the positive $y$-axis at $T$. What is the $y$-coordinate of $T$?
+\begin{itemize}
+\item[A)] $12$
+\item[B)] $15$
+\item[C)] $\tfrac{49}{3}$
+\item[D)] $20$
+\end{itemize}
+
+\ans{B) $15$}
+\method{Radius to touch point is $\perp$ tangent. Let $T=(0,t)$, line through $(20,0)$ and $(0,t)$ has equation $x/20+y/t=1$, i.e. $tx+20y-20t=0$. Distance from origin $=r=12$: $| -20t|/\sqrt{t^2+400}=12\Rightarrow 400t^2=144(t^2+400)\Rightarrow256t^2=57600\Rightarrow t^2=225\Rightarrow t=15$ (positive). Check $t=15$ gives line $3x+4y=60$, distance $60/5=12$ \checkmark.}
+\inv{The $x$-intercept $20$ and $r=12$ give a $5$-$12$-$13$ scaled triple $(12,16,20)$. \textbf{If the external point were $(13,0)$ instead, the $y$-int would be $12\cdot13/5$?} No, the triple changes.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item \textit{\small(adapted from TMUA 2018 Paper 1 Q7)} The point $P(8,6)$ is outside the circle $x^2+y^2=36$. Tangents from $P$ meet the circle at $A$ and $B$. What is the length $AB$?
+\begin{itemize}
+\item[A)] $\tfrac{12\sqrt{13}}{13}$
+\item[B)] $\tfrac{24\sqrt{13}}{13}$
+\item[C)] $\tfrac{48}{5}$
+\item[D)] $\tfrac{72}{5}$
+\end{itemize}
+
+\ans{C) $\tfrac{48}{5}$}
+\method{$OP=\sqrt{64+36}=10$, $r=6$, right triangle $OAP$ has $AP=\sqrt{100-36}=8$, distance from $O$ to chord $AB$ is $d=r^2/OP=36/10=18/5$. Half-chord $=\sqrt{r^2-d^2}=\sqrt{36-324/25}=24/5$, so $AB=48/5$.}
+\inv{The chord $AB$ is the radical axis of the circle and the point-circle. \textbf{If $P$ were at distance $2r$ from $O$, the chord length would be $r\sqrt3$ --- check. Here $OP=10=5r/3$, giving $48/5$.}}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item \textit{\small(after TMUA 2019 Paper 1 Q6)} The circles $(x+4)^2+(y+1)^2=64$ and $(x-8)^2+(y-4)^2=r^2$ have exactly one point in common. If $r<13$, what is $r$?
+\begin{itemize}
+\item[A)] $5$
+\item[B)] $8$
+\item[C)] $13$
+\item[D)] $21$
+\end{itemize}
+
+\ans{A) $5$}
+\method{Centre distance $d=\sqrt{12^2+5^2}=13$. One point $\Rightarrow$ internal tangency $r=|d-8|=5$ (since $r<13$). External would give $21$.}
+\inv{Two possibilities: $|r-8|=13$ gives $r=5$ or $21$; the condition $r<13$ picks $5$. \textbf{If $r>13$, the other is $21$.}}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item \begin{tikzpicture}[scale=0.42, baseline=-0.5ex]
+\draw (0,0) circle (1.6);
+\draw[fill=black] (0,0) circle (1pt) node[below right]{\tiny $O$};
+\draw[dashed] (0,0) -- (1.13,1.13) node[midway, above]{\tiny $r$};
+\draw (1.13,1.13) -- (2.2,1.13);
+\draw[->] (1.5,1.3) arc (0:90:0.3);
+\node at (2.4,1.13) [right]{\tiny $T$};
+\draw (1.13,1.13) circle (1pt) node[above]{\tiny $T$};
+\end{tikzpicture} \textit{\small(adapted from TMUA 2017 Paper 1 Q9)} A circle has centre $(9,11)$ and radius $5$. A regular hexagon $ABCDEF$ is inscribed with all vertices on the circle. What is the area of the hexagon?
+\begin{itemize}
+\item[A)] $18\sqrt3$
+\item[B)] $36\sqrt3$
+\item[C)] $\tfrac{75\sqrt3}{2}$
+\item[D)] $75$
+\end{itemize}
+
+\ans{C) $\tfrac{75\sqrt3}{2}$}
+\method{Regular hexagon = 6 equilateral triangles side $r=5$: area $=6\cdot \tfrac{\sqrt3}{4}r^2 = \tfrac{3\sqrt3}{2}r^2 = \tfrac{75\sqrt3}{2}$.}
+\inv{Centre $(9,11)$ is irrelevant --- translation does not change area. \textbf{If it were a square, area would be $2r^2=50$.}}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item The line $y=2x+5$ is a tangent to the circle $x^2+y^2=r^2$. Which $r^2$ makes the distance from the centre to the line equal to $r$?
 \begin{itemize}
 \item[A)] $1$
 \item[B)] $5$
-\item[C)] $25$
-\item[D)] $5\sqrt{5}$
+\item[C)] $20$
+\item[D)] $25$
 \end{itemize}
 
-\ans{B) $r^2=5$}
-\method{Line $2x-y+5=0$; distance from origin $=\frac{5}{\sqrt{4+1}}=\frac5{\sqrt5}=\sqrt5=r$. So $r^2=5$.}
-\inv{Option C ($25$) is ``forgot the $\sqrt{m^2+1}$ in the denominator''; A is a sign slip. \textbf{Tangent to a centred circle has $r=\dfrac{|c|}{\sqrt{a^2+b^2}}$.}}
-
-%── C2 ──────────────────────────────────────────────────────────────────────────
-\item The point $(2,-1)$ lies on the circle $\;x^2+y^2+2gx+2fy-3=0$ with $g=f$. Find $g$.
-\begin{itemize}
-\item[A)] $-1$
-\item[B)] $0$
-\item[C)] $1$
-\item[D)] $2$
-\end{itemize}
-
-\ans{A) $g=-1$}
-\method{Substitute: $4+1+2g(2)+2g(-1)-3=0\Rightarrow 5+4g-2g-3=0\Rightarrow 2+2g=0\Rightarrow g=-1$.}
-\inv{Because $g=f$, the two linear terms combine: $2g(x+y)$, and at $(2,-1)$ that is $2g(1)=2g$. \textbf{Checking the centre now: $g=f=-1$ gives centre $(1,1)$.} The circle passes through $(2,-1)$ but its centre is elsewhere.}
-
-%── C3 ──────────────────────────────────────────────────────────────────────────
-\item The circle $\;x^2+y^2-4x+2y-11=0$ and the line $\;x-y+1=0$ have what relationship?
-\begin{itemize}
-\item[A)] The line cuts the circle in two points (secant)
-\item[B)] The line is a tangent
-\item[C)] The line misses the circle
-\item[D)] The line passes through the centre
-\end{itemize}
-
-\ans{A) secant}
-\method{Centre $(2,-1)$, $r=\sqrt{4+1+11}=4$. Distance to line $x-y+1=0$: $\frac{|2-(-1)+1|}{\sqrt2}=\frac4{\sqrt2}=2\sqrt2<4=r$ --- cuts twice.}
-\inv{\textbf{Since $2\sqrt2<4$ the line crosses; if $=$ it would be tangent, if $>$ it would miss.} Compare the magnitude, never substitute. Option D is the line-through-centre trap: would need $d=0$.}
-
-%── C4 ──────────────────────────────────────────────────────────────────────────
-\item The tangent to $\;x^2+y^2=9$ at $(2,\sqrt{5})$ has equation?
-\begin{itemize}
-\item[A)] $2x+\sqrt{5}\,y = 9$
-\item[B)] $2x-\sqrt{5}\,y = 9$
-\item[C)] $2x+\sqrt{5}\,y = 3$
-\item[D)] $\sqrt{5}\,x+2y = 9$
-\end{itemize}
-
-\ans{A) $2x+\sqrt5 y=9$}
-\method{Split the circle: tangent at $(x_1,y_1)$ is $xx_1+yy_1=r^2$, so $2x+\sqrt5\,y=9$.}
-\inv{Check $(2,\sqrt5)$ sits on the tangent: $4+5=9$ \checkmark, and on the circle: $4+5=9$ \checkmark. \textbf{Option D swaps the coefficients; does it pass through $(2,\sqrt5)$?} $\sqrt5\cdot2+2\sqrt5=4\sqrt5\ne9$.}
-
-%── C5 ──────────────────────────────────────────────────────────────────────────
-\item The midpoint of a chord of $\;x^2+y^2=40$ is at distance $2$ from the centre. Find the chord length.
-\begin{itemize}
-\item[A)] $12$
-\item[B)] $6\sqrt{2}$
-\item[C)] $8$
-\item[D)] $4\sqrt{10}$
-\end{itemize}
-
-\ans{A) $12$}
-\method{$r=\sqrt{40}=2\sqrt{10}$; half-chord $=\sqrt{40-4}=\sqrt{36}=6$; chord $=12$.}
-\inv{\textbf{Option D is the ``the half-chord is $6$ but I forgot to double it'' error.} The perpendicular from the centre meets the chord at its midpoint, which is exactly the ``distance $2$'' given.}
+\ans{B) $5$}
+\method{Distance $=|5|/\sqrt{5}= \sqrt5 =r$, so $r^2=5$.}
+\inv{Tangent to centred circle $r=|c|/\sqrt{a^2+b^2}$. \textbf{If line were $y=2x+10$, $r^2$ would be $20$.}}
 
 %── C6 ──────────────────────────────────────────────────────────────────────────
-\item Which of these circles is tangent to the $x$-axis?
+\item \textit{\small(after MAT 2019 Q6)} The circle $x^2+y^2-4x+2y-11=0$ and the line $x-y+1=0$: determine the number of intersection points without solving the system.
 \begin{itemize}
-\item[A)] $x^2+y^2-6y=0$
-\item[B)] $x^2+y^2+4x=0$
-\item[C)] $x^2+y^2-6x+9=0$
-\item[D)] $x^2+y^2-2y-3=0$
+\item[A)] $0$ (line misses)
+\item[B)] $1$ (tangent)
+\item[C)] $2$ (secant)
+\item[D)] Infinitely many (line is diameter)
 \end{itemize}
 
-\ans{A) $x^2+y^2-6y=0$}
-\method{A: centre $(0,3)$, $r=3$, distance to $x$-axis $=3=r$ --- tangent. B: centre $(-2,0)$, $r=2$, distance $0$. C: degenerate $r=0$. D: centre $(0,1)$, $r=2$, distance $1$.}
-\inv{\textbf{A circle is tangent to the $x$-axis exactly when the centre's $y$-coordinate equals $r$ (up to sign).} Option D is a common trap: centre $(0,1)$, radius $2$, so it {\em crosses} the $x$-axis rather than touching it.}
+\ans{C) $2$ (secant)}
+\method{Centre $(2,-1)$, $r=4$, distance to $x-y+1=0$ is $|2+1+1|/\sqrt2=4/\sqrt2=2\sqrt2<r$, so 2 points.}
+\inv{Compare $d$ vs $r$, never substitute. \textbf{Diameter would need $d=0$.}}
 
 %── C7 ──────────────────────────────────────────────────────────────────────────
-\item The circle $\;x^2+y^2-8x-4y-21=0$ cuts the $y$-axis at two points. The distance between these two points is?
+\item \begin{tikzpicture}[scale=0.4, baseline=-0.5ex]
+\draw (0,0) circle (1.5);
+\draw (-1.5,0) -- (1.5,0);
+\draw (0,-1.5) -- (0,1.5);
+\draw[dashed] (0,0) -- (1.06,1.06);
+\node at (0.5,0.8) {\tiny $r$};
+\draw[fill=black] (0,0) circle (1pt);
+\end{tikzpicture} The circle $x^2+y^2-8x-4y-21=0$ ($r=\sqrt{41}$) is cut by the $y$-axis ($x=0$). What is the length of the chord intercepted on the $y$-axis?
 \begin{itemize}
-\item[A)] $4$
-\item[B)] $6$
+\item[A)] $2\sqrt{21}$
+\item[B)] $2\sqrt{41}$
 \item[C)] $8$
 \item[D)] $10$
 \end{itemize}
 
 \ans{D) $10$}
-\method{On the $y$-axis $x=0$: $y^2-4y-21=0\Rightarrow(y-7)(y+3)=0$, points $(0,7),(0,-3)$, distance $10$.}
-\inv{Equivalently $d=|\text{product-split}|$; the two intercepts differ by $7-(-3)=10$. \textbf{This is the chord perpendicular to diameter idea: the $y$-axis chord here.} Compare the half-chord test: centre $(4,2),r=\sqrt{16+4+21}=\sqrt{41}$, distance from centre to $y$-axis $4$, half-chord $\sqrt{41-16}=5$, length $10$ \checkmark.}
+\method{Centre $(4,2)$, distance to $x=0$ is $4$, half-chord $\sqrt{41-16}=5$, length $10$. Also $x=0\Rightarrow y^2-4y-21=0\Rightarrow y=7,-3$, distance $10$.}
+\inv{Two methods: distance vs. direct substitution give $10$. \textbf{If the line were $x=4$ (through centre), chord would be diameter $2\sqrt{41}$.}}
 
 %── C8 ──────────────────────────────────────────────────────────────────────────
-\item The line $\;y = kx + 5$ touches the circle $\;x^2+y^2-6x-8y+24=0$. How many distinct values of $k$ achieve this?
+\item \textit{\small(after TMUA 2020 Paper 1 Q7)} The line $y=kx+5$ is tangent to the circle $x^2+y^2-6x-8y+24=0$ (centre $(3,4)$, $r=1$). How many distinct $k$ satisfy this?
 \begin{itemize}
 \item[A)] $0$
 \item[B)] $1$
 \item[C)] $2$
-\item[D)] $3$
+\item[D)] Infinitely many
 \end{itemize}
 
 \ans{C) $2$}
-\method{Circle centre $(3,4)$, $r=1$. All lines $y=kx+5$ pass through $(0,5)$; distance $OP=\sqrt{(3)^2+(1)^2}=\sqrt{10}>1$, so $(0,5)$ is external: exactly two tangents.}
-\inv{From any external point there are exactly two tangents to a circle --- here the two slopes come from $\frac{|3k-4|}{\sqrt{k^2+1}}=1$. \textbf{Option B ($1$) is tempting if you silently assume $(0,5)$ is on the circle; $9+1\ne1$} so it is not.}
+\method{Point $(0,5)$ is distance $\sqrt{10}>1$ from centre, so external: two tangents. Solve $|3k-4+5|/\sqrt{k^2+1}=1$ gives $2$ slopes.}
+\inv{From an external point exactly two tangents; from a point on the circle one; from inside zero. \textbf{Here $(0,5)$ is $\sqrt{10}$ away, so two.}}
 
 \end{enumerate}
 
 %═══════════════════════════════════════════════════════════════════════════════
-\section*{Section D \quad Challenge}
+\section*{Section D \quad Challenge \hfill{\normalfont\small(TMUA / SMC / BMO1 difficulty)}}
 %═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Hardest 5: distance invariants, hidden right angles, and a construction you must spot.}
+
 \begin{enumerate}
 
 %── D1 ──────────────────────────────────────────────────────────────────────────
-\item The line $\;3x+4y-12=0$ cuts the circle $\;x^2+y^2-8x-6y+16=0$ in two points. Find the length of the chord.
+\item \begin{tikzpicture}[scale=0.45, baseline=-0.5ex]
+\draw (0,0) circle (1.6);
+\draw (-1.6,0) -- (1.6,0);
+\draw (0,-1.6) -- (0,1.6);
+\draw[dashed] (0,0) -- (1.2,0.9);
+\node at (0.6,0.5) {\tiny $d$};
+\draw[fill=black] (0,0) circle (1pt) node[below left]{\tiny $O$};
+\draw (1.2,0.9) circle (1pt) node[right]{\tiny $P$};
+\end{tikzpicture} \textit{\small(adapted from TMUA 2018 Paper 1 Q7 / 2022 Paper 1 Q3)} The circles $C_1:(x+2)^2+(y-3)^2=18$ and $C_2:(x-7)^2+(y+6)^2=2$ have centres $O_1,O_2$. What is the \emph{shortest} distance between a point on $C_1$ and a point on $C_2$?
 \begin{itemize}
-\item[A)] $\dfrac{18}{5}$
-\item[B)] $\dfrac{12}{5}$
-\item[C)] $6$
-\item[D)] $\dfrac{36}{5}$
+\item[A)] $5\sqrt2-4$
+\item[B)] $5\sqrt2-5$
+\item[C)] $5\sqrt2$
+\item[D)] $5\sqrt2+5$
 \end{itemize}
 
-\ans{A) $\frac{18}{5}$}
-\method{Centre $(4,3)$, $r=\sqrt{16+9-16}=3$. Distance to $3x+4y-12=0$: $\frac{|12+12-12|}{5}=\frac{12}{5}$. Half-chord $=\sqrt{9-(\frac{12}{5})^2}=\sqrt{\frac{225-144}{25}}=\frac{9}{5}$; chord $=\frac{18}{5}$.}
-\inv{Option B ($\frac{12}{5}$) is the distance-to-centre, not the chord; D doubles it wrongly as $\frac{36}{5}$. \textbf{Chain: distance $\to$ half-chord (Pythagoras) $\to$ double.} Keep the steps separate.}
+\ans{C) $5\sqrt2$}
+\method{$O_1=(-2,3)$, $O_2=(7,-6)$, $O_1O_2=\sqrt{9^2+9^2}=9\sqrt2$, $r_1=3\sqrt2$, $r_2=\sqrt2$, sum $4\sqrt2$, shortest $=9\sqrt2-4\sqrt2=5\sqrt2$. Externally separated ($d>r_1+r_2$).}
+\inv{Shortest = centre distance minus sum of radii (external). If one circle contained the other, it would be $|r_1-r_2|-d$. For these numbers, $5\sqrt2\approx7.07$.}
 
 %── D2 ──────────────────────────────────────────────────────────────────────────
-\item A circle with centre $(3,k)$ is tangent to the $x$-axis and passes through the point $(0,4)$. Find the radius.
+\item \textit{\small(after TMUA Specimen Paper 1 Q9)} The segment joining $(3,3)$ and $(7,5)$ is a diameter of circle $C$. $C$ is translated $3$ left, reflected in the $x$-axis, then enlarged scale factor $4$ about its centre. What is the equation of the final circle?
 \begin{itemize}
-\item[A)] $\dfrac{25}{8}$
-\item[B)] $\dfrac{25}{9}$
-\item[C)] $3$
-\item[D)] $4$
+\item[A)] $(x-2)^2+(y-4)^2=80$
+\item[B)] $(x-2)^2+(y+4)^2=80$
+\item[C)] $(x-2)^2+(y-4)^2=320$
+\item[D)] $(x-2)^2+(y+4)^2=320$
 \end{itemize}
 
-\ans{A) $\frac{25}{8}$}
-\method{Tangent to the $x$-axis $\Rightarrow$ radius $=|k|$. Through $(0,4)$: $(0-3)^2+(4-k)^2=k^2\Rightarrow 9+16-8k=0\Rightarrow k=\frac{25}{8}$.}
-\inv{\textbf{The centre moved off the axis, so we cannot read $r$ directly; equate the squared distances.} Each candidate option must satisfy both tangent-to-axis and pass-through. Option D ($4$) is the ``$y$-coordinate of the point'' trap.}
+\ans{B) $(x-2)^2+(y+4)^2=80$}
+\method{Original centre $(5,4)$, $r^2=(2)^2+1^2=5$. Translate $3$ left: $(2,4)$, reflect in $x$-axis: $(2,-4)$, enlarge $4\times$ about centre: $r^2=5\cdot16=80$, so $(x-2)^2+(y+4)^2=80$.}
+\inv{Enlargement about the centre leaves the centre fixed and scales radius by $4$. The $320$ options would be $r^2\cdot4$ too large.}
 
 %── D3 ──────────────────────────────────────────────────────────────────────────
-\item The tangent to $\;x^2+y^2=25$ at the point $P$ (in the first quadrant) passes through the point $A=(7,1)$. Find the $x$-coordinate of $P$.
+\item \begin{tikzpicture}[scale=0.42, baseline=-0.5ex]
+\draw (0,0) circle (1.4);
+\draw (0,0) -- (1.0,0.97);
+\draw (0,0) -- (-1.2,0.7);
+\node at (0.5,0.6) {\tiny $\theta$};
+\draw[fill=black] (0,0) circle (1pt) node[below]{\tiny $O$};
+\end{tikzpicture} \textit{\small(adapted from TMUA 2022 Paper 1 Q14)} Circle $O$ radius $6$, $\angle POQ\ge \pi/2$, area $[POQ]=9\sqrt3$. For variable $R$ on the major arc $PQ$, what is the \emph{greatest possible} area of $\triangle PRQ$?
 \begin{itemize}
-\item[A)] $2$
-\item[B)] $3$
-\item[C)] $4$
-\item[D)] $5$
+\item[A)] $18+9\sqrt3$
+\item[B)] $27\sqrt3$
+\item[C)] $27+9\sqrt3$
+\item[D)] $36+9\sqrt3$
 \end{itemize}
 
-\ans{B) $x=3$}
-\method{If $P=(x_1,y_1)$, tangent is $x_1x+y_1y=25$. Through $A(7,1)$: $7x_1+y_1=25$; with $x_1^2+y_1^2=25$: $y_1=25-7x_1\Rightarrow x_1^2+(25-7x_1)^2=25\Rightarrow50x_1^2-350x_1+600=0$, factor $(x_1-3)(x_1-4)=0$: $x_1=3,4$. Of these, only $x_1=3$ gives $y_1=4>0$ in the first quadrant; $x_1=4$ gives $y_1=-3$.}
-\inv{\textbf{Two tangent points $P$ satisfy the line-through-$A$ condition; the quadrant chooses one.} At $x_1=4$, $y_1=25-28=-3$, so $(4,-3)$ is in the fourth quadrant.}
+\ans{B) $27\sqrt3$}
+\method{$[POQ]=\tfrac12 r^2\sin\theta=18\sin\theta=9\sqrt3\Rightarrow\sin\theta=\sqrt3/2$, $\theta=120^\circ$. Chord $PQ=6\sqrt3$, maximal height $9$, area $27\sqrt3$.}
+\inv{If $\theta$ had been $60^\circ$, max would be $9+18=27$.}
 
 %── D4 ──────────────────────────────────────────────────────────────────────────
-\item A circle has centre $(1,4)$ and is tangent to the line $\;y = 2x + 1$. Find its radius.
+\item \textit{\small(after MAT 2020 Q1H)} Let $P(p,q)$ and circle $C: x^2+2fx+y^2+2gy+h=0$ with centre $C_0=(-f,-g)$ and $L=|PC_0|$. Which set is \emph{minimal sufficient} to compute $L$?
 \begin{itemize}
-\item[A)] $\dfrac{1}{\sqrt{5}}$
-\item[B)] $\dfrac{1}{5}$
-\item[C)] $1$
-\item[D)] $\sqrt{5}$
+\item[A)] $f,g,h$
+\item[B)] $f,g,p,q$
+\item[C)] $f,h,p,q$
+\item[D)] $g,h,p,q$
 \end{itemize}
 
-\ans{A) $\frac{1}{\sqrt5}$}
-\method{Line $2x-y+1=0$; radius $=$ perpendicular distance from $(1,4)$: $\frac{|2-4+1|}{\sqrt{4+1}}=\frac{1}{\sqrt5}$.}
-\inv{Option B ($\frac15$) ignores the $\sqrt{a^2+b^2}$; D ($\sqrt5$) mis-uses $a^2+b^2$. \textbf{Tangency $\Leftrightarrow$ distance from centre $=$ radius --- reverse of the line--circle test.}}
+\ans{B) $f,g,p,q$}
+\method{$L^2=(p+f)^2+(q+g)^2$ needs $f,g,p,q$; $h$ irrelevant.}
+\inv{Tangent length needs $h$, not $L$.}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
-\item The circle through the three points $(0,0)$, $(6,0)$ and $(3,-1)$ has what centre?
+\item \begin{tikzpicture}[scale=0.45, baseline=-0.5ex]
+\draw (0,0) -- (3,0) -- (2,2) -- (0,2) -- cycle;
+\draw[dashed] (0,0) -- (2,2);
+\draw (0,0) circle (1pt) node[below left]{\tiny $A$};
+\draw (3,0) circle (1pt) node[below]{\tiny $B$};
+\end{tikzpicture} \textit{\small(adapted from BMO1 2010 Q4)} $ABCD$ is a cyclic quadrilateral with perpendicular diagonals intersecting at $E$. The line through $E$ perpendicular to $AB$ meets $CD$ at $F$. Which statement is \emph{necessarily true}?
 \begin{itemize}
-\item[A)] $(3,4)$
-\item[B)] $(3,2)$
-\item[C)] $(4,3)$
-\item[D)] $(5,0)$
+\item[A)] $F$ is the midpoint of $CD$ (Brahmagupta)
+\item[B)] $F$ bisects $\angle CED$
+\item[C)] $EF = AB/2$
+\item[D)] $ABCD$ must be an isosceles trapezium
 \end{itemize}
 
-\ans{A) $(3,4)$}
-\method{Perpendicular bisector of $(0,0),(6,0)$ is $x=3$. Bisector of $(0,0),(3,-1)$: midpoint $(1.5,-0.5)$, segment gradient $-\frac13$, so bisector gradient $3$: $y+0.5=3(x-1.5)\Rightarrow y=3x-5$. At $x=3$: $y=9-5=4$. Centre $(3,4)$.}
-\inv{Radius $=\sqrt{9+16}=5$; check all three points are distance $5$: to $(6,0)$ $\sqrt9+16=5$ \checkmark, to $(3,-1)$ $=5$ \checkmark. \textbf{This is the Day-1 perpendicular-bisector tool finding a circumcentre --- the seed of Day 4's triangle centres.}}
+\ans{A) $F$ is the midpoint of $CD$ (Brahmagupta)}
+\method{Brahmagupta: In a cyclic quadrilateral with $\perp$ diagonals, the perpendicular from the intersection to a side bisects the opposite side.}
+\inv{The other options fail for a general kite.}
 
 \end{enumerate}
 
