@@ -128,122 +128,156 @@
 \section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90 s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{The numbers were chosen so a clean route exists. Never substitute into the circle --- use the distance test.}
+\noindent\textit{Hard: hidden tangency, non-obvious chord bisection, and the distance-vs-discriminant choice. No brute substitution.}
 
 \begin{enumerate}
 
-\item The line $\;y = 2x + 5$ is a tangent to the circle $\;x^2+y^2=r^2$. Find $r^2$.
+\item \textit{\small(after TMUA 2017 Paper 1 Q6)} A tangent to the circle $x^2+y^2=144$ passes through $(20,0)$ and meets the positive $y$-axis at $T$. What is the $y$-coordinate of $T$?
+\begin{itemize}
+\item[A)] $12$
+\item[B)] $15$
+\item[C)] $\tfrac{49}{3}$
+\item[D)] $20$
+\end{itemize}
+
+\item \textit{\small(adapted from TMUA 2018 Paper 1 Q7)} The point $P(8,6)$ is outside the circle $x^2+y^2=36$. Two tangents from $P$ touch the circle at $A$ and $B$. What is the length $AB$ (the common chord of contact)?
+\begin{itemize}
+\item[A)] $\tfrac{12\sqrt{13}}{13}$
+\item[B)] $\tfrac{24\sqrt{13}}{13}$
+\item[C)] $\tfrac{48}{5}$
+\item[D)] $\tfrac{72}{5}$
+\end{itemize}
+
+\item \textit{\small(after TMUA 2019 Paper 1 Q6)} The circles $(x+4)^2+(y+1)^2=64$ and $(x-8)^2+(y-4)^2=r^2$ have exactly one point in common. If $r<13$, what is $r$?
+\begin{itemize}
+\item[A)] $5$
+\item[B)] $8$
+\item[C)] $13$
+\item[D)] $21$
+\end{itemize}
+
+\item \begin{tikzpicture}[scale=0.42, baseline=-0.5ex]
+\draw (0,0) circle (1.6);
+\draw[fill=black] (0,0) circle (1pt) node[below right]{\tiny $O$};
+\draw[dashed] (0,0) -- (1.13,1.13) node[midway, above]{\tiny $r$};
+\draw (1.13,1.13) -- (2.2,1.13);
+\draw[->] (1.5,1.3) arc (0:90:0.3);
+\node at (2.4,1.13) [right]{\tiny $T$};
+\draw (1.13,1.13) circle (1pt) node[above]{\tiny $T$};
+\end{tikzpicture} \textit{\small(adapted from TMUA 2017 Paper 1 Q9)} A circle has equation $x^2+y^2-18x-22y+178=0$ (centre $(9,11)$, $r=5$). A regular hexagon $ABCDEF$ is inscribed so that all vertices lie on the circle. What is the area of the hexagon?
+\begin{itemize}
+\item[A)] $18\sqrt3$
+\item[B)] $36\sqrt3$
+\item[C)] $ \tfrac{75\sqrt3}{2}$
+\item[D)] $75$
+\end{itemize}
+
+\item The line $y=2x+5$ is a tangent to the circle $x^2+y^2=r^2$. Which $r^2$ makes the distance from the centre to the line equal to $r$?
 \begin{itemize}
 \item[A)] $1$
 \item[B)] $5$
-\item[C)] $25$
-\item[D)] $5\sqrt{5}$
+\item[C)] $20$
+\item[D)] $25$
 \end{itemize}
 
-\item The point $(2,-1)$ lies on the circle $\;x^2+y^2+2gx+2fy-3=0$ with $g=f$. Find $g$.
+\item \textit{\small(after MAT 2019 Q6)} The circle $x^2+y^2-4x+2y-11=0$ and the line $x-y+1=0$: determine the number of intersection points without solving the system.
 \begin{itemize}
-\item[A)] $-1$
-\item[B)] $0$
-\item[C)] $1$
-\item[D)] $2$
+\item[A)] $0$ (line misses)
+\item[B)] $1$ (tangent)
+\item[C)] $2$ (secant)
+\item[D)] Infinitely many (line is diameter)
 \end{itemize}
 
-\item The circle $\;x^2+y^2-4x+2y-11=0$ and the line $\;x-y+1=0$ have what relationship?
+\item \begin{tikzpicture}[scale=0.4, baseline=-0.5ex]
+\draw (0,0) circle (1.5);
+\draw (-1.5,0) -- (1.5,0);
+\draw (0,-1.5) -- (0,1.5);
+\draw[dashed] (0,0) -- (1.06,1.06);
+\node at (0.5,0.8) {\tiny $r$};
+\draw[fill=black] (0,0) circle (1pt);
+\end{tikzpicture} The circle $x^2+y^2-8x-4y-21=0$ ($r= \sqrt{41}$) is cut by the $y$-axis ($x=0$). What is the length of the chord intercepted on the $y$-axis?
 \begin{itemize}
-\item[A)] The line cuts the circle in two points (secant)
-\item[B)] The line is a tangent
-\item[C)] The line misses the circle
-\item[D)] The line passes through the centre
-\end{itemize}
-
-\item The tangent to $\;x^2+y^2=9$ at $(2,\sqrt{5})$ has equation?
-\begin{itemize}
-\item[A)] $2x+\sqrt{5}\,y = 9$
-\item[B)] $2x-\sqrt{5}\,y = 9$
-\item[C)] $2x+\sqrt{5}\,y = 3$
-\item[D)] $\sqrt{5}\,x+2y = 9$
-\end{itemize}
-
-\item The midpoint of a chord of $\;x^2+y^2=40$ is at distance $2$ from the centre. Find the chord length.
-\begin{itemize}
-\item[A)] $12$
-\item[B)] $6\sqrt{2}$
-\item[C)] $8$
-\item[D)] $4\sqrt{10}$
-\end{itemize}
-
-\item Which of these circles is tangent to the $x$-axis?
-\begin{itemize}
-\item[A)] $x^2+y^2-6y=0$
-\item[B)] $x^2+y^2+4x=0$
-\item[C)] $x^2+y^2-6x+9=0$
-\item[D)] $x^2+y^2-2y-3=0$
-\end{itemize}
-
-\item The circle $\;x^2+y^2-8x-4y-21=0$ cuts the $y$-axis at two points. The distance between these two points is?
-\begin{itemize}
-\item[A)] $4$
-\item[B)] $6$
+\item[A)] $2\sqrt{21}$
+\item[B)] $2\sqrt{41}$
 \item[C)] $8$
 \item[D)] $10$
 \end{itemize}
 
-\item The line $\;y = kx + 5$ touches the circle $\;x^2+y^2-6x-8y+24=0$. How many distinct values of $k$ achieve this?
+\item \textit{\small(after TMUA 2020 Paper 1 Q7)} The line $y=kx+5$ is tangent to the circle $x^2+y^2-6x-8y+24=0$ (centre $(3,4)$, $r=1$). How many distinct $k$ satisfy this?
 \begin{itemize}
 \item[A)] $0$
 \item[B)] $1$
 \item[C)] $2$
-\item[D)] $3$
+\item[D)] Infinitely many
 \end{itemize}
 
 \end{enumerate}
 
 % ══════════════════════════════════════════════════════════════════════════════
-\section*{Section D \quad Challenge \hfill{\normalfont\small(TMUA / SMC difficulty)}}
+\section*{Section D \quad Challenge \hfill{\normalfont\small(TMUA / SMC / BMO1 difficulty)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Two or three skills at once: distance tests, chord geometry, and tangent-at-point, then check against the options.}
+\noindent\textit{Hardest 5: distance invariants, hidden right angles, and a construction you must spot.}
 
 \begin{enumerate}
 
-\item The line $\;3x+4y-12=0$ cuts the circle $\;x^2+y^2-8x-6y+16=0$ in two points. Find the length of the chord.
+\item \begin{tikzpicture}[scale=0.45, baseline=-0.5ex]
+\draw (0,0) circle (1.6);
+\draw (-1.6,0) -- (1.6,0);
+\draw (0,-1.6) -- (0,1.6);
+\draw[dashed] (0,0) -- (1.2,0.9);
+\node at (0.6,0.5) {\tiny $d$};
+\draw[fill=black] (0,0) circle (1pt) node[below left]{\tiny $O$};
+\draw (1.2,0.9) circle (1pt) node[right]{\tiny $P$};
+\end{tikzpicture} \textit{\small(adapted from TMUA 2018 Paper 1 Q7 / 2022 Paper 1 Q3)} The circles $C_1:(x+2)^2+(y-3)^2=18$ and $C_2:(x-7)^2+(y+6)^2=2$ have centres $O_1,O_2$. What is the \emph{shortest} distance between a point on $C_1$ and a point on $C_2$?
 \begin{itemize}
-\item[A)] $\dfrac{18}{5}$
-\item[B)] $\dfrac{12}{5}$
-\item[C)] $6$
-\item[D)] $\dfrac{36}{5}$
+\item[A)] $5\sqrt2-4$
+\item[B)] $5\sqrt2-5$
+\item[C)] $5\sqrt2$
+\item[D)] $5\sqrt2+5$
 \end{itemize}
 
-\item A circle with centre $(3,k)$ is tangent to the $x$-axis and passes through the point $(0,4)$. Find the radius.
+\item \textit{\small(after TMUA Specimen Paper 1 Q9)} The segment joining $(3,3)$ and $(7,5)$ is a diameter of circle $C$. $C$ is translated $3$ left, reflected in the $x$-axis, then enlarged scale factor $4$ about its centre. What is the equation of the final circle?
 \begin{itemize}
-\item[A)] $\dfrac{25}{8}$
-\item[B)] $\dfrac{25}{9}$
-\item[C)] $3$
-\item[D)] $4$
+\item[A)] $(x-2)^2+(y-4)^2=80$
+\item[B)] $(x-2)^2+(y+4)^2=80$
+\item[C)] $(x-2)^2+(y-4)^2=320$
+\item[D)] $(x-2)^2+(y+4)^2=320$
 \end{itemize}
 
-\item The tangent to $\;x^2+y^2=25$ at the point $P$ (in the first quadrant) passes through the point $A=(7,1)$. Find the $x$-coordinate of $P$.
+\item \begin{tikzpicture}[scale=0.42, baseline=-0.5ex]
+\draw (0,0) circle (1.4);
+\draw (0,0) -- (1.0,0.97);
+\draw (0,0) -- (-1.2,0.7);
+\node at (0.5,0.6) {\tiny $\theta$};
+\draw[fill=black] (0,0) circle (1pt) node[below]{\tiny $O$};
+\end{tikzpicture} \textit{\small(adapted from TMUA 2022 Paper 1 Q14)} Circle $O$ radius $6$, $\angle POQ\ge \pi/2$, area $[POQ]=9\sqrt3$. For variable $R$ on the major arc $PQ$, what is the \emph{greatest possible} area of $\triangle PRQ$?
 \begin{itemize}
-\item[A)] $2$
-\item[B)] $3$
-\item[C)] $4$
-\item[D)] $5$
+\item[A)] $18+9\sqrt3$
+\item[B)] $27\sqrt3$
+\item[C)] $27+9\sqrt3$
+\item[D)] $36+9\sqrt3$
 \end{itemize}
 
-\item A circle has centre $(1,4)$ and is tangent to the line $\;y = 2x + 1$. Find its radius.
+\item \textit{\small(after MAT 2020 Q1H)} Let $P(p,q)$ and circle $C: x^2+2fx+y^2+2gy+h=0$ with centre $(-f,-g)$ and $L=|PC_0|$. Which set is \emph{minimal sufficient} to compute $L$?
 \begin{itemize}
-\item[A)] $\dfrac{1}{\sqrt{5}}$
-\item[B)] $\dfrac{1}{5}$
-\item[C)] $1$
-\item[D)] $\sqrt{5}$
+\item[A)] $f,g,h$
+\item[B)] $f,g,p,q$
+\item[C)] $f,h,p,q$
+\item[D)] $g,h,p,q$
 \end{itemize}
 
-\item The circle through the three points $(0,0)$, $(6,0)$ and $(3,-1)$ has what centre?
+\item \begin{tikzpicture}[scale=0.45, baseline=-0.5ex]
+\draw (0,0) -- (3,0) -- (2,2) -- (0,2) -- cycle;
+\draw[dashed] (0,0) -- (2,2);
+\draw (0,0) circle (1pt) node[below left]{\tiny $A$};
+\draw (3,0) circle (1pt) node[below]{\tiny $B$};
+\end{tikzpicture} \textit{\small(adapted from BMO1 2010 Q4)} $ABCD$ is a cyclic quadrilateral with perpendicular diagonals intersecting at $E$. The line through $E$ perpendicular to $AB$ meets $CD$ at $F$. Which statement is \emph{necessarily true}?
 \begin{itemize}
-\item[A)] $(3,4)$
-\item[B)] $(3,2)$
-\item[C)] $(4,3)$
-\item[D)] $(5,0)$
+\item[A)] $F$ is the midpoint of $CD$ (Brahmagupta)
+\item[B)] $F$ bisects $\angle CED$
+\item[C)] $EF = AB/2$
+\item[D)] $ABCD$ must be an isosceles trapezium
 \end{itemize}
 
 \end{enumerate}
