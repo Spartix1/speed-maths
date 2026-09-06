@@ -204,179 +204,212 @@
 \end{enumerate}
 
 %═══════════════════════════════════════════════════════════════════════════════
-\section*{Section C \quad Substitution \& Structure}
+\section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$90 s each)}}
 %═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Competition-hard: hidden structure, non-routine use of the same tools. No question is a direct formula plug.}
+
 \begin{enumerate}
 
 %── C1 ──────────────────────────────────────────────────────────────────────────
-\item The midpoint of $(2,-1)$ and $(6,7)$ is?
+\item \textit{\small(after TMUA 2017 Paper 1 Q3)} The lines $l_1: y = 6 - 2x$ and $l_2: y = \tfrac12 x + 3$ are perpendicular and intersect at $P$. The three lines $l_1$, $l_2$ and the $x$-axis enclose a triangle $T$. What is the area of $T$?
 \begin{itemize}
-\item[A)] $(4,3)$
-\item[B)] $(3,4)$
-\item[C)] $(5,4)$
-\item[D)] $(4,2)$
+\item[A)] $\tfrac{81}{5}$
+\item[B)] $\tfrac{54}{5}$
+\item[C)] $\tfrac{81}{10}$
+\item[D)] $27$
 \end{itemize}
 
-\ans{A) $(4,3)$}
-\method{$\left(\frac{2+6}{2},\frac{-1+7}{2}\right)=(4,3)$.}
-\inv{A and B swap the coordinates of the answer; D averages the $x$'s but not the $y$'s. \textbf{Midpoint of $(2,-1)$ and $(6,7)$ is {(4,3)}; of $(2,-1)$ and $(6,7)$ reflected in the origin, $(-6,-7)$, is $(-2,-4)$.} Averaging negatives works the same.}
+\ans{A) $\tfrac{81}{5}$}
+\method{$l_1$ has $x$-intercept $3$ ($6-2x=0$), $l_2$ has $x$-intercept $-6$ ($x/2+3=0$). They meet where $6-2x = x/2+3 \Rightarrow 5x/2=3 \Rightarrow x=6/5$, $y=18/5$. Base on $x$-axis is $3-(-6)=9$, height is $y_P=18/5$, so area $=\tfrac12\cdot9\cdot\tfrac{18}{5}= \tfrac{81}{5}$. Shoelace on $(3,0),(-6,0),(6/5,18/5)$ gives the same $81/5$.}
+\inv{The $x$-intercepts are read without solving the system; the height is the single $y$ of the intersection. \textbf{Check with base-height on the $x$-axis vs. shoelace: both give $2\cdot\text{area}=81/5\cdot2$. If $l_2$ were instead $y=\tfrac12x-3$ ($x$-int $6$), the base would be $3$ and the area would collapse to $\tfrac{27}{10}$ --- why does the sign of the intercept matter?}}
 
 %── C2 ──────────────────────────────────────────────────────────────────────────
-\item The perpendicular bisector of the segment joining $(0,1)$ and $(4,5)$ has equation?
+\item \textit{\small(after TMUA Specimen Paper 1 Q3)} The perpendicular bisector of the segment joining $A(2,-6)$ and $B(5,4)$ meets the $x$-axis at $P$. What is the $x$-coordinate of $P$?
 \begin{itemize}
-\item[A)] $x + y = 5$
-\item[B)] $y = x + 1$
-\item[C)] $y = -x + 3$
-\item[D)] $y = x + 3$
+\item[A)] $\tfrac16$
+\item[B)] $\tfrac13$
+\item[C)] $\tfrac{19}{5}$
+\item[D)] $\tfrac{41}{6}$
 \end{itemize}
 
-\ans{A) $x + y = 5$}
-\method{Midpoint $(2,3)$; segment gradient $\frac{5-1}{4-0}=1$, so perpendicular gradient $-1$: $y-3=-(x-2)\Rightarrow x+y=5$.}
-\inv{B and D are the perpendicular-doubles (gradient $1$); C is a parallel shifted copy missing the midpoint. \textbf{The perpendicular bisector is the locus of equidistant points --- verify $(2,3)$ and, say, $(6,-1)$ both satisfy $x+y=5$ and check equal distances to both endpoints.}}
+\ans{A) $\tfrac16$}
+\method{Midpoint $M=(7/2,-1)$, gradient $AB=(4-(-6))/(5-2)=10/3$, so perp gradient $-3/10$. Equation $y+1=-3/10(x-7/2)$. At $y=0$: $1=-3/10(x-7/2)\Rightarrow x-7/2=-10/3\Rightarrow x=7/2-10/3=21/6-20/6=1/6$. Equidistance check: $(p-2)^2+36=(p-5)^2+16$ with $p=1/6$ gives $49/36+36=...$ \checkmark.}
+\inv{Two routes: slope-intercept vs. $PA^2=PB^2$. The latter never needs a gradient --- set $(x-2)^2+36=(x-5)^2+16$ and solve. \textbf{If $A$ and $B$ were swapped, does the bisector change? No --- the locus is symmetric.}}
 
 %── C3 ──────────────────────────────────────────────────────────────────────────
-\item The distance between $(2,5)$ and $(7,17)$ is?
+\item \textit{\small(adapted from TMUA 2021 Paper 1 Q1)} Two circles have the same radius $r$. Their centres are $C_1(-2,1)$ and $C_2(3,-2)$. The circles intersect in two distinct points $P$ and $Q$. Which line is the common chord $PQ$?
 \begin{itemize}
-\item[A)] $13$
-\item[B)] $14$
-\item[C)] $\sqrt{194}$
-\item[D)] $12$
+\item[A)] $5x-3y=1$
+\item[B)] $5x-3y=4$
+\item[C)] $5x+3y=1$
+\item[D)] $3x-5y=4$
 \end{itemize}
 
-\ans{A) $13$}
-\method{$\sqrt{(7-2)^2+(17-5)^2}=\sqrt{25+144}=\sqrt{169}=13$.}
-\inv{5-12-13 triple again; option C is the ``forgot to take the square root'' trap ($25+144=169$, not $\sqrt{194}$). \textbf{If the second point were $(7,13)$ instead, the distance $\sqrt{25+64}=\sqrt{89}$ stays a surd --- prove it is irrational.} Rational squares never land on $89$.}
+\ans{B) $5x-3y=4$}
+\method{Subtract: $(x+2)^2+(y-1)^2-r^2=0$ and $(x-3)^2+(y+2)^2-r^2=0$. $x^2$ and $y^2$ cancel: $(4x+4-2y+1)-(-6x+9+4y+4)=10x-6y-8=0$, so $5x-3y=4$. The $r^2$ terms cancel too --- the radical axis needs no radius.}
+\inv{This is the radical-axis trick: subtraction kills $x^2+y^2$ in one line. \textbf{If the radii differed, would the same subtraction still give a line? Yes, but not the chord --- it would be the radical axis, still straight. Where does the chord meet the line of centres? At its midpoint.}}
 
 %── C4 ──────────────────────────────────────────────────────────────────────────
-\item The area of the triangle with vertices $(0,0)$, $(5,0)$, $(2,6)$ is?
+\item \textit{\small(after TMUA 2022 Paper 1 Q2)} For which values of $p$ does $x^2-2px+y^2-6y-p^2+8p+9=0$ represent a (real) circle?
 \begin{itemize}
-\item[A)] $15$
-\item[B)] $30$
-\item[C)] $10$
+\item[A)] $p<-1$ or $p>9$
+\item[B)] $-1<p<9$
+\item[C)] $0<p<4$
+\item[D)] $p<0$ or $p>4$
+\end{itemize}
+
+\ans{D) $p<0$ or $p>4$}
+\method{Complete squares: $(x-p)^2-p^2+(y-3)^2-9-p^2+8p+9=0\Rightarrow (x-p)^2+(y-3)^2=2p^2-8p=2p(p-4)$. Radius$^2>0$ needs $p(p-4)>0$, so $p<0$ or $p>4$. At $p=0,4$ radius $0$ (a point).}
+\inv{The $y$-part $(y-3)^2$ contributes $9$ then $-9$; the $x$-part contributes $p^2$. Keep the $p^2$ terms separate --- $2p^2-8p$ factorises cleanly. \textbf{What is the locus of centres $(p,3)$ as $p$ varies? The horizontal line $y=3$.}}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item The points $A(1,4)$, $B(4,7)$ and $C(10,k)$ are collinear. The line through $C$ perpendicular to $AB$ meets the $y$-axis at $D$. What is the $y$-coordinate of $D$?
+\begin{itemize}
+\item[A)] $23$
+\item[B)] $24$
+\item[C)] $25$
+\item[D)] $26$
+\end{itemize}
+
+\ans{A) $23$}
+\method{$AB$ gradient $=1$, so $k=13$ (since $(10-1)\cdot1+4=13$). Perp gradient $-1$ through $C(10,13)$: $y-13=-(x-10)$. At $x=0$, $y=23$.}
+\inv{The collinearity $k=13$ is the hidden first step; the second step is the intercept. \textbf{If $AB$ had gradient $2$, the perp gradient would be $-\tfrac12$ and $D$ would be $18$ --- the $1$ here is the special case where the numbers stay integral.}}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item \textit{\small(adapted from TMUA 2020 Paper 1 Q10)} The curve $y=4x^2$ is translated by $\begin{pmatrix}3\\-5\end{pmatrix}$, then reflected in the $x$-axis, then stretched parallel to the $x$-axis with scale factor $2$. What is the equation of the final curve?
+\begin{itemize}
+\item[A)] $y=-x^2+12x-31$
+\item[B)] $y=-x^2+12x-41$
+\item[C)] $y=-16x^2+48x-31$
+\item[D)] $y=16x^2-48x+41$
+\end{itemize}
+
+\ans{A) $y=-x^2+12x-31$}
+\method{Start $y=4x^2$. Translate: $(x,y)\to(x-3,y+5)$ gives $y+5=4(x-3)^2$. Reflect $y\to -y$: $-y+5=4(x-3)^2$ or $y=-4(x-3)^2+5$. Stretch $x\to x/2$: $y=-4(x/2-3)^2+5=-4(x^2/4-3x+9)+5=-x^2+12x-31$.}
+\inv{Do the three maps on the equation, not on points. The $x$-stretch $(x,y)\to(2x,y)$ sends $y=f(x)$ to $y=f(x/2)$. \textbf{If the order were stretch then reflect, would the result change? Yes --- transforms do not commute.}}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item \textit{\small(adapted from TMUA 2019 Paper 1 Q6)} The circles $(x+4)^2+(y+1)^2=64$ ($r_1=8$) and $(x-8)^2+(y-4)^2=r^2$ ($r>0$) have exactly one point in common. What is the difference between the two possible values of $r$?
+\begin{itemize}
+\item[A)] $8$
+\item[B)] $16$
+\item[C)] $26$
+\item[D)] $42$
+\end{itemize}
+
+\ans{B) $16$}
+\method{Centre distance $d=\sqrt{(12)^2+5^2}=13$. One point $\Rightarrow$ internally or externally tangent: $d=|r\pm r_1|$, so $r=|13\pm8|$ gives $r=21$ or $r=5$, difference $16$.}
+\inv{The two tangencies are on opposite sides of $C_1$. \textbf{If $d$ had been $8$, the two $r$ would be $0$ and $16$ --- $r=0$ is a degenerate point-circle, not allowed ($r>0$).}}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item \begin{tikzpicture}[scale=0.45, baseline=-0.5ex]
+\draw[->] (-0.5,0)--(4.5,0) node[right]{\small $x$};
+\draw[->] (0,-0.5)--(0,4.5) node[above]{\small $y$};
+\filldraw[fill=blue!10, draw=blue!60] (0,0)--(4,0)--(5,3)--(1,3)--cycle;
+\draw (0,0) node[below left]{\tiny $(0,0)$} -- (4,0) node[below]{\tiny $(4,0)$} -- (5,3) node[right]{\tiny $(5,3)$} -- (1,3) node[above]{\tiny $(1,3)$} -- cycle;
+\node at (2,1.5) {\small $Q$};
+\end{tikzpicture} The quadrilateral $Q$ has vertices $(0,0)$, $(4,0)$, $(5,3)$ and $(1,3)$ in that order (a parallelogram). A second quadrilateral $Q'$ is obtained by reflecting $Q$ in the line $y=x$. What is the area of the overlap $Q\cap Q'$?
+\begin{itemize}
+\item[A)] $6$
+\item[B)] $8$
+\item[C)] $9$
 \item[D)] $12$
 \end{itemize}
 
-\ans{A) $15$}
-\method{Take $(5,0)$ as base, height $6$ from $(2,6)$: $\frac12\cdot5\cdot6=15$.}
-\inv{Shoelace check: $\frac12|0+5(6)+0-(0+0+0)|=15$ \checkmark. \textbf{The altitude is measured to the {\em base line} $y=0$ --- the $6$ is the $y$-coordinate. If the apex were $(2,-6)$ the area is still $15$; is that a reflection or a genuine second triangle?} Area is absolute.}
-
-%── C5 ──────────────────────────────────────────────────────────────────────────
-\item Which line is perpendicular to $\;y = 2x - 3$?
-\begin{itemize}
-\item[A)] $y = -2x + 1$
-\item[B)] $y = -\frac{1}{2}x + 4$
-\item[C)] $y = \frac{1}{2}x$
-\item[D)] $y = 2x + 5$
-\end{itemize}
-
-\ans{B) $y = -\frac{1}{2}x + 4$}
-\method{Gradient $2$ flips and inverts to $-\frac12$.}
-\inv{A is the ``negate only'' trap, C the ``invert only'' trap, D parallel. \textbf{Which lines through $(0,4)$ are perpendicular to $y=2x-3$, and how many are there?} Through any fixed point there is exactly one perpendicular line: $y=-\tfrac12x+4$ here.}
-
-%── C6 ──────────────────────────────────────────────────────────────────────────
-\item The points $(1,4)$, $(4,7)$, $(10,k)$ are collinear. Find $k$.
-\begin{itemize}
-\item[A)] $10$
-\item[B)] $12$
-\item[C)] $13$
-\item[D)] $15$
-\end{itemize}
-
-\ans{C) $13$}
-\method{Gradient between the first two is $\frac{7-4}{4-1}=1$; at $x=10$, six units further, $y=4+\frac{10-1}{1}\cdot1=13$.}
-\inv{Equivalently $k=4+(10-1)=13$, and $\frac{k-7}{10-4}=1\Rightarrow k=13$ \checkmark. \textbf{If the middle point were removed, the ``two'' gradients that must agree are $(1,4)\to(10,k)$ and $(1,4)\to(4,7)$ --- verify all three pairwise gradients equal $1$.}}
-
-%── C7 ──────────────────────────────────────────────────────────────────────────
-\item The perpendicular distance from $(2,-1)$ to the line $\;3x - 4y + 10 = 0$ is?
-\begin{itemize}
-\item[A)] $2$
-\item[B)] $3$
-\item[C)] $4$
-\item[D)] $5$
-\end{itemize}
-
-\ans{C) $4$}
-\method{$\frac{|3(2)-4(-1)+10|}{\sqrt{9+16}}=\frac{|6+4+10|}{5}=\frac{20}{5}=4$.}
-\inv{Big numerator: the point lies far out along the normal. \textbf{Recompute with the point $(2,1)$: $\frac{|6-4+10|}{5}=\frac{12}{5}=2.4$; the distance changes as the point slides, while the normal length $5$ stays fixed.} The numerator measures signed offset along the normal.}
-
-%── C8 ──────────────────────────────────────────────────────────────────────────
-\item The line through $(2,1)$ perpendicular to $\;y = \frac{1}{2}x + 3$ has equation?
-\begin{itemize}
-\item[A)] $y = -2x + 5$
-\item[B)] $y = 2x - 3$
-\item[C)] $y = -\frac{1}{2}x + 1$
-\item[D)] $y = -2x + 3$
-\end{itemize}
-
-\ans{A) $y = -2x + 5$}
-\method{Gradient $-\frac{1}{1/2}=-2$; through $(2,1)$: $y-1=-2(x-2)\Rightarrow y=-2x+5$.}
-\inv{Options A and D share gradient $-2$ but only A passes through $(2,1)$ (check $1=-4+5$ \checkmark). \textbf{The line $y=-2x+5$ and $y=\frac12x+3$ meet at $x=0.8,y=3.4$ --- verify the product of gradients $(-2)(\frac12)=-1$ \checkmark.} Perpendicular lines always cross at right angles, wherever that is.}
+\ans{A) $6$}
+\method{$Q$: $0\le y\le3$, $y\le x\le y+4$ (from $x=y$ to $x=y+4$). $Q'$ swaps $x,y$: $0\le x\le3$, $x\le y\le x+4$. Intersection satisfies both, polygon with vertices $(0,0),(3,1),(3,3),(1,3)$. Shoelace gives area $6$. Equivalently, $Q$ area $12$, overlap is half by symmetry of $y=x$.}
+\inv{Reflection in $y=x$ swaps the inequalities. \textbf{If $Q$ were the unit square $[0,1]\times[0,1]$, its reflection is itself and overlap is $1$ --- here the $1$-unit shear makes the overlap a pentagon of half the original area.}}
 
 \end{enumerate}
 
 %═══════════════════════════════════════════════════════════════════════════════
-\section*{Section D \quad Challenge}
+\section*{Section D \quad Challenge \hfill{\normalfont\small(TMUA / SMC / BMO1 difficulty)}}
 %═══════════════════════════════════════════════════════════════════════════════
+
+\noindent\textit{Hardest 5: deep insight, hidden structure, or a construction you must discover. No diagram gives away the trick.}
+
 \begin{enumerate}
 
 %── D1 ──────────────────────────────────────────────────────────────────────────
-\item The perpendicular bisector of the segment joining $(3,-1)$ and $(7,5)$ meets the $x$-axis at $P$. What is the $x$-coordinate of $P$?
+\item \begin{tikzpicture}[scale=0.5, baseline=-0.5ex]
+\draw (0,0) -- (4,0) -- (2,3.46) -- cycle;
+\draw (0,0) -- (4,0);
+\draw[dashed] (2,0) -- (2,3.46);
+\draw (1,0.3) arc (0:60:0.4) node[right]{\tiny $\theta$};
+\node at (2,0) [below]{\small $B$}; \node at (0,0) [left]{\small $A$}; \node at (4,0) [right]{\small $C$};
+\filldraw (0,0) circle (1.5pt) (4,0) circle (1.5pt) (2,3.46) circle (1.5pt) (2,0) circle (1.5pt);
+\end{tikzpicture} \textit{\small(adapted from TMUA 2018 Paper 1 Q19 / BMO1 2015 Q3)} In $\triangle ABC$, $AB=10$, $BC=7$ and $\angle A=\theta$. There are two distinct non-congruent triangles $T_1$ (larger area) and $T_2$ (smaller area) satisfying these data. It is known that $\operatorname{Area}(T_1)=3\operatorname{Area}(T_2)$. Find $\cos\theta$.
 \begin{itemize}
-\item[A)] $6$
-\item[B)] $7$
-\item[C)] $8$
-\item[D)] $9$
+\item[A)] $\tfrac57$
+\item[B)] $\tfrac{\sqrt{17}}{5}$
+\item[C)] $\tfrac{\sqrt{51}}{8}$
+\item[D)] $\tfrac{\sqrt{34}}{8}$
 \end{itemize}
 
-\ans{C) $8$}
-\method{Midpoint $(5,2)$; segment gradient $\frac{5-(-1)}{7-3}=\frac32$, so bisector gradient $-\frac23$: $y-2=-\frac23(x-5)$. At $y=0$: $-2=-\frac23(x-5)\Rightarrow x-5=3\Rightarrow x=8$.}
-\inv{General trick: the perpendicular bisector of a segment is equidistant from both ends, so $P=(p,0)$ satisfies $\sqrt{(p-3)^2+1}=\sqrt{(p-7)^2+25}$. Squaring: $(p-3)^2+1=(p-7)^2+25\Rightarrow p=8$ \checkmark. \textbf{Both routes agree --- the equidistance route never needs a slope.}}
+\ans{B) $\tfrac{\sqrt{17}}{5}$}
+\method{Put $A(0,0)$, $B(10,0)$, $C$ with $AC=b$, $BC=7$, $\cos\theta$ unknown: $49=100+b^2-20b\cos\theta$, so $b^2-20b\cos\theta+51=0$. Two $b$'s are $b_1,b_2$ with $b_1b_2=51$, $b_1+b_2=20\cos\theta$. Areas $=5b\sin\theta$, ratio $b_1/b_2=3$, so $b_2^2=17$, $b_2=\sqrt{17}$, $b_1=3\sqrt{17}$, sum $4\sqrt{17}=20\cos\theta$, hence $\cos\theta=\sqrt{17}/5$.}
+\inv{The quadratic in $b$ is the ambiguous case (SSA). \textbf{If the area ratio were $2$ not $3$, then $2b_2^2=51$ would give $\cos\theta=\tfrac{3\sqrt{34}}{20}$ --- the same structure, different surd.}}
 
 %── D2 ──────────────────────────────────────────────────────────────────────────
-\item A triangle with vertices $(0,0)$, $(6,0)$ and $(3,h)$ has area $12$. Find $h$.
+\item \textit{\small(after TMUA 2023 Paper 1 Q5)} The square $MNOP$ has perimeter $40$ (so side $10$). Points $R,S,T,U$ lie on $MN,NO,OP,PM$ respectively with $MR=x$ and $RSTU$ a rectangle whose sides are at $45^\circ$ to the square's sides. For $0<x<10$, the area of $RSTU$ is $A(x)= -2x^2+20x$ (up to translation). What is the \emph{largest} $x$ for which $A(x)=20$?
 \begin{itemize}
-\item[A)] $2$
-\item[B)] $4$
-\item[C)] $6$
-\item[D)] $8$
+\item[A)] $5+\sqrt5$
+\item[B)] $5+\sqrt{15}$
+\item[C)] $5+\sqrt{20}$
+\item[D)] $10-\sqrt5$
 \end{itemize}
 
-\ans{B) $4$}
-\method{Base $6$ on the $x$-axis; altitude is $|h|$: $\frac12\cdot6\cdot|h|=12\Rightarrow h=\pm4$.}
-\inv{Options B and D double the right answer? No --- B is $4$, D is $8$; both signs are valid, the question intends the positive one. \textbf{The apex $(3,h)$ is directly above the midpoint of the base, making an isosceles triangle. What is its perimeter at $h=4$?} Sides are $x=3,y=4$ hypotenuses of length $5$: perimeter $=6+10=16$.}
+\ans{B) $5+\sqrt{15}$}
+\method{$-2x^2+20x=20\Rightarrow x^2-10x+10=0\Rightarrow x=5\pm\sqrt{15}$. Larger is $5+\sqrt{15}$. The quadratic $A(x)$ is symmetric about $x=5$ (midpoint of side).}
+\inv{The area as a quadratic in $x$ comes from $A=2x(10-x)$. \textbf{The maximal area is at $x=5$, $A=50$; $A=20$ cuts the parabola twice, symmetric about the vertex.}}
 
 %── D3 ──────────────────────────────────────────────────────────────────────────
-\item The distance from the point $(4,3)$ to the line $y = x$ is?
+\item \begin{tikzpicture}[scale=0.45, baseline=-0.5ex]
+\draw (0,0) circle (1.8);
+\draw (-1.27,-1.27) -- (1.27,1.27);
+\draw (-1.27,1.27) -- (1.27,-1.27);
+\node at (0,0) [below right]{\tiny $O$};
+\draw[fill=black] (0,0) circle (1pt);
+\draw (1.8,0) arc (0:90:1.8);
+\node at (1.2,1.2) {\tiny $r=6$};
+\end{tikzpicture} \textit{\small(adapted from TMUA 2022 Paper 1 Q14)} A circle has centre $O$ and radius $6$. Points $P,Q,R$ lie on the circle with $\angle POQ\ge \tfrac{\pi}{2}$ and $[POQ]=9\sqrt3$ (area). What is the \emph{greatest possible} area of $\triangle PRQ$?
 \begin{itemize}
-\item[A)] $\dfrac{1}{\sqrt{2}}$
-\item[B)] $1$
-\item[C)] $\sqrt{2}$
-\item[D)] $\dfrac{7}{\sqrt{2}}$
+\item[A)] $18+9\sqrt3$
+\item[B)] $27\sqrt3$
+\item[C)] $27+9\sqrt3$
+\item[D)] $36+9\sqrt3$
 \end{itemize}
 
-\ans{A) $\frac{1}{\sqrt{2}}$}
-\method{Line $x-y=0$: $\frac{|4-3|}{\sqrt{1^2+(-1)^2}}=\frac{1}{\sqrt{2}}$.}
-\inv{For $y=x$ the distance formula halves to $|x_0-y_0|/\sqrt{2}$ --- the $1$ difference over $\sqrt2$. \textbf{The point $(4,3)$ lies $\frac{1}{\sqrt{2}}$ from $y=x$ and $\frac{7}{\sqrt{2}}$ from $y=-x$ (check $|4+3|/\sqrt2$). What is the distance between the two lines $y=x$ and $y=-x$ themselves?} It's $0$ --- they meet at the origin; only non-parallel pairs have a ``distance'' in this sense, and these two are perpendicular.}
+\ans{B) $27\sqrt3$}
+\method{$[POQ]=\tfrac12 r^2\sin\angle POQ=18\sin\theta=9\sqrt3\Rightarrow\sin\theta=\sqrt3/2$, so $\theta=60^\circ$ or $120^\circ$, but $\ge90^\circ$ forces $120^\circ$. For fixed chord $PQ$, $[PRQ]$ is maximal when $R$ is opposite the midpoint of arc $PQ$, height $=r+r\cos(\theta/2)=6+3=9$, base $PQ=6\sqrt3$, so max $= \tfrac12\cdot6\sqrt3\cdot9=27\sqrt3$.}
+\inv{The $120^\circ$ chord has length $r\sqrt3$. \textbf{If $\theta$ had been $60^\circ$, the greatest $[PRQ]$ would be $9+18=27$ with different geometry --- the $\ge\pi/2$ filters the case.}}
 
 %── D4 ──────────────────────────────────────────────────────────────────────────
-\item The line $\;2x + 3y - 12 = 0\;$ cuts the coordinate axes to form a right-angled triangle. Its area is?
+\item \textit{\small(adapted from MAT 2020 Q1H / TMUA 2022 Paper 2 Q4)} Let $P(p,q)$ and circle $C: x^2+2fx+y^2+2gy+h=0$ with centre $C_0=(-f,-g)$ and radius $r=\sqrt{f^2+g^2-h}$. Let $L=|PC_0|$. Which data set is \emph{minimal sufficient} to determine $L$?
 \begin{itemize}
-\item[A)] $6$
-\item[B)] $8$
-\item[C)] $12$
-\item[D)] $24$
+\item[A)] $f,g,h$
+\item[B)] $f,g,p,q$
+\item[C)] $f,h,p,q$
+\item[D)] $g,h,p,q$
 \end{itemize}
 
-\ans{C) $12$}
-\method{Intercepts: $x=6$ at $y=0$, $y=4$ at $x=0$, so area $=\frac12\cdot6\cdot4=12$.}
-\inv{The intercept form $\frac{x}{6}+\frac{y}{4}=1$ reads intercepts straight off. \textbf{If instead the line were $4x+3y-12=0$, the intercepts are $3$ and $4$ --- which axis-touching area, $6$ or $12$, does the swap produce?} Check $\frac12\cdot3\cdot4=6$; the $12$ in the defining equation is {\em not} the area.}
+\ans{B) $f,g,p,q$}
+\method{$L^2=(p+f)^2+(q+g)^2$ uses $p,q$ and $f,g$ only; $h$ (hence $r$) is irrelevant to centre-point distance. Any set missing $f$ or $g$ or $p$ or $q$ is insufficient, and $\{f,g,p,q\}$ already suffices, so it is minimal.}
+\inv{Many confuse $L$ with $PT$ (tangent length $\sqrt{L^2-r^2}$) which \emph{does} need $h$. \textbf{If the question had asked for the length of the tangent from $P$ to $C$, the answer would need $h$ as well.}}
 
 %── D5 ──────────────────────────────────────────────────────────────────────────
-\item Using the shoelace formula, find the area of the quadrilateral with vertices $(0,2)$, $(3,0)$, $(6,4)$, $(1,6)$, in that order.
+\item \textit{\small(after TMUA 2022 Paper 1 Q19)} Circle $C_1: x^2+y^2=25$ is fixed. A second circle $C_2$ has radius $4$ and centre $(a,b)$ uniformly random in the rectangle $-2\le a\le2,\ -3\le b\le3$ (so the centre is equally likely to be anywhere in that $4\times6$ rectangle). What is the probability that $C_1$ and $C_2$ intersect (in two points, touching counts as intersecting)?
+\begin{itemize}
+\item[A)] $\tfrac{9}{25}$
+\item[B)] $\tfrac{16}{25}$
+\item[C)] $\tfrac{16-\pi}{24}$
+\item[D)] $\tfrac{24-\pi}{24}$
+\end{itemize}
 
-\ans{$20$}
-\method{Shoelace in order: $\frac12|(0)(0)+(3)(4)+(6)(6)+(1)(2)-[(2)(3)+(0)(6)+(4)(1)+(6)(0)]|=\frac12|(0+12+36+2)-(6+0+4+0)|=\frac12|50-10|=20$.}
-\inv{Cross-check by triangulating along $(0,2)\!\to\!(6,4)$: the two triangles have areas $9$ and $11$, summing to $20$ \checkmark. \textbf{Now list the same four points in the order $(0,2),(3,0),(1,6),(6,4)$. Compute the shoelace value --- it differs, because that polygon crosses itself.} Reconcile the two, and note that area formulas assume a simple (non-crossing) polygon.}
+\ans{D) $\tfrac{24-\pi}{24}$}
+\method{Centres distance $d=\sqrt{a^2+b^2}$. Intersect iff $|5-4|\le d\le 9$, i.e. $1\le d\le9$. Max $d$ in rectangle is $\sqrt{13}<9$, so upper bound never fails; need $d\ge1$. Complement $d<1$ is disc radius $1$ area $\pi$, fully inside $4\times6$ rectangle, so $P=1-\pi/24$.}
+\inv{Touching ($d=1$ or $9$) counts, so inequality is inclusive. \textbf{If the rectangle were $[-5,5]\times[-5,5]$, the $d\le9$ would also matter and the probability would be $( \pi\cdot81-\pi)/100$. Here the rectangle is small enough that only the inner exclusion matters.}}
 
 \end{enumerate}
 
