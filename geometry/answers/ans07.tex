@@ -103,37 +103,45 @@
 
 \begin{enumerate}
 
-\item \ans{A) $3$}
-\method{The distance from the line $x=3$ to $B=(6,0)$ is $|6-3|=3$.}
-\inv{Answering $6$ (the gap $A$--$B$, option B).}
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\item \ans{A) $(6,0)$}
+\method{Square $PA=2PB$: $(x+2)^2+y^2=4\big((x-4)^2+y^2\big)$. Expand: $x^2+4x+4+y^2=4x^2-32x+64+4y^2$, so $3x^2-36x+60+3y^2=0$, i.e.\ $x^2-12x+20+y^2=0$, $(x-6)^2+y^2=16$. Centre $(6,0)$, radius $4$. Option A. The $x$-axis endpoints from $|x+2|=2|x-4|$ are $x=2$ (internal) and $x=10$, midpoint $6$.}
+\inv{Quoting the external endpoint $x=10$ or the midpoint of $AB$, $(1,0)$ (options C/D).}
 
-\item \ans{A) $(8,0)$}
-\method{Endpoints of the locus on the $x$-axis were $x=4$ and $x=12$, so the centre is their midpoint $(8,0)$.}
-\inv{Choosing the $B$-side endpoint $(12,0)$ or the midpoint of $AB$, $(3,0)$.}
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item \ans{D) $x=0$ or $y=0$}
+\method{Distance to $L_1$ is $|x+y|/\sqrt2$, to $L_2$ is $|x-y|/\sqrt2$. Equate: $|x+y|=|x-y|$. Squaring: $(x+y)^2=(x-y)^2$, so $4xy=0$, i.e.\ $x=0$ or $y=0$, the two coordinate axes (the internal and external angle bisectors of $y=\pm x$). Options A/B give only one bisector; C is not a locus of points equidistant from lines.}
+\inv{Answering a single line $y=x$ (option A) which is the original $L_2$ itself, not its bisector; forgetting the modulus gives the second branch.}
 
-\item \ans{A) $(2,2)$}
-\method{$(2,2)$ has $x^2+y^2=8<9$; the others give $18$, $13$, $16$.}
-\inv{Picking a boundary or an exterior point.}
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item \ans{A)}
+\method{Fil invokes the internal angle-bisector theorem which requires $D$ to be {\em interior} to $AB$. The diagram may place $D$ on the extension of $AB$ beyond $B$ (or beyond $A$) where the external bisector ratio is $AD/DB=-CA/CB$; without proving convexity/betweenness the betweenness hypothesis is not established. This is the classic ``all triangles are isosceles'' fallacy class. Hence the argument assumes what it must prove. Option A names the betweenness gap; B miscasts a squared modulus, C misstates the theorem, D claims no flaw.}
+\inv{Misidentifying the gap as a sign/square issue (option B) or declaring the flawed proof sound (option D).}
 
-\item \ans{A) $x=3$}
-\method{Equal ratios are the perpendicular bisector of $AB$, the line $x=3$.}
-\inv{Answering the line through $B$ (option C) or a diagonal.}
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item \ans{E) none of them individually (all insufficient alone)}
+\method{For a parallelogram: I.\ $PQ=QR$ forces a rhombus; a rhombus with angles $60^\circ,120^\circ$ (e.g.\ equilateral-parallelogram) is not a square. II.\ $PR\perp QS$ also forces a rhombus (equivalently to I) but not a square (same counterexample). III.\ $\angle PQR=90^\circ$ forces a rectangle; a $2\times3$ rectangle is not a square. So each alone is insufficient; $I+III$ or $II+III$ together would be sufficient. Hence no single condition suffices, option E. This mirrors TMUA 2020 P2 Q7 answer ``none individually sufficient'' (official answer H in the 8-option paper, here condensed to E).}
+\inv{Choosing I or III alone (options A/C) because ``rhombus'' or ``right angle'' sounds like ``square'' without checking the other degree of freedom.}
 
-\item \ans{B) $4$}
-\method{Each of $(1,2)$, $(2,1)$, $(\sqrt5,0)$, $(1,-2)$ satisfies $x^2+y^2=5$.}
-\inv{Counting only the obvious axis pair or miscounting by sign.}
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item \ans{E) $p=2$ or $p\ge4$}
+\method{By the sine rule $\sin R / PR = \sin 30^\circ / p$, so $\sin R = 2/p$. The ambiguous case: for $p<4$ there are potentially two values of $R$ giving two triangles, except when $\sin R=1$ ($p=2$) where the two coalesce to a right-angled triangle uniquely determined. For $p\ge PR=4$ the side opposite the given angle is at least the other given side, so the angle $R$ is uniquely acute; $p=2$ also unique. Hence exactly $p=2$ or $p\ge4$ gives a unique $PQ$; all other $p<4$, $p\ne2$ give two possible $PQ$ (or none for $p<2\sin30^\circ$). This scales the official TMUA 2018 P2 Q14 answer $p=1$ or $p\ge2$ (with $PR=2$) by factor $2$.}
+\inv{Answering $p\ge4$ alone (option D) and missing the isolated right-angle case $p=2$; or quoting the unscaled $p=1$ threshold (option A).}
 
-\item \ans{B) $8$}
-\method{The major axis equals the constant sum $PA+PB=8$.}
-\inv{Quoting the focal distance $6$ (option C) or the semi-major axis $4$ (option A).}
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item \ans{E) $4$}
+\method{Centres $O_1(-3,1)$, $O_2(8,1)$, so $d=O_1O_2=11$. Radii $r_1=5$, $r_2=3$. Since $d=11>r_1+r_2=8$ the circles are externally separate: $4$ common tangents (2 direct, 2 transverse). Compare $d$ with $r_1+r_2$ and $|r_1-r_2|=2$: $d>r_1+r_2\Rightarrow4$, $d=r_1+r_2\Rightarrow3$, $|r_1-r_2|<d<r_1+r_2\Rightarrow2$, $d=|r_1-r_2|\Rightarrow1$, $d<|r_1-r_2|\Rightarrow0$. Here $11>8$ so $4$.}
+\inv{Counting $3$ (option D) by mistaking $d=r_1+r_2$ tangency, or $2$ by thinking intersecting.}
 
-\item \ans{A) $a^2+b^2=1$}
-\method{Being on the unit circle is exactly $a^2+b^2=1$: necessary (only these points qualify) and sufficient (every such point is on it).}
-\inv{Choosing a merely-necessary condition (option B) or a merely-sufficient one.}
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item \ans{A) $9$}
+\method{For $PA=3PB$, $x^2+y^2=9\big((x-6)^2+y^2\big)$ gives $8x^2-108x+8y^2+324=0$, i.e.\ $(x-\tfrac{27}{4})^2+y^2=(\tfrac94)^2$. Centre $C(\tfrac{27}{4},0)= (6.75,0)$, radius $r=\tfrac94=2.25$. The furthest point from the origin on the circle is on the ray $OC$ beyond $C$: $OC+r=6.75+2.25=9$; the nearest is $OC-r=4.5$. So $\max OP=9$, option A.}
+\inv{Quoting $OC=6.75$ (not a listed option) or the nearest distance $4.5$/diameter $4.5$.}
 
-\item \ans{C) $0$}
-\method{$(x-2)^2+y^2=0$, a single point at $(2,0)$: ``radius'' $0$.}
-\inv{Quoting $\sqrt{4}=2$ (option B) without completing the square.}
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item \ans{A)}
+\method{Expand correctly: $x^2+y^2=9\big((x-2)^2+y^2\big)$ gives $x^2+y^2=9x^2-36x+36+9y^2$, so $8x^2-36x+8y^2+36=0$, i.e.\ $(x-\tfrac94)^2+y^2=\tfrac{9}{16}$, centre $(\tfrac94,0)$, radius $\tfrac34$. Fil's $(x-2)^2+y^2=9$ is the circle centred at $B=(2,0)$ with radius $3$; it uses only $PB$ and ignores $A$ entirely. Option A's locus is the true Apollonius circle; B claims the locus collapses, C claims it is a line ($k=1$ only), D claims no error.}
+\inv{Accepting the $B$-centred circle (option D) because its centre ``looks like $B$'' and its radius ``is the ratio times $1$''.}
 
 \end{enumerate}
 
@@ -141,46 +149,51 @@
 
 \begin{enumerate}
 
-\item \ans{A) $8$}
-\method{Endpoints at $x=4$ and $x=12$ (from $|x|=2|x-6|$), so the chord between them on the $x$-axis is $12-4=8$.}
-\inv{Quoting the radius $4$ (option B) or the centre-to-$B$ distance.}
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\item \ans{A) $2\sqrt2$}
+\method{$PA^2=(x+3)^2+y^2$, $PB^2=(x-3)^2+y^2$. Sum $=2x^2+18+2y^2=34$, so $x^2+y^2=8$, i.e.\ $(x-0)^2+y^2=8$, a circle centred at the midpoint $(0,0)$ with $r^2=8$, $r=2\sqrt2$. This is the $PA^2+PB^2$ locus (Apollonius's theorem generalisation). Check: $PA^2+PB^2=2m^2+AB^2/2$ with $m=OP$. Option A; B is $r^2$, D is total sum.}
+\inv{Answering $\sqrt8$ as $8$ (option B/D confusion) or forgetting the factor $2$ before completing the square.}
 
-\item \ans{A) $1$}
-\method{$(x-2)^2+(y-3)^2=12-4-9+$shift$=1$, radius $1$.}
-\inv{Failing to subtract the completed-square constant; $\sqrt{12}$ (option D) is a snare.}
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item \ans{C) $18$}
+\method{$|x|+|y|=3$ is four lines $x+y=3$, $x-y=3$, etc., forming a diamond with vertices $(3,0),(0,3),(-3,0),(0,-3)$. Its diagonals are $6$ and $6$, so area $=\frac12\cdot6\cdot6=18$ (equivalently four right triangles each $\tfrac12\cdot3\cdot3=4.5$). For $|x|+|y|=1$ the area is $2$ (TMUA 2021 P1 Q9 answer C), scaling by factor $3^2$ gives $2\cdot9=18$. Option C.}
+\inv{Doubling instead of squaring the scale factor (giving $12$/$6$, options A/B).}
 
-\item \ans{A) $x^2+y^2<\dfrac12$}
-\method{This forces $x^2+y^2<1$ strictly, i.e.\ strictly inside the unit disk. Option C allows points outside the unit disk (e.g.\ $x^2+y^2=1.5$).}
-\inv{Choosing the weaker disk $x^2+y^2<2$ (which is not sufficient).}
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item \ans{C) $x^2=yz$}
+\method{Put $O$ at origin, let $SP^2=x^2+z^2$, $PQ^2=x^2+y^2$, $SQ^2=(y+z)^2$. Then $\triangle SPQ$ right at $P$ iff $SP^2+PQ^2=SQ^2$ (Pythagoras): $(x^2+z^2)+(x^2+y^2)=(y+z)^2$, so $2x^2+y^2+z^2=y^2+2yz+z^2$, i.e.\ $2x^2=2yz$, $x^2=yz$. Conversely $x^2=yz$ reverses the steps; hence the condition is both necessary and sufficient. This is exactly TMUA 2022 P2 Q11 (official answer C). Option C.}
+\inv{Choosing $y=z$ (option D) which only makes the kite symmetric but still an isosceles right possibility, not the product condition.}
 
-\item \ans{A)}
-\method{Expanding $x^2+y^2=9\big((x-2)^2+y^2\big)$ yields $\left(x-\frac94\right)^2+y^2=\frac{9}{16}$, a circle centred at $\left(\frac94,0\right)$ of radius $\frac34$ --- not $(x-2)^2+y^2=9$. Fil's circle is centred at $B$ and ignores $A$ entirely.}
-\inv{Believing $(x-2)^2+y^2=9$ (option D) or claiming the ratio locus is a line (option C).}
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item \ans{B) $6$}
+\method{Radical axis: subtract $x^2+y^2=25$ and $(x-4)^2+y^2=9$, i.e.\ $x^2-(x-4)^2=16$, so $8x-16=16$, $x=4$. Distance from $O_1(0,0)$ to the line $x=4$ is $4$. Half-chord $=\sqrt{r_1^2-d_{\rm axis}^2}=\sqrt{25-16}=3$, so full chord $PQ=6$. Check with $O_2$: $4-4=0$, distance $0$, half-chord also $\sqrt{9-0}=3$. Option B. The diagram's dashed line is $x=4$.}
+\inv{Quoting the half-chord $3$ (option A) or using $d=O_1O_2=4$ directly as the chord.}
 
-\item \ans{$x^2+y^2=5$}
-\method{Through $(1,2)$ with centre $O$: $r^2=1^2+2^2=5$.}
-\inv{Writing $(x-1)^2+(y-2)^2=5$ (putting the given point as the centre).}
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item \ans{$12$}
+\method{Apollonius $PA=2PB$ with $A(0,0),B(6,0)$ is $(x-8)^2+y^2=16$, centre $C(8,0)$, radius $r=4$. For fixed base $AB=6$, $[PAB]=\tfrac12\cdot AB\cdot|y_P|$, so maximise $|y_P|$ among points on the circle: $\max|y_P|=r=4$ (topmost point $(8,4)$). Hence $\max[PAB]=\tfrac12\cdot6\cdot4=12$. Check: $(8,4)$ indeed satisfies $(0,4)$? $PA=\sqrt{80}=4\sqrt5$, $PB=\sqrt{20}=2\sqrt5$, ratio $2$ correct. Uniqueness up to reflection in $x$-axis.}
+\inv{Using $r=16$ (option squared) or $AB=12$ (diameter) for $24$.}
 
 \end{enumerate}
 
 \section*{Top 5 Patterns}
 
 \begin{itemize}
-\item \textbf{A fixed-distance locus is a circle; square it to find the equation.} Distance $=r$ means $x^2+y^2=r^2$; an offset centre shifts the squares. \seealso{A1, A6, A8, B3, B4, D5}
-\item \textbf{$\frac{PA}{PB}=k$ is an Apollonius circle when $k\ne1$.} Square the ratio, collect $x,y$, complete the square; endpoints on the $x$-axis come from $|x|=k|x-b|$. \seealso{A3, B1, B6, C2, D1, D4}
-\item \textbf{Equal ratios ($k=1$) are the perpendicular bisector.} The line $\frac{PA}{PB}=1$ is the mirror line of the segment. \seealso{A2, A10, B2, B8, C1, C4}
-\item \textbf{Distinguish {\em necessary} from {\em sufficient}.} A condition must be true for the claim (necessary) versus enough to force the claim (sufficient). \seealso{B5, B7, C7, D3}
-\item \textbf{A line and a circle can both be ``3 units away''; name both.} Absolute-value loci split into symmetric branches. \seealso{A4, A9}
+\item \textbf{Apollonius ratio $PA/PB=k\neq1$ squares to a circle; read its centre by squaring and completing the square.} The $x$-axis endpoints from $|x-a|=k|x-b|$ give the diameter; the midpoint is the centre. \seealso{C1, C7, C8, D5}
+\item \textbf{$PA^2+PB^2$ and $|x|+|y|$ loci are also locus families: sum-of-squares is a centred circle; $|x|+|y|=a$ is a diamond whose area scales as $a^2$.} Use $AB$ midpoint and the diagonal product. \seealso{D1, D2}
+\item \textbf{Distinguish {\em necessary} from {\em sufficient} and spot the hidden betweenness hypothesis.} A condition is necessary if every square has it; sufficient if it alone forces a square; a proof that needs ``$D$ between $A$ and $B$'' must prove convexity first. \seealso{C3, C4, D3}
+\item \textbf{The ambiguous case (sine rule) decides uniqueness via $\sin R = PR\sin P/p$; the isolated $\sin R=1$ case and the $p\ge PR$ regime are the only uniquely-determined ones.} \seealso{C5}
+\item \textbf{Subtract circles for the radical axis; its distance from the centre gives the common chord via $\sqrt{r^2-d_{\rm axis}^2}$.} External $d>r_1+r_2$ counts four tangents. \seealso{C6, D4}
 \end{itemize}
 
 \section*{Common Traps}
 
 \begin{itemize}
-\item \textbf{Reading a distance-equality as a point instead of a family.} $PA=PB$ names a whole line, not just the midpoint. \seealso{A2, A10, C4}
-\item \textbf{Quoting the radius from $r^2$ before completing the square.} The constant in $x^2+y^2+2gx+2fy+c=0$ is not $r^2$; the centred shift supplies it. \seealso{B10, C8, D2, A8}
-\item \textbf{Forgetting the second solution when a modulus meets.} $|x|=k|x-b|$ has an internal and an external endpoint; a flagged ratio answer usually picks the wrong one. \seealso{A3, B6, D1}
-\item \textbf{Confusing necessary with sufficient.} ``Must be inside'' and ``is forced on the circle'' are different strengths; one extra decimal of the radius flips the verdict. \seealso{B5, B7, C7, D3}
-\item \textbf{Believing a claimed Apollonius equation without testing it.} Expand the squared ratio yourself; a circle centred at one focus is the classic decoy. \seealso{D4}
+\item \textbf{Writing an Apollonius locus centred at $B$ (or at the midpoint of $AB$) instead of completing the squared ratio.} The true centre divides $AB$ externally/internally in ratio $k^2\!:\!1$, not $1\!:\!1$. \seealso{C1, C7, C8, D5}
+\item \textbf{Collapsing a modulus locus to one branch.} $|x+y|=|x-y|$ has {\em two} solutions $x=0$ and $y=0$; $|y-4|=3$ has twins $y=1,7$; $|PA|=k|PB|$ has internal {\em and} external $x$-axis endpoints. \seealso{A4, C2, C7}
+\item \textbf{Claiming a rhombus or right-angle condition alone forces a square.} Each degree of freedom (side equality vs right angle) must be secured separately. \seealso{C4, D3}
+\item \textbf{Forgetting the scale factor for diamond/bounded loci.} Area($|x|+|y|=a$) $=2a^2$; doubling $a$ quadruples area, not doubles. \seealso{D2}
+\item \textbf{Quoting a half-chord or a squared radius as the full length.} The distance from the centre to the radical axis is not the chord; $\sqrt{r^2-d^2}$ is the half-chord, $r^2$ is not $r$. \seealso{D1, D4}
 \end{itemize}
 
 \SpeedClosing{``A locus is a sentence the entire family agrees on; a geometric claim is only as good as the condition you actually invoked.''}

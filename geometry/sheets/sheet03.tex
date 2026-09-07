@@ -118,59 +118,41 @@
 \section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$75 s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Two or three skills at once: classify interactions, subtract for radical axes, and convert radical-axis distances into common chords.}
+\noindent\textit{Hard, non-routine: two or three circle tools at once --- subtract for the radical axis, then turn that line into a chord or a tangency count. No brute intersection.}
 
 \begin{enumerate}
 
-\item The circle with centre $(2,-1)$ and radius $5$ and the circle $\;x^2+y^2-12x-4y+24=0$ intersect. How do they meet?
+\item \begin{tikzpicture}[scale=0.42, baseline=-0.5ex]
+\draw (0,0) circle (1.2);
+\draw (1.6,0) circle (1.2);
+\draw[dashed] (0.8,-1.4) -- (0.8,1.4);
+\draw[fill=black] (0,0) circle (1pt) node[below left]{\tiny $C_1$};
+\draw[fill=black] (1.6,0) circle (1pt) node[below right]{\tiny $C_2$};
+\node at (0.8,1.5) {\tiny $PQ$};
+\end{tikzpicture} \textit{\small(after TMUA 2021 Paper 1 Q1)} Two circles have the same radius. Their centres are $C_1(-2,1)$ and $C_2(3,-2)$. The circles intersect in two distinct points $P$ and $Q$. Which is the equation of the line $PQ$?
 \begin{itemize}
-\item[A)] at two points
-\item[B)] at exactly one point (tangent)
-\item[C)] not at all; one contains the other
-\item[D)] not at all; disjoint exteriors
+\item[A)] $5x+3y=4$
+\item[B)] $3x-5y=4$
+\item[C)] $5x-3y=4$
+\item[D)] $5x-3y=1$
 \end{itemize}
 
-\item Two circles of radii $3$ and $4$ are orthogonal. What is the distance between their centres?
-\begin{itemize}
-\item[A)] $5$
-\item[B)] $7$
-\item[C)] $1$
-\item[D)] $\sqrt{7}$
-\end{itemize}
-
-\item Two circles of radii $3$ and $8$ have centres $13$ units apart. The direct common tangent segment between the two circles has what length?
-\begin{itemize}
-\item[A)] $12$
-\item[B)] $5$
-\item[C)] $8$
-\item[D)] $\sqrt{104}$
-\end{itemize}
-
-\item For the same two circles (radii $3$ and $8$, centres $13$ apart), the transverse common tangent segment has what length?
-\begin{itemize}
-\item[A)] $4\sqrt{3}$
-\item[B)] $6\sqrt{3}$
-\item[C)] $12$
-\item[D)] $2\sqrt{6}$
-\end{itemize}
-
-\item Which of the following is the radical axis of the circles $\;x^2+y^2-2x-4y-8=0$ and $\;x^2+y^2+4x-2y+3=0$?
-\begin{itemize}
-\item[A)] $6x+2y+11=0$
-\item[B)] $6x-2y+11=0$
-\item[C)] $6x+2y-11=0$
-\item[D)] $2x+6y+11=0$
-\end{itemize}
-
-\item How many circles tangent to both coordinate axes pass through the point $(9,2)$?
+\item \textit{\small(after TMUA 2019 Paper 1 Q7)} The circles $C_1:(x-1)^2+y^2=4$ and $C_2:(x-5)^2+(y-3)^2=9$ have radii $2$ and $3$. How many common tangents do $C_1$ and $C_2$ have?
 \begin{itemize}
 \item[A)] $0$
 \item[B)] $1$
 \item[C)] $2$
 \item[D)] $3$
+\item[E)] $4$
 \end{itemize}
 
-\item The circles $\;x^2+y^2=169$ and $\;x^2+y^2-6x+8y-119=0$ meet in two points. What is the length of their common chord?
+\item \begin{tikzpicture}[scale=0.38, baseline=-0.5ex]
+\draw (0,0) circle (1.4);
+\draw (1.9,0) circle (1.15);
+\draw[dashed] (0.95,-1.3) -- (0.95,1.3);
+\draw[fill=black] (0,0) circle (1pt) node[below left]{\tiny $O$};
+\draw[fill=black] (1.9,0) circle (1pt) node[below right]{\tiny $C$};
+\end{tikzpicture} \textit{\small(after TMUA 2016 Paper 2 Q9)} The circles $x^2+y^2=169$ and $x^2+y^2-6x+8y-119=0$ meet at $P$ and $Q$. What is the length $PQ$?
 \begin{itemize}
 \item[A)] $12$
 \item[B)] $16$
@@ -178,7 +160,55 @@
 \item[D)] $26$
 \end{itemize}
 
-\item The circles $\;x^2+y^2+4x-1=0$, $\;x^2+y^2-8y+11=0$ and $\;x^2+y^2+2x-12y+13=0$ have pairwise radical axes that all pass through a single point. This radical centre has coordinates?
+\item \textit{\small(adapted from JZMaths Mock 1 Q5)} A circle in the first quadrant is tangent to both coordinate axes and passes through the point $(9,2)$. Its two possible radii are $r_1<r_2$. What is $r_1+r_2$?
+\begin{itemize}
+\item[A)] $14$
+\item[B)] $17$
+\item[C)] $22$
+\item[D)] $34$
+\end{itemize}
+
+\item \begin{tikzpicture}[scale=0.40, baseline=-0.5ex]
+\draw (0,0) circle (0.95);
+\draw (1.7,0) circle (0.75);
+\draw (0,0) -- (0.67,0.67);
+\draw (1.7,0) -- (1.16,0.53);
+\draw[red,thick] (0.67,0.67) -- (1.16,0.53);
+\node at (0.85,0.85) {\tiny $90^{\circ}$};
+\draw[fill=black] (0,0) circle (1pt) node[below]{\tiny $C_1$};
+\draw[fill=black] (1.7,0) circle (1pt) node[below]{\tiny $C_2$};
+\end{tikzpicture} \textit{\small(after Oxbridge Paper 1 Q8)} The circle $x^2+y^2+4x-2y+C=0$ is orthogonal to the circle $x^2+y^2-4x+4y-1=0$. What is $C$?
+\begin{itemize}
+\item[A)] $-11$
+\item[B)] $-8$
+\item[C)] $11$
+\item[D)] $5$
+\end{itemize}
+
+\item \textit{\small(after TMUA 2021 Paper 2 Q15)} A circle has equation $x^2+ax+y^2+by+c=0$ where $a,b,c\neq0$. Which condition is necessary and sufficient for the circle to be tangent to the $y$-axis?
+\begin{itemize}
+\item[A)] $a^2=4c$
+\item[B)] $b^2=4c$
+\item[C)] $a^2+b^2=4c$
+\item[D)] $c=0$
+\end{itemize}
+
+\item \begin{tikzpicture}[scale=0.42, baseline=-0.5ex]
+\draw (-1.2,0) circle (0.68);
+\draw (1.2,0) circle (0.68);
+\draw[dashed] (-1.88,0.88) -- (1.88,-0.88);
+\draw[dashed] (-1.88,-0.88) -- (1.88,0.88);
+\draw[fill=black] (-1.2,0) circle (1pt) node[below]{\tiny $C_1$};
+\draw[fill=black] (1.2,0) circle (1pt) node[below]{\tiny $C_2$};
+\end{tikzpicture} \textit{\small(adapted from TMUA 2020 Paper 1 Q16)} The equal circles $C_1:(x+2)^2+(y-1)^2=3$ and $C_2:(x-4)^2+(y-1)^2=3$ have centres $6$ apart. A transverse common tangent with positive gradient makes an acute angle $\theta$ with the $x$-axis. What is $\tan\theta$?
+\begin{itemize}
+\item[A)] $\dfrac12$
+\item[B)] $\dfrac{\sqrt2}{2}$
+\item[C)] $\sqrt2$
+\item[D)] $\dfrac{\sqrt3}{3}$
+\end{itemize}
+
+\item \textit{\small(adapted from Vantage Mock Paper 2 Q10 $/$ BMO1 2017 Q4)} The three circles $C_1:x^2+y^2+4x-1=0$, $C_2:x^2+y^2-8y+11=0$, $C_3:x^2+y^2+2x-12y+13=0$ have pairwise radical axes concurrent at $R$. What are the coordinates of $R$?
 \begin{itemize}
 \item[A)] $(1,1)$
 \item[B)] $(1,-1)$
@@ -192,35 +222,55 @@
 \section*{Section D \quad Challenge Ramp \hfill{\normalfont\small($\leq$90 s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Combine radical axes, orthogonality and chord loops end-to-end, then match the options.}
+\noindent\textit{Hardest 5: combine radical axes, orthogonality and chord loops end-to-end. The numbers still cancel, but the route is hidden.}
 
 \begin{enumerate}
 
-\item A point $P$ moves so that its power with respect to the circle $\;x^2+y^2=1$ is equal to its power with respect to the circle $\;(x-6)^2+y^2=4$. As $P$ moves it traces out?
+\item \begin{tikzpicture}[scale=0.40, baseline=-0.5ex]
+\draw (0,0) circle (1.05);
+\draw (2.9,0) circle (0.52);
+\draw[dashed] (0,0) -- (2.9,0);
+\draw[fill=black] (0,0) circle (1pt) node[below]{\tiny $O_1$};
+\draw[fill=black] (2.9,0) circle (1pt) node[below]{\tiny $O_2$};
+\end{tikzpicture} \textit{\small(adapted from TMUA 2018 Paper 1 Q3)} The circles $C_1:(x+2)^2+(y-3)^2=18$ and $C_2:(x-7)^2+(y+6)^2=2$ have centres $O_1$ and $O_2$. What is the shortest distance between a point on $C_1$ and a point on $C_2$?
 \begin{itemize}
-\item[A)] the line $x=\dfrac{11}{4}$
-\item[B)] the circle $\;x^2+y^2=1$
-\item[C)] a pair of isolated points
-\item[D)] the $y$-axis
+\item[A)] $5\sqrt2-4$
+\item[B)] $5\sqrt2-5$
+\item[C)] $5\sqrt2$
+\item[D)] $9\sqrt2$
 \end{itemize}
 
-\item The circles $\;x^2+y^2=100$ and $\;x^2+y^2-6x-8y-40=0$ intersect in two points. What is the length of their common chord?
+\item \textit{\small(after TMUA 2019 Paper 1 Q6)} The circles $(x+4)^2+(y+1)^2=64$ and $(x-8)^2+(y-4)^2=r^2$ ($r>0$) have exactly one point in common. What is the difference between the two possible values of $r$?
 \begin{itemize}
 \item[A)] $8$
 \item[B)] $16$
-\item[C)] $12$
-\item[D)] $6\sqrt{3}$
+\item[C)] $26$
+\item[D)] $42$
 \end{itemize}
 
-\item The circle $\;x^2+y^2-6x-8y+C=0$ is orthogonal to the circle with centre $(2,-1)$ and radius $5$. Find $C$.
+\item \begin{tikzpicture}[scale=0.38, baseline=-0.5ex]
+\draw (0,0) -- (2.9,0) -- (1.65,2.25) -- cycle;
+\draw (0,0) circle (0.42);
+\draw (2.9,0) circle (0.56);
+\draw (1.65,2.25) circle (0.70);
+\draw[fill=black] (0,0) circle (1pt) node[below left]{\tiny $A$};
+\draw[fill=black] (2.9,0) circle (1pt) node[below right]{\tiny $B$};
+\draw[fill=black] (1.65,2.25) circle (1pt) node[above]{\tiny $C$};
+\end{tikzpicture} \textit{\small(adapted from BMO1 2017 Q4)} Three circles of radii $3$, $4$ and $5$ are pairwise externally tangent. What is the area of the triangle formed by joining their centres?
 \begin{itemize}
-\item[A)] $24$
-\item[B)] $26$
-\item[C)] $25$
-\item[D)] $-24$
+\item[A)] $12\sqrt5$
+\item[B)] $12$
+\item[C)] $84$
+\item[D)] $30$
 \end{itemize}
 
-\item Two circles of radii $3$ and $4$ are orthogonal. What is the length of their common chord?
+\item \begin{tikzpicture}[scale=0.42, baseline=-0.5ex]
+\draw (0,0) circle (0.95);
+\draw (1.55,0) circle (0.72);
+\draw[dashed] (0.52,-0.80) -- (0.52,0.80);
+\draw[fill=black] (0,0) circle (1pt);
+\draw[fill=black] (1.55,0) circle (1pt);
+\end{tikzpicture} \textit{\small(after TMUA 2016 Paper 2 Q9 $/$ Oxbridge)} Two circles of radii $3$ and $4$ are orthogonal. What is the length of their common chord?
 \begin{itemize}
 \item[A)] $\dfrac{24}{5}$
 \item[B)] $\dfrac{12}{5}$
@@ -228,12 +278,12 @@
 \item[D)] $\dfrac{48}{5}$
 \end{itemize}
 
-\item Three circles of radii $3$, $4$ and $5$ are pairwise externally tangent (each pair has exactly one common point). What is the area of the triangle formed by their three centres?
+\item \textit{\small(adapted from JZMaths $/$ Vantage)} A point $P$ has equal power with respect to the circles $x^2+y^2=1$ and $(x-6)^2+y^2=4$. What does the locus of $P$ describe?
 \begin{itemize}
-\item[A)] $12\sqrt{5}$
-\item[B)] $12$
-\item[C)] $84$
-\item[D)] $3\sqrt{5}$
+\item[A)] the line $x=\dfrac{11}{4}$
+\item[B)] the circle $x^2+y^2=1$
+\item[C)] the $y$-axis
+\item[D)] a single point $\left(\dfrac{11}{4},0\right)$
 \end{itemize}
 
 \end{enumerate}
