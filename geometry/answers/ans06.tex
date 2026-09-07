@@ -103,37 +103,45 @@
 
 \begin{enumerate}
 
-\item \ans{B) $50$}
-\method{The tangent--chord angle equals the angle in the alternate segment, which is half $\angle AOB$: $\frac12\cdot100^\circ=50^\circ$.}
-\inv{Doubling to $80^\circ$ or subtracting from $90^\circ$.}
-
-\item \ans{A) $9$}
-\method{$PA\cdot PB=PC\cdot PD$ gives $3\cdot 12=4\cdot PD$, $PD=9$.}
-\inv{Multiplying $3\cdot12$ then dividing by $PC$ but quoting $PB=12$ (option C).}
-
-\item \ans{A) $30$}
-\method{$\angle BDC$ and $\angle BAC$ stand on the same chord $BC$, so they are equal ($30^\circ$).}
-\inv{Adding the two split angles to get $70^\circ$, or using the $40^\circ$ side.}
-
+%── C1 ──────────────────────────────────────────────────────────────────────────
 \item \ans{B) $6$}
-\method{Ptolemy: $d_1d_2 = AB\cdot CD + BC\cdot AD = 15+15 = 30$, and $d_1+d_2=11$ gives $(5,6)$; larger is $6$.}
-\inv{Quoting the product $30$ (option C) or the sum $11$ (option D).}
+\method{Let $CP=3k$, $PD=4k$. Intersecting chords: $PA\cdot PB=CP\cdot PD$, i.e.\ $6\cdot 8=3k\cdot 4k=12k^{2}$. So $48=12k^{2}$, $k^{2}=4$, $k=2$, $CP=6$ and $PD=8$. Check: $6$ and $8$ are consecutive multiples of $3,4$.}
+\inv{Dividing $48$ by $7$ ($3+4$) instead of $12$ ($3\cdot4$); the power is a product, not a sum.}
 
-\item \ans{B) $30$}
-\method{$s=11$; Brahmagupta: $K=\sqrt{(11-5)(11-5)(11-6)(11-6)}=\sqrt{6\cdot6\cdot5\cdot5}=30$.}
-\inv{Using the perimeter $22$ for $s$, or Heron's triangle-only formula.}
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\item \ans{B) $10$}
+\method{Tangent--secant power: $PT^{2}=PA\cdot PB$. So $144=8\cdot PB$, $PB=18$, hence chord $AB=PB-PA=10$. The diagram is a right triangle $OPT$ with hypotenuse $OP$.}
+\inv{Quoting $PB=18$ as the chord, or subtracting the wrong segment ($PT-PA$).}
 
-\item \ans{B) $90$}
-\method{Thales again: any angle standing on a diameter is right.}
-\inv{Answering the supplementary angle at the centre, which here is absent.}
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\item \ans{C) $6$}
+\method{Ptolemy for cyclic $ABCD$: $AC\cdot BD=AB\cdot CD+BC\cdot AD =6\cdot5+4\cdot3=30+12=42$. With $AC=7$, $BD=42/7=6$. Verify $BD<AB+AD$ etc.\ so cyclic existence holds.}
+\inv{Multiplying adjacent sides ($6\cdot4+5\cdot3$) instead of opposite pairs, or quoting the product $42$ as a diagonal.}
 
-\item \ans{B) $9$}
-\method{$PT^2=PA\cdot PB$: $36=3\cdot PB$, $PB=12$, so $AB=PB-PA=9$.}
-\inv{Quoting $PB=12$ as the chord, or forgetting to subtract $PA$.}
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\item \ans{A) $10\sqrt{6}$}
+\method{$s=\tfrac{4+5+5+6}{2}=10$. Brahmagupta: $K=\sqrt{(10-4)(10-5)(10-5)(10-6)}=\sqrt{6\cdot5\cdot5\cdot4}=\sqrt{600}=10\sqrt6$.}
+\inv{Using perimeter $20$ for $s$, or applying Heron to a triangle after an illegal diagonal split.}
 
-\item \ans{B) $72$}
-\method{$\angle A+\angle C=180^\circ$: $2x+3x=180^\circ$, $x=36^\circ$, $\angle A=72^\circ$.}
-\inv{Answering $x=36^\circ$ (option style) instead of $\angle A=2x=72^\circ$.}
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\item \ans{B) $15$}
+\method{Pitot for tangential quadrilaterals: $AB+CD=BC+DA$. So $3x+5=8+2x+3$, giving $3x+5=2x+11$, $x=6$, hence $DA=2x+3=15$. Check opposite sums: $18+5=23$, $8+15=23$.}
+\inv{Pairing adjacent sides ($AB+BC=CD+DA$) or solving $3x=2x$ and dropping constants.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\item \ans{A) $6$}
+\method{Secant--secant power from $P$: $PA\cdot PB=PC\cdot PD$. $PA\cdot PB=4\cdot18=72$, so $6\cdot PD=72$, $PD=12$, chord $CD=PD-PC=6$. Same product $72$ is $6\times12$.}
+\inv{Using $PA$ as $PB$ (near vs far confusion) or quoting $PD=12$ as the chord.}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\item \ans{A) $7$}
+\method{Ptolemy: $AC\cdot BD=AB\cdot CD+BC\cdot DA=8\cdot6+6\cdot6=48+36=84$. With $AC=12$, $BD=84/12=7$. Check $7<8+6$ etc.\ valid.}
+\inv{Adding adjacent products ($AB\cdot BC+CD\cdot DA$) or dividing the sum by the wrong diagonal.}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\item \ans{A) $44$}
+\method{$s=\tfrac{5+5+8+14}{2}=16$. Brahmagupta: $K=\sqrt{(16-5)(16-5)(16-8)(16-14)}$\\ $=\sqrt{11\cdot11\cdot8\cdot2}=\sqrt{1936}=44$.}
+\inv{Using $s=32$ (full perimeter) or factoring $\sqrt{1936}$ as $22\sqrt4$ and miscounting.}
 
 \end{enumerate}
 
@@ -141,46 +149,51 @@
 
 \begin{enumerate}
 
-\item \ans{B) $5$}
-\method{$PC\cdot PD=30$ with $PD=PC+1$: consecutive factors of $30$ are $5$ and $6$, so $PC=5$.}
-\inv{Picking $6$ (option C) by mixing up which factor is $PC$.}
-
-\item \ans{C) $6$}
-\method{Ptolemy: $d_1d_2=18+24=42$; with $d_1=7$, $d_2=6$.}
-\inv{Quoting $42$ (option D) as a diagonal, or dividing by $7$ and misreading.}
-
-\item \ans{A) $2\sqrt{6}$}
-\method{$s=5$; $K=\sqrt{(5-2)(5-3)(5-4)(5-1)}=\sqrt{3\cdot2\cdot1\cdot4}=\sqrt{24}=2\sqrt{6}$.}
-\inv{Forgetting to halve the perimeter, or cancelling the $(s-a)$ terms.}
-
-\item \ans{B) $110$}
-\method{$\angle BAD = 30^\circ+40^\circ=70^\circ$, and opposite angles sum to $180^\circ$: $\angle BCD=110^\circ$.}
-\inv{Answering the split $\angle BAD=70^\circ$ (option A) instead of its supplement.}
-
+%── D1 ──────────────────────────────────────────────────────────────────────────
 \item \ans{A) $36$}
-\method{Sides $6,5,12,5$ give $s=14$; $K=\sqrt{(14-6)(14-5)(14-12)(14-5)}=\sqrt{8\cdot9\cdot2\cdot9}=36$. Check: trapezoid height $4$ gives $\frac{6+12}{2}\cdot 4=36$.}
-\inv{Using Heron's triangle formula, or halving the legs theorem-wise (leftover Pitot habit).}
+\method{$s=\tfrac{2+5+10+11}{2}=14$. $K=\sqrt{(14-2)(14-5)(14-10)(14-11)}=\sqrt{12\cdot9\cdot4\cdot3}=\sqrt{1296}=36$. Check trapezoid? Also equals Heron split via diagonal $12$: two triangles $5\!-\!12\!-\!13$ style. }
+\inv{Forgetting to halve the perimeter, or leaving $\sqrt{1296}$ as a surd.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\item \ans{A) $11$}
+\method{Ptolemy: $AC\cdot BD=AB\cdot CD+BC\cdot DA=7\cdot7+8\cdot9=49+72=121$. With $AC=11$, $BD=121/11=11$. Both diagonals equal $11$; quadrilateral is an isosceles trapezoid in disguise.}
+\inv{Multiplying adjacent sides ($7\cdot8+7\cdot9$) or quoting the product $121$ as a diagonal.}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\item \ans{B) $8$}
+\method{Tangent--secant power: $PT^{2}=PA\cdot PB$ with $PB=PA+10$. So $144=PA(PA+10)$, i.e.\ $PA^{2}+10PA-144=0$, $(PA+18)(PA-8)=0$, $PA=8$. Check: $8\cdot18=144=12^{2}$.}
+\inv{Solving $PA^{2}+10PA=144$ as $PA=12$ or $PA=14$ by linear division, or forgetting $PB$ is $PA+10$ not $10$.}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\item \ans{A) $40$}
+\method{Sides $5,5,8,8$ (order $AB=5,BC=5,CD=8,DA=8$): Pitot check $AB+CD=5+8=13=BC+DA$, so tangential confirms an incircle exists. Semiperimeter $s=13$. Brahmagupta (cyclic): $K=\sqrt{(13-5)(13-5)(13-8)(13-8)}=\sqrt{8\cdot8\cdot5\cdot5}=40$. Bicentric: both theorems hold; area also $=r\cdot s$ with $r=40/13$.}
+\inv{Using Heron on a split triangle, or pairing Pitot incorrectly and claiming tangential fails.}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\item \ans{A) $19$}
+\method{Ptolemy: $AC\cdot BD=AB\cdot CD+BC\cdot DA=6\cdot12+8\cdot10=72+80=152$. With $AC=8$, $BD=152/8=19$. Check $19<6+8+10$ etc.\ valid diagonal. }
+\inv{Swapping a near-diagonal for a side, or quoting $152$ (the sum) as a diagonal.}
 
 \end{enumerate}
 
 \section*{Top 5 Patterns}
 
 \begin{itemize}
-\item \textbf{Find the chord, then compare angles on it.} Two angles subtending the same chord are equal; a central angle is twice either of them. \seealso{A1, A2, A10, B1, C1, C3, D4}
-\item \textbf{Product power: $PA\cdot PB=PC\cdot PD$ and $PT^2=PA\cdot PB$.} Chords crossing, or a tangent with a secant, are always a product equation. \seealso{A5, A6, A8, A9, B3, B4, B6, B10, C2, C7, D1}
-\item \textbf{Cyclic opposites are supplementary.} $\angle A+\angle C=180^\circ$ is the reflex for 'cyclic' claims and the lever for ratio angles. \seealso{A3, B2, B7, C3, C8, D4}
-\item \textbf{Ptolemy adds products down opposite sides.} $AC\cdot BD = AB\cdot CD + BC\cdot AD$. \seealso{C4, D2, D5}
-\item \textbf{Brahmagupta is Heron with brothers.} The cyclic-area formula starts from the same semiperimeter $s$. \seealso{C5, D3, D5}
+\item \textbf{Product power: $PA\cdot PB=PC\cdot PD$ and $PT^{2}=PA\cdot PB$.} Chords crossing, tangent--secant, or two secants from one exterior point all reduce to one product equation. \seealso{A5, A6, A8, A9, B3, B4, B6, B10, C1, C2, C6, D3}
+\item \textbf{Ptolemy adds opposite products.} $AC\cdot BD = AB\cdot CD + BC\cdot AD$ for any cyclic quadrilateral; when one diagonal and all sides are known the other diagonal is one division. \seealso{C3, C7, D2, D5}
+\item \textbf{Brahmagupta is Heron with two extra sides.} $K=\sqrt{(s-a)(s-b)(s-c)(s-d)}$ with $s=\tfrac{a+b+c+d}{2}$; the product under the root must be a perfect square for clean integers. \seealso{C4, C8, D1, D4}
+\item \textbf{Pitot pairs opposite sides of a tangential quadrilateral.} $AB+CD=BC+DA$ is necessary and sufficient for an incircle; algebraic sides turn this into a linear equation. \seealso{B9, C5, D4}
+\item \textbf{Cyclic opposites are supplementary and same-segment angles are equal.} $\angle A+\angle C=180^\circ$ and angles standing on the same chord are equal -- the angle-chase that justifies ``cyclic'' claims. \seealso{A3, A10, B2, B7, C3}
 \end{itemize}
 
 \section*{Common Traps}
 
 \begin{itemize}
-\item \textbf{Doubling the circumference angle instead of the centre one.} The centre is twice the circumference, never the other way round. \seealso{A1, B1, C1}
-\item \textbf{Taking the tangent--radius $90^\circ$ angle as the answer.} The alternate segment angle equals the tangent--chord angle, not its complement. \seealso{A4, B5, C1}
-\item \textbf{Quoting the full secant $PB$ when the chord $AB$ is asked.} Subtract the near segment: $AB=PB-PA$. \seealso{A6, A9, C7}
-\item \textbf{Applying Heron to cyclic quadrilaterals.} Heron needs a triangle; Brahmagupta's $(s-a)(s-b)(s-c)(s-d)$ owns the four-sided case. \seealso{C5, D3, D5}
-\item \textbf{misapplying Pitot's pairing.} Pitot pairs {\em opposite} sides ($AB+CD=BC+DA$); a trap variant pairs adjacent ones. \seealso{B9, D5}
+\item \textbf{Quoting the full secant instead of the chord.} $AB=PB-PA$, not $PB$ itself; tangent--secant always asks for $AB$ you must subtract. \seealso{A6, A9, C2, C6, D3}
+\item \textbf{Multiplying adjacent sides in Ptolemy.} The products are {\em opposite} pairs $AB\cdot CD$ and $BC\cdot AD$, never $AB\cdot BC$. \seealso{C3, C7, D2, D5}
+\item \textbf{Using the perimeter for $s$ in Brahmagupta.} Semiperimeter is half the perimeter ($s=\tfrac{P}{2}$); doubling it squares the error. \seealso{C4, C8, D1, D4}
+\item \textbf{Pairing Pitot on adjacent sides.} Pitot is $AB+CD=BC+DA$ (opposites), not $AB+BC=CD+DA$. \seealso{B9, C5, D4}
+\item \textbf{Dividing power products by a sum, not a product.} Intersecting chords: $CP\cdot PD=PA\cdot PB$; with $CP:PD=3:4$ set $CP=3k$, $PD=4k$ so $12k^{2}=48$, not $(3+4)k$. \seealso{A5, C1, C6, B10}
 \end{itemize}
 
 \SpeedClosing{``A circle trades in equalities; find the chord that both angles stare at, write down the product they share, and the number appears.''}

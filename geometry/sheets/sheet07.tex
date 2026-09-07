@@ -110,72 +110,122 @@
 \section*{Section C \quad Substitution \& Structure \hfill{\normalfont\small($\leq$75 s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Assemble loci, equations and logic: square, complete the square, and decide whether each borrowed fact is necessary, sufficient, or both.}
+\noindent\textit{Hard synthesis: square the ratio for Apollonius, test necessary vs sufficient, and spot the hidden betweenness assumption. All Section C are MCQ.}
 
 \begin{enumerate}
 
-\item The locus of $P$ with $PA=PB$, where $A=(0,0)$ and $B=(6,0)$, is the line $\mathbf{x=3}$. What is its distance from $B$?
+\item \begin{tikzpicture}[scale=0.45, baseline=-0.5ex]
+\draw[->] (-3,0) -- (9,0) node[right]{\tiny $x$};
+\draw[->] (0,-2) -- (0,2);
+\draw[thick] (-2,0) circle (0.08) node[below]{\tiny $A(-2,0)$};
+\draw[thick] (4,0) circle (0.08) node[below]{\tiny $B(4,0)$};
+\draw[thick, dashed] (6,0) circle (1.5);
+\draw[fill=black] (6,0) circle (1pt) node[below]{\tiny $C$};
+\node at (6,1.7) {\tiny $PA=2PB$};
+\end{tikzpicture} \textit{\small(after TMUA 2022 Paper 1 Q7)} The locus of $P$ with $PA=2\,PB$ and $A=(-2,0)$, $B=(4,0)$ is a circle (Apollonius). What is its centre?
 \begin{itemize}
-\item[A)] $3$
-\item[B)] $6$
-\item[C)] $9$
-\item[D)] $0$
+\item[A)] $(6,0)$
+\item[B)] $(8,0)$
+\item[C)] $(10,0)$
+\item[D)] $(2,0)$
 \end{itemize}
 
-\item The circle of Apollonius $PA=2PB$ with $A=(0,0)$, $B=(6,0)$ has centre?
+\item \begin{tikzpicture}[scale=0.42, baseline=-0.5ex]
+\draw[->] (-1.6,-1.6) -- (1.6,1.6) node[right]{\tiny $y=x$};
+\draw[->] (-1.6,1.6) -- (1.6,-1.6) node[right]{\tiny $y=-x$};
+\draw[dashed] (0,-1.4) -- (0,1.4);
+\draw[dashed] (-1.4,0) -- (1.4,0);
+\node at (0,1.6) {\tiny $L_1:x+y=0$};
+\node at (1.0,0.3) {\tiny $L_2:x-y=0$};
+\end{tikzpicture} \textit{\small(after TMUA 2018 Paper 2 Q5 $/$ TMUA 2022 Paper 2 Q11)} The locus of points equidistant from the lines $L_1:x+y=0$ and $L_2:x-y=0$ is:
 \begin{itemize}
-\item[A)] $(8,0)$
-\item[B)] $(4,0)$
-\item[C)] $(2,0)$
-\item[D)] $(-8,0)$
+\item[A)] $y=x$
+\item[B)] $y=-x$
+\item[C)] $y=|x|$
+\item[D)] $x=0$ or $y=0$
 \end{itemize}
 
-\item The inequality $x^2+y^2 \le 9$ describes a filled disk. Which point is strictly inside it?
+\item \textit{\small(after TMUA 2019 Paper 2 Q14)} Fil argues: ``Let $D$ lie on segment $AB$ and $CD$ bisect $\angle C$. By the angle-bisector theorem $AD/DB=CA/CB$; hence any point $P$ with $PA=PB$ must lie on the bisector of $\angle C$.'' Where is the flaw?
 \begin{itemize}
-\item[A)] $(2,2)$
-\item[B)] $(3,3)$
-\item[C)] $(2,3)$
-\item[D)] $(4,0)$
+\item[A)] The proof assumes $D$ lies {\em between} $A$ and $B$ (betweenness/convexity) without establishing it; $D$ could lie on the extension of $AB$ outside the segment.
+\item[B)] Squaring the distance ratio loses the sign, so the locus is a single point not a circle.
+\item[C)] The angle-bisector theorem is false for obtuse triangles.
+\item[D)] There is no flaw; the conclusion is correct.
 \end{itemize}
 
-\item The locus $\frac{PA}{PB}=1$ (equal distances) with $A=(0,0)$, $B=(6,0)$ is a line. What is it?
+\item \begin{tikzpicture}[scale=0.42, baseline=-0.5ex]
+\draw (0,0) -- (1.8,0) -- (2.4,1.2) -- (0.6,1.2) -- cycle;
+\node at (0,0) [below left]{\tiny $P$};
+\node at (1.8,0) [below right]{\tiny $Q$};
+\node at (2.4,1.2) [above right]{\tiny $R$};
+\node at (0.6,1.2) [above left]{\tiny $S$};
+\end{tikzpicture} \textit{\small(after TMUA 2020 Paper 2 Q7)} $PQRS$ is a parallelogram labelled anticlockwise. Consider: I.\ $PQ=QR$ \quad II.\ $PR\perp QS$ \quad III.\ $\angle PQR = 90^\circ$. Which of these conditions is/are individually {\em sufficient} for $PQRS$ to be a square?
 \begin{itemize}
-\item[A)] $x=3$
-\item[B)] $x=6$
-\item[C)] parallel to the $y$-axis through $B$
-\item[D)] $y=x$
+\item[A)] I only
+\item[B)] II only
+\item[C)] III only
+\item[D)] I and III only
+\item[E)] none of them individually (all insufficient alone)
 \end{itemize}
 
-\item Given the circle $x^2+y^2=5$, how many of the following points lie on it: $(1,2)$, $(2,1)$, $(\sqrt{5},0)$, $(1,-2)$?
+\item \begin{tikzpicture}[scale=0.45, baseline=-0.5ex]
+\draw (0,0) -- (4,0) -- (1.2,2) -- cycle;
+\node at (0,0) [left]{\tiny $P$};
+\node at (4,0) [right]{\tiny $Q$};
+\node at (1.2,2) [above]{\tiny $R$};
+\draw (0,0) -- (1.2,2); \draw (1.2,2) -- (4,0);
+\node at (0.6,0.15) {\tiny $30^\circ$};
+\node at (2,0.15) {\tiny $p$};
+\node at (0.6,1) {\tiny $4$};
+\end{tikzpicture} \textit{\small(after TMUA 2018 Paper 2 Q14)} In $\triangle PQR$, $PR=4$, $QR=p$ and $\angle RPQ=30^\circ$. For which values of $p$ does this information {\em uniquely} determine the length $PQ$?
 \begin{itemize}
-\item[A)] $3$
-\item[B)] $4$
+\item[A)] $p=2$
+\item[B)] $p=\sqrt3$
+\item[C)] $1\le p<2$
+\item[D)] $p\ge4$
+\item[E)] $p=2$ or $p\ge4$
+\item[F)] $p=\sqrt3$ or $p\ge4$
+\item[G)] $p<4$
+\item[H)] $p\ge2$
+\end{itemize}
+
+\item \begin{tikzpicture}[scale=0.42, baseline=-0.5ex]
+\draw (0,0) circle (0.95);
+\draw (3.0,0) circle (0.58);
+\draw[fill=black] (0,0) circle (1pt) node[below]{\tiny $(-3,1)$};
+\draw[fill=black] (3.0,0) circle (1pt) node[below]{\tiny $(8,1)$};
+\draw[dashed] (0,0) -- (3.0,0);
+\end{tikzpicture} \textit{\small(after TMUA 2019 Paper 1 Q6)} The circles $C_1:(x+3)^2+(y-1)^2=25$ and $C_2:(x-8)^2+(y-1)^2=9$ have radii $5$ and $3$. How many common tangents do they have?
+\begin{itemize}
+\item[A)] $0$
+\item[B)] $1$
 \item[C)] $2$
-\item[D)] $1$
+\item[D)] $3$
+\item[E)] $4$
 \end{itemize}
 
-\item The locus of $P$ with $PA+PB=8$ and $A=(-3,0)$, $B=(3,0)$ is an ellipse. The length of its major axis is?
+\item \begin{tikzpicture}[scale=0.45, baseline=-0.5ex]
+\draw[->] (-1,0) -- (11,0) node[right]{\tiny $x$};
+\draw[->] (0,-3) -- (0,3);
+\draw[fill=black] (0,0) circle (1pt) node[below left]{\tiny $A$};
+\draw[fill=black] (6,0) circle (1pt) node[below]{\tiny $B(6,0)$};
+\draw[dashed] (6.75,0) circle (1.0);
+\draw[fill=black] (6.75,0) circle (1pt) node[below]{\tiny $C$};
+\draw[red,->] (0,0) -- (9,0) node[above,midway]{\tiny $\max OP$};
+\end{tikzpicture} \textit{\small(after TMUA 2022 Paper 1 Q7)} The Apollonius circle $PA=3\,PB$ with $A=(0,0)$, $B=(6,0)$ is $(x-\tfrac{27}{4})^2+y^2=(\tfrac94)^2$. What is the greatest distance from the origin to a point on this circle?
 \begin{itemize}
-\item[A)] $4$
-\item[B)] $8$
-\item[C)] $6$
-\item[D)] $16$
+\item[A)] $9$
+\item[B)] $7.5$
+\item[C)] $12$
+\item[D)] $6$
 \end{itemize}
 
-\item A point is said to be ``well-placed'' if it lies on the unit circle. Which statement is {\em both necessary and sufficient} for the point $(a,b)$ to be well-placed?
+\item \textit{\small(after TMUA 2019 Paper 2 Q14)} Fil finds the circle of Apollonius $PA=3PB$ with $A=(0,0)$, $B=(2,0)$ by writing $(x-2)^2+y^2=9$ and claiming this is the locus. Where is the error?
 \begin{itemize}
-\item[A)] $a^2+b^2=1$
-\item[B)] $a+b=1$
-\item[C)] $a^2+b^2<1$
-\item[D)] the point is not the origin
-\end{itemize}
-
-\item The circle $x^2+y^2-4x+4=0$ has radius? (Complete the square.)
-\begin{itemize}
-\item[A)] $1$
-\item[B)] $2$
-\item[C)] $0$
-\item[D)] $4$
+\item[A)] His equation is a circle centred at $B$ with radius $3$, but the true locus from $x^2+y^2=9\big((x-2)^2+y^2\big)$ is $\left(x-\tfrac94\right)^2+y^2=\tfrac{9}{16}$ (centre $(\tfrac94,0)$, radius $\tfrac34$); it incorrectly ignores the distance to $A$.
+\item[B)] Squaring loses the sign information, so the locus is really a single point.
+\item[C)] The set $PA=3PB$ is a straight line, not a circle at all.
+\item[D)] There is no error; $(x-2)^2+y^2=9$ is correct.
 \end{itemize}
 
 \end{enumerate}
@@ -184,43 +234,81 @@
 \section*{Section D \quad Challenge Ramp \hfill{\normalfont\small($\leq$90 s each)}}
 % ══════════════════════════════════════════════════════════════════════════════
 
-\noindent\textit{Stack the whole week: a locus, a completing-the-square circle, and a clean TRUE/FALSE verdict on a geometric claim.}
+\noindent\textit{Hardest 5: stack the week's tools — Apollonius, radical axes, area loci and geometric logic — under TMUA/BMO1 pressure.}
 
 \begin{enumerate}
 
-\item The Apollonius locus $PA=2PB$ with $A=(0,0)$, $B=(6,0)$ has centre $(8,0)$ and radius $4$. Find the locus of points $P$ with $PA=KB$ obtained when the ratio is $2$: the circle's equation is $(x-8)^2+y^2=16$. What is the distance between the two $x$-axis endpoints of this locus?
+\item \begin{tikzpicture}[scale=0.45, baseline=-0.5ex]
+\draw[->] (-5,0) -- (5,0) node[right]{\tiny $x$};
+\draw[->] (0,-3) -- (0,3);
+\draw[thick] (-3,0) circle (0.07) node[below]{\tiny $A(-3,0)$};
+\draw[thick] (3,0) circle (0.07) node[below]{\tiny $B(3,0)$};
+\draw[dashed] (0,0) circle (1.42);
+\end{tikzpicture} \textit{\small(after BMO1 2017 Q4 $/$ TMUA 2022 Paper 1 Q7)} The locus of $P$ with $PA^2+PB^2=34$, where $A=(-3,0)$, $B=(3,0)$, is a circle. What is its radius?
 \begin{itemize}
-\item[A)] $8$
+\item[A)] $2\sqrt2$
 \item[B)] $4$
-\item[C)] $16$
-\item[D)] $6$
+\item[C)] $\sqrt8$
+\item[D)] $\sqrt{34}$
 \end{itemize}
 
-\item The circle with equation $x^2+y^2-4x-6y+12=0$ has radius?
+\item \begin{tikzpicture}[scale=0.42, baseline=-0.5ex]
+\draw[->] (-3.5,0) -- (3.5,0);
+\draw[->] (0,-3.5) -- (0,3.5);
+\draw[thick] (3,0) -- (0,3) -- (-3,0) -- (0,-3) -- cycle;
+\node at (1.5,1.5) {\tiny $|x|+|y|=3$};
+\end{tikzpicture} \textit{\small(after TMUA 2021 Paper 1 Q9)} The graph $|x|+|y|=3$ is a square (diamond) with vertices $(3,0),(0,3),(-3,0),(0,-3)$. What is the finite area it encloses?
 \begin{itemize}
-\item[A)] $1$
-\item[B)] $2$
-\item[C)] $3$
-\item[D)] $\sqrt{12}$
+\item[A)] $6$
+\item[B)] $12$
+\item[C)] $18$
+\item[D)] $9$
 \end{itemize}
 
-\item Which of the following is {\em sufficient} for the point $(x,y)$ to lie {\em strictly inside} the unit disk $x^2+y^2<1$?
+\item \begin{tikzpicture}[scale=0.45, baseline=-0.5ex]
+\draw (0,0) -- (2,0) -- (1,1.8) -- (-1,1.2) -- cycle;
+\draw (0,0) -- (2,0); \draw (0,0) -- (-1,1.2); \draw (2,0) -- (1,1.8);
+\draw[dashed] (0.5,0.6) -- (0.5,-0.2) node[below]{\tiny $O$};
+\node at (0,0) [below left]{\tiny $S$};
+\node at (2,0) [below right]{\tiny $Q$};
+\node at (1,1.8) [above]{\tiny $R$};
+\node at (-1,1.2) [left]{\tiny $P$};
+\node at (0.5,0.9) {\tiny $x$};
+\node at (1.2,0.3) {\tiny $y$};
+\node at (-0.3,0.3) {\tiny $z$};
+\end{tikzpicture} \textit{\small(after TMUA 2022 Paper 2 Q11)} The diagram shows a kite $PQRS$ whose diagonals meet at $O$ with $OP=x$, $OQ=y$, $OR=x$, $OS=z$. Which condition is {\em necessary and sufficient} for $\angle SPQ=90^\circ$?
 \begin{itemize}
-\item[A)] $x^2+y^2<\frac12$
-\item[B)] $x<\frac12$ and $y<\frac12$
-\item[C)] $x^2+y^2<2$
-\item[D)] $x>1$ and $y>1$
+\item[A)] $x=y=z$
+\item[B)] $2x=y+z$
+\item[C)] $x^2=yz$
+\item[D)] $y=z$
+\item[E)] $y^2=x^2+z^2$
 \end{itemize}
 
-\item Fil finds the circle of Apollonius $PA=3PB$ with $A=(0,0)$ and $B=(2,0)$ by squaring $\frac{PA}{PB}=3$ and claiming the locus is $(x-2)^2+y^2=9$. Where is the error in his conclusion?
+\item \begin{tikzpicture}[scale=0.42, baseline=-0.5ex]
+\draw (0,0) circle (1.2);
+\draw (1.9,0) circle (0.72);
+\draw[dashed] (0.95,-1.1) -- (0.95,1.1);
+\draw[fill=black] (0,0) circle (1pt) node[below]{\tiny $O_1$};
+\draw[fill=black] (1.9,0) circle (1pt) node[below]{\tiny $O_2$};
+\node at (0.95,1.2) {\tiny chord};
+\end{tikzpicture} \textit{\small(after BMO1 2017 Q4 $/$ TMUA Practice Paper 2 Q9)} The circles $C_1:x^2+y^2=25$ and $C_2:(x-4)^2+y^2=9$ intersect at $P,Q$. What is the length $PQ$?
 \begin{itemize}
-\item[A)] His equation is a circle centred at $B$ with radius $3$, but the true locus must involve the distance to $A$ as well; expanding $x^2+y^2=9\big((x-2)^2+y^2\big)$ gives a different circle.
-\item[B)] Squaring loses the sign information, so the locus is really a single point.
-\item[C)] The set $PA=3PB$ is a straight line, not a circle at all.
-\item[D)] There is no error; $(x-2)^2+y^2=9$ is correct.
+\item[A)] $3$
+\item[B)] $6$
+\item[C)] $\dfrac{4\sqrt{14}}{3}$
+\item[D)] $\dfrac{24}{5}$
 \end{itemize}
 
-\item The circle passes through the point $(1,2)$ and has centre $(0,0)$. Write down its equation.
+\item \begin{tikzpicture}[scale=0.45, baseline=-0.5ex]
+\draw[->] (-1,0) -- (10,0) node[right]{\tiny $x$};
+\draw[->] (0,-4) -- (0,4);
+\draw[thick] (0,0) circle (0.06) node[below left]{\tiny $A$};
+\draw[thick] (6,0) circle (0.06) node[below]{\tiny $B$};
+\draw[dashed] (8,0) circle (1.6);
+\draw[fill=black] (8,0) circle (1pt) node[below]{\tiny $C(8,0)$};
+\draw (0,0) -- (8,2.5) -- (6,0) -- cycle;
+\end{tikzpicture} \textit{\small(after TMUA 2022 Paper 1 Q7 $/$ BMO1 2017 Q4)} Let the Apollonius circle $PA=2PB$ with $A=(0,0)$, $B=(6,0)$ be $(x-8)^2+y^2=16$. The triangle $PAB$ varies as $P$ runs over this circle. What is its maximum possible area?
 
 \end{enumerate}
 
