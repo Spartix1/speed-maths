@@ -136,12 +136,22 @@
 \inv{Check the circles touch at $(2,0)$; the axis is the common tangent there.}
 
 % ── C3 ──────────────────────────────────────────────────────────────────────────
-\item \begin{tikzpicture}[scale=0.42, baseline=-0.5ex]
+\item \begin{minipage}[t]{0.70\linewidth}
+\vspace{0pt}
+The circle $x^2+y^2-6x-8y+24=0$ has centre $(3,4)$, $r=1$. $P(6,8)$ is outside. What is the tangent length? \textit{\small(after MAT 2021 Q5)}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.26\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.42]
 \draw (0,0) circle (1.2);
 \draw (1.2,0) -- (2.5,0.8);
 \draw[fill=black] (0,0) circle (1pt) node[below]{\tiny $O$};
 \draw (0,0) -- (1.2,0) node[midway, below]{\tiny $r$};
-\end{tikzpicture} The circle $x^2+y^2-6x-8y+24=0$ has centre $(3,4)$, $r=1$. $P(6,8)$ is outside. What is the tangent length? \textit{\small(after MAT 2021 Q5)}
+\end{tikzpicture}
+\end{minipage}
+
+
 \ans{$2\sqrt{6}$}
 \method{Centre $C=(3,4)$, $PC=\sqrt{9+16}=5$, $r=1$: tangent $=\sqrt{25-1}=2\sqrt6\approx4.90$. None of the printed numerals equals this exactly; $4$ would need $r=3$.}
 \inv{Compute the power of $P$: $6^2+8^2-36-64+24=24$ and $\sqrt{24}=2\sqrt6$.}
@@ -159,11 +169,21 @@
 \inv{Why must the centre stay at $(4,0)$? Translate the origin result.}
 
 % ── C6 ──────────────────────────────────────────────────────────────────────────
-\item \begin{tikzpicture}[scale=0.4, baseline=-0.5ex]
+\item \begin{minipage}[t]{0.70\linewidth}
+\vspace{0pt}
+The point $(8,6)$ is at distance $10$ from the origin. Tangents from $(8,6)$ to $x^2+y^2=1$ have length $\sqrt{99}$. What is the distance from the origin to the chord of contact? \textit{\small(adapted from TMUA 2020 Paper 1 Q16)}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.26\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.4]
 \draw (0,0) circle (1.2);
 \draw (-0.8,-0.8) -- (0.8,0.8);
 \draw[fill=black] (0,0) circle (1pt);
-\end{tikzpicture} The point $(8,6)$ is at distance $10$ from the origin. Tangents from $(8,6)$ to $x^2+y^2=1$ have length $\sqrt{99}$. What is the distance from the origin to the chord of contact? \textit{\small(adapted from TMUA 2020 Paper 1 Q16)}
+\end{tikzpicture}
+\end{minipage}
+
+
 \ans{A) $\dfrac{1}{10}$}
 \method{Polar $8x+6y=1$, $d=1/10$; equivalently $d=r^2/OP=1/10$. Since $d<r$, the chord cuts the circle.}
 \inv{Compute tangent $=\sqrt{100-1}=\sqrt{99}=3\sqrt{11}$ and verify.}
@@ -187,13 +207,23 @@
 \begin{enumerate}
 
 % ── D1 ──────────────────────────────────────────────────────────────────────────
-\item \begin{tikzpicture}[scale=0.45, baseline=-0.5ex]
+\item \begin{minipage}[t]{0.70\linewidth}
+\vspace{0pt}
+Two tangents from $P$ to $x^2+y^2=9$ with $OP=6$ enclose angle $\theta$. What is $\theta$? \textit{\small(after TMUA 2018 Paper 1 Q7 / BMO1 2023 Q4)}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.26\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.45]
 \draw (0,0) circle (1.2);
 \draw (0,0) -- (1.5,0.8);
 \draw (1.5,0.8) -- (0.8,1.5);
 \node at (0.6,0.6) {\tiny $\theta$};
 \draw[fill=black] (0,0) circle (1pt);
-\end{tikzpicture} Two tangents from $P$ to $x^2+y^2=9$ with $OP=6$ enclose angle $\theta$. What is $\theta$? \textit{\small(after TMUA 2018 Paper 1 Q7 / BMO1 2023 Q4)}
+\end{tikzpicture}
+\end{minipage}
+
+
 \ans{B) $60^{\circ}$}
 \method{$\sin\frac{\theta}{2}=r/OP=3/6=1/2\Rightarrow \theta/2=30^{\circ}\Rightarrow\theta=60^{\circ}$.}
 \inv{What is $\tan\frac{\theta}{2}$ here?}
@@ -205,12 +235,22 @@
 \inv{If tangent were $12$, what would $OP$ be?}
 
 % ── D3 ──────────────────────────────────────────────────────────────────────────
-\item \begin{tikzpicture}[scale=0.42, baseline=-0.5ex]
+\item \begin{minipage}[t]{0.70\linewidth}
+\vspace{0pt}
+The chord of contact from $P(3,3)$ to $x^2+y^2=9$ is $x+y=3$. What is its length? \textit{\small(adapted from TMUA 2019 Paper 1 Q6)}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.26\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.42]
 \draw (0,0) circle (1.3);
 \draw (-1.1,-0.7) -- (1.1,-0.7);
 \draw[fill=black] (0,0) circle (1pt);
 \node at (0,-0.7) [below]{\tiny $3x+4y=12$};
-\end{tikzpicture} The chord of contact from $P(3,3)$ to $x^2+y^2=9$ is $x+y=3$. What is its length? \textit{\small(adapted from TMUA 2019 Paper 1 Q6)}
+\end{tikzpicture}
+\end{minipage}
+
+
 \ans{A) $3\sqrt2$}
 \method{Distance $d=3/\sqrt2$, half-chord $\sqrt{9-9/2}=3/\sqrt2$, chord $=3\sqrt2$.}
 \inv{General: chord $=2\sqrt{r^2-d^2}$ where $d=r^2/OP$.}
@@ -222,12 +262,22 @@
 \inv{Check $\tan30^{\circ}=r/\ell=1/\sqrt3$ gives $\ell=5\sqrt3$.}
 
 % ── D5 ──────────────────────────────────────────────────────────────────────────
-\item \begin{tikzpicture}[scale=0.4, baseline=-0.5ex]
+\item \begin{minipage}[t]{0.70\linewidth}
+\vspace{0pt}
+The polar of $(9,12)$ w.r.t.\ $x^2+y^2=81$ is $3x+4y=27$. What is its distance from the origin, and is $P$ outside/inside/on? \textit{\small(adapted from MAT 2021 Q5)}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.26\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.4]
 \draw (0,0) circle (1.2);
 \draw (0,0) -- (1.2,0);
 \draw[fill=black] (0,0) circle (1pt) (1.2,0) circle (1pt);
 \node at (0.6,0.2) {\tiny $d$};
-\end{tikzpicture} The polar of $(9,12)$ w.r.t.\ $x^2+y^2=81$ is $3x+4y=27$. What is its distance from the origin, and is $P$ outside/inside/on? \textit{\small(adapted from MAT 2021 Q5)}
+\end{tikzpicture}
+\end{minipage}
+
+
 \ans{A) $\dfrac{27}{5}$}
 \method{$9x+12y=81\Rightarrow 3x+4y=27$, $d=27/5=5.4<r=9$ (chord inside), $OP=15>r$ (point outside).}
 \inv{Note $27/5=r^2/OP=81/15$ reduced; unreduced $81/15$ is option D.}
