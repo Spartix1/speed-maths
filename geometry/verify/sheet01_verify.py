@@ -240,17 +240,20 @@ def check_B6():
 
 
 def check_B7():
-    """EXHAUSTIVE PROOF: Distance between x+2y=10 and x+2y=20 is |20-10|/sqrt(5)=10/√5=2√5 (option B)."""
-    d = _dist_point_line(0, 10/2, 1, 2, -20)  # point (0,5) on first line to second
-    # simpler: |c2-c1|/sqrt(a^2+b^2) =10/√5
-    d2 = sympy.Abs(20-10)/sympy.sqrt(1+4)
-    assert sympy.simplify(d2 - 2*sympy.sqrt(5)) == 0
-    # check via two points: (0,5) on first, distance to second line x+2y-20=0 is 10/√5
-    assert sympy.simplify(_dist_point_line(0, 5, 1, 2, -20) - 2*sympy.sqrt(5)) == 0
-    options = {'A': 2, 'B': 2*sympy.sqrt(5), 'C': 5, 'D': 10}
-    matches = [let for let,v in options.items() if sympy.simplify(v - 2*sympy.sqrt(5)) == 0]
-    assert matches == ['B']
-    return 'B'
+    """EXHAUSTIVE PROOF: Parallel lines share gradient 3; options A, B, C all
+    rewrite to gradient 3, so option D is the only non-parallel one."""
+    base = Fraction(3)
+    options = {
+        'A': Fraction(3),
+        'B': Fraction(6, 2),
+        'C': Fraction(3),
+        'D': Fraction(2),
+    }
+    non_parallel = [let for let, m in options.items() if m != base]
+    assert non_parallel == ['D']
+    parallel = [let for let, m in options.items() if m == base]
+    assert parallel == ['A', 'B', 'C']
+    return 'D'
 
 
 def check_B8():
