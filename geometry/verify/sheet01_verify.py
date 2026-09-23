@@ -282,245 +282,220 @@ def check_B9():
 
 
 def check_B10():
-    """EXHAUSTIVE PROOF: Shoelace area of (1,1),(4,2),(2,6) is 1/2|14| = 7,
-    cross-checked via the vector determinant."""
-    twice = _shoelace_area([(1, 1), (4, 2), (2, 6)])
-    assert abs(twice) == 14
-    area = Fraction(abs(twice), 2)
-    assert area == 7
-    det = 3 * 5 - 1 * 1
-    assert abs(det) == 14
-    return area
+    """Shoelace on (1,0),(5,2),(4,6),(0,3) in order: cross terms 2+22+12-3 = 33, area 33/2."""
+    pts = [(1, 0), (5, 2), (4, 6), (0, 3)]
+    twice = _shoelace_area(pts)
+    assert twice == 33
+    # convex, so the triangle split (1,0),(5,2),(4,6) + (1,0),(4,6),(0,3) agrees
+    assert abs(_shoelace_area(pts[:3])) + abs(_shoelace_area([pts[0], pts[2], pts[3]])) == 33
+    return Fraction(twice, 2)
 
 
 # ── Section C ──────────────────────────────────────────────────────────────────
+def _only(options, value):
+    """The single option letter whose value equals `value` (exactly, via sympy)."""
+    hits = [k for k, v in options.items() if sympy.simplify(sympy.nsimplify(v) - value) == 0]
+    assert len(hits) == 1, (hits, value)
+    return hits[0]
+
+
+def _clip(subject, clipper):
+    """Sutherland-Hodgman: the part of convex polygon `subject` inside convex, anticlockwise `clipper`."""
+    def inside(p, a, b):
+        return (b[0] - a[0]) * (p[1] - a[1]) - (b[1] - a[1]) * (p[0] - a[0]) >= 0
+
+    def cross(p, q, a, b):
+        d = (p[0] - q[0]) * (a[1] - b[1]) - (p[1] - q[1]) * (a[0] - b[0])
+        t = Fraction((p[0] - a[0]) * (a[1] - b[1]) - (p[1] - a[1]) * (a[0] - b[0])) / d
+        return (p[0] + t * (q[0] - p[0]), p[1] + t * (q[1] - p[1]))
+
+    out = list(subject)
+    for i in range(len(clipper)):
+        a, b = clipper[i], clipper[(i + 1) % len(clipper)]
+        pts, out = out, []
+        for j in range(len(pts)):
+            p, q = pts[j], pts[(j + 1) % len(pts)]
+            if inside(q, a, b):
+                if not inside(p, a, b):
+                    out.append(cross(p, q, a, b))
+                out.append(q)
+            elif inside(p, a, b):
+                out.append(cross(p, q, a, b))
+    return out
+
+
 def check_C1():
-    """EXHAUSTIVE PROOF: l1 y=6-2x (m=-2) perp l2 y=x/2+3 (m=1/2) via m1*m2=-1; x-ints 3 and -6 give base 9, intersection height 18/5, area 81/5 (option A)."""
-    m1 = Fraction(-2)
-    m2 = Fraction(1,2)
-    assert m1 * m2 == -1
-    # x-intercepts
-    x1 = Fraction(6,2)  # 6-2x=0 => x=3
-    x2 = Fraction(-3, m2)  # x/2+3=0 => x=-6
-    assert x1 == 3 and x2 == -6
-    base = abs(x1 - x2)
-    assert base == 9
-    # intersection
+    """l1: y=6-2x, l2: y=x/2+3; triangle with the x-axis has base 9 (intercepts 3, -6) and height 18/5 -> 81/5 (A)."""
     x = sympy.Symbol('x')
-    sol = sympy.solve(sympy.Eq(6-2*x, x/2+3), x)
-    assert sol == [Fraction(6,5)]
-    y = 6-2*sol[0]
-    assert y == Fraction(18,5)
-    area = Fraction(base * y, 2)
-    assert area == Fraction(81,5)
-    # shoelace cross-check on (3,0),(-6,0),(6/5,18/5)
-    twice = _shoelace_area([(3,0),(-6,0),(Fraction(6,5), Fraction(18,5))])
-    assert abs(twice) == Fraction(81,5)*2
-    options = {'A': Fraction(81,5), 'B': Fraction(54,5), 'C': Fraction(81,10), 'D': 27}
-    matches = [let for let,v in options.items() if v == area]
-    assert matches == ['A']
-    return 'A'
+    l1, l2 = 6 - 2 * x, x / 2 + 3
+    assert sympy.Rational(-2) * sympy.Rational(1, 2) == -1          # perpendicular
+    x1, x2 = sympy.solve(l1, x)[0], sympy.solve(l2, x)[0]
+    xp = sympy.solve(l1 - l2, x)[0]
+    area = sympy.Rational(1, 2) * abs(x1 - x2) * abs(l1.subs(x, xp))
+    assert 2 * area == abs(_shoelace_area([(x1, 0), (x2, 0), (xp, l1.subs(x, xp))]))
+    options = {'A': Fraction(81, 5), 'B': Fraction(54, 5), 'C': Fraction(81, 10), 'D': Fraction(27, 2)}
+    return _only(options, area)
 
 
 def check_C2():
-    """EXHAUSTIVE PROOF: Perp bisector of (2,-6)-(5,4) meets x-axis at 1/6 (option A) via midpoint+perp gradient and equidistance."""
-    a1,b1 = 2, -6
-    a2,b2 = 5, 4
-    mid = (Fraction(a1+a2,2), Fraction(b1+b2,2))
-    assert mid == (Fraction(7,2), -1)
-    seg_grad = Fraction(b2-b1, a2-a1)
-    assert seg_grad == Fraction(10,3)
-    perp_grad = Fraction(-1, seg_grad)
-    assert perp_grad == Fraction(-3,10)
-    # line: y+1 = -3/10(x-7/2), set y=0 => 1 = -3/10(x-7/2)
-    x0 = sympy.Symbol('x0')
-    eq = sympy.Eq(0+1, perp_grad*(x0 - Fraction(7,2)))
-    sol = sympy.solve(eq, x0)
-    assert sol == [Fraction(1,6)]
-    # equidistance cross-check
-    assert (sol[0]-a1)**2 + (0-b1)**2 == (sol[0]-a2)**2 + (0-b2)**2
-    options = {'A': Fraction(1,6), 'B': Fraction(1,3), 'C': Fraction(19,5), 'D': Fraction(41,6)}
-    matches = [let for let,v in options.items() if v == sol[0]]
-    assert matches == ['A']
-    return 'A'
+    """P=(p,0) equidistant from A(2,-6), B(5,4): (p-2)^2+36=(p-5)^2+16 -> p=1/6 (D)."""
+    p = sympy.Symbol('p')
+    sol = sympy.solve(sympy.Eq((p - 2) ** 2 + 36, (p - 5) ** 2 + 16), p)
+    assert sol == [sympy.Rational(1, 6)]
+    # gradient route agrees: through midpoint (7/2,-1) with gradient -3/10
+    assert sympy.Rational(-1) + sympy.Rational(-3, 10) * (sol[0] - sympy.Rational(7, 2)) == 0
+    options = {'A': Fraction(41, 6), 'B': Fraction(1, 3), 'C': Fraction(19, 5), 'D': Fraction(1, 6)}
+    return _only(options, sol[0])
 
 
 def check_C3():
-    """EXHAUSTIVE PROOF: Two circles same r, centres (-2,1) and (3,-2): subtract to get 10x-6y=8 =>5x-3y=4 (option B)."""
-    # Expand (x+2)^2+(y-1)^2 and (x-3)^2+(y+2)^2, subtract r^2 cancels
-    x,y = sympy.symbols('x y')
-    c1 = (x+2)**2 + (y-1)**2
-    c2 = (x-3)**2 + (y+2)**2
-    diff = sympy.expand(c1 - c2)
-    assert diff == 10*x -6*y -8
-    # so 10x-6y=8 =>5x-3y=4
-    assert sympy.simplify(diff - (10*x-6*y-8)) == 0
-    options = {'A': '5x-3y=1', 'B': '5x-3y=4', 'C': '5x+3y=1', 'D': '3x-5y=4'}
-    matches = [let for let,eq in options.items() if eq == '5x-3y=4']
-    assert matches == ['B']
-    return 'B'
+    """Reflect A(2,9) in x+2y=5: A' = A - 2*15/5*(1,2) = (-4,-3), |OA'| = 5 (C)."""
+    A = sympy.Matrix([2, 9]); n = sympy.Matrix([1, 2])
+    k = (A.dot(n) - 5) / n.dot(n)
+    A2 = A - 2 * k * n
+    assert list(A2) == [-4, -3]
+    assert (A + A2).dot(n) / 2 == 5                      # midpoint on the mirror
+    assert (A2 - A).dot(sympy.Matrix([2, -1])) == 0      # AA' perpendicular to the mirror
+    options = {'A': sympy.sqrt(85), 'B': sympy.sqrt(10), 'C': 5, 'D': sympy.sqrt(185)}
+    return _only(options, sympy.sqrt(A2.dot(A2)))
 
 
 def check_C4():
-    """EXHAUSTIVE PROOF: x^2-2px+y^2-6y-p^2+8p+9=0 => (x-p)^2+(y-3)^2=2p(p-4); radius^2>0 => p<0 or p>4 (option D)."""
-    p = sympy.Symbol('p')
-    rad2 = 2*p*(p-4)
-    # check completing square
-    assert sympy.expand((p)**2) == p**2
-    # test values
-    for val in [-1, -5, 5, 9]:
-        assert (rad2.subs(p,val) > 0) == (val<0 or val>4)
-    for val in [0,1,2,4]:
-        assert rad2.subs(p,val) <= 0
-    options = {'A': 'p<-1 or p>9', 'B': '-1<p<9', 'C': '0<p<4', 'D': 'p<0 or p>4'}
-    matches = [let for let,cond in options.items() if cond == 'p<0 or p>4']
-    assert matches == ['D']
+    """At (1,1): 3x-4y+2=1, 4x-3y-5=-4 (opposite signs) -> bisector L1 + L2 = 0 -> 7x-7y=3 (D)."""
+    x, y = sympy.symbols('x y')
+    L1, L2 = 3 * x - 4 * y + 2, 4 * x - 3 * y - 5
+    s1, s2 = L1.subs({x: 1, y: 1}), L2.subs({x: 1, y: 1})
+    assert s1 > 0 and s2 < 0
+    bis = sympy.expand(L1 + L2)
+    assert bis == 7 * x - 7 * y - 3
+    # every point on it is equidistant (normals both have length 5)
+    t = sympy.Symbol('t'); pt = {x: t, y: t - sympy.Rational(3, 7)}
+    assert sympy.simplify(sympy.Abs(L1.subs(pt)) - sympy.Abs(L2.subs(pt))) == 0
+    cands = {'A': x - y - 7, 'B': x + y - 7, 'C': 7 * x + 7 * y - 3, 'D': 7 * x - 7 * y - 3}
+    hits = [k for k, e in cands.items() if sympy.simplify(e - bis) == 0]
+    assert hits == ['D']
+    options = {'A': 'x-y=7', 'B': 'x+y=7', 'C': '7x+7y=3', 'D': '7x-7y=3'}
+    assert set(options) == set(cands)
     return 'D'
 
 
 def check_C5():
-    """EXHAUSTIVE PROOF: A(1,4)-B(4,7) gradient 1 => C(10,13); perp through C slope -1 meets y-axis at 23 (option A)."""
-    g = Fraction(7-4,4-1)
-    assert g == 1
-    k = 4 + g*(10-1)
+    """A(1,4), B(4,7): gradient 1, so C=(10,13); the perpendicular y=23-x meets the y-axis at 23 (A)."""
+    g = Fraction(7 - 4, 4 - 1)
+    k = 4 + g * (10 - 1)
     assert k == 13
-    # line through C perp to AB: y-13 = -1(x-10)
-    c = 13 + 10  # y-int when x=0: y= -0+23
-    assert c == 23
-    assert sympy.Symbol('x').subs(sympy.Symbol('x'),0) == 0  # dummy
+    yint = k - (Fraction(-1) / g) * 10          # y = k + m_perp (x - 10), at x = 0
+    assert yint == 23
     options = {'A': 23, 'B': 24, 'C': 25, 'D': 26}
-    matches = [let for let,v in options.items() if v == c]
-    assert matches == ['A']
-    return 'A'
+    return _only(options, yint)
 
 
 def check_C6():
-    """EXHAUSTIVE PROOF: y=4x^2 -> translate (3,-5) -> reflect x-axis -> stretch x2 => y=-x^2+12x-31 (option A)."""
-    x = sympy.Symbol('x')
-    # step1 translate: y+5=4(x-3)^2
-    # step2 reflect: -y+5=4(x-3)^2 => y = -4(x-3)^2+5
-    # step3 stretch x2: y = -4(x/2-3)^2+5
-    expr = -4*(x/2-3)**2+5
-    target = -x**2+12*x-31
-    assert sympy.expand(expr - target) == 0
-    # options as sympy expressions (with explicit * )
-    options = {'A': -x**2+12*x-31, 'B': -x**2+12*x-41, 'C': -16*x**2+48*x-31, 'D': 16*x**2-48*x+41}
-    matches = [let for let,eq in options.items() if sympy.expand(eq - target) == 0]
-    assert matches == ['A']
-    return 'A'
+    """[ABC]=36; [APQ]=(1/3)(2/3)[ABC]=8 -> [PBCQ]=28 (B), cross-checked by shoelace."""
+    A, B, C = (0, 0), (9, 3), (3, 9)
+    P = (Fraction(B[0], 3), Fraction(B[1], 3))
+    Q = (Fraction(2 * C[0], 3), Fraction(2 * C[1], 3))
+    abc = Fraction(abs(_shoelace_area([A, B, C])), 2)
+    assert abc == 36
+    quad = Fraction(abs(_shoelace_area([P, B, C, Q])), 2)
+    assert quad == abc - Fraction(1, 3) * Fraction(2, 3) * abc
+    options = {'A': 24, 'B': 28, 'C': 27, 'D': 32}
+    return _only(options, quad)
 
 
 def check_C7():
-    """EXHAUSTIVE PROOF: Circles distance 13, r1=8, r=|13±8| gives 21 and 5, difference 16 (option B)."""
-    d = math.isqrt(12**2+5**2)
-    assert d == 13
-    r1 = 8
-    r_a = abs(d - r1)  # internal tangency
-    r_b = d + r1  # external
-    assert r_a == 5 and r_b == 21
-    diff = abs(r_b - r_a)
-    assert diff == 16
-    options = {'A': 8, 'B': 16, 'C': 26, 'D': 42}
-    matches = [let for let,v in options.items() if v == diff]
-    assert matches == ['B']
-    return 'B'
+    """Vertices (2,5), (6,1), (-2,-3); shoelace area 24 (C)."""
+    x, y = sympy.symbols('x y')
+    lines = [2 * x + 1, 7 - x, x / 2 - 2]
+    pts = []
+    for a, b in [(0, 1), (1, 2), (0, 2)]:
+        xs = sympy.solve(lines[a] - lines[b], x)[0]
+        pts.append((xs, lines[a].subs(x, xs)))
+    assert pts == [(2, 5), (6, 1), (-2, -3)]
+    area = sympy.Abs(_shoelace_area(pts)) / 2
+    options = {'A': 12, 'B': 18, 'C': 24, 'D': 48}
+    return _only(options, area)
 
 
 def check_C8():
-    """EXHAUSTIVE PROOF: Overlap of Q(0,0),(4,0),(5,3),(1,3) and its reflection in y=x has area 6 (option A) via shoelace on intersection polygon (1,3),(3,3),(3,1),(0,0)."""
-    # Q area 12, Q' same, intersection polygon (0,0),(3,1),(3,3),(1,3)
-    inter = [(0,0),(3,1),(3,3),(1,3)]
-    twice = _shoelace_area(inter)
-    assert abs(twice) == 12
-    area = Fraction(abs(twice),2)
-    assert area == 6
-    # cross-check via shapely if available, else grid
-    assert area == 6  # verified via shapely Polygon intersection earlier
+    """Clip Q=(0,0),(4,0),(5,3),(1,3) by its reflection in y=x; the overlap has area 6 (A)."""
+    Q = [(0, 0), (4, 0), (5, 3), (1, 3)]
+    Qr = [(y, x) for (x, y) in Q][::-1]            # reflect, then restore anticlockwise order
+    overlap = _clip(Q, Qr)
+    area = Fraction(abs(_shoelace_area(overlap))) / 2
+    assert Fraction(abs(_shoelace_area(Q))) / 2 == 12
     options = {'A': 6, 'B': 8, 'C': 9, 'D': 12}
-    matches = [let for let,v in options.items() if v == int(area)]
-    assert matches == ['A']
-    return 'A'
+    return _only(options, area)
 
 
 # ── Section D ──────────────────────────────────────────────────────────────────
 def check_D1():
-    """EXHAUSTIVE PROOF: SSA ambiguous case with AB=10,BC=7, ratio 3 => cos=√17/5 (option B) via quadratic in b."""
-    # b^2 -20b cos+51=0, product 51, ratio 3 => b2=√17
-    b2 = sympy.sqrt(17)
-    b1 = 3*b2
-    prod = sympy.simplify(b1*b2)
-    assert prod == 51
-    s = b1 + b2
-    assert sympy.simplify(s - 4*sympy.sqrt(17)) == 0
-    cos_val = s/20
-    assert sympy.simplify(cos_val - sympy.sqrt(17)/5) == 0
-    options = {'A': Fraction(5,7), 'B': sympy.sqrt(17)/5, 'C': sympy.sqrt(51)/8, 'D': sympy.sqrt(34)/8}
-    # compare numerically
-    target = sympy.sqrt(17)/5
-    matches = [let for let,v in options.items() if abs(float(sympy.N(v))-float(sympy.N(target)))<1e-9]
-    assert matches == ['B']
-    return 'B'
+    """A(1,3), B(7,5) lie on opposite sides of y=x, so min PA+PB = AB = 2*sqrt(10) (D), at P=(4,4)."""
+    A, B = (1, 3), (7, 5)
+    assert (A[1] - A[0]) * (B[1] - B[0]) < 0          # opposite sides
+    t = sympy.Symbol('t')
+    sol = sympy.solve(sympy.Eq(A[1] + t * (B[1] - A[1]), A[0] + t * (B[0] - A[0])), t)
+    P = (A[0] + sol[0] * (B[0] - A[0]), A[1] + sol[0] * (B[1] - A[1]))
+    assert P == (4, 4) and 0 < sol[0] < 1
+    dist = lambda U, V: sympy.sqrt((U[0] - V[0]) ** 2 + (U[1] - V[1]) ** 2)
+    best = dist(P, A) + dist(P, B)
+    assert sympy.simplify(best - dist(A, B)) == 0
+    # brute force along the line agrees to 1e-6
+    grid = min(float(dist((s, s), A) + dist((s, s), B)) for s in [i / 1000 for i in range(0, 8001)])
+    assert abs(grid - float(best)) < 1e-6
+    options = {'A': 4 * sympy.sqrt(2), 'B': 2 * sympy.sqrt(34), 'C': 10, 'D': 2 * sympy.sqrt(10)}
+    return _only(options, best)
 
 
 def check_D2():
-    """EXHAUSTIVE PROOF: Square side 10, rectangle area -2x^2+20x=20 => x=5±√15, largest 5+√15 (option B)."""
-    x = sympy.Symbol('x')
-    sols = sympy.solve(sympy.Eq(-2*x**2+20*x, 20), x)
-    assert set(sols) == {5-sympy.sqrt(15), 5+sympy.sqrt(15)}
-    largest = max(sols)
-    assert largest == 5+sympy.sqrt(15)
-    options = {'A': 5+sympy.sqrt(5), 'B': 5+sympy.sqrt(15), 'C': 5+sympy.sqrt(20), 'D': 10-sympy.sqrt(5)}
-    matches = [let for let,v in options.items() if sympy.simplify(v - largest) == 0]
-    assert matches == ['B']
-    return 'B'
+    """R=(x,0), S=(10,10-x), T=(10-x,10), U=(0,x): area 2x(10-x) = 20 -> x = 5 + sqrt(15) (B)."""
+    x = sympy.Symbol('x', positive=True)
+    R, S, T, U = (x, 0), (10, 10 - x), (10 - x, 10), (0, x)
+    RS = (S[0] - R[0], S[1] - R[1]); RU = (U[0] - R[0], U[1] - R[1])
+    assert sympy.simplify(RS[0] * RU[0] + RS[1] * RU[1]) == 0          # right angle at R
+    assert sympy.simplify(RS[1] - RS[0]) == 0                            # RS at 45 degrees
+    area = sympy.expand(RS[0] * RU[1] - RS[1] * RU[0])                  # |RS x RU|, positive for 0<x<10
+    assert sympy.simplify(area - 2 * x * (10 - x)) == 0
+    roots = [r for r in sympy.solve(sympy.Eq(2 * x * (10 - x), 20), x) if 0 < r < 10]
+    options = {'A': 5 + sympy.sqrt(5), 'B': 5 + sympy.sqrt(15), 'C': 5 + 2 * sympy.sqrt(5), 'D': 10 - sympy.sqrt(5)}
+    return _only(options, max(roots))
 
 
 def check_D3():
-    """EXHAUSTIVE PROOF: Circle r=6, [POQ]=9√3 => sinθ=√3/2, θ=120° (≥90°), chord 6√3, maximal height 9, area 27√3 (option B)."""
-    r = 6
-    # 1/2 r^2 sinθ =9√3 => sin=√3/2
-    sin_val = Fraction(9*2, r*r)  # 18/36=1/2? wait 9√3*2/36=√3/2
-    # use sympy
-    theta = 2*sympy.pi/3  # 120°
-    assert sympy.simplify(sympy.sin(theta) - sympy.sqrt(3)/2) == 0
-    chord = 2*r*sympy.sin(theta/2)  # 2*6*sin60=6√3
-    assert sympy.simplify(chord - 6*sympy.sqrt(3)) == 0
-    height = r + r*sympy.cos(theta/2)  # 6+3=9
-    assert height == 9
-    area = sympy.Rational(1,2)*chord*height
-    assert area == 27*sympy.sqrt(3)
-    options = {'A': 18+9*sympy.sqrt(3), 'B': 27*sympy.sqrt(3), 'C': 27+9*sympy.sqrt(3), 'D': 36+9*sympy.sqrt(3)}
-    matches = [let for let,v in options.items() if sympy.simplify(v - area) == 0]
-    assert matches == ['B']
-    return 'B'
+    """Rhombus |x|+2|y|<=6 has area 36; the piece below y=x-2 has area 10 -> 26 (C)."""
+    rhombus = [(6, 0), (0, 3), (-6, 0), (0, -3)]
+    half_plane = [(-100, -102), (100, 98), (-100, 98)]      # y >= x - 2, anticlockwise, large
+    region = _clip(rhombus, half_plane)
+    area = Fraction(abs(_shoelace_area(region))) / 2
+    assert Fraction(abs(_shoelace_area(rhombus))) / 2 == 36
+    assert 36 - area == 10
+    options = {'A': 10, 'B': 18, 'C': 26, 'D': 36}
+    return _only(options, area)
 
 
 def check_D4():
-    """EXHAUSTIVE PROOF: L=√((p+f)^2+(q+g)^2) needs f,g,p,q (option B); h irrelevant (tangent length needs it, not L)."""
-    # centre (-f,-g), point (p,q)
-    # test sufficiency: with f,g,p,q can compute L
-    f,g,p,q = 2,3,4,5
-    L = math.hypot(p+f, q+g)
-    assert L == math.hypot(6,8) == 10
-    options = {'A': 'f,g,h', 'B': 'f,g,p,q', 'C': 'f,h,p,q', 'D': 'g,h,p,q'}
-    # minimal sufficient is B
-    matches = [let for let,desc in options.items() if desc == 'f,g,p,q']
-    assert matches == ['B']
-    return 'B'
+    """(2m-3)^2 = 24|m|: two positive roots and the double root m=-3/2 -> 3 lines (D)."""
+    m = sympy.Symbol('m', real=True)
+    pos = [r for r in sympy.solve(sympy.Eq((2 * m - 3) ** 2, 24 * m), m) if r > 0]
+    neg = [r for r in sympy.solve(sympy.Eq((2 * m - 3) ** 2, -24 * m), m) if r < 0]
+    slopes = set(pos) | set(neg)
+    for s in slopes:
+        xi, yi = 2 - 3 / s, 3 - 2 * s
+        assert sympy.simplify(sympy.Abs(xi * yi) / 2 - 12) == 0
+    options = {'A': 1, 'B': 2, 'C': 4, 'D': 3}
+    return _only(options, len(slopes))
 
 
 def check_D5():
-    """EXHAUSTIVE PROOF: C1 r=5 at origin, C2 r=4 centre in 4×6 rectangle [-2,2]×[-3,3]; intersect iff 1≤d≤9, max d=√13<9 so only d<1 fails; area π, prob 1-π/24 (option D)."""
-    total = 4*6
-    assert total == 24
-    # disc radius 1 area π fully inside rectangle (half-width 2, half-height 3)
-    assert 1 <= 2 and 1 <= 3
-    prob = 1 - sympy.pi/24
-    assert sympy.simplify(prob - (24-sympy.pi)/24) == 0
-    options = {'A': sympy.Rational(9,25), 'B': sympy.Rational(16,25), 'C': (16-sympy.pi)/24, 'D': (24-sympy.pi)/24}
-    matches = [let for let,v in options.items() if sympy.simplify(v - prob) == 0]
-    assert matches == ['D']
-    return 'D'
+    """d^2 = t^2(4-t)^2/(t^2+(4-t)^2) is maximal at t=2, where d = sqrt(2) (C)."""
+    t = sympy.Symbol('t', positive=True)
+    d2 = (t * (4 - t)) ** 2 / (t ** 2 + (4 - t) ** 2)
+    crit = [c for c in sympy.solve(sympy.diff(d2, t), t) if 0 < c < 4]
+    assert crit == [2]
+    best = sympy.sqrt(d2.subs(t, 2))
+    assert all(float(d2.subs(t, s / 100)) <= float(best ** 2) + 1e-12 for s in range(1, 400))
+    options = {'A': 1, 'B': 2, 'C': sympy.sqrt(2), 'D': 2 * sympy.sqrt(2)}
+    return _only(options, best)
 
 
 CHECKS = {
