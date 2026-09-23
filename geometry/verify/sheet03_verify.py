@@ -70,6 +70,26 @@ def _common_chord(c1_expr, c2_expr, cx, cy, r2):
     return sympy.simplify(2 * half), (a, b, c, d)
 
 
+def _only(options, value):
+    """The single option letter whose value equals `value` (exactly, via sympy)."""
+    hits = [k for k, v in options.items() if sympy.simplify(sympy.nsimplify(v) - value) == 0]
+    assert len(hits) == 1, (hits, value)
+    return hits[0]
+
+
+def _tangent_count(d2, r1, r2):
+    """Number of common tangents from d^2 and the radii, exact at the two boundaries."""
+    s2 = sympy.expand((sympy.sympify(r1) + r2)**2)
+    t2 = sympy.expand((sympy.sympify(r1) - r2)**2)
+    if sympy.simplify(d2 - s2) == 0:
+        return 3
+    if sympy.simplify(d2 - t2) == 0:
+        return 1
+    if d2 > s2:
+        return 4
+    return 2 if d2 > t2 else 0
+
+
 # ── Section A ──────────────────────────────────────────────────────────────────
 def check_A1():
     """EXHAUSTIVE PROOF: Centre (6,8) and (0,0), both radius 5; d=10=r1+r2 means external tangency and exactly 3 common tangents."""
@@ -101,22 +121,19 @@ def check_A2():
 
 
 def check_A3():
-    """EXHAUSTIVE PROOF: The radical axis subtracts to -4x+6y-12=0, reduced to 2x-3y+6=0; any point on it has equal power."""
-    expected = get_answer(TEX_PATH, 'A3')
-    c1 = _X**2 + _Y**2 - 6*_X + 2*_Y + 1
-    c2 = _X**2 + _Y**2 - 2*_X - 4*_Y + 13
+    """EXHAUSTIVE PROOF: Both circles are real (r^2 = 21 and 4); subtracting gives -4x+6y-12=0, reduced to 2x-3y+6=0; any point on it has equal power."""
+    c1 = _X**2 + _Y**2 - 6*_X + 2*_Y - 11
+    c2 = _X**2 + _Y**2 - 2*_X - 4*_Y + 1
+    assert _complete_square(c1) == (3, -1, 21)
+    assert _complete_square(c2) == (1, 2, 4)
     diff = sympy.expand(c1 - c2)
     assert sympy.simplify(diff - (-4*_X + 6*_Y - 12)) == 0
     reduced = sympy.expand(diff / -2)
     assert sympy.simplify(reduced - (2*_X - 3*_Y + 6)) == 0
     x0, y0 = 0, 2
     assert sympy.simplify(reduced.subs({_X: x0, _Y: y0})) == 0
-    assert sympy.simplify(c1.subs({_X: x0, _Y: y0}) - c2.subs({_X: x0, _Y: y0})) == 0
-    computed_str = _line_string(-4, 6, -12)
-    assert computed_str == "2x-3y+6=0"
-    # bind via string compare (parsed may be Equality)
-    assert "2x-3y+6=0" in str(expected).replace(" ", "") or computed_str in str(expected)
-    return computed_str
+    assert c1.subs({_X: x0, _Y: y0}) == c2.subs({_X: x0, _Y: y0}) == -3
+    return sympy.Eq(2*_X - 3*_Y + 6, 0)
 
 
 def check_A4():
@@ -223,42 +240,34 @@ def check_A10():
 
 # ── Section B ──────────────────────────────────────────────────────────────────
 def check_B1():
-    """EXHAUSTIVE PROOF: Circles radius 3 at (0,0) and radius 2 at (2,3); d^2=13 lies strictly between the radii' difference and sum: 2 tangents (C)."""
-    expected = get_answer(TEX_PATH, 'B1')
-    cx1, cy1, r2_1 = 0, 0, 9
-    cx2, cy2, r2_2 = _complete_square(_X**2 + _Y**2 - 4*_X - 6*_Y + 9)
-    assert (cx2, cy2, r2_2) == (2, 3, 4)
-    d2 = sympy.simplify((cx1-cx2)**2 + (cy1-cy2)**2)
-    assert d2 == 13
-    s = sympy.sqrt(r2_1) + sympy.sqrt(r2_2)
-    t = sympy.Abs(sympy.sqrt(r2_1) - sympy.sqrt(r2_2))
-    assert t**2 < d2 < s**2
-    computed = 'C'
-    assert mcq_letter(expected) == computed or mcq_letter(str(expected)) == computed
-    return computed
+    """EXHAUSTIVE PROOF: Centres (1,2), (3,1), radii 5 and 2; d=sqrt5 < 3 = r1-r2, so the small circle is strictly inside: 0 tangents (A)."""
+    cx1, cy1, r2_1 = _complete_square(_X**2 + _Y**2 - 2*_X - 4*_Y - 20)
+    cx2, cy2, r2_2 = _complete_square(_X**2 + _Y**2 - 6*_X - 2*_Y + 6)
+    assert (cx1, cy1, r2_1, cx2, cy2, r2_2) == (1, 2, 25, 3, 1, 4)
+    d2 = (cx1 - cx2)**2 + (cy1 - cy2)**2
+    count = _tangent_count(d2, 5, 2)
+    # every point of the small circle is inside the big one
+    far = max(math.hypot(3 + 2*math.cos(t/100) - 1, 1 + 2*math.sin(t/100) - 2) for t in range(629))
+    assert far < 5
+    options = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4}
+    return _only(options, count)
 
 
 def check_B2():
-    """EXHAUSTIVE PROOF: Coefficients match: a-6=2, b+4=-1, c-10=3 give a=8, b=-5, c=13, so a+b=3 (option A)."""
-    expected = get_answer(TEX_PATH, 'B2')
-    a, b, c = sympy.symbols('a b c')
-    diff = sympy.expand((a - 6)*_X + (b + 4)*_Y + (c - 10))
-    target = 2*_X - _Y + 3
-    sols = sympy.solve([sympy.simplify(diff.coeff(_X) - target.coeff(_X)),
-                        sympy.simplify(diff.coeff(_Y) - target.coeff(_Y)),
-                        sympy.simplify(diff.subs({_X: 0, _Y: 0}) - target.subs({_X: 0, _Y: 0}))],
-                       [a, b, c])
-    assert sols == {a: 8, b: -5, c: 13}
-    total = sols[a] + sols[b]
-    assert total == 3
-    computed = 'A'
-    assert mcq_letter(expected) == computed
-    return computed
+    """EXHAUSTIVE PROOF: c=0 and (a-6)x+(b+4)y-10 = k(2x-y+5) force k=-2, a=2, b=-2, so a+b=0 (D). Without c=0, a+b=k+2 is free."""
+    a, b, k = sympy.symbols('a b k')
+    diff = (a - 6)*_X + (b + 4)*_Y - 10
+    sol = sympy.solve(sympy.Poly(sympy.expand(diff - k*(2*_X - _Y + 5)), _X, _Y).coeffs(), [a, b, k], dict=True)
+    assert sol == [{a: 2, b: -2, k: -2}]
+    total = sol[0][a] + sol[0][b]
+    # the circle x^2+y^2+2x-2y=0 really has this radical axis with the second circle
+    assert sympy.expand((_X**2 + _Y**2 + 2*_X - 2*_Y) - (_X**2 + _Y**2 + 6*_X - 4*_Y + 10)) == -2*(2*_X - _Y + 5)
+    options = {'A': 3, 'B': 5, 'C': -3, 'D': 0}
+    return _only(options, total)
 
 
 def check_B3():
-    """EXHAUSTIVE PROOF: 2(-2)(3)+2(1)(-1)=-14 equals -5+k, so k=-9 (option A)."""
-    expected = get_answer(TEX_PATH, 'B3')
+    """EXHAUSTIVE PROOF: 2(-2)(3)+2(1)(-1)=-14 equals -5+k, so k=-9 (option A); the d^2 test agrees."""
     g1, f1, c1 = -2, 1, -5
     g2, f2 = 3, -1
     k = sympy.Symbol('k')
@@ -266,9 +275,10 @@ def check_B3():
     assert lhs == -14
     sols = sympy.solve(sympy.Eq(lhs, c1 + k), k)
     assert sols == [-9]
-    computed = 'A'
-    assert mcq_letter(expected) == computed
-    return computed
+    # centres (2,-1), (-3,1): d^2 = 29 = r1^2 + r2^2 = 10 + (10 - k)
+    assert 29 == 10 + (9 + 1 - sols[0])
+    options = {'A': -9, 'B': 9, 'C': -5, 'D': 14}
+    return _only(options, sols[0])
 
 
 def check_B4():
@@ -286,64 +296,61 @@ def check_B4():
 
 def check_B5():
     """EXHAUSTIVE PROOF: Equal radii make the radical axis the perpendicular bisector of (0,0)-(6,0): x=3 (option A)."""
-    expected = get_answer(TEX_PATH, 'B5')
     line = sympy.expand((_X**2 + _Y**2 - 25) - ((_X - 6)**2 + _Y**2 - 25))
     assert sympy.simplify(line - (12*_X - 36)) == 0
     assert sympy.solve(sympy.Eq(line, 0), _X) == [3]
-    computed = 'A'
-    assert mcq_letter(expected) == computed
-    return computed
+    options = {'A': _X - 3, 'B': _X - 6, 'C': _Y - 3, 'D': _Y}
+    hits = [let for let, e in options.items() if sympy.simplify(line / 12 - e) == 0]
+    assert hits == ['A']
+    return 'A'
 
 
 def check_B6():
     """EXHAUSTIVE PROOF: |6-4|=2<9<10: strict overlap, two common tangents (C)."""
-    expected = get_answer(TEX_PATH, 'B6')
-    d, r1, r2 = 9, 4, 6
-    assert abs(r1 - r2) < d < r1 + r2
-    computed = 'C'
-    assert mcq_letter(expected) == computed
-    return computed
+    assert abs(4 - 6) < 9 < 4 + 6
+    count = _tangent_count(81, 4, 6)
+    options = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4}
+    return _only(options, count)
 
 
 def check_B7():
-    """EXHAUSTIVE PROOF: d^2=16+9=25 and r2^2=25-C; orthogonality gives 25 = 4 + 25 - C, so C=4 (option A); the coefficient test agrees."""
-    expected = get_answer(TEX_PATH, 'B7')
-    C = sympy.Symbol('C')
-    d2 = sympy.Integer(16 + 9)
-    r2_2 = sympy.simplify(16 + 9 - C)
-    sols = sympy.solve(sympy.Eq(d2, 4 + r2_2), C)
-    assert sols == [4]
-    assert sympy.simplify(2*0*4 + 2*0*(-3) - (-4 + sols[0])) == 0
-    computed = 'A'
-    assert mcq_letter(expected) == computed
-    return computed
+    """EXHAUSTIVE PROOF: R^2 = power of (7,1) = 36, so R = 6 (D); d^2 = 45 = R^2 + r^2 with r = 3."""
+    S = _X**2 + _Y**2 - 2*_X + 4*_Y - 4
+    cx, cy, r2 = _complete_square(S)
+    assert (cx, cy, r2) == (1, -2, 9)
+    R2 = S.subs({_X: 7, _Y: 1})
+    assert R2 == 36
+    d2 = (7 - cx)**2 + (1 - cy)**2
+    assert d2 == R2 + r2
+    R = sympy.sqrt(R2)
+    options = {'A': 3*sympy.sqrt(5), 'B': 3*sympy.sqrt(5) - 3, 'C': 3, 'D': 6}
+    return _only(options, R)
 
 
 def check_B8():
-    """EXHAUSTIVE PROOF: Equal radii 6 with centres 6 apart give radical axis x=3; common chord 2*sqrt(36-9)=6*sqrt(3)."""
-    expected = get_answer(TEX_PATH, 'B8')
-    r2 = 36
-    chord, (a, b, c, d) = _common_chord(
-        _X**2 + _Y**2 - 36, (_X - 6)**2 + _Y**2 - 36, 0, 0, r2)
-    assert (a, b) == (12, 0)
-    assert sympy.simplify(d - 3) == 0
-    assert sympy.simplify(chord - 6 * sympy.sqrt(3)) == 0
-    computed = chord
-    # expected parsed is 6*sqrt(3)
-    assert sympy.simplify(computed - expected) == 0
-    return computed
+    """EXHAUSTIVE PROOF: Radical axis 6x+3y=25 meets the line of centres y=x/2 at (10/3, 5/3), the midpoint of PQ (checked against the actual intersection points)."""
+    S1 = _X**2 + _Y**2 - 25
+    S2 = _X**2 + _Y**2 - 12*_X - 6*_Y + 25
+    assert _complete_square(S2) == (6, 3, 20)
+    axis = sympy.expand(S1 - S2)
+    assert axis == 12*_X + 6*_Y - 50
+    M = sympy.solve([axis, _Y - _X/2], [_X, _Y])
+    pts = sympy.solve([S1, S2], [_X, _Y])
+    assert len(pts) == 2
+    mid = (sympy.simplify((pts[0][0] + pts[1][0]) / 2), sympy.simplify((pts[0][1] + pts[1][1]) / 2))
+    assert mid == (M[_X], M[_Y]) == (sympy.Rational(10, 3), sympy.Rational(5, 3))
+    return mid
 
 
 def check_B9():
-    """EXHAUSTIVE PROOF: (4-r)^2+(8-r)^2=r^2 factors as (r-4)(r-20)=0; both radii are positive, so the possible radii are 4 and 20 (option C)."""
-    expected = get_answer(TEX_PATH, 'B9')
-    r = sympy.Symbol('r', real=True)
-    sols = sympy.solve(sympy.Eq((4 - r)**2 + (8 - r)**2, r**2), r)
-    assert set(sols) == {4, 20}
-    assert all(s > 0 for s in sols)
-    computed = 'C'
-    assert mcq_letter(expected) == computed
-    return computed
+    """EXHAUSTIVE PROOF: Centre (r,r): |7r-12| = 5r gives r = 1 or 6, both with centre in the first quadrant; sum 7 (C)."""
+    r = sympy.Symbol('r', positive=True)
+    roots = set(sympy.solve(7*r - 12 - 5*r, r)) | set(sympy.solve(7*r - 12 + 5*r, r))
+    assert roots == {1, 6}
+    for rv in roots:
+        assert sympy.Abs(3*rv + 4*rv - 12) / 5 == rv
+    options = {'A': 1, 'B': 6, 'C': 7, 'D': 5}
+    return _only(options, sum(roots))
 
 
 def check_B10():
@@ -384,105 +391,88 @@ def check_C1():
 
 def check_C2():
     """EXHAUSTIVE PROOF: Centres (1,0) and (5,3), d=5, r1+r2=5 => externally tangent => 3 common tangents (D)."""
-    expected = get_answer(TEX_PATH, 'C2')
-    d = sympy.sqrt((5-1)**2 + (3-0)**2)
-    assert d == 5
-    r1, r2 = 2, 3
-    assert d == r1 + r2
-    computed = 'D'
-    assert mcq_letter(expected) == computed
-    # numeric count 3
-    assert sympy.simplify(3 - 3) == 0
-    return computed
+    d2 = (5 - 1)**2 + (3 - 0)**2
+    assert d2 == 25
+    count = _tangent_count(d2, 2, 3)
+    options = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4}
+    return _only(options, count)
 
 
 def check_C3():
-    """EXHAUSTIVE PROOF: Second circle centre (3,-4) radius 12; radical axis 3x-4y-25=0 distance 5 from origin gives chord 24."""
-    expected = get_answer(TEX_PATH, 'C3')
+    """EXHAUSTIVE PROOF: Second circle centre (3,-4) radius 12; radical axis 3x-4y-25=0 distance 5 from origin gives chord 24 (C), a diameter of the smaller circle."""
     cx2, cy2, r2_2 = _complete_square(_X**2 + _Y**2 - 6*_X + 8*_Y - 119)
     assert (cx2, cy2, r2_2) == (3, -4, 144)
     chord, (a, b, c, d) = _common_chord(
         _X**2 + _Y**2 - 169, _X**2 + _Y**2 - 6*_X + 8*_Y - 119, 0, 0, 169)
     assert sympy.simplify(d - 5) == 0
+    assert a*cx2 + b*cy2 + c == 0          # the chord passes through (3,-4)
     assert chord == 24
-    computed = 'C'
-    assert mcq_letter(expected) == computed
-    return computed
+    options = {'A': 12, 'B': 16, 'C': 24, 'D': 26}
+    return _only(options, chord)
 
 
 def check_C4():
-    """EXHAUSTIVE PROOF: Centre (r,r): (9-r)^2+(2-r)^2=r^2 => r^2-22r+85=0 => sum 22 via Vieta, roots 5 and 17."""
-    expected = get_answer(TEX_PATH, 'C4')
+    """EXHAUSTIVE PROOF: Centre (r,r): (9-r)^2+(2-r)^2=r^2 => r^2-22r+85=0 => sum 22 via Vieta, roots 5 and 17 (C)."""
     r = sympy.Symbol('r', real=True)
     sols = sympy.solve(sympy.Eq((9 - r)**2 + (2 - r)**2, r**2), r)
     assert set(sols) == {5, 17}
-    total = sum(sols)
-    assert total == 22
-    # independent Vieta
     poly = sympy.Poly((9 - r)**2 + (2 - r)**2 - r**2, r)
     assert poly.coeffs() == [1, -22, 85]
-    assert -poly.coeffs()[1] == 22
-    computed = 'C'
-    assert mcq_letter(expected) == computed
-    return computed
+    options = {'A': 14, 'B': 17, 'C': 22, 'D': 34}
+    return _only(options, sum(sols))
 
 
 def check_C5():
-    """EXHAUSTIVE PROOF: Orthogonality 2g1g2+2f1f2=c1+c2 gives -12=C-1 => C=-11; d^2 check agrees."""
-    expected = get_answer(TEX_PATH, 'C5')
-    g1, f1 = 2, -1
-    g2, f2, c2 = -2, 2, -1
-    C = sympy.Symbol('C')
-    lhs = 2*g1*g2 + 2*f1*f2
-    assert lhs == -12
-    sols = sympy.solve(sympy.Eq(lhs, C + c2), C)
-    assert sols == [-11]
-    # geometric check
-    r1sq = 4+1 - sols[0]
-    r2sq = 4+4+1
-    d2 = (-2-2)**2 + (1+2)**2
-    assert d2 == 25
-    assert d2 == r1sq + r2sq
-    computed = 'A'
-    assert mcq_letter(expected) == computed
-    return computed
+    """EXHAUSTIVE PROOF: S1 + lambda S2 through (0,1) needs lambda = -3, giving x^2+y^2-24x-12y+11=0, radius 13 (D); agrees with the circumcircle of the actual P, Q, (0,1)."""
+    S1 = _X**2 + _Y**2 - 25
+    S2 = _X**2 + _Y**2 - 16*_X - 8*_Y - 1
+    lam = -S1.subs({_X: 0, _Y: 1}) / S2.subs({_X: 0, _Y: 1})
+    assert lam == -3
+    fam = sympy.expand((S1 + lam*S2) / (1 + lam))
+    cx, cy, R2 = _complete_square(fam)
+    assert (cx, cy, R2) == (12, 6, 169)
+    # independent: circle through the real intersection points and (0,1)
+    P, Q = sympy.solve([S1, S2], [_X, _Y])
+    assert not all(v.is_rational for v in P)
+    for pt in (P, Q, (0, 1)):
+        assert sympy.simplify((pt[0] - cx)**2 + (pt[1] - cy)**2 - R2) == 0
+    options = {'A': 9, 'B': 2*sympy.sqrt(13), 'C': 4*sympy.sqrt(5), 'D': 13}
+    return _only(options, sympy.sqrt(R2))
 
 
 def check_C6():
-    """EXHAUSTIVE PROOF: Tangent to y-axis requires |a|/2 = r => b^2=4c (B). Derived from centre (-a/2,-b/2) and r^2=a^2/4+b^2/4-c."""
-    expected = get_answer(TEX_PATH, 'C6')
+    """EXHAUSTIVE PROOF: Tangent to the y-axis iff (a/2)^2 = r^2 = a^2/4+b^2/4-c iff b^2=4c (B); each other option fails on a concrete circle."""
     a, b, c = sympy.symbols('a b c')
-    # test with concrete values satisfying b^2=4c
-    # example a=2,b=4,c=4 => centre (-1,-2) r^2=1+4-4=1 r=1 distance to y-axis 1 correct
-    assert 4**2 == 4*4
-    # verify condition equivalence: distance^2 == r^2
-    # (-a/2)^2 == a^2/4+b^2/4-c => b^2==4c
-    assert sympy.simplify(sympy.Eq(b**2, 4*c).lhs - sympy.Eq(b**2, 4*c).rhs) == sympy.simplify(b**2 - 4*c)
-    computed = 'B'
-    assert mcq_letter(expected) == computed
-    # also verify numeric example: a=6,b=4,c=4 => b^2=16=4c? 4c=16 true, so y-axis tangent? centre (-3,-2) r= sqrt(9+4-4)=3 distance 3 true
-    assert math.isclose(abs(-6/2), math.sqrt(9+4-4))
-    return computed
+    r2 = a**2/4 + b**2/4 - c
+    assert sympy.expand(r2 - (a/2)**2) == sympy.expand((b**2 - 4*c) / 4)
+    options = {'A': a**2 - 4*c, 'B': b**2 - 4*c, 'C': a**2 + b**2 - 4*c, 'D': c}
+
+    def tangent_to_y_axis(av, bv, cv):
+        # x=0 gives y^2+by+c=0: tangent iff a double root
+        return sympy.discriminant(_Y**2 + bv*_Y + cv, _Y) == 0
+
+    samples = [(6, 4, 4), (2, 4, 4), (4, 2, 4), (2, 6, 5), (4, 6, 9), (6, 8, 25)]
+    hits = [k for k, e in options.items()
+            if all((e.subs({a: av, b: bv, c: cv}) == 0) == tangent_to_y_axis(av, bv, cv) for av, bv, cv in samples)]
+    assert hits == ['B']
+    return 'B'
 
 
 def check_C7():
-    """EXHAUSTIVE PROOF: Equal radii sqrt3 at (-2,1) and (4,1), transverse tangent through midpoint (1,1) gives m=sqrt2/2."""
-    expected = get_answer(TEX_PATH, 'C7')
-    m = sympy.Symbol('m', real=True, positive=True)
-    # distance from (-2,1) to line y-1=m(x-1) => | -3m|/sqrt(m^2+1)=sqrt3
-    eq = sympy.Eq(9*m**2, 3*(m**2+1))
-    sols = sympy.solve(eq, m)
-    assert sympy.sqrt(2)/2 in sols or any(sympy.simplify(s - sympy.sqrt(2)/2)==0 for s in sols)
-    positive = [s for s in sols if s>0]
-    assert any(sympy.simplify(s - sympy.sqrt(2)/2)==0 for s in positive)
-    computed = 'B'
-    assert mcq_letter(expected) == computed
-    return computed
+    """EXHAUSTIVE PROOF: Equal radii sqrt3 at (-2,1) and (4,1); the transverse tangent passes through the midpoint (1,1), and distance sqrt3 gives m = sqrt2/2 (B)."""
+    m = sympy.Symbol('m', positive=True)
+    sols = sympy.solve(sympy.Eq(9*m**2, 3*(m**2 + 1)), m)
+    assert len(sols) == 1
+    mv = sols[0]
+    # the line y-1 = m(x-1) is sqrt3 from both centres
+    for cx in (-2, 4):
+        assert sympy.simplify(sympy.Abs(mv*(cx - 1)) / sympy.sqrt(mv**2 + 1) - sympy.sqrt(3)) == 0
+    options = {'A': sympy.Rational(1, 2), 'B': sympy.sqrt(2)/2, 'C': sympy.sqrt(2), 'D': sympy.sqrt(3)/3}
+    return _only(options, mv)
 
 
 def check_C8():
-    """EXHAUSTIVE PROOF: Radical axes x+2y-3=0 and x-2y+1=0 meet at (1,1), power 5 for all three circles."""
-    expected = get_answer(TEX_PATH, 'C8')
+    """EXHAUSTIVE PROOF: Radical axes x+2y-3=0 and x-2y+1=0 meet at (1,1), power 5 for all three circles (A)."""
     c1 = _X**2 + _Y**2 + 4*_X - 1
     c2 = _X**2 + _Y**2 - 8*_Y + 11
     c3 = _X**2 + _Y**2 + 2*_X - 12*_Y + 13
@@ -492,96 +482,98 @@ def check_C8():
     assert sympy.simplify(ra23/-2 - (_X - 2*_Y + 1)) == 0
     sols = sympy.solve([sympy.Eq(ra12, 0), sympy.Eq(ra23, 0)], [_X, _Y])
     assert sols == {_X: 1, _Y: 1}
-    x0, y0 = 1, 1
-    pw = [sympy.simplify(c.subs({_X: x0, _Y: y0})) for c in (c1, c2, c3)]
+    pw = [c.subs({_X: 1, _Y: 1}) for c in (c1, c2, c3)]
     assert pw[0] == pw[1] == pw[2] == 5
-    computed = 'A'
-    assert mcq_letter(expected) == computed
-    return computed
+    options = {'A': (1, 1), 'B': (1, -1), 'C': (3, 1), 'D': (1, 2)}
+    hits = [k for k, (px, py) in options.items() if len({c.subs({_X: px, _Y: py}) for c in (c1, c2, c3)}) == 1]
+    assert hits == ['A']
+    return 'A'
 
 
 # ── Section D ──────────────────────────────────────────────────────────────────
 def check_D1():
-    """EXHAUSTIVE PROOF: O1O2=9*sqrt2, r1=3*sqrt2, r2=sqrt2, shortest =5*sqrt2 (C)."""
-    expected = get_answer(TEX_PATH, 'D1')
-    o1 = (-2, 3)
-    o2 = (7, -6)
-    d = sympy.sqrt((o2[0]-o1[0])**2 + (o2[1]-o1[1])**2)
-    assert sympy.simplify(d - 9*sympy.sqrt(2)) == 0
-    r1 = sympy.sqrt(18)
-    r2 = sympy.sqrt(2)
-    assert sympy.simplify(r1 - 3*sympy.sqrt(2)) == 0
-    shortest = d - r1 - r2
-    assert sympy.simplify(shortest - 5*sympy.sqrt(2)) == 0
-    computed = 'C'
-    assert mcq_letter(expected) == computed
-    return computed
+    """EXHAUSTIVE PROOF: O1=(2,1), r1=3; O2=(10,7), r2=5; d=10; external tangent sqrt(100-4)=4sqrt6; right trapezium area (3+5)/2 * 4sqrt6 = 16sqrt6 (B)."""
+    cx1, cy1, s1 = _complete_square(_X**2 + _Y**2 - 4*_X - 2*_Y - 4)
+    cx2, cy2, s2 = _complete_square(_X**2 + _Y**2 - 20*_X - 14*_Y + 124)
+    assert (cx1, cy1, s1, cx2, cy2, s2) == (2, 1, 9, 10, 7, 25)
+    r1, r2 = sympy.sqrt(s1), sympy.sqrt(s2)
+    d = sympy.sqrt((cx2 - cx1)**2 + (cy2 - cy1)**2)
+    assert d == 10
+    PQ = sympy.sqrt(d**2 - (r2 - r1)**2)
+    area = (r1 + r2) / 2 * PQ
+    # coordinates: tangent line y = mx + k at distance r1, r2 (same side) from the centres
+    m, k = sympy.symbols('m k', real=True)
+    sol = sympy.solve([(m*cx1 - cy1 + k)**2 - s1*(m**2 + 1), (m*cx2 - cy2 + k)**2 - s2*(m**2 + 1),
+                       (m*cx1 - cy1 + k) * 5 - (m*cx2 - cy2 + k) * 3], [m, k], dict=True)
+    assert sol
+    for sl in sol:
+        mv, kv = sl[m], sl[k]
+        foot = lambda cx, cy: ((cx + mv*cy - mv*kv) / (1 + mv**2), (mv*cx + mv**2*cy + kv) / (1 + mv**2))
+        P, Q = foot(cx1, cy1), foot(cx2, cy2)
+        quad = [(cx1, cy1), P, Q, (cx2, cy2)]
+        shoelace = sympy.Abs(sum(quad[i][0]*quad[(i+1) % 4][1] - quad[(i+1) % 4][0]*quad[i][1] for i in range(4))) / 2
+        assert sympy.simplify(shoelace - area) == 0
+    options = {'A': 24, 'B': 16*sympy.sqrt(6), 'C': 40, 'D': 8*sympy.sqrt(6)}
+    return _only(options, area)
 
 
 def check_D2():
-    """EXHAUSTIVE PROOF: Centre distance 13, r1=8, one point => |r-8|=13 gives r=5 or 21, difference 16 (B)."""
-    expected = get_answer(TEX_PATH, 'D2')
+    """EXHAUSTIVE PROOF: Centre distance 13, r1=8; one common point iff r+8=13 or |r-8|=13, so r=5 or 21, difference 16 (B)."""
     d = sympy.sqrt((8-(-4))**2 + (4-(-1))**2)
     assert d == 13
-    r1 = 8
-    # Solve |r - r1| = d and r + r1 = d branches without using Abs solver
-    vals = []
-    for cand in [5, 21]:
-        assert abs(cand - r1) == 13 or cand + r1 == 13
-        vals.append(cand)
-    assert set(vals) == {5, 21}
-    assert max(vals) - min(vals) == 16
-    # Algebraic confirmation: r = r1 +- d
-    assert r1 + d == 21
-    assert abs(r1 - d) == 5
-    computed = 'B'
-    assert mcq_letter(expected) == computed
-    return computed
+    r = sympy.Symbol('r', positive=True)
+    vals = set(sympy.solve(r + 8 - d, r)) | set(sympy.solve(r - 8 - d, r)) | set(sympy.solve(8 - r - d, r))
+    assert vals == {5, 21}
+    options = {'A': 8, 'B': 16, 'C': 26, 'D': 42}
+    return _only(options, max(vals) - min(vals))
 
 
 def check_D3():
-    """EXHAUSTIVE PROOF: Triangle sides 7,8,9 Heron s=12 area 12*sqrt5 (A)."""
-    expected = get_answer(TEX_PATH, 'D3')
+    """EXHAUSTIVE PROOF: Triangle sides 7,8,9 Heron s=12 area 12*sqrt5 (A); coordinates agree."""
     a, b, c = 7, 8, 9
     s = sympy.Rational(a+b+c, 2)
-    assert s == 12
     area = sympy.sqrt(s*(s-a)*(s-b)*(s-c))
     assert sympy.simplify(area - 12*sympy.sqrt(5)) == 0
-    computed = 'A'
-    assert mcq_letter(expected) == computed
-    return computed
+    # third centre at (33/7, 24sqrt5/7) is 9 from (0,0) and 8 from (7,0)
+    px, py = sympy.Rational(33, 7), 24*sympy.sqrt(5)/7
+    assert sympy.simplify(px**2 + py**2 - 81) == 0 and sympy.simplify((px - 7)**2 + py**2 - 64) == 0
+    assert sympy.simplify(7*py/2 - area) == 0
+    options = {'A': 12*sympy.sqrt(5), 'B': 12, 'C': 84, 'D': 30}
+    return _only(options, area)
 
 
 def check_D4():
-    """EXHAUSTIVE PROOF: Orthogonal radii 3 and 4, d=5, common chord 24/5 (A)."""
-    expected = get_answer(TEX_PATH, 'D4')
-    d = sympy.sqrt(9+16)
+    """EXHAUSTIVE PROOF: Orthogonal radii 3 and 4 give d=5; radical axis x=9/5, half chord 12/5, chord 24/5 = 2r1r2/d (B)."""
+    d = sympy.sqrt(9 + 16)
     assert d == 5
-    # place centres at (0,0) and (5,0)
-    # radical axis x=9/5, half chord 12/5
-    half = sympy.sqrt(9 - sympy.Rational(9,5)**2)
-    # Actually distance from small centre to axis is 9/5? compute via radical axis
-    ra = sympy.expand((_X**2 + _Y**2 - 9) - ((_X-5)**2 + _Y**2 - 16))
+    ra = sympy.expand((_X**2 + _Y**2 - 9) - ((_X - 5)**2 + _Y**2 - 16))
     assert sympy.simplify(ra - (10*_X - 18)) == 0
-    xv = sympy.Rational(9,5)
-    assert sympy.simplify(half - sympy.Rational(12,5)) == 0
-    chord = 2*half
-    assert chord == sympy.Rational(24,5)
-    computed = 'A'
-    assert mcq_letter(expected) == computed
-    return computed
+    xv = sympy.solve(ra, _X)[0]
+    assert xv == sympy.Rational(9, 5)
+    chord = 2*sympy.sqrt(9 - xv**2)
+    assert chord == sympy.Rational(24, 5) == 2*3*4/d
+    options = {'A': sympy.Rational(12, 5), 'B': sympy.Rational(24, 5), 'C': 6, 'D': sympy.Rational(48, 5)}
+    return _only(options, chord)
 
 
 def check_D5():
-    """EXHAUSTIVE PROOF: Equal power is radical axis x=11/4 (A)."""
-    expected = get_answer(TEX_PATH, 'D5')
-    ra = sympy.expand((_X**2 + _Y**2 - 1) - (_X**2 + _Y**2 - 12*_X + 32))
-    assert sympy.simplify(ra - (12*_X - 33)) == 0
-    xv = sympy.solve(sympy.Eq(ra,0), _X)
-    assert xv == [sympy.Rational(11,4)]
-    computed = 'A'
-    assert mcq_letter(expected) == computed
-    return computed
+    """EXHAUSTIVE PROOF: Circles (0,4) r4 and (12,9) r9 touch (d=13); the gap circle at (x0, r) with 2sqrt(4r)+2sqrt(9r)=12 has r=36/25 (D), touching all three externally."""
+    cx1, cy1, s1 = _complete_square(_X**2 + _Y**2 - 8*_Y)
+    cx2, cy2, s2 = _complete_square(_X**2 + _Y**2 - 24*_X - 18*_Y + 144)
+    assert (cx1, cy1, s1, cx2, cy2, s2) == (0, 4, 16, 12, 9, 81)
+    assert (cx2 - cx1)**2 + (cy2 - cy1)**2 == (4 + 9)**2
+    r = sympy.Symbol('r', positive=True)
+    x0 = sympy.Symbol('x0', real=True)
+    sol = sympy.solve([(x0 - cx1)**2 + (r - cy1)**2 - (r + 4)**2,
+                       (x0 - cx2)**2 + (r - cy2)**2 - (r + 9)**2], [x0, r], dict=True)
+    gap = [sl for sl in sol if 0 < sl[x0] < 12]
+    assert len(gap) == 1
+    rv = gap[0][r]
+    assert rv == sympy.Rational(36, 25) and gap[0][x0] == sympy.Rational(24, 5)
+    # the other solution (outside the gap) is the inv's circle, radius 36
+    assert {sl[r] for sl in sol} == {sympy.Rational(36, 25), 36}
+    options = {'A': sympy.Rational(6, 5), 'B': sympy.Rational(36, 13), 'C': sympy.Rational(169, 100), 'D': sympy.Rational(36, 25)}
+    return _only(options, rv)
 
 
 CHECKS = {
