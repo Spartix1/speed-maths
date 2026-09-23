@@ -64,6 +64,13 @@ def _circle_equation_string(cx, cy, r):
 
 
 # ── Section A ──────────────────────────────────────────────────────────────────
+def _only(options, value):
+    """The single option letter whose value equals `value` (exactly, via sympy)."""
+    hits = [k for k, v in options.items() if sympy.simplify(sympy.nsimplify(v) - value) == 0]
+    assert len(hits) == 1, (hits, value)
+    return hits[0]
+
+
 def check_A1():
     """EXHAUSTIVE PROOF: x^2+y^2-6x-8y+24=0 completes to (x-3)^2+(y-4)^2=1,
     so its centre is (3,4)."""
@@ -75,13 +82,13 @@ def check_A1():
 
 
 def check_A2():
-    """EXHAUSTIVE PROOF: Radius squared of the same circle is 1, so r = 1."""
-    cx, cy, r2 = _complete_square(_X**2 + _Y**2 - 6*_X - 8*_Y + 24)
-    assert (cx, cy) == (3, 4)
-    assert r2 == 1
-    r = sympy.sqrt(r2)
-    assert r == 1
-    return 1
+    """x^2+y^2-6x+4y+k=0 is (x-3)^2+(y+2)^2 = 13-k; radius 5 needs k = -12."""
+    k = sympy.Symbol('k')
+    cx, cy, r2 = _complete_square(_X**2 + _Y**2 - 6*_X + 4*_Y + k)
+    assert (cx, cy) == (3, -2)
+    sol = sympy.solve(sympy.Eq(r2, 25), k)
+    assert sol == [-12]
+    return sol[0]
 
 
 def check_A3():
@@ -140,13 +147,12 @@ def check_A7():
 
 
 def check_A8():
-    """EXHAUSTIVE PROOF: Centre (-1,2) radius 3 expands to
-    x^2+y^2+2x-4y-4=0, whose orthocentric data completes back to (-1,2), r=3."""
-    poly = _circle_poly(-1, 2, 3)
-    assert sympy.simplify(poly - (_X**2 + _Y**2 + 2*_X - 4*_Y - 4)) == 0
-    cx, cy, r2 = _complete_square(poly)
-    assert (cx, cy) == (-1, 2) and r2 == 9
-    return _circle_equation_string(-1, 2, 3)
+    """Centre (3,-4) through the origin: r = 5, circle (x-3)^2+(y+4)^2 = 25."""
+    r2 = 3**2 + (-4)**2
+    assert r2 == 25
+    poly = _circle_poly(3, -4, 5)
+    assert poly.subs({_X: 0, _Y: 0}) == 0          # passes through the origin
+    return sympy.Eq((_X - 3)**2 + (_Y + 4)**2, r2)
 
 
 def check_A9():
@@ -198,7 +204,7 @@ def check_B2():
     assert (cx, cy) == (-1, 2)
     assert r2 == 16
     assert sympy.sqrt(r2) == 4
-    options = {'A': 2, 'B': 3, 'C': 4, 'D': 5}
+    options = {'A': 2, 'B': 3, 'C': 4, 'D': sympy.sqrt(5)}
     matches = [let for let, v in options.items() if v == sympy.sqrt(r2)]
     assert matches == ['C']
     return 'C'
@@ -377,41 +383,44 @@ def check_C2():
 
 
 def check_C3():
-    """EXHAUSTIVE PROOF: Distance 13, r1=8, one point => r+8=13 or |r-8|=13, r=5 (since r<13) option A."""
-    d = sympy.sqrt(12**2+5**2)
+    """Circle centre (1,-2), r=5; P(13,3) is 13 from the centre, so least PQ = 13 - 5 = 8 (D)."""
+    cx, cy, r2 = _complete_square(_X**2 + _Y**2 - 2*_X + 4*_Y - 20)
+    assert (cx, cy, r2) == (1, -2, 25)
+    d = sympy.sqrt((13 - cx)**2 + (3 - cy)**2)
     assert d == 13
-    r1 = 8
-    # external: r+8=13 => r=5; internal: |r-8|=13 => r=21
-    assert 5 + r1 == 13
-    assert abs(21 - r1) == 13
-    options = {'A': 5, 'B': 8, 'C': 13, 'D': 21}
-    # r<13 filters to 5
-    matches = [let for let,v in options.items() if v == 5]
-    assert matches == ['A']
-    return 'A'
+    least = d - sympy.sqrt(r2)
+    # brute force over the circle agrees
+    pts = [(cx + 5 * math.cos(2 * math.pi * i / 3600), cy + 5 * math.sin(2 * math.pi * i / 3600)) for i in range(3600)]
+    assert abs(min(math.hypot(13 - a, 3 - b) for a, b in pts) - float(least)) < 1e-4
+    options = {'A': 13, 'B': 18, 'C': 12, 'D': 8}
+    return _only(options, least)
 
 
 def check_C4():
-    """EXHAUSTIVE PROOF: Hexagon side 5 => 6 equilateral triangles area 75√3/2 (option C)."""
-    r = 5
-    area = 6 * sympy.sqrt(3)/4 * r**2
-    assert sympy.simplify(area - 75*sympy.sqrt(3)/2) == 0
+    """x^2+y^2-18x-22y+178=0 has r^2 = 81+121-178 = 24; hexagon area (3*sqrt3/2) r^2 = 36*sqrt3 (B)."""
+    cx, cy, r2 = _complete_square(_X**2 + _Y**2 - 18*_X - 22*_Y + 178)
+    assert (cx, cy, r2) == (9, 11, 24)
+    area = 6 * sympy.sqrt(3) / 4 * r2              # six equilateral triangles of side r
     options = {'A': 18*sympy.sqrt(3), 'B': 36*sympy.sqrt(3), 'C': 75*sympy.sqrt(3)/2, 'D': 75}
-    matches = [let for let,v in options.items() if sympy.simplify(v - area) == 0]
-    assert matches == ['C']
-    return 'C'
+    return _only(options, area)
 
 
 def check_C5():
-    """EXHAUSTIVE PROOF: y=2x+5 distance to origin sqrt5 => r^2=5 (option B)."""
-    d = _dist_point_line(0,0,2,-1,5)
-    assert sympy.simplify(d - sympy.sqrt(5)) == 0
-    r2 = sympy.simplify(d**2)
-    assert r2 == 5
-    options = {'A': 1, 'B': 5, 'C': 20, 'D': 25}
-    matches = [let for let,v in options.items() if sympy.simplify(v - r2) == 0]
-    assert matches == ['B']
-    return 'B'
+    """x^2-2px+y^2-6y-p^2+8p+9=0 is (x-p)^2+(y-3)^2 = 2p(p-4): a real circle iff p<0 or p>4 (A)."""
+    p = sympy.Symbol('p', real=True)
+    lhs = _X**2 - 2*p*_X + _Y**2 - 6*_Y - p**2 + 8*p + 9
+    r2 = sympy.expand((_X - p)**2 + (_Y - 3)**2 - lhs)
+    assert sympy.factor(r2) == 2*p*(p - 4)
+    region = sympy.solve_univariate_inequality(r2 > 0, p, relational=False)
+    assert region == sympy.Union(sympy.Interval.open(-sympy.oo, 0), sympy.Interval.open(4, sympy.oo))
+    cands = {'A': sympy.Union(sympy.Interval.open(-sympy.oo, 0), sympy.Interval.open(4, sympy.oo)),
+             'B': sympy.Interval.open(-1, 9), 'C': sympy.Interval.open(0, 4),
+             'D': sympy.Union(sympy.Interval.open(-sympy.oo, -1), sympy.Interval.open(9, sympy.oo))}
+    hits = [k for k, v in cands.items() if v == region]
+    assert hits == ['A']
+    options = {'A': 'p<0 or p>4', 'B': '-1<p<9', 'C': '0<p<4', 'D': 'p<-1 or p>9'}
+    assert set(options) == set(cands)
+    return 'A'
 
 
 def check_C6():
@@ -421,7 +430,7 @@ def check_C6():
     d = _dist_point_line(cx,cy,1,-1,1)
     assert sympy.simplify(d - 2*sympy.sqrt(2)) == 0
     assert d < sympy.sqrt(r2)
-    options = {'A': 0, 'B': 1, 'C': 2, 'D': 'inf'}
+    options = {'A': 0, 'B': 1, 'C': 2, 'D': 'cannot be decided'}
     assert options['C'] == 2
     return 'C'
 
@@ -512,24 +521,28 @@ def check_D3():
 
 
 def check_D4():
-    """EXHAUSTIVE PROOF: L^2=(p+f)^2+(q+g)^2 needs f,g,p,q (B), h irrelevant."""
-    f,g,p,q = 2,3,4,5
-    L = math.hypot(p+f, q+g)
-    assert L == math.hypot(6,8) == 10
-    options = {'A': 'f,g,h', 'B': 'f,g,p,q', 'C': 'f,h,p,q', 'D': 'g,h,p,q'}
-    assert options['B'] == 'f,g,p,q'
-    return 'B'
+    """Tangents y=mx from O to (x-5)^2+(y-5)^2=5: 2m^2-5m+2=0, m = 2, 1/2; tan(angle) = 3/4 (A)."""
+    m = sympy.Symbol('m')
+    ms = sorted(sympy.solve(sympy.Eq((5*m - 5)**2, 5*(m**2 + 1)), m))
+    assert ms == [sympy.Rational(1, 2), 2]
+    tan = sympy.Abs((ms[1] - ms[0]) / (1 + ms[0]*ms[1]))
+    # half-angle route agrees: tan(t/2) = r / tangent length = sqrt5 / sqrt(50-5) = 1/3
+    th = sympy.sqrt(5) / sympy.sqrt(50 - 5)
+    assert sympy.simplify(2*th / (1 - th**2) - tan) == 0
+    options = {'A': sympy.Rational(3, 4), 'B': sympy.Rational(4, 3), 'C': sympy.Rational(5, 2), 'D': 1}
+    return _only(options, tan)
 
 
 def check_D5():
-    """EXHAUSTIVE PROOF: Brahmagupta's theorem: perpendicular from intersection to side bisects opposite side in cyclic quad with perp diagonals => F midpoint (A)."""
-    # This is a proof marker, but we still assert the theorem holds for a concrete cyclic example
-    # Example: square (0,0),(1,0),(1,1),(0,1) has perp diagonals, take E=(0.5,0.5), line perp to AB (y=0) is x=0.5, meets CD at (0.5,1) which is midpoint
-    # Check midpoint property for a non-square rhombus
-    assert True  # theorem is known, and the question tests knowledge, not computation
-    options = {'A': 'midpoint', 'B': 'bisects angle', 'C': 'EF=AB/2', 'D': 'isosceles trapezium'}
-    assert options['A'] == 'midpoint'
-    return 'A'
+    """Circle through (0,0),(8,0),(2,6): centre (4,2), r^2 = 20; meets x=0 again at (0,4), so OQ = 4 (D)."""
+    a, b = sympy.symbols('a b')
+    sol = sympy.solve([sympy.Eq(a**2 + b**2, (a - 8)**2 + b**2), sympy.Eq(a**2 + b**2, (a - 2)**2 + (b - 6)**2)], [a, b])
+    assert (sol[a], sol[b]) == (4, 2)
+    ys = sympy.solve(sympy.Eq((0 - 4)**2 + (_Y - 2)**2, 20), _Y)
+    other = [y for y in ys if y != 0]
+    assert other == [4]
+    options = {'A': 2*sympy.sqrt(5), 'B': 6, 'C': 2, 'D': 4}
+    return _only(options, other[0])
 
 
 CHECKS = {
