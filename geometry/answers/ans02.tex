@@ -19,12 +19,12 @@
 \method{Complete the square: $(x-3)^2+(y-4)^2=25-24=1$, so centre $(3,4)$, radius $1$.}
 \inv{In $x^2+y^2+2gx+2fy+c=0$ the centre is $(-g,-f)$ and here $2g=-6$, $2f=-8$, so $g=-3$, $f=-4$ --- centre $(3,4)$ \checkmark. \textbf{If the coefficients of $x^2,y^2$ are not $1$, divide through first so they are, then read the centre.}}
 
-%── A2 ──────────────────────────────────────────────────────────────────────────
-\item Write down the radius of the circle $\;x^2 + y^2 - 6x - 8y + 24 = 0$.
+%── A2 ───────────────────────────────────────────────────────────────────────
+\item For which value of $k$ does $\;x^2+y^2-6x+4y+k=0$ represent a circle of radius $5$?
 
-\ans{$1$}
-\method{From A1, $(x-3)^2+(y-4)^2=1$, so $r=\sqrt{1}=1$.}
-\inv{Formula check: $r=\sqrt{g^2+f^2-c}=\sqrt{9+16-24}=\sqrt{1}=1$ \checkmark. \textbf{A ``circle'' with $g^2+f^2-c<0$?} Empty locus --- the square sum equals a negative number.}
+\ans{$-12$}
+\method{Complete the square: $(x-3)^2+(y+2)^2=13-k$. Radius $5$ needs $13-k=25$, so $k=-12$.}
+\inv{For which $k$ is this a real circle at all, and what does the equation describe at the boundary value?}
 
 %── A3 ──────────────────────────────────────────────────────────────────────────
 \item Write down the equation of the circle with centre $(2,-1)$ and radius $5$.
@@ -61,19 +61,19 @@
 \method{Tangent $\perp$ radius, and radius gradient is $\frac43$, so tangent gradient $=-\frac{1}{4/3}=-\frac34$.}
 \inv{The tangent line is $3x+4y=25$ (via $xx_1+yy_1=r^2$). \textbf{Does it pass through $(3,4)$?} $9+16=25$ \checkmark. \textbf{What is its $x$-intercept?} $x=25/3$.}
 
-%── A8 ──────────────────────────────────────────────────────────────────────────
-\item Write down the equation of the circle with centre $(-1,2)$ and radius $3$.
+%── A8 ───────────────────────────────────────────────────────────────────────
+\item Write down the equation of the circle with centre $(3,-4)$ that passes through the origin.
 
-\ans{"$x^2+y^2+2x-4y-4=0$"}
-\method{$(x+1)^2+(y-2)^2=9$ expands to $x^2+y^2+2x-4y+5=9$, i.e. $x^2+y^2+2x-4y-4=0$.}
-\inv{Check centre: $g=1\Rightarrow$ centre $x=-1$, $f=-2\Rightarrow$ centre $y=2$ \checkmark; $r=\sqrt{1+4+4}=3$ \checkmark. \textbf{Where does this circle cross the axes?} Put $y=0$: $x^2+2x-4=0$, a surd --- compare with the clean integer axes of Day 1 right-triangles.}
+\ans{$(x-3)^2+(y+4)^2=25$}
+\method{The radius is the distance from $(3,-4)$ to $(0,0)$, which is $5$.}
+\inv{Expanded, the equation has no constant term. Explain why every circle through the origin has $c=0$ in the form $x^2+y^2+2gx+2fy+c=0$.}
 
 %── A9 ──────────────────────────────────────────────────────────────────────────
 \item The centre of $\;x^2+y^2-6x-8y+24=0$ is $(3,4)$. Find the perpendicular distance of this centre from the line $\;4x + 3y - 9 = 0$.
 
 \ans{$3$}
 \method{Distance $=\frac{|4(3)+3(4)-9|}{\sqrt{4^2+3^2}}=\frac{|12+12-9|}{5}=\frac{15}{5}=3$.}
-\inv{This is day 1's perpendicular-distance formula applied to a circle's centre. \textbf{Since $d=3>r=1$, the line misses the circle. How many common tangents could such an external line family have?} Preview of Day 3's tangent-counting.}
+\inv{This is Day 1's perpendicular-distance formula applied to a centre. Since $d=3>r=1$, the line misses the circle: find the line parallel to $4x+3y-9=0$ that is tangent to the circle on the near side.}
 
 %── A10 ─────────────────────────────────────────────────────────────────────────
 \item A chord of the circle $\;x^2+y^2=25$ is at perpendicular distance $3$ from the origin. Find the length of the chord.
@@ -126,7 +126,7 @@
 
 \ans{A) $y = -\frac12 x + \frac52$}
 \method{Radius gradient $=\frac21=2$; tangent gradient $=-\frac12$; through $(1,2)$: $y-2=-\frac12(x-1)\Rightarrow y=-\frac12x+\frac52$.}
-\inv{Option C uses the wrong sign ($-2x$ is the negative-reciprocal error recalling Day 1), B is the tangent being perpendicular to the perpendicular. \textbf{Split-variable test: tangent to $x^2+y^2=r^2$ at $(x_1,y_1)$ is $xx_1+yy_1=r^2$: here $x+2y=5\Rightarrow y=-\frac12x+\frac52$ \checkmark.}}
+\inv{Option B is the radius line itself, option C negates the radius gradient without inverting it, and option D inverts without negating. The split-variable form $xx_1+yy_1=r^2$ gives $x+2y=5$ directly.}
 
 %── B4 ──────────────────────────────────────────────────────────────────────────
 \item A circle of form $\;x^2+y^2+2gx+2fy+c=0$ passes through the origin. Deduce $c$.
@@ -191,7 +191,7 @@
 
 \ans{B) $\pm \sqrt3$}
 \method{Line $mx-y+4=0$; tangency requires $\frac{|4|}{\sqrt{m^2+1}}=2\Rightarrow\sqrt{m^2+1}=2\Rightarrow m^2=3\Rightarrow m=\pm\sqrt3$.}
-\inv{Both tangent lines pass through $(0,4)$, symmetric about the $y$-axis --- the two tangents from an external point. \textbf{How long is each tangent segment from $(0,4)$ to its touch point?} $\sqrt{16-4}=\sqrt{12}=2\sqrt3$ --- a preview of Power of a Point (Day 5).}
+\inv{Both tangent lines pass through $(0,4)$, symmetric about the $y$-axis --- the two tangents from an external point. \textbf{How long is each tangent segment from $(0,4)$ to its touch point?} $\sqrt{16-4}=\sqrt{12}=2\sqrt3$ --- a preview of power of a point (Day 6).}
 
 %── B9 ──────────────────────────────────────────────────────────────────────────
 \item The circle with centre $(6,a)$ and radius $6$ is tangent to the $y$-axis and passes through the point $(0,8)$. Find $a$.
@@ -204,7 +204,7 @@
 
 \ans{D) $a=8$}
 \method{Tangent to the $y$-axis ($x=0$) since centre's $x$-distance $6=r$. Through $(0,8)$: $(0-6)^2+(8-a)^2=36\Rightarrow 36+(8-a)^2=36\Rightarrow a=8$.}
-\inv{Setting $r=6$ fixes the $x$-distance; passing through $(0,8)$ forces the centre level with that point. \textbf{Option C ($5$) assumes the centre is $(6,a)$ with $(8-a)=1$?} Check $(8-5)^2=9\ne0$.}
+\inv{The circle touches the $y$-axis at $(0,a)$, and it also passes through $(0,8)$. A line meets a circle it is tangent to only once, so those points must coincide: $a=8$ with no algebra.}
 
 %── B10 ─────────────────────────────────────────────────────────────────────────
 \item Write down the length of the chord cut from the line $\;y = x + 1$ by the circle $\;x^2+y^2=25$.
@@ -234,7 +234,7 @@
 
 \ans{B) $15$}
 \method{Radius to touch point is $\perp$ tangent. Let $T=(0,t)$, line through $(20,0)$ and $(0,t)$ has equation $x/20+y/t=1$, i.e. $tx+20y-20t=0$. Distance from origin $=r=12$: $| -20t|/\sqrt{t^2+400}=12\Rightarrow 400t^2=144(t^2+400)\Rightarrow256t^2=57600\Rightarrow t^2=225\Rightarrow t=15$ (positive). Check $t=15$ gives line $3x+4y=60$, distance $60/5=12$ \checkmark.}
-\inv{The $x$-intercept $20$ and $r=12$ give a $5$-$12$-$13$ scaled triple $(12,16,20)$. \textbf{If the external point were $(13,0)$ instead, the $y$-int would be $12\cdot13/5$?} No, the triple changes.}
+\inv{The tangent from $(20,0)$ touches at a point $X$ with $OX=12$ and $OX\perp XT$, so $OXP$ is a $12$-$16$-$20$ right triangle (a scaled $3$-$4$-$5$). Use similar triangles to get $OT=15$ without any algebra.}
 
 %── C2 ──────────────────────────────────────────────────────────────────────────
 \item The point $P(8,6)$ is outside the circle $x^2+y^2=36$. Tangents from $P$ meet the circle at $A$ and $B$. What is the length $AB$? \textit{\small(adapted from TMUA 2018 Paper 1 Q7)}
@@ -247,64 +247,46 @@
 
 \ans{C) $\tfrac{48}{5}$}
 \method{$OP=\sqrt{64+36}=10$, $r=6$, right triangle $OAP$ has $AP=\sqrt{100-36}=8$, distance from $O$ to chord $AB$ is $d=r^2/OP=36/10=18/5$. Half-chord $=\sqrt{r^2-d^2}=\sqrt{36-324/25}=24/5$, so $AB=48/5$.}
-\inv{The chord $AB$ is the radical axis of the circle and the point-circle. \textbf{If $P$ were at distance $2r$ from $O$, the chord length would be $r\sqrt3$ --- check. Here $OP=10=5r/3$, giving $48/5$.}}
+\inv{The chord of contact from $P$ is the line $8x+6y=36$ (the polar of $P$). Check that its distance from $O$ is $\tfrac{18}{5}$, and show that in general $AB=\dfrac{2r\sqrt{OP^2-r^2}}{OP}$.}
 
-%── C3 ──────────────────────────────────────────────────────────────────────────
-\item The circles $(x+4)^2+(y+1)^2=64$ and $(x-8)^2+(y-4)^2=r^2$ have exactly one point in common. If $r<13$, what is $r$? \textit{\small(after TMUA 2019 Paper 1 Q6)}
+%── C3 ───────────────────────────────────────────────────────────────────────
+\item The point $Q$ moves on the circle $x^2+y^2-2x+4y-20=0$, and $P$ is the point $(13,3)$. What is the least possible distance $PQ$?
 \begin{itemize}
-\item[A)] $5$
-\item[B)] $8$
-\item[C)] $13$
-\item[D)] $21$
+\item[A)] $13$
+\item[B)] $18$
+\item[C)] $12$
+\item[D)] $8$
 \end{itemize}
 
-\ans{A) $5$}
-\method{Centre distance $d=\sqrt{12^2+5^2}=13$. One point $\Rightarrow$ internal tangency $r=|d-8|=5$ (since $r<13$). External would give $21$.}
-\inv{Two possibilities: $|r-8|=13$ gives $r=5$ or $21$; the condition $r<13$ picks $5$. \textbf{If $r>13$, the other is $21$.}}
+\ans{D) $8$}
+\method{Centre $(1,-2)$, radius $5$. $P$ is $\sqrt{12^2+5^2}=13$ from the centre, so the nearest point of the circle is $13-5=8$ away, on the line from $P$ to the centre. Option A is the distance to the centre; option B is the \emph{greatest} distance; option C is the tangent length $\sqrt{13^2-5^2}$.}
+\inv{The tangent length ($12$) lies between the least and greatest distances ($8$ and $18$). Show that it is always their geometric mean.}
 
-%── C4 ──────────────────────────────────────────────────────────────────────────
-\item \begin{minipage}[t]{0.70\linewidth}
-\vspace{0pt}
-A circle has centre $(9,11)$ and radius $5$. A regular hexagon $ABCDEF$ is inscribed with all vertices on the circle. What is the area of the hexagon? \textit{\small(adapted from TMUA 2017 Paper 1 Q9)}
+%── C4 ───────────────────────────────────────────────────────────────────────
+\item A circle has equation $x^2+y^2-18x-22y+178=0$. A regular hexagon $ABCDEF$ is inscribed so that all its vertices lie on the circle. What is the area of the hexagon? \textit{\small(adapted from TMUA 2017 Paper 1 Q9)}
 \begin{itemize}
 \item[A)] $18\sqrt3$
 \item[B)] $36\sqrt3$
 \item[C)] $\tfrac{75\sqrt3}{2}$
 \item[D)] $75$
 \end{itemize}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.26\linewidth}
-\vspace{0pt}
-\centering
-\begin{tikzpicture}[scale=0.42]
-\draw (0,0) circle (1.6);
-\draw[fill=black] (0,0) circle (1pt) node[below right]{\tiny $O$};
-\draw[dashed] (0,0) -- (1.13,1.13) node[midway, above]{\tiny $r$};
-\draw (1.13,1.13) -- (2.2,1.13);
-\draw[->] (1.5,1.3) arc (0:90:0.3);
-\node at (2.4,1.13) [right]{\tiny $T$};
-\draw (1.13,1.13) circle (1pt) node[above]{\tiny $T$};
-\end{tikzpicture}
-\end{minipage}
 
+\ans{B) $36\sqrt3$}
+\method{Complete the square: $r^2=9^2+11^2-178=24$. A regular hexagon is six equilateral triangles of side $r$, so its area is $\tfrac{3\sqrt3}{2}r^2=\tfrac{3\sqrt3}{2}\cdot24=36\sqrt3$. Option C assumes $r=5$ (a tempting guess from $9,11$); option A uses three triangles instead of six.}
+\inv{The centre $(9,11)$ never matters: translating a shape does not change its area. What is the area of the square inscribed in the same circle?}
 
-
-\ans{C) $\tfrac{75\sqrt3}{2}$}
-\method{Regular hexagon = 6 equilateral triangles side $r=5$: area $=6\cdot \tfrac{\sqrt3}{4}r^2 = \tfrac{3\sqrt3}{2}r^2 = \tfrac{75\sqrt3}{2}$.}
-\inv{Centre $(9,11)$ is irrelevant --- translation does not change area. \textbf{If it were a square, area would be $2r^2=50$.}}
-
-%── C5 ──────────────────────────────────────────────────────────────────────────
-\item The line $y=2x+5$ is a tangent to the circle $x^2+y^2=r^2$. Which $r^2$ makes the distance from the centre to the line equal to $r$?
+%── C5 ───────────────────────────────────────────────────────────────────────
+\item For which values of $p$ does $x^2-2px+y^2-6y-p^2+8p+9=0$ represent a (real) circle? \textit{\small(after TMUA 2022 Paper 1 Q2)}
 \begin{itemize}
-\item[A)] $1$
-\item[B)] $5$
-\item[C)] $20$
-\item[D)] $25$
+\item[A)] $p<0$ or $p>4$
+\item[B)] $-1<p<9$
+\item[C)] $0<p<4$
+\item[D)] $p<-1$ or $p>9$
 \end{itemize}
 
-\ans{B) $5$}
-\method{Distance $=|5|/\sqrt{5}= \sqrt5 =r$, so $r^2=5$.}
-\inv{Tangent to centred circle $r=|c|/\sqrt{a^2+b^2}$. \textbf{If line were $y=2x+10$, $r^2$ would be $20$.}}
+\ans{A) $p<0$ or $p>4$}
+\method{Complete the squares: $(x-p)^2+(y-3)^2=2p^2-8p=2p(p-4)$. A real circle needs $2p(p-4)>0$, so $p<0$ or $p>4$. At $p=0$ and $p=4$ it is a single point. Option C is the interval where it is \emph{not} a circle.}
+\inv{As $p$ varies, where do the centres lie, and what is the smallest radius the circle can have when $p\ge 5$?}
 
 %── C6 ──────────────────────────────────────────────────────────────────────────
 \item The circle $x^2+y^2-4x+2y-11=0$ and the line $x-y+1=0$: determine the number of intersection points without solving the system. \textit{\small(after MAT 2019 Q6)}
@@ -312,45 +294,28 @@ A circle has centre $(9,11)$ and radius $5$. A regular hexagon $ABCDEF$ is inscr
 \item[A)] $0$ (line misses)
 \item[B)] $1$ (tangent)
 \item[C)] $2$ (secant)
-\item[D)] Infinitely many (line is diameter)
+\item[D)] It cannot be decided without solving the system
 \end{itemize}
 
 \ans{C) $2$ (secant)}
 \method{Centre $(2,-1)$, $r=4$, distance to $x-y+1=0$ is $|2+1+1|/\sqrt2=4/\sqrt2=2\sqrt2<r$, so 2 points.}
-\inv{Compare $d$ vs $r$, never substitute. \textbf{Diameter would need $d=0$.}}
+\inv{The line $x-y+1=0$ passes through the centre only if $2+1+1=0$, which fails. Even a line through the centre meets the circle in exactly two points: find them for $x-y-3=0$.}
 
-%── C7 ──────────────────────────────────────────────────────────────────────────
-\item \begin{minipage}[t]{0.70\linewidth}
-\vspace{0pt}
-The circle $x^2+y^2-8x-4y-21=0$ ($r=\sqrt{41}$) is cut by the $y$-axis ($x=0$). What is the length of the chord intercepted on the $y$-axis?
+%── C7 ───────────────────────────────────────────────────────────────────────
+\item The circle $x^2+y^2-8x-4y-21=0$ is cut by the $y$-axis. What is the length of the chord intercepted on the $y$-axis?
 \begin{itemize}
 \item[A)] $2\sqrt{21}$
 \item[B)] $2\sqrt{41}$
 \item[C)] $8$
 \item[D)] $10$
 \end{itemize}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.26\linewidth}
-\vspace{0pt}
-\centering
-\begin{tikzpicture}[scale=0.4]
-\draw (0,0) circle (1.5);
-\draw (-1.5,0) -- (1.5,0);
-\draw (0,-1.5) -- (0,1.5);
-\draw[dashed] (0,0) -- (1.06,1.06);
-\node at (0.5,0.8) {\tiny $r$};
-\draw[fill=black] (0,0) circle (1pt);
-\end{tikzpicture}
-\end{minipage}
-
-
 
 \ans{D) $10$}
-\method{Centre $(4,2)$, distance to $x=0$ is $4$, half-chord $\sqrt{41-16}=5$, length $10$. Also $x=0\Rightarrow y^2-4y-21=0\Rightarrow y=7,-3$, distance $10$.}
-\inv{Two methods: distance vs. direct substitution give $10$. \textbf{If the line were $x=4$ (through centre), chord would be diameter $2\sqrt{41}$.}}
+\method{Centre $(4,2)$, $r^2=16+4+21=41$. The $y$-axis is $4$ from the centre, so the half-chord is $\sqrt{41-16}=5$ and the chord is $10$. Check: $x=0$ gives $y^2-4y-21=0$, so $y=7$ or $-3$. Option A uses $\sqrt{c}$; option B is the diameter.}
+\inv{The product of the two $y$-intercepts is $-21$, the constant term. Explain why, and use it to find the intercept product for any circle $x^2+y^2+2gx+2fy+c=0$.}
 
-%── C8 ──────────────────────────────────────────────────────────────────────────
-\item The line $y=kx+5$ is tangent to the circle $x^2+y^2-6x-8y+24=0$ (centre $(3,4)$, $r=1$). How many distinct $k$ satisfy this? \textit{\small(after TMUA 2020 Paper 1 Q7)}
+%── C8 ───────────────────────────────────────────────────────────────────────
+\item The line $y=kx+5$ is tangent to the circle $x^2+y^2-6x-8y+24=0$. How many distinct values of $k$ satisfy this? \textit{\small(after TMUA 2020 Paper 1 Q7)}
 \begin{itemize}
 \item[A)] $0$
 \item[B)] $1$
@@ -359,8 +324,8 @@ The circle $x^2+y^2-8x-4y-21=0$ ($r=\sqrt{41}$) is cut by the $y$-axis ($x=0$). 
 \end{itemize}
 
 \ans{C) $2$}
-\method{Point $(0,5)$ is distance $\sqrt{10}>1$ from centre, so external: two tangents. Solve $|3k-4+5|/\sqrt{k^2+1}=1$ gives $2$ slopes.}
-\inv{From an external point exactly two tangents; from a point on the circle one; from inside zero. \textbf{Here $(0,5)$ is $\sqrt{10}$ away, so two.}}
+\method{Centre $(3,4)$, $r=1$. Every line $y=kx+5$ passes through $(0,5)$, which is $\sqrt{10}>1$ from the centre, so it is outside the circle and exactly two tangents pass through it. (Solving $\tfrac{|3k+1|}{\sqrt{k^2+1}}=1$ gives $k=0$ or $k=-\tfrac34$.) The vertical tangent is not of the form $y=kx+5$, so it cannot add a third value.}
+\inv{Change the $5$ to $c$. For which values of $c$ is there exactly one value of $k$?}
 
 \end{enumerate}
 
@@ -414,97 +379,66 @@ The circles $C_1:(x+2)^2+(y-3)^2=18$ and $C_2:(x-7)^2+(y+6)^2=2$ have centres $O
 
 \ans{B) $(x-2)^2+(y+4)^2=80$}
 \method{Original centre $(5,4)$, $r^2=(2)^2+1^2=5$. Translate $3$ left: $(2,4)$, reflect in $x$-axis: $(2,-4)$, enlarge $4\times$ about centre: $r^2=5\cdot16=80$, so $(x-2)^2+(y+4)^2=80$.}
-\inv{Enlargement about the centre leaves the centre fixed and scales radius by $4$. The $320$ options would be $r^2\cdot4$ too large.}
+\inv{Enlargement about the centre leaves the centre fixed and multiplies the radius by $4$, so $r^2$ by $16$. The $320$ options scale $r^2$ by $64$ (radius by $8$). Where would the centre go if the enlargement were about the origin instead?}
 
-%── D3 ──────────────────────────────────────────────────────────────────────────
-\item \begin{minipage}[t]{0.70\linewidth}
-\vspace{0pt}
-Circle $O$ radius $6$, $\angle POQ\ge \pi/2$, area $[POQ]=9\sqrt3$. For variable $R$ on the major arc $PQ$, what is the \emph{greatest possible} area of $\triangle PRQ$? \textit{\small(adapted from TMUA 2022 Paper 1 Q14)}
+%── D3 ───────────────────────────────────────────────────────────────────────
+\item A circle has centre $O$ and radius $6$. Points $P$ and $Q$ lie on it with $\angle POQ\ge 90^\circ$, and triangle $POQ$ has area $9\sqrt3$. The point $R$ moves on the major arc $PQ$. What is the greatest possible area of triangle $PRQ$? \textit{\small(adapted from TMUA 2022 Paper 1 Q14)}
 \begin{itemize}
 \item[A)] $18+9\sqrt3$
 \item[B)] $27\sqrt3$
 \item[C)] $27+9\sqrt3$
 \item[D)] $36+9\sqrt3$
 \end{itemize}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.26\linewidth}
-\vspace{0pt}
-\centering
-\begin{tikzpicture}[scale=0.42]
-\draw (0,0) circle (1.4);
-\draw (0,0) -- (1.0,0.97);
-\draw (0,0) -- (-1.2,0.7);
-\node at (0.5,0.6) {\tiny $\theta$};
-\draw[fill=black] (0,0) circle (1pt) node[below]{\tiny $O$};
-\end{tikzpicture}
-\end{minipage}
-
-
 
 \ans{B) $27\sqrt3$}
-\method{$[POQ]=\tfrac12 r^2\sin\theta=18\sin\theta=9\sqrt3\Rightarrow\sin\theta=\sqrt3/2$, $\theta=120^\circ$. Chord $PQ=6\sqrt3$, maximal height $9$, area $27\sqrt3$.}
-\inv{If $\theta$ had been $60^\circ$, max would be $9+18=27$.}
+\method{$[POQ]=\tfrac12\cdot36\sin\theta=9\sqrt3$ gives $\sin\theta=\tfrac{\sqrt3}{2}$, and $\theta\ge90^\circ$ forces $\theta=120^\circ$. Then $PQ=6\sqrt3$ and $O$ is $3$ from $PQ$. $R$ is farthest from $PQ$ at the far end of the diameter through the midpoint, at height $6+3=9$, so the area is $\tfrac12\cdot6\sqrt3\cdot9=27\sqrt3$. Option A is the answer if you take $\theta=60^\circ$.}
+\inv{The condition $\angle POQ\ge90^\circ$ is doing real work: $\sin60^\circ=\sin120^\circ$. Check that $\theta=60^\circ$ gives the same $[POQ]$ but a greatest area of $18+9\sqrt3$.}
 
-%── D4 ──────────────────────────────────────────────────────────────────────────
-\item Let $P(p,q)$ and circle $C: x^2+2fx+y^2+2gy+h=0$ with centre $C_0=(-f,-g)$ and $L=|PC_0|$. Which set is \emph{minimal sufficient} to compute $L$? \textit{\small(after MAT 2020 Q1H)}
+%── D4 ───────────────────────────────────────────────────────────────────────
+\item Two tangents are drawn from the origin to the circle $(x-5)^2+(y-5)^2=5$. What is the tangent of the acute angle between them?
 \begin{itemize}
-\item[A)] $f,g,h$
-\item[B)] $f,g,p,q$
-\item[C)] $f,h,p,q$
-\item[D)] $g,h,p,q$
+\item[A)] $\tfrac34$
+\item[B)] $\tfrac43$
+\item[C)] $\tfrac52$
+\item[D)] $1$
 \end{itemize}
 
-\ans{B) $f,g,p,q$}
-\method{$L^2=(p+f)^2+(q+g)^2$ needs $f,g,p,q$; $h$ irrelevant.}
-\inv{Tangent length needs $h$, not $L$.}
+\ans{A) $\tfrac34$}
+\method{The origin is $\sqrt{50}$ from the centre and $r=\sqrt5$, so half the angle has $\sin\tfrac\theta2=\tfrac{1}{\sqrt{10}}$ and $\tan\tfrac\theta2=\tfrac13$. Then $\tan\theta=\dfrac{2/3}{1-1/9}=\tfrac34$. Check: the tangents $y=mx$ need $\tfrac{|5m-5|}{\sqrt{m^2+1}}=\sqrt5$, so $2m^2-5m+2=0$ and $m=2$ or $\tfrac12$, and $\tfrac{2-1/2}{1+1}=\tfrac34$. Option C is the sum of the gradients, option D their product, option B the reciprocal.}
+\inv{The two gradients multiply to $1$. What does that say about how the two tangents sit relative to the line $y=x$, and why does the symmetry of the circle force it?}
 
-%── D5 ──────────────────────────────────────────────────────────────────────────
-\item \begin{minipage}[t]{0.70\linewidth}
-\vspace{0pt}
-$ABCD$ is a cyclic quadrilateral with perpendicular diagonals intersecting at $E$. The line through $E$ perpendicular to $AB$ meets $CD$ at $F$. Which statement is \emph{necessarily true}? \textit{\small(adapted from BMO1 2010 Q4)}
+%── D5 ───────────────────────────────────────────────────────────────────────
+\item The circle through $(0,0)$, $(8,0)$ and $(2,6)$ meets the $y$-axis again at $Q$. How far is $Q$ from the origin?
 \begin{itemize}
-\item[A)] $F$ is the midpoint of $CD$ (Brahmagupta)
-\item[B)] $F$ bisects $\angle CED$
-\item[C)] $EF = AB/2$
-\item[D)] $ABCD$ must be an isosceles trapezium
+\item[A)] $2\sqrt5$
+\item[B)] $6$
+\item[C)] $2$
+\item[D)] $4$
 \end{itemize}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.26\linewidth}
-\vspace{0pt}
-\centering
-\begin{tikzpicture}[scale=0.45]
-\draw (0,0) -- (3,0) -- (2,2) -- (0,2) -- cycle;
-\draw[dashed] (0,0) -- (2,2);
-\draw (0,0) circle (1pt) node[below left]{\tiny $A$};
-\draw (3,0) circle (1pt) node[below]{\tiny $B$};
-\end{tikzpicture}
-\end{minipage}
 
-
-
-\ans{A) $F$ is the midpoint of $CD$ (Brahmagupta)}
-\method{Brahmagupta: In a cyclic quadrilateral with $\perp$ diagonals, the perpendicular from the intersection to a side bisects the opposite side.}
-\inv{The other options fail for a general kite.}
+\ans{D) $4$}
+\method{The centre is on $x=4$ (perpendicular bisector of the first two points). Equidistance from $(0,0)$ and $(2,6)$: $16+b^2=4+(6-b)^2$ gives $b=2$, so the centre is $(4,2)$ and $r^2=20$. On $x=0$: $(y-2)^2=4$, so $y=0$ or $4$, and $Q=(0,4)$. Option A is the radius; option C is the centre's height.}
+\inv{Get $OQ$ without the centre: the power of the origin is zero, so use the equation $x^2+y^2+2gx+2fy=0$ and substitute the other two points. Which coefficient gives $OQ$ directly?}
 
 \end{enumerate}
 
 %═══════════════════════════════════════════════════════════════════════════════
 \section*{Top 5 Patterns --- Worksheet \#2}
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Complete the square to read centre and radius.} In $x^2+y^2+2gx+2fy+c=0$ the centre is $(-g,-f)$ and $r=\sqrt{g^2+f^2-c}$. Strip the linear terms into squares before touching $c$. \seealso{A1, A2, A4, B2, C8}
-  \item \textbf{Tangency $=$ distance-to-line equals radius.} For a tangent, $\dfrac{|ax_0+by_0+c|}{\sqrt{a^2+b^2}}=r$. Never substitute line into circle. \seealso{A9, B6, C1, D4}
-  \item \textbf{Tangent at a point: perpendicular to the radius / split variables.} On $x^2+y^2=r^2$, tangent at $(x_1,y_1)$ is $xx_1+yy_1=r^2$. \seealso{A7, B3, C4, D3}
-  \item \textbf{Chord: half-chord $=\sqrt{r^2-d^2}$.} The perpendicular from the centre bisects the chord and makes a right triangle with half-chord, distance, and radius. \seealso{A10, B7, B10, C5, D1}
-  \item \textbf{Line--circle positioning by comparing $d$ to $r$.} $d<r$ secant, $d=r$ tangent, $d>r$ external. \seealso{B5, C3, C8}
+  \item \textbf{Complete the square before anything else.} Centre $(-g,-f)$, $r^2=g^2+f^2-c$; never trust a radius you have not computed. \seealso{A1, A2, B2, C4, C5}
+  \item \textbf{Tangency is a distance statement.} A line is tangent exactly when the centre is $r$ from it; never substitute the line into the circle. \seealso{B6, B8, C8, D4}
+  \item \textbf{Tangent $\perp$ radius.} At a point of the circle, the tangent's gradient is the negative reciprocal of the radius's; on $x^2+y^2=r^2$ it is $xx_1+yy_1=r^2$. \seealso{A7, B3, C1}
+  \item \textbf{Half-chord $=\sqrt{r^2-d^2}$.} The perpendicular from the centre bisects every chord. \seealso{A10, B7, B10, C7}
+  \item \textbf{Go through the centre.} Nearest and farthest points of a circle, and the gap between two circles, all lie on lines through centres. \seealso{C3, D1, D3}
 \end{enumerate}
 
 \section*{Common Traps --- Worksheet \#2}
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Forgetting to halve the linear coefficients.} $x^2+y^2-6x-8y+24=0$ has centre $(3,4)$, not $(-6,-8)$. Centre is $(-g,-f)$ where $2g,2f$ are the linear terms. \seealso{A1, A4, B2}
-  \item \textbf{Negative reciprocal error on the tangent slope.} Tangent to a circle is perpendicular to the radius, not a mere negation or inversion. \seealso{A6, A7, B3}
-  \item \textbf{Applying tangency when the point is not on the circle.} The tangent-at-a-point formula only holds for points on the circle; check $x_1^2+y_1^2=r^2$ first. \seealso{B3, C4, D3}
-  \item \textbf{Generic lines through the centre are diameters, not tangents.} A line through the centre always cuts twice; tangency needs the perpendicular distance to be exactly $r$, not $0$. \seealso{B5, C3, C8}
-  \item \textbf{Mixing up distance-to-centre with chord length.} The perpendicular distance $d$ is one leg; the half-chord is the other. Squaring and subtracting, then doubling. \seealso{B7, B10, C5, D1}
+  \item \textbf{Guessing the radius.} Nice-looking centres do not mean a nice radius: $x^2+y^2-18x-22y+178=0$ has $r^2=24$. \seealso{C4}
+  \item \textbf{Stopping at the centre.} The distance to the centre is not the distance to the circle; subtract (or add) $r$. \seealso{C3, D1}
+  \item \textbf{Confusing the gradients with the angle.} The sum or product of the two tangent gradients is not the angle between them. \seealso{D4}
+  \item \textbf{$\sin\theta$ has two angles.} $\sin60^\circ=\sin120^\circ$; read every condition in the question before choosing. \seealso{D3}
+  \item \textbf{Dropping the constant.} The constant term decides the radius, whether the circle is real, and whether it passes through the origin. \seealso{A2, B2, B4, C5}
 \end{enumerate}
 
 \SpeedClosing{``Tangency is a distance statement in disguise: compare $d$ to $r$, never solve the intersection.''}
