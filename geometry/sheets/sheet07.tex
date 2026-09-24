@@ -22,11 +22,11 @@
 
 \item Write down the locus of points equidistant from the two points $(0,0)$ and $(4,0)$.
 
-\item The locus of $P$ with $PA=2\,PB$, where $A=(0,0)$ and $B=(6,0)$, is a circle. Write down the $x$-coordinate of its (relevant) endpoint on the $x$-axis where $y=0$ between $A$ and $B$.
+\item The locus of $P$ with $PA=2\,PB$, where $A=(0,0)$ and $B=(6,0)$, is a circle. It crosses the segment $AB$ at one point. Write down the $x$-coordinate of that point.
 
 \item Write down the locus of points that are always $3$ units from the fixed line $y=4$.
 
-\item The locus of points whose distance to the fixed point $(0,1)$ equals their distance to the fixed line $y=-1$ is a parabola. Write down a point on it other than the origin with integer coordinates.
+\item The locus of points whose distance to the point $(0,1)$ equals their distance to the line $y=-1$ is a parabola. Write down its equation.
 
 \item The locus of points whose distance to the point $(1,2)$ is exactly $3$ is a circle. Write down its equation.
 
@@ -48,12 +48,12 @@
 
 \begin{enumerate}
 
-\item The circle of Apollonius for $PA = 2PB$ with $A=(0,0)$, $B=(6,0)$ has radius?
+\item The locus of $P$ with $PA=3\,PB$, where $A=(0,0)$ and $B=(8,0)$, is a circle. What is its radius? \textit{\small(after tmua.fyi Challenge Mock 1 Paper 1 Q14)}
 \begin{itemize}
-\item[A)] $4$
+\item[A)] $9$
 \item[B)] $6$
-\item[C)] $8$
-\item[D)] $12$
+\item[C)] $3$
+\item[D)] $8$
 \end{itemize}
 
 \item Locus of points equidistant from $(0,0)$ and $(0,4)$ is?
@@ -72,7 +72,13 @@
 \item[D)] $16$
 \end{itemize}
 
-\item The distance from $P(x,y)$ to the origin is $\sqrt{x^2+y^2}$. The locus $\sqrt{x^2+y^2}=1$ is a circle. Write down its circumference.
+\item The points $A=(0,0)$ and $B=(4,0)$ are fixed. The point $P$ moves in the region $y>0$ so that $\angle APB=45^\circ$. What is the locus of $P$?
+\begin{itemize}
+\item[A)] an arc of the circle with centre $(2,0)$ and radius $2$
+\item[B)] an arc of the circle with centre $(2,-2)$ and radius $2\sqrt2$
+\item[C)] part of the line $x=2$
+\item[D)] an arc of the circle with centre $(2,2)$ and radius $2\sqrt2$
+\end{itemize}
 
 \item A point is known to lie strictly inside the unit disk $x^2+y^2<1$. Which of the following statements is {\em necessarily} true for such a point?
 \begin{itemize}
@@ -98,7 +104,13 @@
 \item[D)] $x+y=1$
 \end{itemize}
 
-\item The locus of $P$ with $PA=PB$ where $A=(0,0)$ and $B=(6,0)$ is the perpendicular bisector $\mathbf{x=3}$. Write down the distance from $(3,0)$ to $(0,0)$.
+\item Which property is necessary, but not sufficient, for a quadrilateral to be a rectangle?
+\begin{itemize}
+\item[A)] all four angles are right angles
+\item[B)] the diagonals are equal in length
+\item[C)] the diagonals are perpendicular
+\item[D)] the diagonals are equal in length and bisect each other
+\end{itemize}
 
 \item A circle has equation $x^2+y^2-4x-6y+9=0$. Write down its centre.
 
@@ -114,31 +126,15 @@
 
 \begin{enumerate}
 
-\item \begin{minipage}[t]{0.70\linewidth}
-\vspace{0pt}
-The locus of $P$ with $PA=2\,PB$ and $A=(-2,0)$, $B=(4,0)$ is a circle (Apollonius). What is its centre? \textit{\small(after TMUA 2022 Paper 1 Q7)}
+\item The locus of $P$ with $PA=2\,PB$, where $A=(-2,0)$ and $B=(4,0)$, is a circle. What is its centre?
 \begin{itemize}
 \item[A)] $(6,0)$
 \item[B)] $(8,0)$
 \item[C)] $(10,0)$
 \item[D)] $(2,0)$
 \end{itemize}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.26\linewidth}
-\vspace{0pt}
-\centering
-\begin{tikzpicture}[scale=0.45]
-\draw[->] (-3,0) -- (9,0) node[right]{\tiny $x$};
-\draw[->] (0,-2) -- (0,2);
-\draw[thick] (-2,0) circle (0.08) node[below]{\tiny $A(-2,0)$};
-\draw[thick] (4,0) circle (0.08) node[below]{\tiny $B(4,0)$};
-\draw[thick, dashed] (6,0) circle (1.5);
-\draw[fill=black] (6,0) circle (1pt) node[below]{\tiny $C$};
-\node at (6,1.7) {\tiny $PA=2PB$};
-\end{tikzpicture}
-\end{minipage}
 
-\item The locus of points equidistant from the lines $L_1:x+y=0$ and $L_2:x-y=0$ is: \textit{\small(after TMUA 2018 Paper 2 Q5 $/$ TMUA 2022 Paper 2 Q11)}
+\item The locus of points equidistant from the lines $L_1:x+y=0$ and $L_2:x-y=0$ is:
 \begin{itemize}
 \item[A)] $y=x$
 \item[B)] $y=-x$
@@ -146,36 +142,52 @@ The locus of $P$ with $PA=2\,PB$ and $A=(-2,0)$, $B=(4,0)$ is a circle (Apolloni
 \item[D)] $x=0$ or $y=0$
 \end{itemize}
 
-\item Fil argues: ``Let $D$ lie on segment $AB$ and $CD$ bisect $\angle C$. By the angle-bisector theorem $AD/DB=CA/CB$; hence any point $P$ with $PA=PB$ must lie on the bisector of $\angle C$.'' Where is the flaw? \textit{\small(after TMUA 2019 Paper 2 Q14)}
+\item \emph{Claim.} If $A$, $B$ and $P$ lie on a circle with centre $O$, and $P$ is on the major arc $AB$, then $\angle AOB=2\angle APB$.
+
+\emph{Proof.} Draw the diameter $PD$. Triangles $OPA$ and $OPB$ are isosceles, so by the exterior angle theorem $\angle AOD=2\angle APO$ and $\angle BOD=2\angle BPO$. Adding, $\angle AOB=2(\angle APO+\angle BPO)=2\angle APB$.
+
+Which statement about this argument is correct?
 \begin{itemize}
-\item[A)] The proof assumes $D$ lies {\em between} $A$ and $B$ (betweenness/convexity) without establishing it; $D$ could lie on the extension of $AB$ outside the segment.
-\item[B)] Squaring the distance ratio loses the sign, so the locus is a single point not a circle.
-\item[C)] The angle-bisector theorem is false for obtuse triangles.
-\item[D)] There is no flaw; the conclusion is correct.
+\item[A)] It is correct and covers every position of $P$ on the major arc.
+\item[B)] The exterior angle step fails, because $\angle OAP\ne\angle OPA$ in general.
+\item[C)] Adding assumes $O$ lies inside $\angle APB$; when it does not, the angles must be subtracted, so that case is unproved.
+\item[D)] The claim itself is false when $O$ lies outside triangle $APB$.
 \end{itemize}
 
-\item $PQRS$ is a parallelogram labelled anticlockwise. Consider: I.\ $PQ=QR$ \quad II.\ $PR\perp QS$ \quad III.\ $\angle PQR = 90^\circ$. Which of these conditions is/are individually {\em sufficient} for $PQRS$ to be a square? \textit{\small(after TMUA 2020 Paper 2 Q7)}
+\item $PQRS$ is a quadrilateral. Consider the conditions: I.\ its diagonals bisect each other; \quad II.\ its diagonals are equal in length; \quad III.\ its diagonals are perpendicular. Which is the smallest set of these conditions that together guarantee $PQRS$ is a square? \textit{\small(after TMUA 2020 Paper 2 Q7)}
 \begin{itemize}
-\item[A)] I only
-\item[B)] II only
-\item[C)] III only
-\item[D)] I and III only
-\item[E)] none of them individually (all insufficient alone)
+\item[A)] I and II
+\item[B)] I and III
+\item[C)] II and III
+\item[D)] I, II and III
+\item[E)] no set of them is enough
 \end{itemize}
 
-\item In $\triangle PQR$, $PR=4$, $QR=p$ and $\angle RPQ=30^\circ$. For which values of $p$ does this information {\em uniquely} determine the length $PQ$? \textit{\small(after TMUA 2018 Paper 2 Q14)}
-\begin{itemize}
-\item[A)] $p=2$
-\item[B)] $p=\sqrt3$
-\item[C)] $1\le p<2$
-\item[D)] $p\ge4$
-\item[E)] $p=2$ or $p\ge4$
-\item[F)] $p=\sqrt3$ or $p\ge4$
-\item[G)] $p<4$
-\item[H)] $p\ge2$
+\item \begin{minipage}[t]{0.60\linewidth}
+In $\triangle ABC$, $AB=8$, $BC=6$ and $\angle A=\theta$. Exactly two non-congruent triangles fit these data, and the larger has four times the area of the smaller. What is $\cos\theta$? \textit{\small(after TMUA 2018 Paper 1 Q19)}
+\begin{itemize}[itemsep=4pt]
+\item[A)] $\dfrac{5\sqrt7}{16}$
+\item[B)] $\dfrac{3\sqrt{14}}{16}$
+\item[C)] $\dfrac{\sqrt7}{4}$
+\item[D)] $\dfrac34$
 \end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.3]
+\draw[speedgeom] (0,0) -- (8,0) -- (8.75,5.953) -- cycle;
+\draw[speedgeom] (8,0) -- (2.1875,1.4882);
+\draw[speedaux] (8,0) ++(97.2:6) arc (97.2:163:6);
+\draw (1.2,0) arc (0:34.2:1.2);
+\node at (1.9,0.5) {\tiny $\theta$};
+\node[below left] at (0,0) {\small $A$}; \node[below right] at (8,0) {\small $B$};
+\node[above] at (8.75,5.953) {\small $C_1$}; \node[above left] at (2.1875,1.4882) {\small $C_2$};
+\filldraw (0,0) circle (3pt) (8,0) circle (3pt) (8.75,5.953) circle (3pt) (2.1875,1.4882) circle (3pt);
+\end{tikzpicture}
+\end{minipage}
 
-\item The circles $C_1:(x+3)^2+(y-1)^2=25$ and $C_2:(x-8)^2+(y-1)^2=9$ have radii $5$ and $3$. How many common tangents do they have? \textit{\small(after TMUA 2019 Paper 1 Q6)}
+\item The circles $C_1:(x+3)^2+(y-1)^2=25$ and $C_2:(x-8)^2+(y-1)^2=9$ have radii $5$ and $3$. How many common tangents do they have?
 \begin{itemize}
 \item[A)] $0$
 \item[B)] $1$
@@ -184,7 +196,7 @@ The locus of $P$ with $PA=2\,PB$ and $A=(-2,0)$, $B=(4,0)$ is a circle (Apolloni
 \item[E)] $4$
 \end{itemize}
 
-\item The Apollonius circle $PA=3\,PB$ with $A=(0,0)$, $B=(6,0)$ is $(x-\tfrac{27}{4})^2+y^2=(\tfrac94)^2$. What is the greatest distance from the origin to a point on this circle? \textit{\small(after TMUA 2022 Paper 1 Q7)}
+\item The point $P$ moves so that $PA=3\,PB$, where $A=(0,0)$ and $B=(6,0)$. What is the greatest possible value of $PA$?
 \begin{itemize}
 \item[A)] $9$
 \item[B)] $7.5$
@@ -192,12 +204,12 @@ The locus of $P$ with $PA=2\,PB$ and $A=(-2,0)$, $B=(4,0)$ is a circle (Apolloni
 \item[D)] $6$
 \end{itemize}
 
-\item Fil finds the circle of Apollonius $PA=3PB$ with $A=(0,0)$, $B=(2,0)$ by writing $(x-2)^2+y^2=9$ and claiming this is the locus. Where is the error? \textit{\small(after TMUA 2019 Paper 2 Q14)}
+\item Fil finds the locus of $P$ with $PA=3\,PB$, where $A=(0,0)$ and $B=(2,0)$, by writing $(x-2)^2+y^2=9$. What is wrong?
 \begin{itemize}
-\item[A)] His equation is a circle centred at $B$ with radius $3$, but the true locus from $x^2+y^2=9\big((x-2)^2+y^2\big)$ is $\left(x-\tfrac94\right)^2+y^2=\tfrac{9}{16}$ (centre $(\tfrac94,0)$, radius $\tfrac34$); it incorrectly ignores the distance to $A$.
-\item[B)] Squaring loses the sign information, so the locus is really a single point.
-\item[C)] The set $PA=3PB$ is a straight line, not a circle at all.
-\item[D)] There is no error; $(x-2)^2+y^2=9$ is correct.
+\item[A)] Squaring loses sign information, so the locus is really a single point.
+\item[B)] The locus of $PA=3\,PB$ is a straight line, not a circle.
+\item[C)] His equation says $PB=3$; it never uses the distance to $A$.
+\item[D)] Nothing: $(x-2)^2+y^2=9$ is the locus.
 \end{itemize}
 
 \end{enumerate}
@@ -210,23 +222,24 @@ The locus of $P$ with $PA=2\,PB$ and $A=(-2,0)$, $B=(4,0)$ is a circle (Apolloni
 
 \begin{enumerate}
 
-\item The locus of $P$ with $PA^2+PB^2=34$, where $A=(-3,0)$, $B=(3,0)$, is a circle. What is its radius? \textit{\small(after BMO1 2017 Q4 $/$ TMUA 2022 Paper 1 Q7)}
+\item The locus of $P$ with $PA^2+PB^2=34$, where $A=(-3,0)$ and $B=(3,0)$, is a circle. What is its radius?
 \begin{itemize}
 \item[A)] $2\sqrt2$
 \item[B)] $4$
-\item[C)] $\sqrt8$
+\item[C)] $\sqrt{17}$
 \item[D)] $\sqrt{34}$
 \end{itemize}
 
-\item The graph $|x|+|y|=3$ is a square (diamond) with vertices $(3,0),(0,3),(-3,0),(0,-3)$. What is the finite area it encloses? \textit{\small(after TMUA 2021 Paper 1 Q9)}
+\item $S$ is the square with vertices $(0,0)$, $(4,0)$, $(4,4)$ and $(0,4)$. What is the area of the region of points whose distance from the boundary of $S$ is at most $1$?
 \begin{itemize}
-\item[A)] $6$
-\item[B)] $12$
-\item[C)] $18$
-\item[D)] $9$
+\item[A)] $32+\pi$
+\item[B)] $28+4\pi$
+\item[C)] $23+\pi$
+\item[D)] $28+\pi$
 \end{itemize}
 
-\item The diagram shows a kite $PQRS$ whose diagonals meet at $O$ with $OP=x$, $OQ=y$, $OR=x$, $OS=z$. Which condition is {\em necessary and sufficient} for $\angle SPQ=90^\circ$? \textit{\small(after TMUA 2022 Paper 2 Q11)}
+\item \begin{minipage}[t]{0.66\linewidth}
+The diagram shows a kite $PQRS$ whose diagonals meet at $O$, with $OP=OR=x$, $OQ=y$ and $OS=z$. Which condition is necessary and sufficient for $P$, $Q$, $R$ and $S$ to lie on a circle? \textit{\small(after TMUA 2022 Paper 2 Q11)}
 \begin{itemize}
 \item[A)] $x=y=z$
 \item[B)] $2x=y+z$
@@ -234,8 +247,22 @@ The locus of $P$ with $PA=2\,PB$ and $A=(-2,0)$, $B=(4,0)$ is a circle (Apolloni
 \item[D)] $y=z$
 \item[E)] $y^2=x^2+z^2$
 \end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.30\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.55]
+\draw[speedgeom] (-2,0) -- (0,1) -- (2,0) -- (0,-3) -- cycle;
+\draw[speedaux] (-2,0) -- (2,0) (0,1) -- (0,-3);
+\node[left] at (-2,0) {\small $P$}; \node[above] at (0,1) {\small $Q$};
+\node[right] at (2,0) {\small $R$}; \node[below] at (0,-3) {\small $S$};
+\node[below left] at (0,0) {\tiny $O$};
+\node[above] at (-1,0) {\scriptsize $x$}; \node[above] at (1,0) {\scriptsize $x$};
+\node[right] at (0,0.5) {\scriptsize $y$}; \node[right] at (0,-1.5) {\scriptsize $z$};
+\end{tikzpicture}
+\end{minipage}
 
-\item The circles $C_1:x^2+y^2=25$ and $C_2:(x-4)^2+y^2=9$ intersect at $P,Q$. What is the length $PQ$? \textit{\small(after BMO1 2017 Q4 $/$ TMUA Practice Paper 2 Q9)}
+\item The circles $C_1:x^2+y^2=25$ and $C_2:(x-4)^2+y^2=9$ meet at $P$ and $Q$. What is the length $PQ$?
 \begin{itemize}
 \item[A)] $3$
 \item[B)] $6$
@@ -243,7 +270,7 @@ The locus of $P$ with $PA=2\,PB$ and $A=(-2,0)$, $B=(4,0)$ is a circle (Apolloni
 \item[D)] $\dfrac{24}{5}$
 \end{itemize}
 
-\item Let the Apollonius circle $PA=2PB$ with $A=(0,0)$, $B=(6,0)$ be $(x-8)^2+y^2=16$. The triangle $PAB$ varies as $P$ runs over this circle. What is its maximum possible area? \textit{\small(after TMUA 2022 Paper 1 Q7 $/$ BMO1 2017 Q4)}
+\item The points $A$ and $B$ are fixed, and $k>0$ with $k\ne1$. Prove that the locus of points $P$ with $PA=k\,PB$ is a circle, and that this circle cuts every circle through $A$ and $B$ at right angles.
 
 \end{enumerate}
 
