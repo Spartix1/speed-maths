@@ -5,305 +5,558 @@
 \begin{document}
 
 \SpeedTitleBlock{Daily Geometry Drill \#5 --- Answers \& Investigations}{Henry Koduthore}
-\SpeedMeta{Tangents from an external point}{tangent length, angle between tangents, chord of contact / polar, director circle}
+\SpeedMeta{Circles, arcs and tangency}{circle theorems, alternate segment, cyclic quadrilaterals, power of a point, tangent lengths, touching circles, circles in angles, segments and lenses}
+\noindent\textit{New toolkit today: Angle at the centre $\cdot$ Cyclic quadrilaterals $\cdot$ Tangent $\perp$ radius $\cdot$ Power of a point $\cdot$ Touching circles: join the centres.}
 
+% ══════════════════════════════════════════════════════════════════════════════
 \section*{Section A \quad Rapid Recognition}
-
+% ══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-% ── A1 ──────────────────────────────────────────────────────────────────────────
-\item \ans{$4$}
-\method{Tangent length $=\sqrt{OP^2-r^2}=\sqrt{25-9}=\sqrt{16}=4$. Right triangle $OP$ hypotenuse $5$, leg $r=3$.}
-\inv{Try $OP=13$, $r=5$: what is the tangent? Generalise the triple $5$--$12$--$13$.}
+%── A1 ───────────────────────────────────────────────────────────────────────
+\item In a circle with centre $O$, the angle at the circumference subtending arc $AB$ is $20^\circ$. Write down the angle at the centre.
 
-% ── A2 ──────────────────────────────────────────────────────────────────────────
-\item \ans{$\dfrac{3}{4}$}
-\method{$\tan\frac{\theta}{2}=\frac{r}{\sqrt{OP^2-r^2}}=\frac{3}{4}$. The half-angle uses the tangent length $4$ from A1 as adjacent.}
-\inv{Show $\sin\frac{\theta}{2}=\frac{r}{OP}=\frac35$ and $\cos\frac{\theta}{2}=\frac{4}{5}$ recover the same $\tan$.}
+\ans{$40^\circ$}
+\method{The angle at the centre is twice the angle at the circumference on the same arc: $2\times20^\circ=40^\circ$.}
+\inv{Where on the circle can the $20^\circ$ angle be, and what does the angle become if the point moves onto the minor arc $AB$?}
 
-% ── A3 ──────────────────────────────────────────────────────────────────────────
-\item \ans{"$5x+3y=25$"}
-\method{Polar of $(x_1,y_1)$ w.r.t.\ $x^2+y^2=r^2$ is $xx_1+yy_1=r^2$: $5x+3y=25$.}
-\inv{Check $P$ is external: $5^2+3^2=34>25$. What if $P$ were inside?}
+%── A2 ───────────────────────────────────────────────────────────────────────
+\item $AB$ is a diameter of a circle and $P$ is any other point on the circle. Write down $\angle APB$.
 
-% ── A4 ──────────────────────────────────────────────────────────────────────────
-\item \ans{$5\sqrt{2}$}
-\method{$r^2=25$, director circle $x^2+y^2=2r^2=50$, radius $\sqrt{50}=5\sqrt{2}$. Radius scales by $\sqrt2$.}
-\inv{From director circle, tangents are orthogonal. Why $\sqrt2$ and not $2$?}
+\ans{$90^\circ$}
+\method{The angle at the centre is the straight angle $180^\circ$, so the angle at the circumference is half of it.}
+\inv{State and prove the converse: if $\angle APB=90^\circ$, then $P$ lies on the circle with diameter $AB$.}
 
-% ── A5 ──────────────────────────────────────────────────────────────────────────
-\item \ans{$\sqrt{13}$}
-\method{$\sqrt{OP^2-r^2}=\sqrt{7^2-6^2}=\sqrt{49-36}=\sqrt{13}$.}
-\inv{If $OP=7$, $r=6$, sketch the right triangle and mark the tangent.}
+%── A3 ───────────────────────────────────────────────────────────────────────
+\item $ABCD$ is a cyclic quadrilateral with $\angle A=70^\circ$ and $\angle B=85^\circ$. Write down $\angle C$.
 
-% ── A6 ──────────────────────────────────────────────────────────────────────────
-\item \ans{$3\sqrt{3}$}
-\method{$\sin\frac{\theta}{2}=\frac{r}{OP}\Rightarrow \sin30^{\circ}=\frac{r}{6}$ so $r=3$. Tangent $=\sqrt{36-9}=3\sqrt3$.}
-\inv{Swap: if tangent $=3\sqrt3$ and $OP=6$, recover $\theta$.}
+\ans{$110^\circ$}
+\method{Opposite angles of a cyclic quadrilateral sum to $180^\circ$, so $\angle C=180^\circ-70^\circ=110^\circ$. ($\angle B$ is not needed.)}
+\inv{Find $\angle D$ as well, and check that the four angles sum to $360^\circ$.}
 
-% ── A7 ──────────────────────────────────────────────────────────────────────────
-\item \ans{"$5x=4$"}
-\method{Polar $xx_1+yy_1=r^2$ with $(5,0)$, $r^2=4$: $5x=4$, i.e.\ $x=4/5$, the vertical chord.}
-\inv{Why does $y_1=0$ kill the $y$ term? What line would $P=(0,5)$ give?}
+%── A4 ───────────────────────────────────────────────────────────────────────
+\item The tangent at $T$ to a circle makes an angle of $40^\circ$ with the chord $TA$. By the alternate segment theorem, write down the angle in the alternate segment subtended by $TA$.
 
-% ── A8 ──────────────────────────────────────────────────────────────────────────
-\item \ans{$13$}
-\method{$OP=\sqrt{12^2+5^2}=\sqrt{144+25}=13$ by $5$--$12$--$13$.}
-\inv{Reverse: if $OP=13$ and $r=5$, what is the tangent?}
+\ans{$40^\circ$}
+\method{The angle between a tangent and a chord equals the angle in the alternate segment.}
+\inv{Prove the alternate segment theorem from the angle in a semicircle, by taking the point in the alternate segment at the far end of the diameter through $T$.}
 
-% ── A9 ──────────────────────────────────────────────────────────────────────────
-\item \ans{$\dfrac{10\sqrt{3}}{3}$}
-\method{Half-angle $60^{\circ}$: $\sin60^{\circ}=\frac{5}{OP}$ so $OP=\frac{5}{\sqrt3/2}=\frac{10\sqrt3}{3}$.}
-\inv{Write $\sin60^{\circ}=\sqrt3/2$ and rationalise the denominator.}
+%── A5 ───────────────────────────────────────────────────────────────────────
+\item Chords $AB$ and $CD$ of a circle intersect inside at $P$, with $PA=2$, $PB=6$ and $PC=3$. Write down $PD$.
 
-% ── A10 ──────────────────────────────────────────────────────────────────────────
-\item \ans{"$(4,4)$"}
-\method{Compare $xx_1+yy_1=16$ with $x+y=4$: multiply by $4$ to get $4x+4y=16$, so $(x_1,y_1)=(4,4)$.}
-\inv{Check $4^2+4^2=32>16$ (external) and that $4x+4y=16$ indeed has distance $2\sqrt2<r$.}
+\ans{$4$}
+\method{Intersecting chords: $PA\cdot PB=PC\cdot PD$, so $2\cdot6=3\cdot PD$ and $PD=4$.}
+\inv{Prove $PA\cdot PB=PC\cdot PD$ from a pair of similar triangles. Which angles are equal, and why?}
+
+%── A6 ───────────────────────────────────────────────────────────────────────
+\item A tangent from $P$ touches the circle at $T$, and a secant through $P$ cuts the circle at $A$ then $B$. Given $PT=3$ and $PA=1$, write down $PB$.
+
+\ans{$9$}
+\method{Tangent--secant: $PT^2=PA\cdot PB$, so $9=1\cdot PB$ and $PB=9$.}
+\inv{How long is the chord $AB$, and how far is its midpoint from $P$?}
+
+%── A7 ───────────────────────────────────────────────────────────────────────
+\item Write down the length of the tangent from $(7,0)$ to $x^2+y^2=36$.
+
+\ans{$\sqrt{13}$}
+\method{The radius to the point of contact is perpendicular to the tangent, so the tangent length is $\sqrt{7^2-6^2}=\sqrt{13}$.}
+\inv{For which points $P$ is the tangent length to $x^2+y^2=36$ equal to $\sqrt{13}$? Describe the locus.}
+
+%── A8 ───────────────────────────────────────────────────────────────────────
+\item Two tangents from the point $P$ to a circle of unknown radius make an angle of $60^\circ$ and $OP=6$. Write down the length of each tangent.
+
+\ans{$3\sqrt3$}
+\method{$OP$ bisects the $60^\circ$ angle, so each tangent makes $30^\circ$ with $OP$ and has length $6\cos30^\circ=3\sqrt3$.}
+\inv{Find the radius of the circle too, and the area of the kite formed by $P$, the centre and the two points of contact.}
+
+%── A9 ───────────────────────────────────────────────────────────────────────
+\item The two tangents from $P$ to the circle $x^2+y^2=25$ make an angle of $120^\circ$. Write down $OP$.
+
+\ans{$\dfrac{10\sqrt3}{3}$}
+\method{$OP$ bisects the $120^\circ$ angle, so $\sin60^\circ=\tfrac{r}{OP}$ and $OP=\tfrac{5}{\sqrt3/2}=\tfrac{10\sqrt3}{3}$.}
+\inv{As $P$ moves away from the circle, the angle between the tangents shrinks. At what distance $OP$ is it $90^\circ$?}
+
+%── A10 ──────────────────────────────────────────────────────────────────────
+\item In the cyclic quadrilateral $ABCD$, $\angle BAC=30^\circ$. Write down $\angle BDC$.
+
+\ans{$30^\circ$}
+\method{$\angle BAC$ and $\angle BDC$ stand on the same arc $BC$, on the same side of $BC$, so they are equal.}
+\inv{If $\angle BAC=30^\circ$ and $\angle CAD=40^\circ$, find $\angle BCD$.}
 
 \end{enumerate}
 
+% ══════════════════════════════════════════════════════════════════════════════
 \section*{Section B \quad Manipulation Drills}
-
+% ══════════════════════════════════════════════════════════════════════════════
 \begin{enumerate}
 
-% ── B1 ──────────────────────────────────────────────────────────────────────────
-\item \ans{B) $4$}
-\method{$OP=\sqrt{9+16}=5$, $r=3$, tangent $=\sqrt{25-9}=4$.}
-\inv{If $P=(3,4)$ moved to $(6,8)$, what would the tangent be?}
+%── B1 ───────────────────────────────────────────────────────────────────────
+\item A tangent at $T$ makes an angle of $55^\circ$ with chord $TA$. The angle in the alternate segment subtended by $TA$ is?
+\begin{itemize}
+\item[A)] $35^\circ$
+\item[B)] $55^\circ$
+\item[C)] $110^\circ$
+\item[D)] $70^\circ$
+\end{itemize}
 
-% ── B2 ──────────────────────────────────────────────────────────────────────────
-\item \ans{C) $60^{\circ}$}
-\method{$\sin\frac{\theta}{2}=\frac{3}{6}=\frac12\Rightarrow \frac{\theta}{2}=30^{\circ}$, so $\theta=60^{\circ}$.}
-\inv{If $OP$ doubled to $12$, what angle would you get?}
+\ans{B) $55^\circ$}
+\method{Alternate segment theorem: the angle between the tangent and the chord equals the angle in the alternate segment. Option A is its complement; option C doubles it (that is the angle at the centre).}
+\inv{The angle at the centre on chord $TA$ is $110^\circ$. Show this directly from the isosceles triangle $OTA$ and the right angle between $OT$ and the tangent.}
 
-% ── B3 ──────────────────────────────────────────────────────────────────────────
-\item \ans{"$3x+5y=25$"}
-\method{Polar $xx_1+yy_1=25$ with $(3,5)$ gives $3x+5y=25$.}
-\inv{Verify the chord's distance $\frac{25}{\sqrt{34}}>r$? Actually $25/\sqrt{34}\approx4.3<r=5$, so chord inside.}
+%── B2 ───────────────────────────────────────────────────────────────────────
+\item $ABCD$ is cyclic with $\angle A=2x$ and $\angle C=3x$. Find $x$.
+\begin{itemize}
+\item[A)] $24$
+\item[B)] $30$
+\item[C)] $36$
+\item[D)] $72$
+\end{itemize}
 
-% ── B4 ──────────────────────────────────────────────────────────────────────────
-\item \ans{B) $2\sqrt{2}$}
-\method{Director circle $x^2+y^2=2r^2=8$, radius $\sqrt8=2\sqrt2$.}
-\inv{What is the director circle of a radius-$3$ circle?}
+\ans{C) $36$}
+\method{Opposite angles of a cyclic quadrilateral are supplementary: $2x+3x=180^\circ$, so $x=36$.}
+\inv{Can $\angle B$ and $\angle D$ also be in the ratio $2:3$? Find them.}
 
-% ── B5 ──────────────────────────────────────────────────────────────────────────
-\item \ans{C) $2$}
-\method{$\sqrt{1^2+2^2-1}= \sqrt{4}=2$.}
-\inv{Check $OP^2=5$, $r^2=1$, so tangent $\sqrt{4}=2$.}
+%── B3 ───────────────────────────────────────────────────────────────────────
+\item A {\em tangential} (circumscribed) quadrilateral $ABCD$ has $AB=5$, $BC=7$ and $CD=6$. By Pitot's theorem ($AB+CD=BC+DA$), find $DA$.
+\begin{itemize}
+\item[A)] $4$
+\item[B)] $6$
+\item[C)] $8$
+\item[D)] $18$
+\end{itemize}
 
-% ── B6 ──────────────────────────────────────────────────────────────────────────
-\item \ans{C) $13$}
-\method{$OP=\sqrt{12^2+5^2}=13$.}
-\inv{Memorise $5$--$12$--$13$; where else does it appear in this sheet?}
+\ans{A) $4$}
+\method{The tangent lengths from each vertex are equal, so opposite sides have equal sums: $AB+CD=BC+DA$, i.e.\ $5+6=7+DA$ and $DA=4$.}
+\inv{Prove Pitot's theorem by labelling the four pairs of equal tangent lengths.}
 
-% ── B7 ──────────────────────────────────────────────────────────────────────────
-\item \ans{B) $4$}
-\method{Polar of $(a,0)$ is $ax=16$, i.e.\ $x=16/a$. Set $16/a=4\Rightarrow a=4$.}
-\inv{If the line were $x=2$, what would $a$ be?}
-
-% ── B8 ──────────────────────────────────────────────────────────────────────────
-\item \ans{$5$}
-\method{Orthogonal tangents $\Rightarrow P$ on director circle: $OP^2=2r^2=50$, tangent $=\sqrt{50-25}=5$.}
-\inv{Show the director radius is $5\sqrt2$ and the tangent there is $5$.}
-
-% ── B9 ──────────────────────────────────────────────────────────────────────────
-\item \ans{A) $4$}
-\method{Tangent $y=mx\pm r\sqrt{1+m^2}$: $r=\sqrt8$, $m=1\Rightarrow c=\sqrt8\sqrt2=4$.}
-\inv{Write the two parallel tangents with slope $1$ to $x^2+y^2=8$.}
-
-% ── B10 ──────────────────────────────────────────────────────────────────────────
-\item \ans{$8$}
-\method{$r^2=OP^2-\ell^2=100-36=64\Rightarrow r=8$.}
-\inv{If $\ell=6$, $OP=10$, draw the right triangle and label $r$.}
-
-\end{enumerate}
-
-\section*{Section C \quad Substitution \& Structure}
-
-\begin{enumerate}
-
-% ── C1 ──────────────────────────────────────────────────────────────────────────
-\item From $P(8,12)$, two tangents are drawn to $x^2+y^2=36$ ($r=6$). Let $T_1T_2$ be the chord of contact. What is the distance from $O$ to $T_1T_2$? \textit{\small(after TMUA 2020 Paper 1 Q16 / BMO1 2013 Q4)}
-\ans{$\dfrac{9\sqrt{13}}{13}$}
-\method{Polar is $8x+12y=36\Rightarrow 2x+3y=9$. $OP=\sqrt{8^2+12^2}=4\sqrt{13}$, and $d=r^2/OP=36/(4\sqrt{13})=9/\sqrt{13}=9\sqrt{13}/13$. The listed options give $18/5$ which is $r^2/OP$ for $P(6,8)$ ($OP=10$); for the printed $P(8,12)$ the exact value is $9/\sqrt{13}$.}
-\inv{Show in general $d=r^2/OP$. What would $d$ be for $P(6,8)$?}
-
-% ── C2 ──────────────────────────────────────────────────────────────────────────
-\item The locus where tangent length to $x^2+y^2=4$ equals that to $(x-6)^2+y^2=16$ is the radical axis. Which line is it? \textit{\small(adapted from TMUA 2018 Paper 1 Q7)}
-\ans{B) $x=2$}
-\method{Equal powers: $x^2+y^2-4=(x-6)^2+y^2-16\Rightarrow -4=-12x+20\Rightarrow x=2$.}
-\inv{Check the circles touch at $(2,0)$; the axis is the common tangent there.}
-
-% ── C3 ──────────────────────────────────────────────────────────────────────────
+%── B4 ───────────────────────────────────────────────────────────────────────
 \item \begin{minipage}[t]{0.70\linewidth}
-\vspace{0pt}
-The circle $x^2+y^2-6x-8y+24=0$ has centre $(3,4)$, $r=1$. $P(6,8)$ is outside. What is the tangent length? \textit{\small(after MAT 2021 Q5)}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.26\linewidth}
-\vspace{0pt}
-\centering
-\begin{tikzpicture}[scale=0.42]
-\draw (0,0) circle (1.2);
-\draw (1.2,0) -- (2.5,0.8);
-\draw[fill=black] (0,0) circle (1pt) node[below]{\tiny $O$};
-\draw (0,0) -- (1.2,0) node[midway, below]{\tiny $r$};
-\end{tikzpicture}
-\end{minipage}
-
-
-\ans{$2\sqrt{6}$}
-\method{Centre $C=(3,4)$, $PC=\sqrt{9+16}=5$, $r=1$: tangent $=\sqrt{25-1}=2\sqrt6\approx4.90$. None of the printed numerals equals this exactly; $4$ would need $r=3$.}
-\inv{Compute the power of $P$: $6^2+8^2-36-64+24=24$ and $\sqrt{24}=2\sqrt6$.}
-
-% ── C4 ──────────────────────────────────────────────────────────────────────────
-\item For the $13$-$14$-$15$ triangle ($s=21$, $r=4$), the two tangent lengths from the vertex opposite side $14$ are $s-b$. With $b=14$, what is that length? \textit{\small(adapted from BMO1 2015 Q3)}
-\ans{B) $7$}
-\method{$s-b=21-14=7$. The $s-a$ rule gives equal tangents from each vertex.}
-\inv{List all three $s-a$, $s-b$, $s-c$ for $13$--$14$--$15$.}
-
-% ── C5 ──────────────────────────────────────────────────────────────────────────
-\item The locus of points from which the two tangents to $(x-4)^2+y^2=9$ are perpendicular? \textit{\small(after TMUA 2022 Paper 1 Q19)}
-\ans{A) $(x-4)^2+y^2=18$}
-\method{Director circle is centred at the same centre $(4,0)$ with radius $r\sqrt2=3\sqrt2$, so $(x-4)^2+y^2=18$.}
-\inv{Why must the centre stay at $(4,0)$? Translate the origin result.}
-
-% ── C6 ──────────────────────────────────────────────────────────────────────────
-\item \begin{minipage}[t]{0.70\linewidth}
-\vspace{0pt}
-The point $(8,6)$ is at distance $10$ from the origin. Tangents from $(8,6)$ to $x^2+y^2=1$ have length $\sqrt{99}$. What is the distance from the origin to the chord of contact? \textit{\small(adapted from TMUA 2020 Paper 1 Q16)}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.26\linewidth}
-\vspace{0pt}
-\centering
-\begin{tikzpicture}[scale=0.4]
-\draw (0,0) circle (1.2);
-\draw (-0.8,-0.8) -- (0.8,0.8);
-\draw[fill=black] (0,0) circle (1pt);
-\end{tikzpicture}
-\end{minipage}
-
-
-\ans{A) $\dfrac{1}{10}$}
-\method{Polar $8x+6y=1$, $d=1/10$; equivalently $d=r^2/OP=1/10$. Since $d<r$, the chord cuts the circle.}
-\inv{Compute tangent $=\sqrt{100-1}=\sqrt{99}=3\sqrt{11}$ and verify.}
-
-% ── C7 ──────────────────────────────────────────────────────────────────────────
-\item The triangle with sides $13,14,15$ has incircle touching $BC$ at $D$. If $BD=6$, $DC=9$, $s=21$, the two equal tangents from $A$ are $s-a$. What is $AE$ (tangents from $A$)? \textit{\small(after BMO1 2020 Q3)}
-\ans{A) $6$}
-\method{$a=BC=15$, $s-a=21-15=6$. The incircle tangents from each vertex are $s-a$, $s-b$, $s-c$.}
-\inv{Recover $s-b=7$, $s-c=8$ and see $6+7=13$, $6+8=14$?}
-
-% ── C8 ──────────────────────────────────────────────────────────────────────────
-\item The chord of contact of $(2,1)$ w.r.t.\ $x^2+y^2=1$ is $2x+y=1$. What is its distance from the origin, and is it inside, on, or outside the circle? \textit{\small(adapted from TMUA 2021 Paper 2 Q7)}
-\ans{A) $\dfrac{1}{\sqrt5}$}
-\method{Distance $=1/\sqrt{4+1}=1/\sqrt5=\sqrt5/5\approx0.45<r=1$, so the line cuts the circle (inside).}
-\inv{Rationalise: $1/\sqrt5=\sqrt5/5$. When would distance equal $r$?}
-
-\end{enumerate}
-
-\section*{Section D \quad Challenge Ramp}
-
-\begin{enumerate}
-
-% ── D1 ──────────────────────────────────────────────────────────────────────────
-\item \begin{minipage}[t]{0.70\linewidth}
-\vspace{0pt}
-Two tangents from $P$ to $x^2+y^2=9$ with $OP=6$ enclose angle $\theta$. What is $\theta$? \textit{\small(after TMUA 2018 Paper 1 Q7 / BMO1 2023 Q4)}
+From external $P$, tangent $PT=12$ touches a circle and secant $PAB$ meets it with $PA=8$. Find the chord $AB$.
+\begin{itemize}
+\item[A)] $6$
+\item[B)] $10$
+\item[C)] $12$
+\item[D)] $18$
+\end{itemize}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.26\linewidth}
 \vspace{0pt}
 \centering
 \begin{tikzpicture}[scale=0.45]
-\draw (0,0) circle (1.2);
-\draw (0,0) -- (1.5,0.8);
-\draw (1.5,0.8) -- (0.8,1.5);
-\node at (0.6,0.6) {\tiny $\theta$};
-\draw[fill=black] (0,0) circle (1pt);
-\end{tikzpicture}
-\end{minipage}
-
-
-\ans{B) $60^{\circ}$}
-\method{$\sin\frac{\theta}{2}=r/OP=3/6=1/2\Rightarrow \theta/2=30^{\circ}\Rightarrow\theta=60^{\circ}$.}
-\inv{What is $\tan\frac{\theta}{2}$ here?}
-
-% ── D2 ──────────────────────────────────────────────────────────────────────────
-\item From $P$ to $x^2+y^2=25$, tangent length is $5\sqrt3$. Find $OP$ (use $OP^2=r^2+\text{tangent}^2$). \textit{\small(adapted from TMUA 2020 Paper 1 Q16)}
-\ans{A) $10$}
-\method{$OP^2=25+75=100\Rightarrow OP=10$.}
-\inv{If tangent were $12$, what would $OP$ be?}
-
-% ── D3 ──────────────────────────────────────────────────────────────────────────
-\item \begin{minipage}[t]{0.70\linewidth}
-\vspace{0pt}
-The chord of contact from $P(3,3)$ to $x^2+y^2=9$ is $x+y=3$. What is its length? \textit{\small(adapted from TMUA 2019 Paper 1 Q6)}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.26\linewidth}
-\vspace{0pt}
-\centering
-\begin{tikzpicture}[scale=0.42]
 \draw (0,0) circle (1.3);
-\draw (-1.1,-0.7) -- (1.1,-0.7);
-\draw[fill=black] (0,0) circle (1pt);
-\node at (0,-0.7) [below]{\tiny $3x+4y=12$};
+\draw (2.4,0.2) -- (1.3,0);
+\draw (2.4,0.2) -- (0.45,1.22);
+\draw[fill=black] (2.4,0.2) circle (1.2pt) node[right]{\tiny $P$};
+\draw[fill=black] (1.3,0) circle (1.2pt) node[below]{\tiny $A$};
+\draw[fill=black] (0.45,1.22) circle (1.2pt) node[above]{\tiny $B$};
+\draw[fill=black] (0.35,-1.25) circle (1.2pt) node[below]{\tiny $T$};
+\draw (2.4,0.2) -- (0.35,-1.25);
 \end{tikzpicture}
 \end{minipage}
 
+\ans{B) $10$}
+\method{$PT^2=PA\cdot PB$ gives $144=8\cdot PB$, so $PB=18$ and $AB=18-8=10$. Option D is $PB$.}
+\inv{Find the distance from the centre to the chord $AB$ if the circle has radius $13$.}
 
-\ans{A) $3\sqrt2$}
-\method{Distance $d=3/\sqrt2$, half-chord $\sqrt{9-9/2}=3/\sqrt2$, chord $=3\sqrt2$.}
-\inv{General: chord $=2\sqrt{r^2-d^2}$ where $d=r^2/OP$.}
+%── B5 ───────────────────────────────────────────────────────────────────────
+\item From an external point $P$, two secants meet the same circle at $P$--$A$--$B$ and $P$--$C$--$D$, with $PA=4$, $PB=18$ and $PC=6$. Write down the length of the chord $CD$.
 
-% ── D4 ──────────────────────────────────────────────────────────────────────────
-\item Two tangents from $P$ make $60^{\circ}$ and $OP=10$, $r=OP\sin(\theta/2)=5$, tangent $=OP\cos(\theta/2)$. What is the length? \textit{\small(after BMO1 2015 Q3)}
-\ans{B) $5\sqrt3$}
-\method{$r=10\sin30^{\circ}=5$, tangent $=\sqrt{100-25}=5\sqrt3=10\cos30^{\circ}$.}
-\inv{Check $\tan30^{\circ}=r/\ell=1/\sqrt3$ gives $\ell=5\sqrt3$.}
+\ans{$6$}
+\method{$PA\cdot PB=PC\cdot PD$ gives $72=6\cdot PD$, so $PD=12$ and $CD=12-6=6$.}
+\inv{Where must a tangent from $P$ touch, and how long is it?}
 
-% ── D5 ──────────────────────────────────────────────────────────────────────────
-\item \begin{minipage}[t]{0.70\linewidth}
-\vspace{0pt}
-The polar of $(9,12)$ w.r.t.\ $x^2+y^2=81$ is $3x+4y=27$. What is its distance from the origin, and is $P$ outside/inside/on? \textit{\small(adapted from MAT 2021 Q5)}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.26\linewidth}
-\vspace{0pt}
-\centering
-\begin{tikzpicture}[scale=0.4]
-\draw (0,0) circle (1.2);
-\draw (0,0) -- (1.2,0);
-\draw[fill=black] (0,0) circle (1pt) (1.2,0) circle (1pt);
-\node at (0.6,0.2) {\tiny $d$};
-\end{tikzpicture}
-\end{minipage}
+%── B6 ───────────────────────────────────────────────────────────────────────
+\item The point $P$ has $OP=6$ with respect to a circle of radius $3$. The angle between the two tangents from $P$ is?
+\begin{itemize}
+\item[A)] $30^\circ$
+\item[B)] $45^\circ$
+\item[C)] $60^\circ$
+\item[D)] $90^\circ$
+\end{itemize}
 
+\ans{C) $60^\circ$}
+\method{$OP$ bisects the angle between the tangents, and $\sin\tfrac\theta2=\tfrac{r}{OP}=\tfrac12$, so $\tfrac\theta2=30^\circ$ and $\theta=60^\circ$.}
+\inv{Show that the two points of contact and $P$ form an equilateral triangle here.}
 
-\ans{A) $\dfrac{27}{5}$}
-\method{$9x+12y=81\Rightarrow 3x+4y=27$, $d=27/5=5.4<r=9$ (chord inside), $OP=15>r$ (point outside).}
-\inv{Note $27/5=r^2/OP=81/15$ reduced; unreduced $81/15$ is option D.}
+%── B7 ───────────────────────────────────────────────────────────────────────
+\item Two circles of radius $6$ each pass through the other's centre. They meet at $A$ and $B$. How long is $AB$? \textit{\small(after Primer 1.4 P16)}
+\begin{itemize}
+\item[A)] $6$
+\item[B)] $12$
+\item[C)] $6\sqrt2$
+\item[D)] $6\sqrt3$
+\item[E)] $3\sqrt3$
+\end{itemize}
+
+\ans{D) $6\sqrt3$}
+\method{The centres $O_1$, $O_2$ and $A$ form an equilateral triangle of side $6$, and so do $O_1$, $O_2$ and $B$. $AB$ is twice the height of one of them: $2\cdot3\sqrt3=6\sqrt3$. Option E is only the height.}
+\inv{Find the area of the region inside both circles. (C3 does this for radius $2$.)}
+
+%── B8 ───────────────────────────────────────────────────────────────────────
+\item Two concentric circles have radii in the ratio $2:5$. $AC$ is a diameter of the larger circle, and the chord $BC$ of the larger circle touches the smaller circle. If $AB=8$, what is the radius of the larger circle? \textit{\small(after Primer 1.4 P13)}
+\begin{itemize}
+\item[A)] $16$
+\item[B)] $20$
+\item[C)] $8$
+\item[D)] $12$
+\item[E)] $10$
+\end{itemize}
+
+\ans{E) $10$}
+\method{$\angle ABC=90^\circ$ (angle in a semicircle). The radius $OT$ to the point of contact is perpendicular to $BC$, so $OT\parallel AB$, and since $O$ is the midpoint of $AC$, $OT=\tfrac12AB=4$. That is the small radius, so the large radius is $\tfrac52\cdot4=10$.}
+\inv{Find $BC$, and check that $T$ is its midpoint.}
+
+%── B9 ───────────────────────────────────────────────────────────────────────
+\item The line $ST$ is a chord of the larger of two concentric circles and touches the smaller one. If $ST=30$, find the area of the region between the circles. \textit{\small(after Primer 1.4 P8)}
+
+\ans{$225\pi$}
+\method{If the radii are $R$ and $r$, the point of contact is the midpoint of $ST$, so $R^2-r^2=15^2$. The area between the circles is $\pi(R^2-r^2)=225\pi$, whatever the radii are.}
+\inv{Why does the answer not depend on the radii? What happens as the smaller circle shrinks to a point?}
+
+%── B10 ──────────────────────────────────────────────────────────────────────
+\item $AB$ is a diameter of a circle and $C$ is a point on the circle with $\angle ABC=55^\circ$. Write down $\angle BAC$.
+
+\ans{$35^\circ$}
+\method{$\angle ACB=90^\circ$ (angle in a semicircle), so $\angle BAC=180^\circ-90^\circ-55^\circ=35^\circ$.}
+\inv{Find the angle between the tangent at $A$ and the chord $AC$.}
 
 \end{enumerate}
 
-\section*{Top 5 Patterns}
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section C \quad Substitution \& Structure}
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
 
+%── C1 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+$BC$ is a diameter of a circle and $CD$ is the tangent at $C$. The line $BD$ meets the circle again at $A$. If $AB=7$ and $AD=9$, what is the radius of the circle? \textit{\small(after Primer 1.4 P40)}
 \begin{itemize}
-\item \textbf{Tangent length is one Pythagorean step: $\sqrt{OP^2-r^2}$.} Locate $OP$ and $r$, square, subtract. \seealso{A1, B1, C3, D2}
-\item \textbf{The polar of $(x_1,y_1)$ is $xx_1+yy_1=r^2$.} The same $r^2$ on the right keeps the chord of contact honest. \seealso{A3, B3, C1, D3}
-\item \textbf{$\sin\frac{\theta}{2}=\frac{r}{OP}$ sizes the double-tangent wedge.} Halve the angle before you take the sine. \seealso{A2, B2, D1, D4}
-\item \textbf{Perpendicular tangents define the director circle $x^2+y^2=2r^2$.} The doubling happens on $r^2$, so the radius multiplies by $\sqrt{2}$. \seealso{A4, B4, C5, D1}
-\item \textbf{$s-a$ and the radical axis give equal tangents without coordinates.} $s-a$, $s-b$, $s-c$ and $P_1=P_2$ are the same idea. \seealso{C2, C4, C7, A10, B7}
+\item[A)] $12$
+\item[B)] $4\sqrt7$
+\item[C)] $2\sqrt7$
+\item[D)] $8$
+\item[E)] $6$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.21]
+\draw[speedgeom] (0,0) circle (5.29);
+\draw[speedgeom] (0,5.29) -- (0,-5.29) -- (12,-5.29) -- cycle;
+\draw (0,-4.6) -- (0.7,-4.6) -- (0.7,-5.29);
+\node[above] at (0,5.29) {\small $B$}; \node[below] at (0,-5.29) {\small $C$};
+\node[below] at (12,-5.29) {\small $D$}; \node[above right] at (5.25,0.66) {\small $A$};
+\filldraw (5.25,0.66) circle (4pt);
+\end{tikzpicture}
+\end{minipage}
+
+\ans{C) $2\sqrt7$}
+\method{Tangent--secant from $D$: $DC^2=DA\cdot DB=9\cdot16=144$, so $DC=12$. The tangent is perpendicular to the diameter, so $BC^2=BD^2-DC^2=256-144=112$, $BC=4\sqrt7$ and the radius is $2\sqrt7$. Option A is $DC$; option B is the diameter.}
+\inv{Find $AC$ in two ways: from triangle $ABC$ (right-angled at $A$) and from triangle $ACD$.}
+
+%── C2 ───────────────────────────────────────────────────────────────────────
+\item A regular octagon is inscribed in a circle of radius $2$, and $X$ is any point on the circle. What is the sum of the squares of the distances from $X$ to the eight vertices? \textit{\small(after SMC 2025 Q21)}
+\begin{itemize}
+\item[A)] $64$
+\item[B)] $32$
+\item[C)] $128$
+\item[D)] $48$
+\item[E)] $16$
 \end{itemize}
 
-\section*{Common Traps}
+\ans{A) $64$}
+\method{Put the centre at the origin. For a vertex $V$, $XV^2=|X|^2+|V|^2-2\,X\cdot V=8-2\,X\cdot V$. The eight vertex vectors sum to zero, so the dot products cancel and the total is $8\cdot8=64$, for every $X$ on the circle. Option B forgets the $|X|^2$ terms.}
+\inv{Show that the answer $2nR^2$ holds for any regular $n$-gon and any $X$ on the circle. What is the sum if $X$ is the centre?}
 
+%── C3 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+Two circles of radius $2$ each pass through the other's centre. What is the area of the shaded region common to both circles? \textit{\small(after Primer 1.4 P24)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac{4\pi}{3}-\sqrt3$
+\item[B)] $\dfrac{8\pi}{3}-\sqrt3$
+\item[C)] $\dfrac{4\pi}{3}+2\sqrt3$
+\item[D)] $\dfrac{8\pi}{3}-2\sqrt3$
+\item[E)] $2\pi-2\sqrt3$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.5]
+\begin{scope}\clip (0,0) circle (2); \fill[gray!25] (2,0) circle (2); \end{scope}
+\draw[speedgeom] (0,0) circle (2); \draw[speedgeom] (2,0) circle (2);
+\filldraw (0,0) circle (1.5pt) (2,0) circle (1.5pt);
+\end{tikzpicture}
+\end{minipage}
+
+\ans{D) $\tfrac{8\pi}{3}-2\sqrt3$}
+\method{The common chord and the two centres form two equilateral triangles, so each centre sees the chord at $120^\circ$. The region is two segments, each a $120^\circ$ sector minus a triangle: $\tfrac13\pi\cdot4-\tfrac12\cdot4\sin120^\circ=\tfrac{4\pi}{3}-\sqrt3$. Two of them: $\tfrac{8\pi}{3}-2\sqrt3$. Option A is one segment.}
+\inv{What fraction of one circle is the common region? Show that it is the same for every radius.}
+
+%── C4 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+A circle of radius $1$ touches both arms of a right angle. A larger circle touches both arms and the first circle. What is the radius of the larger circle? \textit{\small(after Primer 1.4 P35)}
 \begin{itemize}
-\item \textbf{Subtracting radii instead of squared radii.} $OP^2=r^2+\ell^2$; the null case is $7^2$, not $7$, minus $6^2$. \seealso{A5, B10, D2}
-\item \textbf{Answering the half-angle.} The tangents make $\theta$; $\sin\frac{\theta}{2}$ is half of it. \seealso{B2, D1, D4}
-\item \textbf{Reading polar coefficients as a point.} $5x+3y=25$ is a line; only its coefficients come from $P$. \seealso{A3, B3, A10}
-\item \textbf{Bumping the director circle radius by one $\sqrt{2}$ too many or too few.} Doubling $r^2$ changes the radius by $\sqrt{2}$, not by $2$. \seealso{A4, B4, C5}
-\item \textbf{Leaving the polar unreduced.} The chord $9x+12y=81$ asks for the distance to the simplified $3x+4y=27$. \seealso{D5, C1, C8}
+\item[A)] $1+\sqrt2$
+\item[B)] $2+\sqrt2$
+\item[C)] $2\sqrt2$
+\item[D)] $3$
+\item[E)] $3+2\sqrt2$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.27]
+\draw[speedgeom] (0,12) -- (0,0) -- (12,0);
+\draw[speedgeom] (1,1) circle (1); \draw[speedgeom] (5.83,5.83) circle (5.83);
+\draw (0,0.5) -- (0.5,0.5) -- (0.5,0);
+\end{tikzpicture}
+\end{minipage}
+
+\ans{E) $3+2\sqrt2$}
+\method{Both centres lie on the bisector of the angle, at distances $\sqrt2$ and $R\sqrt2$ from the vertex. The circles touch, so $R\sqrt2-\sqrt2=R+1$, giving $R=\tfrac{\sqrt2+1}{\sqrt2-1}=(\sqrt2+1)^2=3+2\sqrt2$.}
+\inv{For an angle $2\alpha$ show the ratio of consecutive radii is $\tfrac{1+\sin\alpha}{1-\sin\alpha}$. For which angle is it exactly $3$?}
+
+%── C5 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+Six equal discs lie between two concentric circles. Each disc touches its two neighbours and both circles. The inner circle has radius $1$. What is the radius of the outer circle? \textit{\small(after SMC 2016 Q21)}
+\begin{itemize}
+\item[A)] $3$
+\item[B)] $2+\sqrt3$
+\item[C)] $1+\sqrt3$
+\item[D)] $2\sqrt3$
+\item[E)] $4$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.33]
+\draw[speedgeom] (0,0) circle (1); \draw[speedgeom] (0,0) circle (3);
+\foreach \a in {0,60,...,300} \draw[speedgeom, fill=gray!20] (\a:2) circle (1);
+\end{tikzpicture}
+\end{minipage}
+
+\ans{A) $3$}
+\method{Let the discs have radius $\rho$. Their centres lie on a circle of radius $1+\rho$, and neighbouring centres are $2\rho$ apart, which is the side of a regular hexagon inscribed in that circle: $2\rho=1+\rho$. So $\rho=1$ and the outer radius is $1+2\rho=3$.}
+\inv{Repeat with $n$ discs: show $\rho=\tfrac{\sin(180^\circ/n)}{1-\sin(180^\circ/n)}$. For which $n$ are the discs larger than the inner circle?}
+
+%── C6 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+A circle of radius $1$ touches three sides of a $6\times2$ rectangle. A diagonal of the rectangle cuts the circle at $P$ and $Q$. What is the length $PQ$? \textit{\small(after SMC 2017 Q19)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac{4\sqrt5}{5}$
+\item[B)] $\dfrac{2\sqrt{15}}{5}$
+\item[C)] $\sqrt3$
+\item[D)] $\dfrac65$
+\item[E)] $\dfrac{2\sqrt{10}}{5}$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.48]
+\draw[speedgeom] (0,0) rectangle (6,2); \draw[speedgeom] (1,1) circle (1); \draw[speedgeom] (0,0) -- (6,2);
+\filldraw (0.465,0.155) circle (1.5pt) (1.935,0.645) circle (1.5pt);
+\node[above left] at (0.465,0.155) {\scriptsize $P$}; \node[below right] at (1.935,0.645) {\scriptsize $Q$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{B) $\tfrac{2\sqrt{15}}{5}$}
+\method{Put the rectangle at $0\le x\le6$, $0\le y\le2$; the circle has centre $(1,1)$. The diagonal is $x-3y=0$, at distance $\tfrac{|1-3|}{\sqrt{10}}=\tfrac{2}{\sqrt{10}}$ from the centre. The half-chord is $\sqrt{1-\tfrac{4}{10}}=\sqrt{\tfrac35}$, so $PQ=2\sqrt{\tfrac35}=\tfrac{2\sqrt{15}}{5}$. Option A is the answer for a $4\times2$ rectangle.}
+\inv{How long must the rectangle be for the diagonal to miss the circle altogether? For it to just touch?}
+
+%── C7 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+An isosceles trapezium has parallel sides of lengths $8$ and $18$, and all four of its sides touch a circle. What is the radius of the circle? \textit{\small(after SMC 2012 Q20)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac{13}{2}$
+\item[B)] $5$
+\item[C)] $12$
+\item[D)] $6$
+\item[E)] $4\sqrt3$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.15]
+\draw[speedgeom] (0,0) -- (18,0) -- (13,12) -- (5,12) -- cycle;
+\draw[speedgeom] (9,6) circle (6);
+\node[below] at (9,0) {\scriptsize $18$}; \node[above] at (9,12) {\scriptsize $8$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{D) $6$}
+\method{A quadrilateral with an incircle has equal sums of opposite sides (Pitot): $8+18=2\ell$, so each slanted side is $\ell=13$. Each overhangs by $\tfrac{18-8}{2}=5$, so the height is $\sqrt{13^2-5^2}=12$. The circle touches both parallel sides, so its diameter is the height and the radius is $6$. Option C is the height.}
+\inv{Show that for any isosceles trapezium with an incircle, the radius is $\tfrac12\sqrt{ab}$ where $a$ and $b$ are the parallel sides.}
+
+%── C8 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCD$ is a cyclic quadrilateral in which $AB$ is a diameter of the circle, $AB=25$ and $AD=BC=15$. What is the length $CD$? \textit{\small(after Primer 1.4 P33)}
+\begin{itemize}
+\item[A)] $10$
+\item[B)] $15$
+\item[C)] $13$
+\item[D)] $9$
+\item[E)] $7$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.12]
+\draw[speedgeom] (0,0) circle (12.5);
+\draw[speedgeom] (-12.5,0) -- (12.5,0) -- (3.5,12) -- (-3.5,12) -- cycle;
+\node[left] at (-12.5,0) {\small $A$}; \node[right] at (12.5,0) {\small $B$};
+\node[above right] at (3.5,12) {\small $C$}; \node[above left] at (-3.5,12) {\small $D$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{E) $7$}
+\method{$\angle ADB=\angle ACB=90^\circ$, so $BD=AC=\sqrt{25^2-15^2}=20$. Ptolemy's theorem for $ABCD$: $AC\cdot BD=AB\cdot CD+AD\cdot BC$, i.e.\ $400=25\,CD+225$, so $CD=7$. Without Ptolemy: $D$ is $\tfrac{15^2}{25}=9$ along $AB$ from $A$, and $C$ is $9$ from $B$, so $CD=25-18=7$.}
+\inv{Keep $AB=25$ and let $AD=BC=x$. For which $x$ does the trapezium become a triangle ($C=D$)?}
+
+\end{enumerate}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge}
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── D1 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+Three circles each touch both arms $QP$ and $QR$ of an angle, and each touches the next. The largest radius is $4$ times the smallest. What is $\cos\angle PQR$? \textit{\small(after SMC 2011 Q24)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac79$
+\item[B)] $\dfrac13$
+\item[C)] $\dfrac23$
+\item[D)] $\dfrac89$
+\item[E)] $\dfrac{4\sqrt2}{9}$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.19]
+\draw[speedgeom] (0,0) -- (17,6.01); \draw[speedgeom] (0,0) -- (17,-6.01);
+\draw[speedgeom] (3,0) circle (1); \draw[speedgeom] (6,0) circle (2); \draw[speedgeom] (12,0) circle (4);
+\node[left] at (0,0) {\small $Q$}; \node[above] at (17,6.01) {\small $P$}; \node[below] at (17,-6.01) {\small $R$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{A) $\tfrac79$}
+\method{The centres lie on the bisector; a circle whose centre is $d$ from $Q$ has radius $d\sin\alpha$, where $2\alpha=\angle PQR$. Consecutive circles touch, so their radii are in a constant ratio $k$ with $\tfrac{k-1}{k+1}=\sin\alpha$. Three circles give ratio $k^2=4$, so $k=2$ and $\sin\alpha=\tfrac13$. Then $\cos2\alpha=1-2\sin^2\alpha=\tfrac79$. Option B is $\sin\alpha$; option E is $\sin2\alpha$.}
+\inv{Continue the chain towards $Q$ for ever. Show that the radii form a geometric sequence, and find the total area of all the new circles in terms of the smallest original radius $r$.}
+
+%── D2 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+$OAB$ is a quarter circle with radius $4$. A semicircle is drawn on $OA$ as diameter, inside the quarter circle. A circle touches $OB$, the semicircle and the arc $AB$. What is its radius? \textit{\small(after SMC 2014 Q19)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac43$
+\item[B)] $1$
+\item[C)] $\dfrac23$
+\item[D)] $\sqrt2$
+\item[E)] $\dfrac34$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.55]
+\draw[speedgeom] (0,4) -- (0,0) -- (4,0); \draw[speedgeom] (4,0) arc (0:90:4);
+\draw[speedgeom] (4,0) arc (0:180:2); \draw[speedgeom, fill=gray!20] (1,2.828) circle (1);
+\node[below left] at (0,0) {\small $O$}; \node[below] at (4,0) {\small $A$}; \node[left] at (0,4) {\small $B$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{B) $1$}
+\method{Put $O$ at the origin with $OA$ along the $x$-axis. The circle touches $OB$ (the $y$-axis), so its centre is $(r,y)$. It touches the semicircle (centre $(2,0)$, radius $2$) externally: $(r-2)^2+y^2=(r+2)^2$, so $y^2=8r$. It touches the arc internally: $r^2+y^2=(4-r)^2$, so $y^2=16-8r$. Hence $8r=16-8r$ and $r=1$.}
+\inv{Replace the quarter circle's radius $4$ by $2a$ and the semicircle by one of radius $a$. Show that the answer is always $\tfrac a2$.}
+
+%── D3 ───────────────────────────────────────────────────────────────────────
+\item A triangle with angles $30^\circ$, $45^\circ$ and $105^\circ$ is inscribed in a circle of radius $2$. What is its area? \textit{\small(after SMC 2021 Q22)}
+\begin{itemize}
+\item[A)] $2+\sqrt3$
+\item[B)] $2\sqrt3$
+\item[C)] $1+\sqrt3$
+\item[D)] $3+\sqrt3$
+\item[E)] $2$
 \end{itemize}
 
-\SpeedClosing{``Every view of a tangent is the same right triangle: $OP$ hypotenuse, $r$ one leg, the tangent the other. The polar just points it.''}
+\ans{C) $1+\sqrt3$}
+\method{By the extended sine rule each side is $2R\sin(\text{opposite angle})$: $a=4\sin30^\circ=2$, $b=4\sin45^\circ=2\sqrt2$. The area is $\tfrac12ab\sin C=\tfrac12\cdot2\cdot2\sqrt2\cdot\sin105^\circ$, and $\sin105^\circ=\tfrac{\sqrt6+\sqrt2}{4}$, giving $\tfrac{\sqrt2(\sqrt6+\sqrt2)}{2}=\sqrt3+1$.}
+\inv{Prove that $[ABC]=2R^2\sin A\sin B\sin C$ for every triangle inscribed in a circle of radius $R$. Which inscribed triangle has the largest area?}
+
+%── D4 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+Two circles of radius $5$ have centres $2$ apart. A square is inscribed in the region common to both circles, with its sides parallel and perpendicular to the line of centres. What is the area of the square? \textit{\small(after SMC 2019 Q25)}
+\begin{itemize}
+\item[A)] $64$
+\item[B)] $32$
+\item[C)] $25$
+\item[D)] $36$
+\item[E)] $48$
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.24]
+\begin{scope}\clip (-1,0) circle (5); \fill[gray!12] (1,0) circle (5); \end{scope}
+\draw[speedgeom] (-1,0) circle (5); \draw[speedgeom] (1,0) circle (5);
+\draw[speedgeom, fill=gray!35] (-3,-3) rectangle (3,3);
+\filldraw (-1,0) circle (3pt) (1,0) circle (3pt);
+\end{tikzpicture}
+\end{minipage}
+
+\ans{D) $36$}
+\method{Put the centres at $(\pm1,0)$. By symmetry the square is centred at the origin with corners $(\pm\tfrac s2,\pm\tfrac s2)$, and the corner $(\tfrac s2,\tfrac s2)$ lies on the circle centred at $(-1,0)$: $(\tfrac s2+1)^2+\tfrac{s^2}{4}=25$, i.e.\ $s^2+2s-48=0$, so $(s+8)(s-6)=0$, $s=6$ and the area is $36$. Option A takes the square across the full width of the region ($s=8$), which leaves its corners outside.}
+\inv{The region is $8$ wide and $4\sqrt6$ tall. Find the largest rectangle with sides parallel to the axes that fits inside it.}
+
+%── D5 ───────────────────────────────────────────────────────────────────────
+\item \begin{minipage}[t]{0.60\linewidth}
+$ABCD$ is a cyclic quadrilateral whose diagonals are perpendicular and meet at $E$. The line through $E$ perpendicular to $AB$ meets $CD$ at $F$. Prove that $F$ is the midpoint of $CD$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}
+\centering
+\begin{tikzpicture}[scale=0.42]
+\draw[speedgeom] (1,-1) circle (3.162);
+\draw[speedgeom] (4,0) -- (0,2) -- (-2,0) -- (0,-4) -- cycle;
+\draw[speedaux] (4,0) -- (-2,0) (0,2) -- (0,-4);
+\draw[speedgeom] (0.8,1.6) -- (-1,-2);
+\node[right] at (4,0) {\small $A$}; \node[above] at (0,2) {\small $B$}; \node[left] at (-2,0) {\small $C$};
+\node[below] at (0,-4) {\small $D$}; \node[above left] at (0,0) {\scriptsize $E$}; \node[left] at (-1,-2) {\small $F$};
+\end{tikzpicture}
+\end{minipage}
+
+\ans{Proof: see method}
+\method{Let the line meet $AB$ at $H$, so $EH\perp AB$. In triangle $AEB$, right-angled at $E$, the altitude $EH$ gives $\angle HEA=90^\circ-\angle EAB=\angle ABE$. Now $\angle ABE=\angle ABD=\angle ACD$ (angles on the arc $AD$), and $\angle HEA=\angle FEC$ (vertically opposite). So $\angle FEC=\angle FCE$ and $FE=FC$. Triangle $CED$ is right-angled at $E$, so $\angle FED=90^\circ-\angle FEC=90^\circ-\angle FCE=\angle FDE$, and $FE=FD$. Hence $FC=FE=FD$: $F$ is the midpoint of $CD$. $\blacksquare$}
+\inv{This is Brahmagupta's theorem. Use it to show that the distance from the circle's centre to $AB$ is half of $CD$.}
+
+\end{enumerate}
+
+\section*{Top 5 Patterns --- Worksheet \#5}
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Angles on an arc.} The angle at the centre is twice the angle at the circumference; angles on the same arc are equal; opposite angles of a cyclic quadrilateral sum to $180^\circ$. \seealso{A1, A2, A3, A10, B2, B10}
+  \item \textbf{Tangent $\perp$ radius.} It gives the right angle behind tangent lengths, the angle between tangents and the alternate segment theorem. \seealso{A4, A7, A8, A9, B1, B6}
+  \item \textbf{Power of a point.} $PA\cdot PB$ is the same for every line through $P$ that meets the circle, and equals $PT^2$ for a tangent. \seealso{A5, A6, B4, B5, B9, C1}
+  \item \textbf{Touching circles: join the centres.} The distance is $r_1+r_2$ (or $|r_1-r_2|$), and circles in an angle have centres on its bisector with radius proportional to distance. \seealso{C4, C5, D1, D2}
+  \item \textbf{Chords, segments and lenses.} Use the perpendicular from the centre to a chord, sector minus triangle for a segment, and Ptolemy for cyclic quadrilaterals. \seealso{B7, B8, C3, C6, C8, D4}
+\end{enumerate}
+
+\section*{Common Traps --- Worksheet \#5}
+\begin{enumerate}[leftmargin=2em, itemsep=4pt]
+  \item \textbf{Quoting the angle at the centre for the angle at the circumference.} Halve it (or double it) once, in the right direction. \seealso{A1, B1}
+  \item \textbf{Stopping at the tangent length.} In C1 the tangent is only the first step; the question asks for the radius. \seealso{B4, C1}
+  \item \textbf{Using the height or diameter where the radius is asked.} $12$ in C7 and $4\sqrt7$ in C1 are one step short. \seealso{C1, C7, B8}
+  \item \textbf{Mixing up external and internal tangency.} Circles touching externally have centres $r_1+r_2$ apart; a circle touching a larger one from inside has centres $R-r$ apart, as with the arc in D2 and the outer circle in C5. \seealso{C4, C5, D2}
+  \item \textbf{Counting one segment for a lens, or the whole width for an inscribed square.} Check that every corner of your shape is actually on the boundary. \seealso{C3, D4, D3}
+\end{enumerate}
+
+\SpeedClosing{``With circles, draw what you cannot see: the centres, the radii to the points of contact, and the line joining two centres.''}
 
 \end{document}
