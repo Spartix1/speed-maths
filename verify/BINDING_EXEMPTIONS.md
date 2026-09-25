@@ -60,8 +60,9 @@ the answer text as printed.
 - `combinatorics/sheet07 D2` — Proof below.
 - `combinatorics/sheet07 D4` — Proof below (induction).
 
-## geometry (1)
+## geometry (2)
 
+- `geometry/sheet04 D5` — Proof: see method (the $15^\circ$ point makes $CDE$ equilateral).
 - `geometry/sheet07 D5` — Proof: see method (Apollonius circle is orthogonal to every circle through $A$ and $B$).
 
 ## logic (48)
@@ -132,10 +133,10 @@ the answer text as printed.
 |---|---|
 | algebra | 13 |
 | combinatorics | 10 |
-| geometry | 1 |
+| geometry | 2 |
 | logic | 48 |
 | sequences | 7 |
-| **total** | **79** |
+| **total** | **80** |
 
 Every one of these is a candidate for removal by rewriting the `\ans{}` as
 a value. The count going down is a real improvement to the corpus; it going
