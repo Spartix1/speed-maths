@@ -253,18 +253,18 @@ $BC$ is a diameter of a circle and $CD$ is the tangent at $C$. The line $BD$ mee
 \inv{Find $AC$ in two ways: from triangle $ABC$ (right-angled at $A$) and from triangle $ACD$.}
 
 %── C2 ───────────────────────────────────────────────────────────────────────
-\item A regular octagon is inscribed in a circle of radius $2$, and $X$ is any point on the circle. What is the sum of the squares of the distances from $X$ to the eight vertices? \textit{\small(after SMC 2025 Q21)}
+\item A regular octagon is inscribed in a circle with centre $O$ and radius $2$. A point $X$ inside the circle is chosen so that the sum of the squares of its distances to the eight vertices is $40$. What is $OX$? \textit{\small(after SMC 2025 Q21)}
 \begin{itemize}
-\item[A)] $64$
-\item[B)] $32$
-\item[C)] $128$
-\item[D)] $48$
-\item[E)] $16$
+\item[A)] $1$
+\item[B)] $\sqrt5$
+\item[C)] $2$
+\item[D)] $3$
+\item[E)] $\sqrt3$
 \end{itemize}
 
-\ans{A) $64$}
-\method{Put the centre at the origin. For a vertex $V$, $XV^2=|X|^2+|V|^2-2\,X\cdot V=8-2\,X\cdot V$. The eight vertex vectors sum to zero, so the dot products cancel and the total is $8\cdot8=64$, for every $X$ on the circle. Option B forgets the $|X|^2$ terms.}
-\inv{Show that the answer $2nR^2$ holds for any regular $n$-gon and any $X$ on the circle. What is the sum if $X$ is the centre?}
+\ans{A) $1$}
+\method{Put $O$ at the origin and let $OX=d$. For a vertex $V$, $XV^2=|X|^2+|V|^2-2\,X\cdot V=d^2+4-2\,X\cdot V$. The eight vertex vectors sum to zero, so the dot products cancel and the sum is $8(d^2+4)$ for \emph{every} $X$ at distance $d$ from $O$. Then $8(d^2+4)=40$ gives $d^2=1$. Option B drops the $|V|^2=4$ terms; option C assumes $X$ is on the circle (that sum would be $64$); options D and E subtract the radius $2$ instead of $4$.}
+\inv{The set of points with a given sum is a circle centred at $O$. What is the smallest possible sum, and where is $X$ then? Does the answer change for a square with the same circumcircle?}
 
 %── C3 ───────────────────────────────────────────────────────────────────────
 \item \begin{minipage}[t]{0.60\linewidth}
@@ -318,13 +318,13 @@ A circle of radius $1$ touches both arms of a right angle. A larger circle touch
 
 %── C5 ───────────────────────────────────────────────────────────────────────
 \item \begin{minipage}[t]{0.60\linewidth}
-Six equal discs lie between two concentric circles. Each disc touches its two neighbours and both circles. The inner circle has radius $1$. What is the radius of the outer circle? \textit{\small(after SMC 2016 Q21)}
-\begin{itemize}
-\item[A)] $3$
-\item[B)] $2+\sqrt3$
-\item[C)] $1+\sqrt3$
-\item[D)] $2\sqrt3$
-\item[E)] $4$
+Six equal discs lie between two concentric circles. Each disc touches its two neighbours and both circles. What fraction of the ring between the two circles is covered by the discs? \textit{\small(after SMC 2016 Q21)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac34$
+\item[B)] $\dfrac23$
+\item[C)] $\dfrac79$
+\item[D)] $\dfrac12$
+\item[E)] $\dfrac35$
 \end{itemize}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.36\linewidth}
@@ -336,44 +336,43 @@ Six equal discs lie between two concentric circles. Each disc touches its two ne
 \end{tikzpicture}
 \end{minipage}
 
-\ans{A) $3$}
-\method{Let the discs have radius $\rho$. Their centres lie on a circle of radius $1+\rho$, and neighbouring centres are $2\rho$ apart, which is the side of a regular hexagon inscribed in that circle: $2\rho=1+\rho$. So $\rho=1$ and the outer radius is $1+2\rho=3$.}
-\inv{Repeat with $n$ discs: show $\rho=\tfrac{\sin(180^\circ/n)}{1-\sin(180^\circ/n)}$. For which $n$ are the discs larger than the inner circle?}
+\ans{A) $\tfrac34$}
+\method{Scale so the inner circle has radius $1$ and let the discs have radius $\rho$. Their centres lie on a circle of radius $1+\rho$, and neighbouring centres are $2\rho$ apart, which is the side of a regular hexagon inscribed in that circle: $2\rho=1+\rho$. So $\rho=1$ and the outer radius is $3$. The discs cover $6\pi$ of a ring of area $9\pi-\pi=8\pi$: $\tfrac68=\tfrac34$. Option B divides by the whole outer disc; C also counts the inner disc as covered; D takes the ring as circumference $\times$ width ($2\pi\cdot3\cdot2$); E adds the two circle areas.}
+\inv{Repeat with $n$ discs: show $\rho=\tfrac{s}{1-s}$ with $s=\sin(180^\circ/n)$, and that the covered fraction is $\tfrac{n\rho}{4(1+\rho)}$. What does it tend to as $n\to\infty$?}
 
 %── C6 ───────────────────────────────────────────────────────────────────────
 \item \begin{minipage}[t]{0.60\linewidth}
-A circle of radius $1$ touches three sides of a $6\times2$ rectangle. A diagonal of the rectangle cuts the circle at $P$ and $Q$. What is the length $PQ$? \textit{\small(after SMC 2017 Q19)}
-\begin{itemize}[itemsep=3pt]
-\item[A)] $\dfrac{4\sqrt5}{5}$
-\item[B)] $\dfrac{2\sqrt{15}}{5}$
-\item[C)] $\sqrt3$
-\item[D)] $\dfrac65$
-\item[E)] $\dfrac{2\sqrt{10}}{5}$
+A circle of radius $1$ touches three sides of a rectangle of width $2$ and length $L$. A diagonal of the rectangle cuts the circle into two arcs, and the smaller arc is exactly a quarter of the circle. What is $L$? \textit{\small(after SMC 2017 Q19)}
+\begin{itemize}
+\item[A)] $4-2\sqrt3$
+\item[B)] $4+2\sqrt3$
+\item[C)] $2+2\sqrt3$
+\item[D)] $2$
+\item[E)] $2+2\sqrt2$
 \end{itemize}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.36\linewidth}
 \vspace{0pt}
 \centering
-\begin{tikzpicture}[scale=0.48]
-\draw[speedgeom] (0,0) rectangle (6,2); \draw[speedgeom] (1,1) circle (1); \draw[speedgeom] (0,0) -- (6,2);
-\filldraw (0.465,0.155) circle (1.5pt) (1.935,0.645) circle (1.5pt);
-\node[above left] at (0.465,0.155) {\scriptsize $P$}; \node[below right] at (1.935,0.645) {\scriptsize $Q$};
+\begin{tikzpicture}[scale=0.4]
+\draw[speedgeom] (0,0) rectangle (7.464,2); \draw[speedgeom] (1,1) circle (1); \draw[speedgeom] (0,0) -- (7.464,2);
+\node[left] at (0,1) {\scriptsize $2$}; \node[below] at (3.73,0) {\scriptsize $L$};
 \end{tikzpicture}
 \end{minipage}
 
-\ans{B) $\tfrac{2\sqrt{15}}{5}$}
-\method{Put the rectangle at $0\le x\le6$, $0\le y\le2$; the circle has centre $(1,1)$. The diagonal is $x-3y=0$, at distance $\tfrac{|1-3|}{\sqrt{10}}=\tfrac{2}{\sqrt{10}}$ from the centre. The half-chord is $\sqrt{1-\tfrac{4}{10}}=\sqrt{\tfrac35}$, so $PQ=2\sqrt{\tfrac35}=\tfrac{2\sqrt{15}}{5}$. Option A is the answer for a $4\times2$ rectangle.}
-\inv{How long must the rectangle be for the diagonal to miss the circle altogether? For it to just touch?}
+\ans{B) $4+2\sqrt3$}
+\method{A quarter arc means the chord subtends $90^\circ$ at the centre, so the diagonal is $\tfrac{1}{\sqrt2}$ from the centre. Put the rectangle at $0\le x\le L$, $0\le y\le2$; the circle has centre $(1,1)$ and the diagonal is $2x-Ly=0$. Its distance from the centre is $\tfrac{|2-L|}{\sqrt{4+L^2}}$, so $2(L-2)^2=4+L^2$, i.e.\ $L^2-8L+4=0$ and $L=4\pm2\sqrt3$. The circle needs $L\ge2$, which rejects $4-2\sqrt3$ (option A). Option C is $L-2$, the part of the rectangle beyond the circle; option D measures the distance from the corner instead of from the centre.}
+\inv{For which $L$ does the diagonal cut off a sixth of the circle? Show that no rectangle makes the diagonal a tangent. Which rectangle makes it a diameter?}
 
 %── C7 ───────────────────────────────────────────────────────────────────────
 \item \begin{minipage}[t]{0.60\linewidth}
-An isosceles trapezium has parallel sides of lengths $8$ and $18$, and all four of its sides touch a circle. What is the radius of the circle? \textit{\small(after SMC 2012 Q20)}
-\begin{itemize}[itemsep=3pt]
-\item[A)] $\dfrac{13}{2}$
-\item[B)] $5$
-\item[C)] $12$
-\item[D)] $6$
-\item[E)] $4\sqrt3$
+All four sides of an isosceles trapezium touch a circle of radius $6$, and the perimeter of the trapezium is $52$. What is the difference between the lengths of its parallel sides? \textit{\small(after SMC 2012 Q20)}
+\begin{itemize}
+\item[A)] $12$
+\item[B)] $13$
+\item[C)] $26$
+\item[D)] $10$
+\item[E)] $5$
 \end{itemize}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.36\linewidth}
@@ -382,23 +381,22 @@ An isosceles trapezium has parallel sides of lengths $8$ and $18$, and all four 
 \begin{tikzpicture}[scale=0.15]
 \draw[speedgeom] (0,0) -- (18,0) -- (13,12) -- (5,12) -- cycle;
 \draw[speedgeom] (9,6) circle (6);
-\node[below] at (9,0) {\scriptsize $18$}; \node[above] at (9,12) {\scriptsize $8$};
 \end{tikzpicture}
 \end{minipage}
 
-\ans{D) $6$}
-\method{A quadrilateral with an incircle has equal sums of opposite sides (Pitot): $8+18=2\ell$, so each slanted side is $\ell=13$. Each overhangs by $\tfrac{18-8}{2}=5$, so the height is $\sqrt{13^2-5^2}=12$. The circle touches both parallel sides, so its diameter is the height and the radius is $6$. Option C is the height.}
-\inv{Show that for any isosceles trapezium with an incircle, the radius is $\tfrac12\sqrt{ab}$ where $a$ and $b$ are the parallel sides.}
+\ans{D) $10$}
+\method{Let the parallel sides be $a<b$ and each slanted side $\ell$. Pitot (equal sums of opposite sides) gives $a+b=2\ell$, so the perimeter $2(a+b)=52$ gives $a+b=26$ and $\ell=13$. The circle touches both parallel sides, so the height is the diameter $12$. Each slanted side overhangs by $\tfrac{b-a}{2}=\sqrt{13^2-12^2}=5$, so $b-a=10$ (the sides are $8$ and $18$). Option E is the overhang, option A the height, option B a slanted side.}
+\inv{Show that for any isosceles trapezium with an incircle, the radius is $\tfrac12\sqrt{ab}$. Check it here, and use it to find the sides from the radius and the perimeter without Pythagoras.}
 
 %── C8 ───────────────────────────────────────────────────────────────────────
 \item \begin{minipage}[t]{0.60\linewidth}
-$ABCD$ is a cyclic quadrilateral in which $AB$ is a diameter of the circle, $AB=25$ and $AD=BC=15$. What is the length $CD$? \textit{\small(after Primer 1.4 P33)}
+$ABCD$ is a cyclic quadrilateral in which $AB$ is a diameter of the circle, $AB=25$, $CD=7$ and $AD=BC$. What is the length $AD$? \textit{\small(after Primer 1.4 P33)}
 \begin{itemize}
-\item[A)] $10$
-\item[B)] $15$
-\item[C)] $13$
-\item[D)] $9$
-\item[E)] $7$
+\item[A)] $12$
+\item[B)] $20$
+\item[C)] $16$
+\item[D)] $5\sqrt7$
+\item[E)] $15$
 \end{itemize}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.36\linewidth}
@@ -412,12 +410,13 @@ $ABCD$ is a cyclic quadrilateral in which $AB$ is a diameter of the circle, $AB=
 \end{tikzpicture}
 \end{minipage}
 
-\ans{E) $7$}
-\method{$\angle ADB=\angle ACB=90^\circ$, so $BD=AC=\sqrt{25^2-15^2}=20$. Ptolemy's theorem for $ABCD$: $AC\cdot BD=AB\cdot CD+AD\cdot BC$, i.e.\ $400=25\,CD+225$, so $CD=7$. Without Ptolemy: $D$ is $\tfrac{15^2}{25}=9$ along $AB$ from $A$, and $C$ is $9$ from $B$, so $CD=25-18=7$.}
-\inv{Keep $AB=25$ and let $AD=BC=x$. For which $x$ does the trapezium become a triangle ($C=D$)?}
+\ans{E) $15$}
+\method{Let $AD=BC=x$. $\angle ADB=\angle ACB=90^\circ$ (angles in a semicircle), so $AC=BD$ and $AC^2=25^2-x^2$. Ptolemy's theorem for $ABCD$: $AC\cdot BD=AB\cdot CD+AD\cdot BC$, i.e.\ $625-x^2=175+x^2$, so $x^2=225$ and $x=15$. Option B is the diagonal $AC$; option A is the height of the trapezium; option C averages the parallel sides; option D takes $x^2=AB\cdot CD$.}
+\inv{Keep $AB=25$ and let $CD=c$. Show that $AD^2=\tfrac{25(25-c)}{2}$, and find the $c$ for which $ABCD$ is half of a regular hexagon.}
 
 \end{enumerate}
 
+\clearpage
 % ══════════════════════════════════════════════════════════════════════════════
 \section*{Section D \quad Challenge}
 % ══════════════════════════════════════════════════════════════════════════════
@@ -474,28 +473,30 @@ $OAB$ is a quarter circle with radius $4$. A semicircle is drawn on $OA$ as diam
 \inv{Replace the quarter circle's radius $4$ by $2a$ and the semicircle by one of radius $a$. Show that the answer is always $\tfrac a2$.}
 
 %── D3 ───────────────────────────────────────────────────────────────────────
-\item A triangle with angles $30^\circ$, $45^\circ$ and $105^\circ$ is inscribed in a circle of radius $2$. What is its area? \textit{\small(after SMC 2021 Q22)}
+\item \begin{minipage}[t]{\linewidth}
+A triangle is inscribed in a circle of radius $2$. One of its angles is $45^\circ$ and its area is $1+\sqrt3$. What is its largest angle? \textit{\small(after SMC 2021 Q22)}
 \begin{itemize}
-\item[A)] $2+\sqrt3$
-\item[B)] $2\sqrt3$
-\item[C)] $1+\sqrt3$
-\item[D)] $3+\sqrt3$
-\item[E)] $2$
+\item[A)] $90^\circ$
+\item[B)] $120^\circ$
+\item[C)] $105^\circ$
+\item[D)] $135^\circ$
+\item[E)] $75^\circ$
 \end{itemize}
+\end{minipage}
 
-\ans{C) $1+\sqrt3$}
-\method{By the extended sine rule each side is $2R\sin(\text{opposite angle})$: $a=4\sin30^\circ=2$, $b=4\sin45^\circ=2\sqrt2$. The area is $\tfrac12ab\sin C=\tfrac12\cdot2\cdot2\sqrt2\cdot\sin105^\circ$, and $\sin105^\circ=\tfrac{\sqrt6+\sqrt2}{4}$, giving $\tfrac{\sqrt2(\sqrt6+\sqrt2)}{2}=\sqrt3+1$.}
-\inv{Prove that $[ABC]=2R^2\sin A\sin B\sin C$ for every triangle inscribed in a circle of radius $R$. Which inscribed triangle has the largest area?}
+\ans{C) $105^\circ$}
+\method{By the extended sine rule each side is $2R\sin(\text{opposite angle})$, so the area is $\tfrac12ab\sin C=2R^2\sin A\sin B\sin C=8\sin45^\circ\sin B\sin C$. With $B+C=135^\circ$, product-to-sum gives $\sin B\sin C=\tfrac12\bigl(\cos(B-C)+\tfrac{\sqrt2}{2}\bigr)$. Setting the area to $1+\sqrt3$: $\cos(B-C)=\tfrac{\sqrt3-1}{2\sqrt2}=\cos75^\circ$, so $B-C=\pm75^\circ$ and the angles are $30^\circ$, $45^\circ$, $105^\circ$. Option E is $B-C$; option D is $B+C$; option A assumes a right angle (that triangle has area $4$).}
+\inv{For a $45^\circ$ angle in a circle of radius $2$, which area values are possible? Show the largest is $2+2\sqrt2$, reached when the triangle is isosceles.}
 
 %── D4 ───────────────────────────────────────────────────────────────────────
 \item \begin{minipage}[t]{0.60\linewidth}
-Two circles of radius $5$ have centres $2$ apart. A square is inscribed in the region common to both circles, with its sides parallel and perpendicular to the line of centres. What is the area of the square? \textit{\small(after SMC 2019 Q25)}
-\begin{itemize}
-\item[A)] $64$
-\item[B)] $32$
-\item[C)] $25$
-\item[D)] $36$
-\item[E)] $48$
+Two circles of radius $5$ have centres $2$ apart. Let $S$ be the largest square that fits in the region common to both circles with its sides parallel to the line of centres, and $T$ the largest that fits with its diagonals along and perpendicular to that line. What is the ratio of the area of $S$ to the area of $T$? \textit{\small(after SMC 2019 Q25)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $1$
+\item[B)] $\dfrac{9}{16}$
+\item[C)] $\dfrac89$
+\item[D)] $\dfrac98$
+\item[E)] $\dfrac34$
 \end{itemize}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.36\linewidth}
@@ -504,14 +505,13 @@ Two circles of radius $5$ have centres $2$ apart. A square is inscribed in the r
 \begin{tikzpicture}[scale=0.24]
 \begin{scope}\clip (-1,0) circle (5); \fill[gray!12] (1,0) circle (5); \end{scope}
 \draw[speedgeom] (-1,0) circle (5); \draw[speedgeom] (1,0) circle (5);
-\draw[speedgeom, fill=gray!35] (-3,-3) rectangle (3,3);
 \filldraw (-1,0) circle (3pt) (1,0) circle (3pt);
 \end{tikzpicture}
 \end{minipage}
 
-\ans{D) $36$}
-\method{Put the centres at $(\pm1,0)$. By symmetry the square is centred at the origin with corners $(\pm\tfrac s2,\pm\tfrac s2)$, and the corner $(\tfrac s2,\tfrac s2)$ lies on the circle centred at $(-1,0)$: $(\tfrac s2+1)^2+\tfrac{s^2}{4}=25$, i.e.\ $s^2+2s-48=0$, so $(s+8)(s-6)=0$, $s=6$ and the area is $36$. Option A takes the square across the full width of the region ($s=8$), which leaves its corners outside.}
-\inv{The region is $8$ wide and $4\sqrt6$ tall. Find the largest rectangle with sides parallel to the axes that fits inside it.}
+\ans{D) $\tfrac98$}
+\method{Put the centres at $(\pm1,0)$; the region is $8$ wide and $4\sqrt6$ tall. For $S$, the corner $(\tfrac s2,\tfrac s2)$ lies on the circle centred at $(-1,0)$: $(\tfrac s2+1)^2+\tfrac{s^2}{4}=25$, so $s^2+2s-48=0$, $s=6$ and the area is $36$. For $T$, the vertices are $(\pm a,0)$ and $(0,\pm a)$. The side vertices need $a+1\le5$ and the top ones $a^2+1\le25$; the first binds, so $a=4$, the diagonal is $8$ and the area is $\tfrac12\cdot8^2=32$. The ratio is $\tfrac{36}{32}=\tfrac98$. Option E lets the top vertex bind ($a^2=24$, area $48$); option B takes $8$ as the side of $T$; option C is upside down.}
+\inv{Tilt the square by an angle $\theta$ between the two cases. Is the largest square always at $\theta=0$? Find the largest rectangle with sides parallel to the line of centres.}
 
 %── D5 ───────────────────────────────────────────────────────────────────────
 \item \begin{minipage}[t]{0.60\linewidth}
@@ -549,9 +549,9 @@ $ABCD$ is a cyclic quadrilateral whose diagonals are perpendicular and meet at $
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
   \item \textbf{Quoting the angle at the centre for the angle at the circumference.} Halve it (or double it) once, in the right direction. \seealso{A1, B1}
   \item \textbf{Stopping at the tangent length.} In C1 the tangent is only the first step; the question asks for the radius. \seealso{B4, C1}
-  \item \textbf{Using the height or diameter where the radius is asked.} $12$ in C7 and $4\sqrt7$ in C1 are one step short. \seealso{C1, C7, B8}
+  \item \textbf{Answering an intermediate length.} $12$ in C7 is the height, not the difference of the sides; $4\sqrt7$ in C1 is the diameter, not the radius. \seealso{C1, C7, B8}
   \item \textbf{Mixing up external and internal tangency.} Circles touching externally have centres $r_1+r_2$ apart; a circle touching a larger one from inside has centres $R-r$ apart, as with the arc in D2 and the outer circle in C5. \seealso{C4, C5, D2}
-  \item \textbf{Counting one segment for a lens, or the whole width for an inscribed square.} Check that every corner of your shape is actually on the boundary. \seealso{C3, D4, D3}
+  \item \textbf{Counting one segment for a lens, or trusting the first root.} Check which constraint actually binds: in D4 the side vertices of the tilted square reach the boundary first, and in C6 the smaller root gives a rectangle too short to hold the circle. \seealso{C3, D4, C6}
 \end{enumerate}
 
 \SpeedClosing{``With circles, draw what you cannot see: the centres, the radii to the points of contact, and the line joining two centres.''}

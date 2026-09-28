@@ -156,13 +156,13 @@ $BC$ is a diameter of a circle and $CD$ is the tangent at $C$. The line $BD$ mee
 \end{tikzpicture}
 \end{minipage}
 
-\item A regular octagon is inscribed in a circle of radius $2$, and $X$ is any point on the circle. What is the sum of the squares of the distances from $X$ to the eight vertices? \textit{\small(after SMC 2025 Q21)}
+\item A regular octagon is inscribed in a circle with centre $O$ and radius $2$. A point $X$ inside the circle is chosen so that the sum of the squares of its distances to the eight vertices is $40$. What is $OX$? \textit{\small(after SMC 2025 Q21)}
 \begin{itemize}
-\item[A)] $64$
-\item[B)] $32$
-\item[C)] $128$
-\item[D)] $48$
-\item[E)] $16$
+\item[A)] $1$
+\item[B)] $\sqrt5$
+\item[C)] $2$
+\item[D)] $3$
+\item[E)] $\sqrt3$
 \end{itemize}
 
 \item \begin{minipage}[t]{0.60\linewidth}
@@ -206,13 +206,13 @@ A circle of radius $1$ touches both arms of a right angle. A larger circle touch
 \end{minipage}
 
 \item \begin{minipage}[t]{0.60\linewidth}
-Six equal discs lie between two concentric circles. Each disc touches its two neighbours and both circles. The inner circle has radius $1$. What is the radius of the outer circle? \textit{\small(after SMC 2016 Q21)}
-\begin{itemize}
-\item[A)] $3$
-\item[B)] $2+\sqrt3$
-\item[C)] $1+\sqrt3$
-\item[D)] $2\sqrt3$
-\item[E)] $4$
+Six equal discs lie between two concentric circles. Each disc touches its two neighbours and both circles. What fraction of the ring between the two circles is covered by the discs? \textit{\small(after SMC 2016 Q21)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $\dfrac34$
+\item[B)] $\dfrac23$
+\item[C)] $\dfrac79$
+\item[D)] $\dfrac12$
+\item[E)] $\dfrac35$
 \end{itemize}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.36\linewidth}
@@ -225,33 +225,32 @@ Six equal discs lie between two concentric circles. Each disc touches its two ne
 \end{minipage}
 
 \item \begin{minipage}[t]{0.60\linewidth}
-A circle of radius $1$ touches three sides of a $6\times2$ rectangle. A diagonal of the rectangle cuts the circle at $P$ and $Q$. What is the length $PQ$? \textit{\small(after SMC 2017 Q19)}
-\begin{itemize}[itemsep=3pt]
-\item[A)] $\dfrac{4\sqrt5}{5}$
-\item[B)] $\dfrac{2\sqrt{15}}{5}$
-\item[C)] $\sqrt3$
-\item[D)] $\dfrac65$
-\item[E)] $\dfrac{2\sqrt{10}}{5}$
+A circle of radius $1$ touches three sides of a rectangle of width $2$ and length $L$. A diagonal of the rectangle cuts the circle into two arcs, and the smaller arc is exactly a quarter of the circle. What is $L$? \textit{\small(after SMC 2017 Q19)}
+\begin{itemize}
+\item[A)] $4-2\sqrt3$
+\item[B)] $4+2\sqrt3$
+\item[C)] $2+2\sqrt3$
+\item[D)] $2$
+\item[E)] $2+2\sqrt2$
 \end{itemize}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.36\linewidth}
 \vspace{0pt}
 \centering
-\begin{tikzpicture}[scale=0.48]
-\draw[speedgeom] (0,0) rectangle (6,2); \draw[speedgeom] (1,1) circle (1); \draw[speedgeom] (0,0) -- (6,2);
-\filldraw (0.465,0.155) circle (1.5pt) (1.935,0.645) circle (1.5pt);
-\node[above left] at (0.465,0.155) {\scriptsize $P$}; \node[below right] at (1.935,0.645) {\scriptsize $Q$};
+\begin{tikzpicture}[scale=0.4]
+\draw[speedgeom] (0,0) rectangle (7.464,2); \draw[speedgeom] (1,1) circle (1); \draw[speedgeom] (0,0) -- (7.464,2);
+\node[left] at (0,1) {\scriptsize $2$}; \node[below] at (3.73,0) {\scriptsize $L$};
 \end{tikzpicture}
 \end{minipage}
 
 \item \begin{minipage}[t]{0.60\linewidth}
-An isosceles trapezium has parallel sides of lengths $8$ and $18$, and all four of its sides touch a circle. What is the radius of the circle? \textit{\small(after SMC 2012 Q20)}
-\begin{itemize}[itemsep=3pt]
-\item[A)] $\dfrac{13}{2}$
-\item[B)] $5$
-\item[C)] $12$
-\item[D)] $6$
-\item[E)] $4\sqrt3$
+All four sides of an isosceles trapezium touch a circle of radius $6$, and the perimeter of the trapezium is $52$. What is the difference between the lengths of its parallel sides? \textit{\small(after SMC 2012 Q20)}
+\begin{itemize}
+\item[A)] $12$
+\item[B)] $13$
+\item[C)] $26$
+\item[D)] $10$
+\item[E)] $5$
 \end{itemize}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.36\linewidth}
@@ -260,18 +259,17 @@ An isosceles trapezium has parallel sides of lengths $8$ and $18$, and all four 
 \begin{tikzpicture}[scale=0.15]
 \draw[speedgeom] (0,0) -- (18,0) -- (13,12) -- (5,12) -- cycle;
 \draw[speedgeom] (9,6) circle (6);
-\node[below] at (9,0) {\scriptsize $18$}; \node[above] at (9,12) {\scriptsize $8$};
 \end{tikzpicture}
 \end{minipage}
 
 \item \begin{minipage}[t]{0.60\linewidth}
-$ABCD$ is a cyclic quadrilateral in which $AB$ is a diameter of the circle, $AB=25$ and $AD=BC=15$. What is the length $CD$? \textit{\small(after Primer 1.4 P33)}
+$ABCD$ is a cyclic quadrilateral in which $AB$ is a diameter of the circle, $AB=25$, $CD=7$ and $AD=BC$. What is the length $AD$? \textit{\small(after Primer 1.4 P33)}
 \begin{itemize}
-\item[A)] $10$
-\item[B)] $15$
-\item[C)] $13$
-\item[D)] $9$
-\item[E)] $7$
+\item[A)] $12$
+\item[B)] $20$
+\item[C)] $16$
+\item[D)] $5\sqrt7$
+\item[E)] $15$
 \end{itemize}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.36\linewidth}
@@ -334,23 +332,25 @@ $OAB$ is a quarter circle with radius $4$. A semicircle is drawn on $OA$ as diam
 \end{tikzpicture}
 \end{minipage}
 
-\item A triangle with angles $30^\circ$, $45^\circ$ and $105^\circ$ is inscribed in a circle of radius $2$. What is its area? \textit{\small(after SMC 2021 Q22)}
+\item \begin{minipage}[t]{\linewidth}
+A triangle is inscribed in a circle of radius $2$. One of its angles is $45^\circ$ and its area is $1+\sqrt3$. What is its largest angle? \textit{\small(after SMC 2021 Q22)}
 \begin{itemize}
-\item[A)] $2+\sqrt3$
-\item[B)] $2\sqrt3$
-\item[C)] $1+\sqrt3$
-\item[D)] $3+\sqrt3$
-\item[E)] $2$
+\item[A)] $90^\circ$
+\item[B)] $120^\circ$
+\item[C)] $105^\circ$
+\item[D)] $135^\circ$
+\item[E)] $75^\circ$
 \end{itemize}
+\end{minipage}
 
 \item \begin{minipage}[t]{0.60\linewidth}
-Two circles of radius $5$ have centres $2$ apart. A square is inscribed in the region common to both circles, with its sides parallel and perpendicular to the line of centres. What is the area of the square? \textit{\small(after SMC 2019 Q25)}
-\begin{itemize}
-\item[A)] $64$
-\item[B)] $32$
-\item[C)] $25$
-\item[D)] $36$
-\item[E)] $48$
+Two circles of radius $5$ have centres $2$ apart. Let $S$ be the largest square that fits in the region common to both circles with its sides parallel to the line of centres, and $T$ the largest that fits with its diagonals along and perpendicular to that line. What is the ratio of the area of $S$ to the area of $T$? \textit{\small(after SMC 2019 Q25)}
+\begin{itemize}[itemsep=3pt]
+\item[A)] $1$
+\item[B)] $\dfrac{9}{16}$
+\item[C)] $\dfrac89$
+\item[D)] $\dfrac98$
+\item[E)] $\dfrac34$
 \end{itemize}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.36\linewidth}
@@ -359,7 +359,6 @@ Two circles of radius $5$ have centres $2$ apart. A square is inscribed in the r
 \begin{tikzpicture}[scale=0.24]
 \begin{scope}\clip (-1,0) circle (5); \fill[gray!12] (1,0) circle (5); \end{scope}
 \draw[speedgeom] (-1,0) circle (5); \draw[speedgeom] (1,0) circle (5);
-\draw[speedgeom, fill=gray!35] (-3,-3) rectangle (3,3);
 \filldraw (-1,0) circle (3pt) (1,0) circle (3pt);
 \end{tikzpicture}
 \end{minipage}

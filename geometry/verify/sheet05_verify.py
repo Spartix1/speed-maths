@@ -223,13 +223,17 @@ def check_C1():
 
 
 def check_C2():
-    """EXHAUSTIVE PROOF: sum of XV^2 over a regular octagon of radius 2 is 64 for many X (A)."""
+    """EXHAUSTIVE PROOF: sum of XV^2 over a regular octagon of radius 2 is 8(d^2 + 4) for X at distance d; 40 gives d = 1 (A)."""
     V = [_on_circle(45*k, 2) for k in range(8)]
-    for deg in (0, 13, 77, 200, 333):
-        X = _on_circle(deg, 2)
-        assert abs(sum(math.dist(X, v)**2 for v in V) - 64) < 1e-9
-    options = {'A': 64, 'B': 32, 'C': 128, 'D': 48, 'E': 16}
-    return _only(options, 2*8*2**2)
+    for d in (0.0, 0.5, 1.0, 1.7):
+        for deg in (0, 13, 77, 200, 333):
+            X = _on_circle(deg, d)
+            assert abs(sum(math.dist(X, v)**2 for v in V) - 8*(d**2 + 4)) < 1e-9
+    d = sp.Symbol('d', positive=True)
+    sol = sp.solve(8*(d**2 + 4) - 40, d)
+    assert sol == [1]
+    options = {'A': 1, 'B': sp.sqrt(5), 'C': 2, 'D': 3, 'E': S3}
+    return _only(options, sol[0])
 
 
 def check_C3():
@@ -256,50 +260,73 @@ def check_C4():
 
 
 def check_C5():
-    """EXHAUSTIVE PROOF: six unit discs centred on radius 2 touch neighbours and both circles; outer radius 3 (A)."""
+    """EXHAUSTIVE PROOF: six unit discs centred on radius 2 touch neighbours and circles of radii 1 and 3; they cover 6pi of the 8pi ring = 3/4 (A)."""
     C = [_on_circle(60*k, 2) for k in range(6)]
     for k in range(6):
         assert abs(math.dist(C[k], C[(k + 1) % 6]) - 2) < 1e-12        # neighbours touch (radius 1 each)
         assert abs(math.hypot(*C[k]) - 1 - 1) < 1e-12                 # touches the inner circle
-    options = {'A': 3, 'B': 2 + S3, 'C': 1 + S3, 'D': 2*S3, 'E': 4}
-    return _only(options, 2 + 1)
+        assert abs(math.hypot(*C[k]) + 1 - 3) < 1e-12                 # touches the outer circle
+    frac = sp.Rational(6*1**2, 3**2 - 1**2)
+    # grid count of the covered fraction of the ring
+    n, h = 600, 6/600
+    ring = disc = 0
+    for i in range(n):
+        for j in range(n):
+            x, y = -3 + (i + .5)*h, -3 + (j + .5)*h
+            if 1 <= x*x + y*y <= 9:
+                ring += 1
+                disc += any((x - cx)**2 + (y - cy)**2 <= 1 for cx, cy in C)
+    assert abs(disc/ring - float(frac)) < 0.01
+    options = {'A': sp.Rational(3, 4), 'B': sp.Rational(2, 3), 'C': sp.Rational(7, 9), 'D': sp.Rational(1, 2), 'E': sp.Rational(3, 5)}
+    return _only(options, frac)
 
 
 def check_C6():
-    """EXHAUSTIVE PROOF: circle (1,1) r=1 in a 6x2 rectangle, diagonal x=3y: chord 2sqrt15/5 (B); the 4x2 case gives 4sqrt5/5."""
+    """EXHAUSTIVE PROOF: circle (1,1) r=1 in a 2 x L rectangle; the diagonal 2x - Ly = 0 cuts a 90-degree arc iff L = 4 +- 2sqrt3; L >= 2 leaves 4 + 2sqrt3 (B)."""
+    L = sp.Symbol('L', positive=True)
+    roots = sp.solve(2*(L - 2)**2 - (4 + L**2), L)
+    valid = [r for r in roots if r >= 2]
+    assert len(roots) == 2 and len(valid) == 1
+    Lv = valid[0]
+    # the chord's endpoints subtend 90 degrees at the centre
     x = sp.Symbol('x')
-    xs = sp.solve((x - 1)**2 + (x/3 - 1)**2 - 1, x)
-    P, Q = [(v, v/3) for v in xs]
-    chord = sp.sqrt(sp.simplify((P[0] - Q[0])**2 + (P[1] - Q[1])**2))
-    xs2 = sp.solve((x - 1)**2 + (x/2 - 1)**2 - 1, x)
-    chord2 = sp.sqrt(sp.simplify((xs2[0] - xs2[1])**2 * sp.Rational(5, 4)))
-    assert sp.simplify(chord2 - 4*sp.sqrt(5)/5) == 0
-    options = {'A': 4*sp.sqrt(5)/5, 'B': 2*sp.sqrt(15)/5, 'C': S3, 'D': sp.Rational(6, 5), 'E': 2*sp.sqrt(10)/5}
-    return _only(options, sp.simplify(chord))
+    xs = sp.solve((x - 1)**2 + (2*x/Lv - 1)**2 - 1, x)
+    P, Q = [(float(v), float(2*v/Lv)) for v in xs]
+    assert abs(_angle(P, (1, 1), Q) - 90) < 1e-9
+    options = {'A': 4 - 2*S3, 'B': 4 + 2*S3, 'C': 2 + 2*S3, 'D': 2, 'E': 2 + 2*S2}
+    return _only(options, sp.radsimp(Lv))
 
 
 def check_C7():
-    """EXHAUSTIVE PROOF: isosceles trapezium 18 / 8, height 12, circle centre (9,6) r=6 touches all four sides (D)."""
+    """EXHAUSTIVE PROOF: incircle radius 6 and perimeter 52 force parallel sides 8 and 18 (Pitot + height 12); the circle centre (9,6) r=6 touches all four sides; difference 10 (D)."""
+    a, b = sp.symbols('a b', positive=True)
+    ell = (a + b) / 2                                            # Pitot
+    sol = sp.solve([2*(a + b) - 52, ell**2 - ((b - a)/2)**2 - 12**2], [a, b], dict=True)
+    sol = [s for s in sol if s[a] < s[b]]
+    assert len(sol) == 1 and (sol[0][a], sol[0][b]) == (8, 18)
     sides = [((0, 0), (18, 0)), ((18, 0), (13, 12)), ((13, 12), (5, 12)), ((5, 12), (0, 0))]
     for (x1, y1), (x2, y2) in sides:
         dist = abs((y2 - y1)*9 - (x2 - x1)*6 + x2*y1 - y2*x1) / math.hypot(x2 - x1, y2 - y1)
         assert abs(dist - 6) < 1e-12
-    options = {'A': sp.Rational(13, 2), 'B': 5, 'C': 12, 'D': 6, 'E': 4*S3}
-    return _only(options, 6)
+    assert 2*(18 + 8) == 52 == 18 + 8 + 2*math.hypot(5, 12)
+    options = {'A': 12, 'B': 13, 'C': 26, 'D': 10, 'E': 5}
+    return _only(options, sol[0][b] - sol[0][a])
 
 
 def check_C8():
-    """EXHAUSTIVE PROOF: AB diameter 25, AD = BC = 15: coordinates give CD = 7 (E); Ptolemy agrees."""
+    """EXHAUSTIVE PROOF: AB diameter 25, CD = 7, AD = BC = x: Ptolemy 625 - x^2 = 175 + x^2 gives x = 15 (E); coordinates agree."""
+    x = sp.Symbol('x', positive=True)
+    sol = sp.solve((625 - x**2) - (25*7 + x**2), x)
+    assert sol == [15]
     A, B = (-sp.Rational(25, 2), 0), (sp.Rational(25, 2), 0)
     D = (A[0] + 9, 12)
     C = (B[0] - 9, 12)
     for P in (C, D):
         assert P[0]**2 + P[1]**2 == sp.Rational(625, 4)
-    assert sp.sqrt((D[0] - A[0])**2 + D[1]**2) == 15
-    cd = C[0] - D[0]
-    assert 20*20 == 25*cd + 15*15
-    options = {'A': 10, 'B': 15, 'C': 13, 'D': 9, 'E': 7}
-    return _only(options, cd)
+    assert C[0] - D[0] == 7
+    assert sp.sqrt((D[0] - A[0])**2 + D[1]**2) == 15 == sp.sqrt((B[0] - C[0])**2 + C[1]**2)
+    options = {'A': 12, 'B': 20, 'C': 16, 'D': 5*sp.sqrt(7), 'E': 15}
+    return _only(options, sol[0])
 
 
 # ── Section D ──────────────────────────────────────────────────────────────────
@@ -326,28 +353,40 @@ def check_D2():
 
 
 def check_D3():
-    """EXHAUSTIVE PROOF: triangle with angles 30, 45, 105 on a circle of radius 2 has area 1 + sqrt3 (C), by coordinates."""
-    # vertices at central angles: arcs are twice the opposite angles: 60, 90, 210
+    """EXHAUSTIVE PROOF: on a radius-2 circle with a 45-degree angle, area 8 sin45 sinB sinC = 1 + sqrt3 forces {B, C} = {30, 105}; largest angle 105 (C). Scan of B and coordinates agree."""
+    area = lambda B: 8*math.sin(math.radians(45))*math.sin(math.radians(B))*math.sin(math.radians(135 - B))
+    target = 1 + math.sqrt(3)
+    # scan B in (0, 135): sign changes of area - target
+    hits = [k/1000 for k in range(1, 135000) if (area(k/1000) - target)*(area((k + 1)/1000) - target) <= 0]
+    Bs = sorted({round(b) for b in hits})
+    assert Bs == [30, 105]
+    largest = max(45, *Bs, *(135 - b for b in Bs))
+    # coordinates: vertices at central angles twice the opposite angles
     P = [_on_circle(0, 2), _on_circle(60, 2), _on_circle(150, 2)]
     angs = sorted(round(_angle(P[(i + 1) % 3], P[i], P[(i + 2) % 3]), 6) for i in range(3))
     assert angs == [30, 45, 105]
-    area = abs(sum(P[i][0]*P[(i + 1) % 3][1] - P[(i + 1) % 3][0]*P[i][1] for i in range(3))) / 2
-    exact = 2*2**2*sp.sin(sp.pi/6)*sp.sin(sp.pi/4)*sp.sin(7*sp.pi/12)
-    assert abs(area - float(exact)) < 1e-12
-    options = {'A': 2 + S3, 'B': 2*S3, 'C': 1 + S3, 'D': 3 + S3, 'E': 2}
-    return _only(options, sp.nsimplify(sp.simplify(exact)))
+    shoelace = abs(sum(P[i][0]*P[(i + 1) % 3][1] - P[(i + 1) % 3][0]*P[i][1] for i in range(3))) / 2
+    assert abs(shoelace - target) < 1e-12
+    assert abs(area(90) - 8*math.sin(math.radians(45))**2) < 1e-12 and abs(area(90) - 4) < 1e-12     # option A's triangle has area 4
+    options = {'A': 90, 'B': 120, 'C': 105, 'D': 135, 'E': 75}
+    return _only(options, largest)
 
 
 def check_D4():
-    """EXHAUSTIVE PROOF: centres (+-1,0), radius 5: s^2 + 2s - 48 = 0 gives s = 6, corners on the far circle, area 36 (D); s = 8 would leave corners outside."""
+    """EXHAUSTIVE PROOF: centres (+-1,0), radius 5: axis square s = 6 (area 36); diamond with vertices (+-a,0),(0,+-a) is largest at a = 4 (area 32); ratio 9/8 (D). Scans agree."""
+    inside = lambda x, y: (x + 1)**2 + y**2 <= 25 + 1e-12 and (x - 1)**2 + y**2 <= 25 + 1e-12
     s = sp.Symbol('s', positive=True)
     sol = sp.solve((s/2 + 1)**2 + s**2/4 - 25, s)
     assert sol == [6]
-    inside = lambda x, y: (x + 1)**2 + y**2 <= 25 + 1e-12 and (x - 1)**2 + y**2 <= 25 + 1e-12
-    assert all(inside(sx, sy) for sx in (-3, 3) for sy in (-3, 3)) and not inside(4, 4)
-    assert abs((3 + 1)**2 + 3**2 - 25) < 1e-12                       # corner (3,3) is on the circle centred (-1,0)
-    options = {'A': 64, 'B': 32, 'C': 25, 'D': 36, 'E': 48}
-    return _only(options, sol[0]**2)
+    # scan: largest centred axis-parallel square and largest centred diamond (convex symmetric region: centred is optimal)
+    s_max = max(k/1000 for k in range(1, 10000) if all(inside(sx*k/2000, sy*k/2000) for sx in (-1, 1) for sy in (-1, 1)))
+    a_max = max(k/1000 for k in range(1, 6000) if all(inside(*p) for p in ((k/1000, 0), (-k/1000, 0), (0, k/1000), (0, -k/1000))))
+    assert abs(s_max - 6) < 1e-3 and abs(a_max - 4) < 1e-3
+    assert inside(0, 4) and not inside(0, 5)                         # the top vertex is slack: side vertices bind
+    area_S, area_T = sol[0]**2, sp.Rational(1, 2)*(2*4)**2
+    assert (area_S, area_T) == (36, 32)
+    options = {'A': 1, 'B': sp.Rational(9, 16), 'C': sp.Rational(8, 9), 'D': sp.Rational(9, 8), 'E': sp.Rational(3, 4)}
+    return _only(options, sp.Rational(area_S, area_T))
 
 
 def check_D5():
