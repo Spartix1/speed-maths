@@ -325,27 +325,34 @@ def _clip(subject, clipper):
 
 
 def check_C1():
-    """l1: y=6-2x, l2: y=x/2+3; triangle with the x-axis has base 9 (intercepts 3, -6) and height 18/5 -> 81/5 (A)."""
-    x = sympy.Symbol('x')
-    l1, l2 = 6 - 2 * x, x / 2 + 3
-    assert sympy.Rational(-2) * sympy.Rational(1, 2) == -1          # perpendicular
-    x1, x2 = sympy.solve(l1, x)[0], sympy.solve(l2, x)[0]
-    xp = sympy.solve(l1 - l2, x)[0]
-    area = sympy.Rational(1, 2) * abs(x1 - x2) * abs(l1.subs(x, xp))
-    assert 2 * area == abs(_shoelace_area([(x1, 0), (x2, 0), (xp, l1.subs(x, xp))]))
-    options = {'A': Fraction(81, 5), 'B': Fraction(54, 5), 'C': Fraction(81, 10), 'D': Fraction(27, 2)}
-    return _only(options, area)
+    """l: y=6-2x (A=(3,0)); m: y=(x-k)/2; triangle area (3-k)^2/5 = 20 with k<0 -> k=-7 (A); k=13 is the other root."""
+    x, k = sympy.symbols('x k')
+    l1 = 6 - 2 * x
+    m = (x - k) / 2
+    assert sympy.Rational(-2) * sympy.Rational(1, 2) == -1                  # perpendicular
+    xp = sympy.solve(l1 - m, x)[0]
+    area = sympy.Rational(1, 2) * (3 - k) * l1.subs(x, xp)
+    assert sympy.simplify(area - (3 - k) ** 2 / 5) == 0
+    roots = sympy.solve(area - 20, k)
+    assert sorted(roots) == [-7, 13]
+    kv = [r for r in roots if r < 0][0]
+    pts = [(3, 0), (kv, 0), (xp.subs(k, kv), l1.subs(x, xp).subs(k, kv))]
+    assert sympy.Abs(_shoelace_area(pts)) == 40
+    options = {'A': -7, 'B': -10, 'C': 3 - 5 * sympy.sqrt(2), 'D': 3 - 2 * sympy.sqrt(5)}
+    return _only(options, kv)
 
 
 def check_C2():
-    """P=(p,0) equidistant from A(2,-6), B(5,4): (p-2)^2+36=(p-5)^2+16 -> p=1/6 (D)."""
-    p = sympy.Symbol('p')
-    sol = sympy.solve(sympy.Eq((p - 2) ** 2 + 36, (p - 5) ** 2 + 16), p)
-    assert sol == [sympy.Rational(1, 6)]
-    # gradient route agrees: through midpoint (7/2,-1) with gradient -3/10
-    assert sympy.Rational(-1) + sympy.Rational(-3, 10) * (sol[0] - sympy.Rational(7, 2)) == 0
-    options = {'A': Fraction(41, 6), 'B': Fraction(1, 3), 'C': Fraction(19, 5), 'D': Fraction(1, 6)}
-    return _only(options, sol[0])
+    """O on the perpendicular bisector of A(2,-6), B(b,4) iff OA = OB: 40 = b^2 + 16, b = 2 sqrt6 (D); the midpoint/gradient route agrees."""
+    b = sympy.Symbol('b', positive=True)
+    sol = sympy.solve(sympy.Eq(2 ** 2 + 6 ** 2, b ** 2 + 4 ** 2), b)
+    assert sol == [2 * sympy.sqrt(6)]
+    bv = sol[0]
+    mid = ((2 + bv) / 2, sympy.Integer(-1))
+    # O on the bisector: (O - mid) is perpendicular to (B - A)
+    assert sympy.simplify((0 - mid[0]) * (bv - 2) + (0 - mid[1]) * (4 + 6)) == 0
+    options = {'A': 2 * sympy.sqrt(10), 'B': 2 * sympy.sqrt(14), 'C': 12, 'D': 2 * sympy.sqrt(6)}
+    return _only(options, bv)
 
 
 def check_C3():
@@ -448,17 +455,22 @@ def check_D1():
 
 
 def check_D2():
-    """R=(x,0), S=(10,10-x), T=(10-x,10), U=(0,x): area 2x(10-x) = 20 -> x = 5 + sqrt(15) (B)."""
+    """R=(x,0), S=(10,10-x), U=(0,x): area 2x(10-x) = 20; diagonal^2 = 2[(10-x)^2 + x^2] = 160 for both roots -> 4 sqrt10 (B)."""
     x = sympy.Symbol('x', positive=True)
     R, S, T, U = (x, 0), (10, 10 - x), (10 - x, 10), (0, x)
     RS = (S[0] - R[0], S[1] - R[1]); RU = (U[0] - R[0], U[1] - R[1])
     assert sympy.simplify(RS[0] * RU[0] + RS[1] * RU[1]) == 0          # right angle at R
     assert sympy.simplify(RS[1] - RS[0]) == 0                            # RS at 45 degrees
-    area = sympy.expand(RS[0] * RU[1] - RS[1] * RU[0])                  # |RS x RU|, positive for 0<x<10
+    area = sympy.expand(RS[0] * RU[1] - RS[1] * RU[0])
     assert sympy.simplify(area - 2 * x * (10 - x)) == 0
-    roots = [r for r in sympy.solve(sympy.Eq(2 * x * (10 - x), 20), x) if 0 < r < 10]
-    options = {'A': 5 + sympy.sqrt(5), 'B': 5 + sympy.sqrt(15), 'C': 5 + 2 * sympy.sqrt(5), 'D': 10 - sympy.sqrt(5)}
-    return _only(options, max(roots))
+    roots = [r for r in sympy.solve(sympy.Eq(area, 20), x) if 0 < r < 10]
+    assert len(roots) == 2
+    diags = {sympy.sqrt(sympy.expand((T[0] - R[0]) ** 2 + (T[1] - R[1]) ** 2).subs(x, r)) for r in roots}
+    diags = {sympy.nsimplify(sympy.simplify(d)) for d in diags}
+    assert len(diags) == 1
+    d = diags.pop()
+    options = {'A': 4 * sympy.sqrt(15), 'B': 4 * sympy.sqrt(10), 'C': 10, 'D': 4 * sympy.sqrt(5)}
+    return _only(options, d)
 
 
 def check_D3():

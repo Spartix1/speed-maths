@@ -212,30 +212,30 @@
 \begin{enumerate}
 
 %── C1 ──────────────────────────────────────────────────────────────────────────
-\item The lines $l_1: y = 6 - 2x$ and $l_2: y = \tfrac12 x + 3$ are perpendicular and intersect at $P$. The three lines $l_1$, $l_2$ and the $x$-axis enclose a triangle $T$. What is the area of $T$?
+\item The line $l: y = 6 - 2x$ meets the $x$-axis at $A$. A line $m$, perpendicular to $l$, meets the negative $x$-axis at $(k,0)$. The lines $l$, $m$ and the $x$-axis enclose a triangle of area $20$. What is $k$?
 \begin{itemize}
-\item[A)] $\tfrac{81}{5}$
-\item[B)] $\tfrac{54}{5}$
-\item[C)] $\tfrac{81}{10}$
-\item[D)] $\tfrac{27}{2}$
+\item[A)] $-7$
+\item[B)] $-10$
+\item[C)] $3-5\sqrt2$
+\item[D)] $3-2\sqrt5$
 \end{itemize}
 
-\ans{A) $\tfrac{81}{5}$}
-\method{Read the $x$-intercepts straight off: $l_1$ at $x=3$, $l_2$ at $x=-6$, so the base is $9$. The height is the $y$ of $P$: $6-2x=\tfrac12x+3$ gives $x=\tfrac65$, $y=\tfrac{18}{5}$. Area $=\tfrac12\cdot9\cdot\tfrac{18}{5}=\tfrac{81}{5}$. Option C halves twice; option B uses the wrong base $6$.}
-\inv{Change $l_2$ to $y=\tfrac12x-3$. Its $x$-intercept moves to $6$, and $P$ drops below the axis. Show the area becomes $\tfrac95$, and explain why the triangle now sits under the $x$-axis.}
+\ans{A) $-7$}
+\method{$A=(3,0)$, and $m$ has gradient $\tfrac12$: $y=\tfrac12(x-k)$. It meets $l$ where $x=\tfrac{12+k}{5}$, at height $\tfrac25(3-k)$. The base is $3-k$, so the area is $\tfrac15(3-k)^2=20$, giving $3-k=10$ and $k=-7$. Faster: the triangle is right-angled with legs in the ratio $1:2$, so its area is always $\tfrac15$ of the base squared. Option B measures the base from the origin; option C drops the $\tfrac12$; option D drops the $\tfrac15$.}
+\inv{Without the word \emph{negative} a second value of $k$ works. Find it, and explain where that triangle lies.}
 
 %── C2 ──────────────────────────────────────────────────────────────────────────
-\item The perpendicular bisector of the segment joining $A(2,-6)$ and $B(5,4)$ meets the $x$-axis at $P$. What is the $x$-coordinate of $P$?
+\item The perpendicular bisector of the segment joining $A(2,-6)$ and $B(b,4)$, where $b>0$, passes through the origin. What is $b$?
 \begin{itemize}
-\item[A)] $\tfrac{41}{6}$
-\item[B)] $\tfrac13$
-\item[C)] $\tfrac{19}{5}$
-\item[D)] $\tfrac16$
+\item[A)] $2\sqrt{10}$
+\item[B)] $2\sqrt{14}$
+\item[C)] $12$
+\item[D)] $2\sqrt6$
 \end{itemize}
 
-\ans{D) $\tfrac16$}
-\method{Skip the gradient: $P=(p,0)$ is equidistant from $A$ and $B$, so $(p-2)^2+36=(p-5)^2+16$. The $p^2$ terms cancel: $-4p+40=-10p+41$, so $p=\tfrac16$.}
-\inv{The equidistance route turns any perpendicular-bisector question into one linear equation. Use it to find where the bisector of $A(2,-6)$, $B(5,4)$ meets the $y$-axis, and check against the gradient route.}
+\ans{D) $2\sqrt6$}
+\method{A point lies on the perpendicular bisector of $AB$ exactly when it is equidistant from $A$ and $B$. So $OA^2=OB^2$: $4+36=b^2+16$, $b^2=24$ and $b=2\sqrt6$. No gradients needed. Option A is $OA$ itself; option B adds the $16$ instead of subtracting it; option C makes $\angle AOB$ a right angle instead.}
+\inv{For which $b$ does the perpendicular bisector pass through $(1,0)$? Explain, using a circle and the line $y=4$, why any given point gives at most two values of $b$.}
 
 %── C3 ──────────────────────────────────────────────────────────────────────────
 \item The point $A(2,9)$ is reflected in the line $x+2y=5$ to give the point $A'$. How far is $A'$ from the origin?
@@ -339,17 +339,17 @@
 \inv{Move $B$ to $(5,7)$, on the same side as $A$. Now the reflection is needed: find the least value of $PA+PB$ and the point $P$ that achieves it.}
 
 %── D2 ──────────────────────────────────────────────────────────────────────────
-\item The square $MNOP$ has side $10$. Points $R$, $S$, $T$, $U$ lie on $MN$, $NO$, $OP$, $PM$ respectively, with $MR=x$, and $RSTU$ is a rectangle whose sides make $45^\circ$ with the sides of the square. For $0<x<10$, what is the largest value of $x$ for which the area of $RSTU$ is $20$?
+\item The square $MNOP$ has side $10$. Points $R$, $S$, $T$, $U$ lie on $MN$, $NO$, $OP$, $PM$ respectively, and $RSTU$ is a rectangle whose sides make $45^\circ$ with the sides of the square. The area of $RSTU$ is $20$. What is the length of a diagonal of $RSTU$?
 \begin{itemize}
-\item[A)] $5+\sqrt5$
-\item[B)] $5+\sqrt{15}$
-\item[C)] $5+2\sqrt5$
-\item[D)] $10-\sqrt5$
+\item[A)] $4\sqrt{15}$
+\item[B)] $4\sqrt{10}$
+\item[C)] $10$
+\item[D)] $4\sqrt5$
 \end{itemize}
 
-\ans{B) $5+\sqrt{15}$}
-\method{Put $M=(0,0)$, $R=(x,0)$. The $45^\circ$ sides force $S=(10,10-x)$, $T=(10-x,10)$ and $U=(0,x)$. Then $RS=\sqrt2(10-x)$ and $RU=\sqrt2\,x$, so the area is $2x(10-x)$. Setting $2x(10-x)=20$ gives $x^2-10x+10=0$, so $x=5\pm\sqrt{15}$, and the larger is $5+\sqrt{15}$. Option A drops the factor $2$ in the area; option C solves for area $10$.}
-\inv{For which $x$ is $RSTU$ a square, and what is the largest area such a rectangle can have? Explain why both answers come from the same $x$.}
+\ans{B) $4\sqrt{10}$}
+\method{Put $M=(0,0)$ and $R=(x,0)$. The $45^\circ$ sides force $S=(10,10-x)$ and $U=(0,x)$, so $RS=\sqrt2(10-x)$ and $RU=\sqrt2\,x$. The area gives $2x(10-x)=20$, i.e.\ $x(10-x)=10$; there is no need to find $x$. The diagonal satisfies $d^2=RS^2+RU^2=2\bigl[(x+(10-x))^2-2x(10-x)\bigr]=2(100-20)=160$, so $d=4\sqrt{10}$. Option C assumes $RSTU$ is a square; option D forgets the $\sqrt2$ on each side; option A adds $2x(10-x)$ instead of subtracting it.}
+\inv{Show that the perimeter of $RSTU$ is the same for every position of $R$. What is the largest possible area, and which rectangle has it?}
 
 %── D3 ──────────────────────────────────────────────────────────────────────────
 \item What is the area of the region of points $(x,y)$ satisfying both $|x|+2|y|\le 6$ and $y\ge x-2$?
@@ -408,7 +408,7 @@
   \item \textbf{Stopping at the foot.} A reflection travels twice as far along the normal as the foot of the perpendicular. \seealso{C3}
   \item \textbf{Picking the wrong bisector.} Two lines have two angle bisectors; the signs of the line expressions at a test point decide which one you want. \seealso{C4}
   \item \textbf{Reflecting when you don't need to.} If the two points are on opposite sides of the line, the straight segment already crosses it. \seealso{D1}
-  \item \textbf{Losing a branch.} Absolute values and ``largest $x$'' questions hide extra solutions: check every sign case before counting. \seealso{D2, D4}
+  \item \textbf{Losing a branch.} Absolute values and sign conditions hide extra solutions: check every sign case before counting, and use the stated condition to pick one. \seealso{C1, D4}
 \end{enumerate}
 
 \SpeedClosing{``Shoelace before altitude: area is a one-line cross product, not a construction.''}
