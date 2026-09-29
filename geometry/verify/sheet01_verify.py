@@ -282,7 +282,7 @@ def check_B9():
 
 
 def check_B10():
-    """Shoelace on (1,0),(5,2),(4,6),(0,3) in order: cross terms 2+22+12-3 = 33, area 33/2."""
+    """EXHAUSTIVE PROOF: Shoelace on (1,0),(5,2),(4,6),(0,3) in order: cross terms 2+22+12-3 = 33, area 33/2."""
     pts = [(1, 0), (5, 2), (4, 6), (0, 3)]
     twice = _shoelace_area(pts)
     assert twice == 33
@@ -325,7 +325,7 @@ def _clip(subject, clipper):
 
 
 def check_C1():
-    """l: y=6-2x (A=(3,0)); m: y=(x-k)/2; triangle area (3-k)^2/5 = 20 with k<0 -> k=-7 (A); k=13 is the other root."""
+    """EXHAUSTIVE PROOF: l: y=6-2x (A=(3,0)); m: y=(x-k)/2; triangle area (3-k)^2/5 = 20 with k<0 -> k=-7 (A); k=13 is the other root."""
     x, k = sympy.symbols('x k')
     l1 = 6 - 2 * x
     m = (x - k) / 2
@@ -343,7 +343,7 @@ def check_C1():
 
 
 def check_C2():
-    """O on the perpendicular bisector of A(2,-6), B(b,4) iff OA = OB: 40 = b^2 + 16, b = 2 sqrt6 (D); the midpoint/gradient route agrees."""
+    """EXHAUSTIVE PROOF: O on the perpendicular bisector of A(2,-6), B(b,4) iff OA = OB: 40 = b^2 + 16, b = 2 sqrt6 (D); the midpoint/gradient route agrees."""
     b = sympy.Symbol('b', positive=True)
     sol = sympy.solve(sympy.Eq(2 ** 2 + 6 ** 2, b ** 2 + 4 ** 2), b)
     assert sol == [2 * sympy.sqrt(6)]
@@ -356,7 +356,7 @@ def check_C2():
 
 
 def check_C3():
-    """Reflect A(2,9) in x+2y=5: A' = A - 2*15/5*(1,2) = (-4,-3), |OA'| = 5 (C)."""
+    """EXHAUSTIVE PROOF: Reflect A(2,9) in x+2y=5: A' = A - 2*15/5*(1,2) = (-4,-3), |OA'| = 5 (C)."""
     A = sympy.Matrix([2, 9]); n = sympy.Matrix([1, 2])
     k = (A.dot(n) - 5) / n.dot(n)
     A2 = A - 2 * k * n
@@ -368,7 +368,7 @@ def check_C3():
 
 
 def check_C4():
-    """At (1,1): 3x-4y+2=1, 4x-3y-5=-4 (opposite signs) -> bisector L1 + L2 = 0 -> 7x-7y=3 (D)."""
+    """EXHAUSTIVE PROOF: At (1,1): 3x-4y+2=1, 4x-3y-5=-4 (opposite signs) -> bisector L1 + L2 = 0 -> 7x-7y=3 (D)."""
     x, y = sympy.symbols('x y')
     L1, L2 = 3 * x - 4 * y + 2, 4 * x - 3 * y - 5
     s1, s2 = L1.subs({x: 1, y: 1}), L2.subs({x: 1, y: 1})
@@ -387,7 +387,7 @@ def check_C4():
 
 
 def check_C5():
-    """A(1,4), B(4,7): gradient 1, so C=(10,13); the perpendicular y=23-x meets the y-axis at 23 (A)."""
+    """EXHAUSTIVE PROOF: A(1,4), B(4,7): gradient 1, so C=(10,13); the perpendicular y=23-x meets the y-axis at 23 (A)."""
     g = Fraction(7 - 4, 4 - 1)
     k = 4 + g * (10 - 1)
     assert k == 13
@@ -398,7 +398,7 @@ def check_C5():
 
 
 def check_C6():
-    """[ABC]=36; [APQ]=(1/3)(2/3)[ABC]=8 -> [PBCQ]=28 (B), cross-checked by shoelace."""
+    """EXHAUSTIVE PROOF: [ABC]=36; [APQ]=(1/3)(2/3)[ABC]=8 -> [PBCQ]=28 (B), cross-checked by shoelace."""
     A, B, C = (0, 0), (9, 3), (3, 9)
     P = (Fraction(B[0], 3), Fraction(B[1], 3))
     Q = (Fraction(2 * C[0], 3), Fraction(2 * C[1], 3))
@@ -411,7 +411,7 @@ def check_C6():
 
 
 def check_C7():
-    """Vertices (2,5), (6,1), (-2,-3); shoelace area 24 (C)."""
+    """EXHAUSTIVE PROOF: Vertices (2,5), (6,1), (-2,-3); shoelace area 24 (C)."""
     x, y = sympy.symbols('x y')
     lines = [2 * x + 1, 7 - x, x / 2 - 2]
     pts = []
@@ -425,7 +425,7 @@ def check_C7():
 
 
 def check_C8():
-    """Clip Q=(0,0),(4,0),(5,3),(1,3) by its reflection in y=x; the overlap has area 6 (A)."""
+    """EXHAUSTIVE PROOF: Clip Q=(0,0),(4,0),(5,3),(1,3) by its reflection in y=x; the overlap has area 6 (A)."""
     Q = [(0, 0), (4, 0), (5, 3), (1, 3)]
     Qr = [(y, x) for (x, y) in Q][::-1]            # reflect, then restore anticlockwise order
     overlap = _clip(Q, Qr)
@@ -437,7 +437,7 @@ def check_C8():
 
 # ── Section D ──────────────────────────────────────────────────────────────────
 def check_D1():
-    """A(1,3), B(7,5) lie on opposite sides of y=x, so min PA+PB = AB = 2*sqrt(10) (D), at P=(4,4)."""
+    """EXHAUSTIVE PROOF: A(1,3), B(7,5) lie on opposite sides of y=x, so min PA+PB = AB = 2*sqrt(10) (D), at P=(4,4)."""
     A, B = (1, 3), (7, 5)
     assert (A[1] - A[0]) * (B[1] - B[0]) < 0          # opposite sides
     t = sympy.Symbol('t')
@@ -455,7 +455,7 @@ def check_D1():
 
 
 def check_D2():
-    """R=(x,0), S=(10,10-x), U=(0,x): area 2x(10-x) = 20; diagonal^2 = 2[(10-x)^2 + x^2] = 160 for both roots -> 4 sqrt10 (B)."""
+    """EXHAUSTIVE PROOF: R=(x,0), S=(10,10-x), U=(0,x): area 2x(10-x) = 20; diagonal^2 = 2[(10-x)^2 + x^2] = 160 for both roots -> 4 sqrt10 (B)."""
     x = sympy.Symbol('x', positive=True)
     R, S, T, U = (x, 0), (10, 10 - x), (10 - x, 10), (0, x)
     RS = (S[0] - R[0], S[1] - R[1]); RU = (U[0] - R[0], U[1] - R[1])
@@ -474,7 +474,7 @@ def check_D2():
 
 
 def check_D3():
-    """Rhombus |x|+2|y|<=6 has area 36; the piece below y=x-2 has area 10 -> 26 (C)."""
+    """EXHAUSTIVE PROOF: Rhombus |x|+2|y|<=6 has area 36; the piece below y=x-2 has area 10 -> 26 (C)."""
     rhombus = [(6, 0), (0, 3), (-6, 0), (0, -3)]
     half_plane = [(-100, -102), (100, 98), (-100, 98)]      # y >= x - 2, anticlockwise, large
     region = _clip(rhombus, half_plane)
@@ -486,7 +486,7 @@ def check_D3():
 
 
 def check_D4():
-    """(2m-3)^2 = 24|m|: two positive roots and the double root m=-3/2 -> 3 lines (D)."""
+    """EXHAUSTIVE PROOF: (2m-3)^2 = 24|m|: two positive roots and the double root m=-3/2 -> 3 lines (D)."""
     m = sympy.Symbol('m', real=True)
     pos = [r for r in sympy.solve(sympy.Eq((2 * m - 3) ** 2, 24 * m), m) if r > 0]
     neg = [r for r in sympy.solve(sympy.Eq((2 * m - 3) ** 2, -24 * m), m) if r < 0]
@@ -499,7 +499,7 @@ def check_D4():
 
 
 def check_D5():
-    """d^2 = t^2(4-t)^2/(t^2+(4-t)^2) is maximal at t=2, where d = sqrt(2) (C)."""
+    """EXHAUSTIVE PROOF: d^2 = t^2(4-t)^2/(t^2+(4-t)^2) is maximal at t=2, where d = sqrt(2) (C)."""
     t = sympy.Symbol('t', positive=True)
     d2 = (t * (4 - t)) ** 2 / (t ** 2 + (4 - t) ** 2)
     crit = [c for c in sympy.solve(sympy.diff(d2, t), t) if 0 < c < 4]

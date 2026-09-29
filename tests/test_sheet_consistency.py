@@ -1,5 +1,6 @@
 """The sheet, its answer key and its checks must describe the same questions."""
 
+import json
 import sys
 from pathlib import Path
 
@@ -152,10 +153,17 @@ def test_included_drafts_reads_environment(monkeypatch):
     assert included_drafts() == set()
 
 
-def test_published_sheets_includes_opted_in_draft(monkeypatch):
-    assert not any(p == "geometry" for p, _, _ in published_sheets())
-    monkeypatch.setenv("SPEEDMATHS_INCLUDE_DRAFTS", "geometry")
-    assert any(p == "geometry" for p, _, _ in published_sheets())
+def test_published_sheets_includes_opted_in_draft(monkeypatch, tmp_path):
+    # A throwaway repo with one draft pillar: no real pillar is a draft with sheets any more.
+    import tools.check_binding as cb
+    (tmp_path / "sheets.json").write_text(json.dumps([{"slug": "demo", "status": "draft", "sheets": [{"n": "01"}]}]))
+    (tmp_path / "demo" / "verify").mkdir(parents=True)
+    (tmp_path / "demo" / "verify" / "sheet01_verify.py").write_text("")
+    monkeypatch.setattr(cb, "REPO_ROOT", tmp_path)
+    monkeypatch.delenv("SPEEDMATHS_INCLUDE_DRAFTS", raising=False)
+    assert not any(p == "demo" for p, _, _ in published_sheets())
+    monkeypatch.setenv("SPEEDMATHS_INCLUDE_DRAFTS", "demo")
+    assert any(p == "demo" for p, _, _ in published_sheets())
 
 
 def test_equations_with_the_same_right_hand_side_are_not_equal(tmp_path):
@@ -181,3 +189,11 @@ def test_check_value_is_only_compared_with_a_numeric_option(tmp_path):
            '    return "A"\n')
     root = _pillar(tmp_path, [f"\\item {STEM}\n{opts}"], ["\\item \\ans{A) $y=-\\tfrac32x+1$}"], chk)
     assert check("demo", root=root) == []
+
+
+LIVE_CONSISTENT = ["geometry"]
+
+
+@pytest.mark.parametrize("pillar", LIVE_CONSISTENT)
+def test_live_pillar_is_consistent(pillar):
+    assert check(pillar, balance=True) == []

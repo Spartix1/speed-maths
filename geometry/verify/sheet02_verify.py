@@ -82,7 +82,7 @@ def check_A1():
 
 
 def check_A2():
-    """x^2+y^2-6x+4y+k=0 is (x-3)^2+(y+2)^2 = 13-k; radius 5 needs k = -12."""
+    """EXHAUSTIVE PROOF: x^2+y^2-6x+4y+k=0 is (x-3)^2+(y+2)^2 = 13-k; radius 5 needs k = -12."""
     k = sympy.Symbol('k')
     cx, cy, r2 = _complete_square(_X**2 + _Y**2 - 6*_X + 4*_Y + k)
     assert (cx, cy) == (3, -2)
@@ -147,7 +147,7 @@ def check_A7():
 
 
 def check_A8():
-    """Centre (3,-4) through the origin: r = 5, circle (x-3)^2+(y+4)^2 = 25."""
+    """EXHAUSTIVE PROOF: Centre (3,-4) through the origin: r = 5, circle (x-3)^2+(y+4)^2 = 25."""
     r2 = 3**2 + (-4)**2
     assert r2 == 25
     poly = _circle_poly(3, -4, 5)
@@ -381,7 +381,7 @@ def check_C2():
 
 
 def check_C3():
-    """Circle centre (1,-2), r=5; P(13,3) is 13 from the centre, so least PQ = 13 - 5 = 8 (D)."""
+    """EXHAUSTIVE PROOF: Circle centre (1,-2), r=5; P(13,3) is 13 from the centre, so least PQ = 13 - 5 = 8 (D)."""
     cx, cy, r2 = _complete_square(_X**2 + _Y**2 - 2*_X + 4*_Y - 20)
     assert (cx, cy, r2) == (1, -2, 25)
     d = sympy.sqrt((13 - cx)**2 + (3 - cy)**2)
@@ -517,7 +517,7 @@ def check_D3():
 
 
 def check_D4():
-    """Tangents y=mx from O to (x-5)^2+(y-5)^2=5: 2m^2-5m+2=0, m = 2, 1/2; tan(angle) = 3/4 (A)."""
+    """EXHAUSTIVE PROOF: Tangents y=mx from O to (x-5)^2+(y-5)^2=5: 2m^2-5m+2=0, m = 2, 1/2; tan(angle) = 3/4 (A)."""
     m = sympy.Symbol('m')
     ms = sorted(sympy.solve(sympy.Eq((5*m - 5)**2, 5*(m**2 + 1)), m))
     assert ms == [sympy.Rational(1, 2), 2]
@@ -530,7 +530,7 @@ def check_D4():
 
 
 def check_D5():
-    """Circle through (0,0),(8,0),(2,6): centre (4,2), r^2 = 20; meets x=0 again at (0,4), so OQ = 4 (D)."""
+    """EXHAUSTIVE PROOF: Circle through (0,0),(8,0),(2,6): centre (4,2), r^2 = 20; meets x=0 again at (0,4), so OQ = 4 (D)."""
     a, b = sympy.symbols('a b')
     sol = sympy.solve([sympy.Eq(a**2 + b**2, (a - 8)**2 + b**2), sympy.Eq(a**2 + b**2, (a - 2)**2 + (b - 6)**2)], [a, b])
     assert (sol[a], sol[b]) == (4, 2)

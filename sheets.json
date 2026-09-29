@@ -471,8 +471,8 @@
   {
     "slug": "geometry",
     "name": "Geometry",
-    "desc": "Coordinate geometry, circle theorems, and Euclidean proofs.",
-    "status": "draft",
+    "desc": "Coordinate geometry, polygons, circles, solids, and Euclidean proofs.",
+    "status": "live",
     "sheets": [
       {
         "n": "01",
@@ -490,11 +490,11 @@
       },
       {
         "n": "02",
-        "topic": "Circle equations, tangents and line--circle interactions",
+        "topic": "Circle equations, tangents and line–circle interactions",
         "tools": [
           "completing the square for circle equations",
           "tangent to a circle",
-          "perpendicular distance line--circle test",
+          "perpendicular distance line–circle test",
           "half-chord length"
         ],
         "questions": 33,
@@ -517,15 +517,14 @@
       },
       {
         "n": "04",
-        "topic": "Triangle centres and Euclidean relations",
+        "topic": "Polygons and angle chasing",
         "tools": [
-          "centroid 2:1 median division",
-          "inradius via A = rs",
-          "right-triangle inradius constant",
-          "circumradius via abc/(4A)",
-          "angle bisector theorem",
-          "Apollonius' theorem on medians",
-          "Euler line"
+          "regular polygon angles",
+          "diagonals",
+          "star polygons",
+          "tilings",
+          "angle chasing through parallels and isosceles triangles",
+          "similar triangles and area ratios"
         ],
         "questions": 33,
         "pdf": "geometry/sheets/sheet04.pdf",
@@ -533,13 +532,16 @@
       },
       {
         "n": "05",
-        "topic": "Tangents from an external point",
+        "topic": "Circles, arcs and tangency",
         "tools": [
-          "tangent length via OP^2 - r^2",
-          "angle between tangents via sin(t/2) = r/OP",
-          "chord of contact / polar xx1 + yy1 = r^2",
-          "director circle x^2 + y^2 = 2r^2",
-          "power of a point"
+          "circle theorems",
+          "alternate segment",
+          "cyclic quadrilaterals",
+          "power of a point",
+          "tangent lengths",
+          "touching circles",
+          "circles in angles",
+          "segments and lenses"
         ],
         "questions": 33,
         "pdf": "geometry/sheets/sheet05.pdf",
@@ -547,15 +549,17 @@
       },
       {
         "n": "06",
-        "topic": "Circle theorems and power of a point",
+        "topic": "Solids and spatial reasoning",
         "tools": [
-          "angle at centre twice angle at circumference",
-          "cyclic quadrilaterals sum to 180",
-          "alternate segment theorem",
-          "power of a point (chord and tangent-secant products)",
-          "Ptolemy's theorem",
-          "Brahmagupta's formula",
-          "Pitot's theorem"
+          "3D Pythagoras",
+          "volumes and surface areas of prisms",
+          "pyramids",
+          "cones and spheres",
+          "Euler's formula",
+          "nets",
+          "cross-sections",
+          "frustums",
+          "inscribed solids"
         ],
         "questions": 33,
         "pdf": "geometry/sheets/sheet06.pdf",
@@ -563,13 +567,14 @@
       },
       {
         "n": "07",
-        "topic": "Loci, Apollonius circles and geometric logic",
+        "topic": "TMUA-style synthesis: loci and geometric logic",
         "tools": [
           "loci of fixed distance",
-          "Apollonius circle PA over PB = k",
-          "perpendicular bisector loci",
-          "necessary versus sufficient conditions",
-          "flaw-spotting in synthetic proofs"
+          "Apollonius ratio circles",
+          "bounding quick constraints",
+          "necessary vs sufficient conditions",
+          "spot-the-flaw in proofs",
+          "mixed multi-step synthesis"
         ],
         "questions": 33,
         "pdf": "geometry/sheets/sheet07.pdf",
