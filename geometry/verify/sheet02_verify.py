@@ -348,17 +348,15 @@ def check_B10():
 
 # ── Section C ──────────────────────────────────────────────────────────────────
 def check_C1():
-    """EXHAUSTIVE PROOF: Tangent from (20,0) to x^2+y^2=144 meets y-axis at 15 (option B) via distance =r."""
-    # line through (20,0)-(0,t): tx+20y-20t=0, distance from origin =|20t|/sqrt(t^2+400)=12
-    t = sympy.Symbol('t', positive=True)
-    eq = sympy.Eq((20*t)**2, 144*(t**2+400))
-    sols = sympy.solve(eq, t)
-    assert 15 in sols
-    assert sympy.simplify(sympy.Abs(20*15)/sympy.sqrt(225+400) - 12) == 0
-    options = {'A': 12, 'B': 15, 'C': sympy.Rational(49,3), 'D': 20}
-    matches = [let for let,v in options.items() if v == 15]
-    assert matches == ['B']
-    return 'B'
+    """EXHAUSTIVE PROOF: tangent to x^2+y^2=r^2 with intercepts a, b: area ab/2 = 150, a^2+b^2 = 625 -> {a,b} = {15,20}; r = ab/AB = 12 (B)."""
+    a, b = sympy.symbols('a b', positive=True)
+    sols = sympy.solve([a*b - 300, a**2 + b**2 - 625], [a, b], dict=True)
+    assert {(s[a], s[b]) for s in sols} == {(15, 20), (20, 15)}
+    r = sympy.Rational(2*150, 25)
+    # the line x/20 + y/15 = 1 is at distance r from the origin
+    assert sympy.Abs(-300) / sympy.sqrt(15**2 + 20**2) == r
+    options = {'A': 6, 'B': 12, 'C': 15, 'D': sympy.Rational(25, 2)}
+    return _only(options, r)
 
 
 def check_C2():
@@ -397,29 +395,33 @@ def check_C3():
 
 
 def check_C4():
-    """x^2+y^2-18x-22y+178=0 has r^2 = 81+121-178 = 24; hexagon area (3*sqrt3/2) r^2 = 36*sqrt3 (B)."""
-    cx, cy, r2 = _complete_square(_X**2 + _Y**2 - 18*_X - 22*_Y + 178)
-    assert (cx, cy, r2) == (9, 11, 24)
-    area = 6 * sympy.sqrt(3) / 4 * r2              # six equilateral triangles of side r
-    options = {'A': 18*sympy.sqrt(3), 'B': 36*sympy.sqrt(3), 'C': 75*sympy.sqrt(3)/2, 'D': 75}
-    return _only(options, area)
+    """EXHAUSTIVE PROOF: hexagon area (3 sqrt3/2) r^2 = 54 sqrt3 -> r^2 = 36; x^2+y^2-18x-22y+c: r^2 = 202 - c -> c = 166 (B)."""
+    c = sympy.Symbol('c')
+    cx, cy, r2 = _complete_square(_X**2 + _Y**2 - 18*_X - 22*_Y + 166)
+    assert (cx, cy, r2) == (9, 11, 36)
+    s = sympy.sqrt(r2)
+    hexagon = 6 * sympy.sqrt(3) / 4 * s**2
+    assert sympy.simplify(hexagon - 54*sympy.sqrt(3)) == 0
+    sol = sympy.solve(81 + 121 - c - 36, c)
+    options = {'A': 196, 'B': 166, 'C': 130, 'D': 238}
+    return _only(options, sol[0])
 
 
 def check_C5():
-    """x^2-2px+y^2-6y-p^2+8p+9=0 is (x-p)^2+(y-3)^2 = 2p(p-4): a real circle iff p<0 or p>4 (A)."""
+    """EXHAUSTIVE PROOF: (x-p)^2+(y-2)^2 = 2p^2-6p; touching the y-axis: p^2 = 2p^2-6p -> p in {0, 6}; p = 0 is a point, so r = 6 (A)."""
     p = sympy.Symbol('p', real=True)
-    lhs = _X**2 - 2*p*_X + _Y**2 - 6*_Y - p**2 + 8*p + 9
-    r2 = sympy.expand((_X - p)**2 + (_Y - 3)**2 - lhs)
-    assert sympy.factor(r2) == 2*p*(p - 4)
-    region = sympy.solve_univariate_inequality(r2 > 0, p, relational=False)
-    assert region == sympy.Union(sympy.Interval.open(-sympy.oo, 0), sympy.Interval.open(4, sympy.oo))
-    cands = {'A': sympy.Union(sympy.Interval.open(-sympy.oo, 0), sympy.Interval.open(4, sympy.oo)),
-             'B': sympy.Interval.open(-1, 9), 'C': sympy.Interval.open(0, 4),
-             'D': sympy.Union(sympy.Interval.open(-sympy.oo, -1), sympy.Interval.open(9, sympy.oo))}
-    hits = [k for k, v in cands.items() if v == region]
+    x, y = sympy.symbols('x y')
+    lhs = sympy.expand(x**2 - 2*p*x + y**2 - 4*y - p**2 + 6*p + 4)
+    assert sympy.expand((x - p)**2 + (y - 2)**2 - (2*p**2 - 6*p) - lhs) == 0
+    roots = sympy.solve(p**2 - (2*p**2 - 6*p), p)
+    assert sorted(roots) == [0, 6]
+    circles = [q for q in roots if 2*q**2 - 6*q > 0]
+    assert circles == [6]
+    r = sympy.sqrt(2*6**2 - 6*6)
+    assert r == 6 == abs(circles[0])
+    options = {'A': 6, 'B': 3, 'C': 2, 'D': '0 or 6'}
+    hits = [k for k, v in options.items() if not isinstance(v, str) and v == r]
     assert hits == ['A']
-    options = {'A': 'p<0 or p>4', 'B': '-1<p<9', 'C': '0<p<4', 'D': 'p<-1 or p>9'}
-    assert set(options) == set(cands)
     return 'A'
 
 
@@ -469,55 +471,49 @@ def check_C8():
 
 # ── Section D ──────────────────────────────────────────────────────────────────
 def check_D1():
-    """EXHAUSTIVE PROOF: O1O2=9√2, r1=3√2,r2=√2 sum 4√2 => shortest 5√2 (C)."""
-    o1 = (-2,3)
-    o2 = (7,-6)
-    d = sympy.sqrt((o2[0]-o1[0])**2 + (o2[1]-o1[1])**2)
-    assert sympy.simplify(d - 9*sympy.sqrt(2)) == 0
+    """EXHAUSTIVE PROOF: centres 9 sqrt2 apart, r1 = 3 sqrt2: external r = 6 sqrt2, internal (C1 inside C2) r = 12 sqrt2; sum 18 sqrt2 (C)."""
+    r = sympy.Symbol('r', positive=True)
+    d = sympy.sqrt(9**2 + 9**2)
     r1 = sympy.sqrt(18)
-    r2 = sympy.sqrt(2)
-    assert sympy.simplify(r1 - 3*sympy.sqrt(2)) == 0
-    shortest = d - r1 - r2
-    assert sympy.simplify(shortest - 5*sympy.sqrt(2)) == 0
-    options = {'A': 5*sympy.sqrt(2)-4, 'B': 5*sympy.sqrt(2)-5, 'C': 5*sympy.sqrt(2), 'D': 5*sympy.sqrt(2)+5}
-    matches = [let for let,v in options.items() if sympy.simplify(v - shortest) == 0]
-    assert matches == ['C']
-    return 'C'
+    assert _complete_square(_X**2 + _Y**2 + 4*_X - 6*_Y + 13 - 18) == (-2, 3, 18)
+    cands = set()
+    for eq in (r + r1 - d, r - r1 - d, r1 - r - d):                 # external, C1 inside C2, C2 inside C1
+        cands |= set(sympy.solve(eq, r))
+    cands = {sympy.nsimplify(c) for c in cands}
+    assert cands == {6*sympy.sqrt(2), 12*sympy.sqrt(2)}
+    options = {'A': 6*sympy.sqrt(2), 'B': 12*sympy.sqrt(2), 'C': 18*sympy.sqrt(2), 'D': 9*sympy.sqrt(2)}
+    return _only(options, sum(cands))
 
 
 def check_D2():
-    """EXHAUSTIVE PROOF: Original centre (5,4) r^2=5, translate 3 left to (2,4), reflect to (2,-4), enlarge 4× => r^2=80 => (x-2)^2+(y+4)^2=80 (B)."""
-    cx,cy = 5,4
-    r2 = 5
-    cx2 = cx-3
-    cy2 = -cy
-    r2_new = r2*16
-    assert (cx2,cy2) == (2,-4) and r2_new == 80
-    # check equation (x-2)^2+(y+4)^2=80 expands to x^2+y^2-4x+8y-60=0? Wait sign: (y+4)^2 = y^2+8y+16, so x^2-4x+4 + y^2+8y+16=80 => x^2+y^2-4x+8y-60=0, but the target in sheet is (x-2)^2+(y+4)^2=80
-    target = (sympy.Symbol('x')-2)**2 + (sympy.Symbol('y')+4)**2 -80
-    assert sympy.expand(target) == sympy.expand((sympy.Symbol('x')-2)**2 + (sympy.Symbol('y')+4)**2 -80)
-    options = {'A': '(x-2)^2+(y-4)^2=80', 'B': '(x-2)^2+(y+4)^2=80', 'C': '(x-2)^2+(y-4)^2=320', 'D': '(x-2)^2+(y+4)^2=320'}
-    matches = [let for let,eq in options.items() if eq == '(x-2)^2+(y+4)^2=80']
-    assert matches == ['B']
+    """EXHAUSTIVE PROOF: forward map c -> 4 * reflect(c - (3,0)); centre (5,4), radius sqrt5 maps to (8,-16), radius^2 80; the inverse is unique (B)."""
+    fwd = lambda c: (4*(c[0] - 3), 4*(-(c[1])))
+    assert fwd((5, 4)) == (8, -16)
+    assert (4*sympy.sqrt(5))**2 == 80
+    X, Y = sympy.symbols('X Y')
+    sol = sympy.solve([4*(X - 3) - 8, -4*Y + 16], [X, Y], dict=True)
+    assert sol == [{X: 5, Y: 4}]
+    assert fwd((-1, 4)) != (8, -16) and fwd((5, -4)) != (8, -16) and fwd((sympy.Rational(11, 4), 4)) != (8, -16)
+    options = {'A': (-1, 4), 'B': (5, 4), 'C': (5, -4), 'D': (sympy.Rational(11, 4), 4)}
+    hits = [k for k, v in options.items() if v == (sol[0][X], sol[0][Y])]
+    assert hits == ['B']
     return 'B'
 
 
 def check_D3():
-    """EXHAUSTIVE PROOF: r=6, [POQ]=9√3 => sinθ=√3/2, θ=120°, chord 6√3, max height 9, area 27√3 (B)."""
-    r = 6
-    # 1/2 r^2 sinθ =9√3 => sin=√3/2
-    theta = 2*sympy.pi/3
-    assert sympy.simplify(sympy.sin(theta) - sympy.sqrt(3)/2) == 0
-    chord = 2*r*sympy.sin(theta/2)
-    assert sympy.simplify(chord - 6*sympy.sqrt(3)) == 0
-    height = r + r*sympy.cos(theta/2)
-    assert height == 9
-    area = sympy.Rational(1,2)*chord*height
-    assert sympy.simplify(area - 27*sympy.sqrt(3)) == 0
-    options = {'A': 18+9*sympy.sqrt(3), 'B': 27*sympy.sqrt(3), 'C': 27+9*sympy.sqrt(3), 'D': 36+9*sympy.sqrt(3)}
-    matches = [let for let,v in options.items() if sympy.simplify(v - area) == 0]
-    assert matches == ['B']
-    return 'B'
+    """EXHAUSTIVE PROOF: greatest [PRQ] = 36 sin(phi)(1 + cos(phi)) with angle POQ = 2 phi; = 27 sqrt3 only at phi = 60, so angle POQ = 120 (B)."""
+    f = lambda deg: 36*math.sin(math.radians(deg))*(1 + math.cos(math.radians(deg)))
+    target = 27*math.sqrt(3)
+    near = [k/100 for k in range(1, 9000) if abs(f(k/100) - target) < 1e-6]
+    assert near and all(abs(v - 60) < 0.05 for v in near)
+    assert max(f(k/100) for k in range(1, 9000)) <= target + 1e-9      # 27 sqrt3 is the maximum: equilateral
+    # coordinates: P, Q at +-60 degrees from the bottom, R at the top
+    P = (6*math.sin(math.radians(60)), -6*math.cos(math.radians(60)))
+    Q = (-P[0], P[1]); R = (0, 6)
+    area = abs((Q[0]-P[0])*(R[1]-P[1]) - (R[0]-P[0])*(Q[1]-P[1])) / 2
+    assert abs(area - target) < 1e-9
+    options = {'A': 90, 'B': 120, 'C': 60, 'D': 150}
+    return _only(options, 2*60)
 
 
 def check_D4():

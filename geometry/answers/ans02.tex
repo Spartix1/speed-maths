@@ -224,20 +224,20 @@
 \begin{enumerate}
 
 %── C1 ──────────────────────────────────────────────────────────────────────────
-\item A tangent to the circle $x^2+y^2=144$ passes through $(20,0)$ and meets the positive $y$-axis at $T$. What is the $y$-coordinate of $T$? \textit{\small(after TMUA 2017 Paper 1 Q6)}
+\item A tangent to the circle $x^2+y^2=r^2$ meets the positive $x$- and $y$-axes at $A$ and $B$. The triangle $OAB$ has area $150$ and $AB=25$. What is $r$? \textit{\small(after TMUA 2017 Paper 1 Q6)}
 \begin{itemize}
-\item[A)] $12$
-\item[B)] $15$
-\item[C)] $\tfrac{49}{3}$
-\item[D)] $20$
+\item[A)] $6$
+\item[B)] $12$
+\item[C)] $15$
+\item[D)] $\tfrac{25}{2}$
 \end{itemize}
 
-\ans{B) $15$}
-\method{Radius to touch point is $\perp$ tangent. Let $T=(0,t)$, line through $(20,0)$ and $(0,t)$ has equation $x/20+y/t=1$, i.e. $tx+20y-20t=0$. Distance from origin $=r=12$: $| -20t|/\sqrt{t^2+400}=12\Rightarrow 400t^2=144(t^2+400)\Rightarrow256t^2=57600\Rightarrow t^2=225\Rightarrow t=15$ (positive). Check $t=15$ gives line $3x+4y=60$, distance $60/5=12$ \checkmark.}
-\inv{The tangent from $(20,0)$ touches at a point $X$ with $OX=12$ and $OX\perp XT$, so $OXP$ is a $12$-$16$-$20$ right triangle (a scaled $3$-$4$-$5$). Use similar triangles to get $OT=15$ without any algebra.}
+\ans{B) $12$}
+\method{The radius to the point of contact is perpendicular to the tangent, so $r$ is the height of triangle $OAB$ from $O$ onto $AB$. Twice the area is base times height: $300=25r$, so $r=12$. (The intercepts are $20$ and $15$; nothing needs solving.) Option A forgets the factor $2$ in the area; option C is the shorter intercept; option D is the circumradius of $OAB$, not the inradius or the height.}
+\inv{Show that $\tfrac1{r^2}=\tfrac1{a^2}+\tfrac1{b^2}$ for the intercepts $a$ and $b$ of any tangent to $x^2+y^2=r^2$. Which tangent gives the triangle of least area?}
 
 %── C2 ──────────────────────────────────────────────────────────────────────────
-\item The point $P(8,6)$ is outside the circle $x^2+y^2=36$. Tangents from $P$ meet the circle at $A$ and $B$. What is the length $AB$? \textit{\small(adapted from TMUA 2018 Paper 1 Q7)}
+\item The point $P(8,6)$ is outside the circle $x^2+y^2=36$. Tangents from $P$ meet the circle at $A$ and $B$. What is the length $AB$?
 \begin{itemize}
 \item[A)] $\tfrac{12\sqrt{13}}{13}$
 \item[B)] $\tfrac{24\sqrt{13}}{13}$
@@ -263,33 +263,33 @@
 \inv{The tangent length ($12$) lies between the least and greatest distances ($8$ and $18$). Show that it is always their geometric mean.}
 
 %── C4 ───────────────────────────────────────────────────────────────────────
-\item A circle has equation $x^2+y^2-18x-22y+178=0$. A regular hexagon $ABCDEF$ is inscribed so that all its vertices lie on the circle. What is the area of the hexagon? \textit{\small(adapted from TMUA 2017 Paper 1 Q9)}
+\item A regular hexagon of area $54\sqrt3$ has all six vertices on the circle $x^2+y^2-18x-22y+c=0$. What is $c$? \textit{\small(after TMUA 2017 Paper 1 Q9)}
 \begin{itemize}
-\item[A)] $18\sqrt3$
-\item[B)] $36\sqrt3$
-\item[C)] $\tfrac{75\sqrt3}{2}$
-\item[D)] $75$
+\item[A)] $196$
+\item[B)] $166$
+\item[C)] $130$
+\item[D)] $238$
 \end{itemize}
 
-\ans{B) $36\sqrt3$}
-\method{Complete the square: $r^2=9^2+11^2-178=24$. A regular hexagon is six equilateral triangles of side $r$, so its area is $\tfrac{3\sqrt3}{2}r^2=\tfrac{3\sqrt3}{2}\cdot24=36\sqrt3$. Option C assumes $r=5$ (a tempting guess from $9,11$); option A uses three triangles instead of six.}
-\inv{The centre $(9,11)$ never matters: translating a shape does not change its area. What is the area of the square inscribed in the same circle?}
+\ans{B) $166$}
+\method{A regular hexagon is six equilateral triangles of side $r$, so $\tfrac{3\sqrt3}{2}r^2=54\sqrt3$ and $r^2=36$. Completing the square, $r^2=9^2+11^2-c=202-c$, so $c=202-36=166$. Option A subtracts $r=6$ instead of $r^2$; option C uses three triangles ($r^2=72$); option D adds $r^2$.}
+\inv{The centre never mattered for the area. For which $c$ does the circle touch the $x$-axis, and what is then the area of its inscribed regular hexagon?}
 
 %── C5 ───────────────────────────────────────────────────────────────────────
-\item For which values of $p$ does $x^2-2px+y^2-6y-p^2+8p+9=0$ represent a (real) circle? \textit{\small(after TMUA 2022 Paper 1 Q2)}
+\item The equation $x^2-2px+y^2-4y-p^2+6p+4=0$ describes a circle that touches the $y$-axis. What is its radius? \textit{\small(after TMUA 2022 Paper 1 Q2)}
 \begin{itemize}
-\item[A)] $p<0$ or $p>4$
-\item[B)] $-1<p<9$
-\item[C)] $0<p<4$
-\item[D)] $p<-1$ or $p>9$
+\item[A)] $6$
+\item[B)] $3$
+\item[C)] $2$
+\item[D)] $0$ or $6$
 \end{itemize}
 
-\ans{A) $p<0$ or $p>4$}
-\method{Complete the squares: $(x-p)^2+(y-3)^2=2p^2-8p=2p(p-4)$. A real circle needs $2p(p-4)>0$, so $p<0$ or $p>4$. At $p=0$ and $p=4$ it is a single point. Option C is the interval where it is \emph{not} a circle.}
-\inv{As $p$ varies, where do the centres lie, and what is the smallest radius the circle can have when $p\ge 5$?}
+\ans{A) $6$}
+\method{Complete the squares: $(x-p)^2+(y-2)^2=2p^2-6p$. The centre is $(p,2)$, so touching the $y$-axis means $r=|p|$: $p^2=2p^2-6p$, i.e.\ $p(p-6)=0$. At $p=0$ the right-hand side is $0$: the equation is the single point $(0,2)$, not a circle. So $p=6$ and $r=\sqrt{72-36}=6$. Option D keeps the point-circle; option C touches the $x$-axis instead; option B is where the circle degenerates.}
+\inv{For which $p$ does the equation describe a real circle at all? For which $p$ does the circle touch the $x$-axis, and are both values allowed?}
 
 %── C6 ──────────────────────────────────────────────────────────────────────────
-\item The circle $x^2+y^2-4x+2y-11=0$ and the line $x-y+1=0$: determine the number of intersection points without solving the system. \textit{\small(after MAT 2019 Q6)}
+\item The circle $x^2+y^2-4x+2y-11=0$ and the line $x-y+1=0$: determine the number of intersection points without solving the system.
 \begin{itemize}
 \item[A)] $0$ (line misses)
 \item[B)] $1$ (tangent)
@@ -315,7 +315,7 @@
 \inv{The product of the two $y$-intercepts is $-21$, the constant term. Explain why, and use it to find the intercept product for any circle $x^2+y^2+2gx+2fy+c=0$.}
 
 %── C8 ───────────────────────────────────────────────────────────────────────
-\item The line $y=kx+5$ is tangent to the circle $x^2+y^2-6x-8y+24=0$. How many distinct values of $k$ satisfy this? \textit{\small(after TMUA 2020 Paper 1 Q7)}
+\item The line $y=kx+5$ is tangent to the circle $x^2+y^2-6x-8y+24=0$. How many distinct values of $k$ satisfy this?
 \begin{itemize}
 \item[A)] $0$
 \item[B)] $1$
@@ -338,61 +338,43 @@
 \begin{enumerate}
 
 %── D1 ──────────────────────────────────────────────────────────────────────────
-\item \begin{minipage}[t]{0.70\linewidth}
-\vspace{0pt}
-The circles $C_1:(x+2)^2+(y-3)^2=18$ and $C_2:(x-7)^2+(y+6)^2=2$ have centres $O_1,O_2$. What is the \emph{shortest} distance between a point on $C_1$ and a point on $C_2$? \textit{\small(adapted from TMUA 2018 Paper 1 Q7 / 2022 Paper 1 Q3)}
+\item The circle $C_1:(x+2)^2+(y-3)^2=18$ and a circle $C_2$ with centre $(7,-6)$ and radius $r$ touch each other. What is the sum of the possible values of $r$? \textit{\small(after TMUA 2018 Paper 1 Q3)}
 \begin{itemize}
-\item[A)] $5\sqrt2-4$
-\item[B)] $5\sqrt2-5$
-\item[C)] $5\sqrt2$
-\item[D)] $5\sqrt2+5$
+\item[A)] $6\sqrt2$
+\item[B)] $12\sqrt2$
+\item[C)] $18\sqrt2$
+\item[D)] $9\sqrt2$
 \end{itemize}
-\end{minipage}\hfill
-\begin{minipage}[t]{0.26\linewidth}
-\vspace{0pt}
-\centering
-\begin{tikzpicture}[scale=0.45]
-\draw (0,0) circle (1.6);
-\draw (-1.6,0) -- (1.6,0);
-\draw (0,-1.6) -- (0,1.6);
-\draw[dashed] (0,0) -- (1.2,0.9);
-\node at (0.6,0.5) {\tiny $d$};
-\draw[fill=black] (0,0) circle (1pt) node[below left]{\tiny $O$};
-\draw (1.2,0.9) circle (1pt) node[right]{\tiny $P$};
-\end{tikzpicture}
-\end{minipage}
 
-
-
-\ans{C) $5\sqrt2$}
-\method{$O_1=(-2,3)$, $O_2=(7,-6)$, $O_1O_2=\sqrt{9^2+9^2}=9\sqrt2$, $r_1=3\sqrt2$, $r_2=\sqrt2$, sum $4\sqrt2$, shortest $=9\sqrt2-4\sqrt2=5\sqrt2$. Externally separated ($d>r_1+r_2$).}
-\inv{Shortest = centre distance minus sum of radii (external). If one circle contained the other, it would be $|r_1-r_2|-d$. For these numbers, $5\sqrt2\approx7.07$.}
+\ans{C) $18\sqrt2$}
+\method{The centres are $d=\sqrt{9^2+9^2}=9\sqrt2$ apart and $C_1$ has radius $3\sqrt2$. Touching externally: $r+3\sqrt2=9\sqrt2$, $r=6\sqrt2$. Touching internally, with $C_1$ inside $C_2$: $r-3\sqrt2=9\sqrt2$, $r=12\sqrt2$ ($C_2$ cannot be inside $C_1$, since $d>3\sqrt2$). The sum is $18\sqrt2=2d$, whatever the radius of $C_1$. Options A and B are each only one case; option D is $d$.}
+\inv{Explain why the sum is always $2d$ when both kinds of tangency are possible. When is there only one value of $r$?}
 
 %── D2 ──────────────────────────────────────────────────────────────────────────
-\item The segment joining $(3,3)$ and $(7,5)$ is a diameter of circle $C$. $C$ is translated $3$ left, reflected in the $x$-axis, then enlarged scale factor $4$ about its centre. What is the equation of the final circle? \textit{\small(after TMUA Specimen Paper 1 Q9)}
+\item A circle is translated $3$ units in the negative $x$-direction, then reflected in the $x$-axis, then enlarged by scale factor $4$ about the \emph{origin}. The final circle is $(x-8)^2+(y+16)^2=80$. What was the centre of the original circle? \textit{\small(after TMUA Specimen Paper 1 Q9)}
 \begin{itemize}
-\item[A)] $(x-2)^2+(y-4)^2=80$
-\item[B)] $(x-2)^2+(y+4)^2=80$
-\item[C)] $(x-2)^2+(y-4)^2=320$
-\item[D)] $(x-2)^2+(y+4)^2=320$
+\item[A)] $(-1,4)$
+\item[B)] $(5,4)$
+\item[C)] $(5,-4)$
+\item[D)] $(\tfrac{11}{4},4)$
 \end{itemize}
 
-\ans{B) $(x-2)^2+(y+4)^2=80$}
-\method{Original centre $(5,4)$, $r^2=(2)^2+1^2=5$. Translate $3$ left: $(2,4)$, reflect in $x$-axis: $(2,-4)$, enlarge $4\times$ about centre: $r^2=5\cdot16=80$, so $(x-2)^2+(y+4)^2=80$.}
-\inv{Enlargement about the centre leaves the centre fixed and multiplies the radius by $4$, so $r^2$ by $16$. The $320$ options scale $r^2$ by $64$ (radius by $8$). Where would the centre go if the enlargement were about the origin instead?}
+\ans{B) $(5,4)$}
+\method{Undo the steps in reverse order. Undo the enlargement about the origin: $(8,-16)\to(2,-4)$. Undo the reflection: $(2,4)$. Undo the translation: $(5,4)$. (The radius goes from $\sqrt{80}$ back to $\sqrt5$.) Option A undoes the translation the wrong way; option C forgets to undo the reflection; option D undoes the steps in the forward order.}
+\inv{If the enlargement had been about the circle's own centre instead, which point would the original centre have been? Which of the three steps commute with each other?}
 
 %── D3 ───────────────────────────────────────────────────────────────────────
-\item A circle has centre $O$ and radius $6$. Points $P$ and $Q$ lie on it with $\angle POQ\ge 90^\circ$, and triangle $POQ$ has area $9\sqrt3$. The point $R$ moves on the major arc $PQ$. What is the greatest possible area of triangle $PRQ$? \textit{\small(adapted from TMUA 2022 Paper 1 Q14)}
+\item Points $P$ and $Q$ lie on a circle with centre $O$ and radius $6$. The point $R$ moves on the major arc $PQ$, and the greatest possible area of triangle $PRQ$ is $27\sqrt3$. What is $\angle POQ$? \textit{\small(after TMUA 2022 Paper 1 Q14)}
 \begin{itemize}
-\item[A)] $18+9\sqrt3$
-\item[B)] $27\sqrt3$
-\item[C)] $27+9\sqrt3$
-\item[D)] $36+9\sqrt3$
+\item[A)] $90^\circ$
+\item[B)] $120^\circ$
+\item[C)] $60^\circ$
+\item[D)] $150^\circ$
 \end{itemize}
 
-\ans{B) $27\sqrt3$}
-\method{$[POQ]=\tfrac12\cdot36\sin\theta=9\sqrt3$ gives $\sin\theta=\tfrac{\sqrt3}{2}$, and $\theta\ge90^\circ$ forces $\theta=120^\circ$. Then $PQ=6\sqrt3$ and $O$ is $3$ from $PQ$. $R$ is farthest from $PQ$ at the far end of the diameter through the midpoint, at height $6+3=9$, so the area is $\tfrac12\cdot6\sqrt3\cdot9=27\sqrt3$. Option A is the answer if you take $\theta=60^\circ$.}
-\inv{The condition $\angle POQ\ge90^\circ$ is doing real work: $\sin60^\circ=\sin120^\circ$. Check that $\theta=60^\circ$ gives the same $[POQ]$ but a greatest area of $18+9\sqrt3$.}
+\ans{B) $120^\circ$}
+\method{Let $\angle POQ=2\phi$. Then $PQ=12\sin\phi$, $O$ is $6\cos\phi$ from $PQ$, and $R$ is farthest from $PQ$ at the far end of the perpendicular diameter, so the greatest area is $\tfrac12\cdot12\sin\phi\cdot6(1+\cos\phi)=36\sin\phi(1+\cos\phi)$. Setting this to $27\sqrt3$: $\phi=60^\circ$ works, and it is the only solution, because $27\sqrt3$ is the area of the equilateral triangle inscribed in the circle, the largest triangle that fits. So $PQR$ is equilateral and $\angle POQ=120^\circ$. Option C is $\angle PRQ$, the angle at the circumference.}
+\inv{Show that $\sin\phi(1+\cos\phi)$ has its maximum on $0<\phi<90^\circ$ at $\phi=60^\circ$. If the greatest area were $36$, how many values of $\angle POQ$ would there be?}
 
 %── D4 ───────────────────────────────────────────────────────────────────────
 \item Two tangents are drawn from the origin to the circle $(x-5)^2+(y-5)^2=5$. What is the tangent of the acute angle between them?
@@ -434,10 +416,10 @@ The circles $C_1:(x+2)^2+(y-3)^2=18$ and $C_2:(x-7)^2+(y+6)^2=2$ have centres $O
 
 \section*{Common Traps --- Worksheet \#2}
 \begin{enumerate}[leftmargin=2em, itemsep=4pt]
-  \item \textbf{Guessing the radius.} Nice-looking centres do not mean a nice radius: $x^2+y^2-18x-22y+178=0$ has $r^2=24$. \seealso{C4}
+  \item \textbf{Mixing up $r$ and $r^2$.} Completing the square gives $r^2$, not $r$: in C4, $r^2=202-c$, and subtracting $r=6$ instead of $36$ gives $196$. \seealso{C4}
   \item \textbf{Stopping at the centre.} The distance to the centre is not the distance to the circle; subtract (or add) $r$. \seealso{C3, D1}
   \item \textbf{Confusing the gradients with the angle.} The sum or product of the two tangent gradients is not the angle between them. \seealso{D4}
-  \item \textbf{$\sin\theta$ has two angles.} $\sin60^\circ=\sin120^\circ$; read every condition in the question before choosing. \seealso{D3}
+  \item \textbf{Keeping a degenerate case, or dropping a real one.} In C5, $p=0$ gives a single point, not a circle; in D1, internal and external tangency both count. \seealso{C5, D1}
   \item \textbf{Dropping the constant.} The constant term decides the radius, whether the circle is real, and whether it passes through the origin. \seealso{A2, B2, B4, C5}
 \end{enumerate}
 
