@@ -367,26 +367,21 @@ def check_B10():
 
 # ── Section C (NEW HARD) ───────────────────────────────────────────────────────
 def check_C1():
-    """EXHAUSTIVE PROOF: Equal radii radical axis is 5x-3y=4. Subtract (x+2)^2+(y-1)^2 and (x-3)^2+(y+2)^2 to get 10x-6y=8."""
-    expected = get_answer(TEX_PATH, 'C1')
+    """EXHAUSTIVE PROOF: subtracting gives the chord 10x - 6y = 33 - r^2; through the origin iff r^2 = 33 (C); the circles then meet in two points."""
     X, Y = _X, _Y
-    c1 = (X+2)**2 + (Y-1)**2
-    c2 = (X-3)**2 + (Y+2)**2
-    diff = sympy.expand(c1 - c2)
-    assert sympy.simplify(diff - (10*X - 6*Y - 8)) == 0
-    # Options mapping
-    options = {
-        'A': 5*X + 3*Y - 4,
-        'B': 3*X - 5*Y - 4,
-        'C': 5*X - 3*Y - 4,
-        'D': 5*X - 3*Y - 1,
-    }
-    target = 5*X - 3*Y - 4
-    matches = [let for let, eq in options.items() if sympy.simplify(eq - target) == 0]
-    assert matches == ['C']
-    computed = 'C'
-    assert mcq_letter(expected) == computed
-    return computed
+    r = sympy.Symbol('r', positive=True)
+    chord = sympy.expand((X + 2)**2 + (Y - 1)**2 - 25 - ((X - 3)**2 + (Y + 2)**2 - r**2))
+    assert sympy.simplify(chord - (10*X - 6*Y - 33 + r**2)) == 0
+    sol = sympy.solve(chord.subs({X: 0, Y: 0}), r)
+    assert sol == [sympy.sqrt(33)]
+    rv = sol[0]
+    pts = sympy.solve([(X + 2)**2 + (Y - 1)**2 - 25, (X - 3)**2 + (Y + 2)**2 - rv**2], [X, Y])
+    real = [q for q in pts if all(v.is_real for v in q)]
+    assert len(real) == 2
+    (x1, y1), (x2, y2) = real
+    assert sympy.simplify(x1*y2 - x2*y1) == 0                     # the two points and O are collinear
+    options = {'A': sympy.sqrt(17), 'B': 5, 'C': sympy.sqrt(33), 'D': 3}
+    return _only(options, rv)
 
 
 def check_C2():
@@ -441,33 +436,35 @@ def check_C5():
 
 
 def check_C6():
-    """EXHAUSTIVE PROOF: Tangent to the y-axis iff (a/2)^2 = r^2 = a^2/4+b^2/4-c iff b^2=4c (B); each other option fails on a concrete circle."""
+    """EXHAUSTIVE PROOF: x = 0 gives y^2 + by + c = 0, roots sqrt(b^2 - 4c) apart; chord 2 iff b^2 - 4c = 4 (B); each other option fails on a concrete circle."""
     a, b, c = sympy.symbols('a b c')
-    r2 = a**2/4 + b**2/4 - c
-    assert sympy.expand(r2 - (a/2)**2) == sympy.expand((b**2 - 4*c) / 4)
-    options = {'A': a**2 - 4*c, 'B': b**2 - 4*c, 'C': a**2 + b**2 - 4*c, 'D': c}
+    options = {'A': a**2 - 4*c - 4, 'B': b**2 - 4*c - 4, 'C': b**2 - 4*c - 2, 'D': b**2 - 4*c - 16}
 
-    def tangent_to_y_axis(av, bv, cv):
-        # x=0 gives y^2+by+c=0: tangent iff a double root
-        return sympy.discriminant(_Y**2 + bv*_Y + cv, _Y) == 0
+    def chord_is_2(av, bv, cv):
+        roots = sympy.solve(_Y**2 + bv*_Y + cv, _Y)
+        real = [v for v in roots if v.is_real]
+        return len(real) == 2 and sympy.simplify(sympy.Abs(real[0] - real[1]) - 2) == 0
 
-    samples = [(6, 4, 4), (2, 4, 4), (4, 2, 4), (2, 6, 5), (4, 6, 9), (6, 8, 25)]
+    samples = [(2, 4, 3), (6, 4, 3), (2, 6, 8), (4, 2, -1), (8, 6, 5), (2, 10, 21), (4, 6, 5)]
+    assert any(chord_is_2(*s) for s in samples) and not all(chord_is_2(*s) for s in samples)
     hits = [k for k, e in options.items()
-            if all((e.subs({a: av, b: bv, c: cv}) == 0) == tangent_to_y_axis(av, bv, cv) for av, bv, cv in samples)]
+            if all((e.subs({a: av, b: bv, c: cv}) == 0) == chord_is_2(av, bv, cv) for av, bv, cv in samples)]
     assert hits == ['B']
     return 'B'
 
 
 def check_C7():
-    """EXHAUSTIVE PROOF: Equal radii sqrt3 at (-2,1) and (4,1); the transverse tangent passes through the midpoint (1,1), and distance sqrt3 gives m = sqrt2/2 (B)."""
+    """EXHAUSTIVE PROOF: radii 2 and 1, centres (0,0), (6,0); the crossing tangent passes through (4,0); distance 2 from O gives m = sqrt3/3 (B), and it is 1 from (6,0)."""
     m = sympy.Symbol('m', positive=True)
-    sols = sympy.solve(sympy.Eq(9*m**2, 3*(m**2 + 1)), m)
+    sols = sympy.solve(sympy.Eq(16*m**2, 4*(1 + m**2)), m)
     assert len(sols) == 1
     mv = sols[0]
-    # the line y-1 = m(x-1) is sqrt3 from both centres
-    for cx in (-2, 4):
-        assert sympy.simplify(sympy.Abs(mv*(cx - 1)) / sympy.sqrt(mv**2 + 1) - sympy.sqrt(3)) == 0
-    options = {'A': sympy.Rational(1, 2), 'B': sympy.sqrt(2)/2, 'C': sympy.sqrt(2), 'D': sympy.sqrt(3)/3}
+    dist = lambda cx, rr: sympy.simplify(sympy.Abs(mv*(cx - 4)) / sympy.sqrt(1 + mv**2) - rr)
+    assert dist(0, 2) == 0 and dist(6, 1) == 0
+    # it crosses the segment between the centres: the centres are on opposite sides
+    side = lambda cx: sympy.sign(-mv*(cx - 4))
+    assert side(0) != side(6)
+    options = {'A': sympy.Rational(1, 2), 'B': sympy.sqrt(3)/3, 'C': sympy.sqrt(3), 'D': 2*sympy.sqrt(5)/5}
     return _only(options, mv)
 
 
@@ -518,14 +515,18 @@ def check_D1():
 
 
 def check_D2():
-    """EXHAUSTIVE PROOF: Centre distance 13, r1=8; one common point iff r+8=13 or |r-8|=13, so r=5 or 21, difference 16 (B)."""
-    d = sympy.sqrt((8-(-4))**2 + (4-(-1))**2)
-    assert d == 13
-    r = sympy.Symbol('r', positive=True)
-    vals = set(sympy.solve(r + 8 - d, r)) | set(sympy.solve(r - 8 - d, r)) | set(sympy.solve(8 - r - d, r))
-    assert vals == {5, 21}
-    options = {'A': 8, 'B': 16, 'C': 26, 'D': 42}
-    return _only(options, max(vals) - min(vals))
+    """EXHAUSTIVE PROOF: centre (h,4); one common point iff distance 13 (external) or 3 (internal); distance 3 impossible (the line is 5 away); 13 gives h = -4 +- 12: 2 circles (B)."""
+    h = sympy.Symbol('h', real=True)
+    count = 0
+    for D in (8 + 5, 8 - 5):
+        count += len(sympy.solve((h + 4)**2 + 25 - D**2, h))
+    assert count == 2
+    # the count of common points for each centre found, checked numerically
+    for hv in (-16, 8):
+        d = math.hypot(hv + 4, 5)
+        assert abs(d - 13) < 1e-12
+    options = {'A': 1, 'B': 2, 'C': 3, 'D': 4}
+    return _only(options, count)
 
 
 def check_D3():

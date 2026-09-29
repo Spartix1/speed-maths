@@ -213,20 +213,20 @@
 \begin{enumerate}
 
 %── C1 ──────────────────────────────────────────────────────────────────────────
-\item Two circles have the same radius. Their centres are $C_1(-2,1)$ and $C_2(3,-2)$. The circles intersect in two distinct points $P$ and $Q$. Which is the equation of the line $PQ$? \textit{\small(after TMUA 2021 Paper 1 Q1)}
+\item The circle $(x+2)^2+(y-1)^2=25$ and a circle with centre $(3,-2)$ meet at two points, and the line through those two points passes through the origin. What is the radius of the second circle? \textit{\small(after TMUA 2021 Paper 1 Q1)}
 \begin{itemize}
-\item[A)] $5x+3y=4$
-\item[B)] $3x-5y=4$
-\item[C)] $5x-3y=4$
-\item[D)] $5x-3y=1$
+\item[A)] $\sqrt{17}$
+\item[B)] $5$
+\item[C)] $\sqrt{33}$
+\item[D)] $3$
 \end{itemize}
 
-\ans{C) $5x-3y=4$}
-\method{Equal radii: subtract $(x+2)^2+(y-1)^2=(x-3)^2+(y+2)^2$, i.e.\ $x^2+4x+4+y^2-2y+1=x^2-6x+9+y^2+4y+4$, so $10x-6y=8$, i.e.\ $5x-3y=4$. The $x^2+y^2$ cancel in one line. The midpoint $(\tfrac12,-\tfrac12)$ satisfies $5(\tfrac12)-3(-\tfrac12)=4$ \checkmark.}
-\inv{Equal radii make the radical axis the perpendicular bisector of $C_1C_2$, but you still get it fastest by subtraction. \textbf{Option A flips the sign of $y$; option D is parallel to the right line but misses the midpoint $(\tfrac12,-\tfrac12)$.}}
+\ans{C) $\sqrt{33}$}
+\method{Subtract the equations: $(x+2)^2+(y-1)^2-(x-3)^2-(y+2)^2=25-r^2$, i.e.\ $10x-6y-8=25-r^2$. The common chord is $10x-6y=33-r^2$, and it passes through the origin when $r^2=33$. The circles do meet: the centres are $\sqrt{34}$ apart, between $\sqrt{33}-5$ and $\sqrt{33}+5$. Option A is a sign slip ($r^2=25-8$); option B assumes equal radii, whose chord passes through the midpoint $(\tfrac12,-\tfrac12)$, not the origin; option D makes the circles orthogonal instead.}
+\inv{For which $r$ is the common chord a diameter of the first circle? For which $r$ do the circles touch, and what is the line then?}
 
 %── C2 ──────────────────────────────────────────────────────────────────────────
-\item The circles $C_1:(x-1)^2+y^2=4$ and $C_2:(x-5)^2+(y-3)^2=9$ have radii $2$ and $3$. How many common tangents do $C_1$ and $C_2$ have? \textit{\small(after TMUA 2019 Paper 1 Q7)}
+\item The circles $C_1:(x-1)^2+y^2=4$ and $C_2:(x-5)^2+(y-3)^2=9$ have radii $2$ and $3$. How many common tangents do $C_1$ and $C_2$ have?
 \begin{itemize}
 \item[A)] $0$
 \item[B)] $1$
@@ -253,7 +253,7 @@
 \inv{The chord runs through the smaller circle's centre because $d^2+r_2^2=r_1^2$ ($25+144=169$). Explain why that condition forces it, using the right angle between the chord and the line of centres.}
 
 %── C4 ──────────────────────────────────────────────────────────────────────────
-\item A circle in the first quadrant is tangent to both coordinate axes and passes through the point $(9,2)$. Its two possible radii are $r_1<r_2$. What is $r_1+r_2$? \textit{\small(adapted from JZMaths Mock 1 Q5)}
+\item A circle in the first quadrant is tangent to both coordinate axes and passes through the point $(9,2)$. Its two possible radii are $r_1<r_2$. What is $r_1+r_2$?
 \begin{itemize}
 \item[A)] $14$
 \item[B)] $17$
@@ -279,33 +279,33 @@
 \inv{$P$ and $Q$ have irrational coordinates here, and the family never needs them. Which member of the family $S_1+\lambda S_2=0$ is a straight line, and which line is it?}
 
 %── C6 ──────────────────────────────────────────────────────────────────────────
-\item A circle has equation $x^2+ax+y^2+by+c=0$ where $a,b,c\neq0$. Which condition is necessary and sufficient for the circle to be tangent to the $y$-axis? \textit{\small(after TMUA 2021 Paper 2 Q15)}
+\item A circle has equation $x^2+ax+y^2+by+c=0$, where $a,b,c\neq0$. Which condition is necessary and sufficient for the $y$-axis to cut a chord of length $2$ from the circle? \textit{\small(after TMUA 2021 Paper 2 Q15)}
 \begin{itemize}
-\item[A)] $a^2=4c$
-\item[B)] $b^2=4c$
-\item[C)] $a^2+b^2=4c$
-\item[D)] $c=0$
+\item[A)] $a^2-4c=4$
+\item[B)] $b^2-4c=4$
+\item[C)] $b^2-4c=2$
+\item[D)] $b^2-4c=16$
 \end{itemize}
 
-\ans{B) $b^2=4c$}
-\method{Centre $(-a/2,-b/2)$, $r^2=a^2/4+b^2/4-c$. Tangent to $y$-axis ($x=0$) needs distance $|{-}a/2|=r$, so $a^2/4=a^2/4+b^2/4-c\Rightarrow b^2=4c$. (Tangency to $x$-axis would be $a^2=4c$.)}
-\inv{The $y$-axis condition kills $b$, not $a$, because the radius condition cancels $a^2/4$. \textbf{Option A $a^2=4c$ is tangency to the $x$-axis; option D $c=0$ is through the origin.}}
+\ans{B) $b^2-4c=4$}
+\method{On the $y$-axis $x=0$, so the chord's ends are the roots of $y^2+by+c=0$. Their distance is $\sqrt{b^2-4c}$, so the condition is $b^2-4c=4$. (The coefficient $a$ only moves the centre sideways; it does not matter here.) Option A is the $x$-axis; option C forgets to square the length; option D treats $2$ as the half-chord.}
+\inv{Setting the chord length to $0$ gives tangency. Show that this recovers $b^2=4c$, and find the condition for the two axes to cut equal chords.}
 
 %── C7 ──────────────────────────────────────────────────────────────────────────
-\item The equal circles $C_1:(x+2)^2+(y-1)^2=3$ and $C_2:(x-4)^2+(y-1)^2=3$ have centres $6$ apart. A transverse common tangent with positive gradient makes an acute angle $\theta$ with the $x$-axis. What is $\tan\theta$? \textit{\small(adapted from TMUA 2020 Paper 1 Q16)}
-\begin{itemize}
+\item The circles $x^2+y^2=4$ and $(x-6)^2+y^2=1$ have a common tangent with positive gradient that crosses the segment joining their centres. It makes an acute angle $\theta$ with the $x$-axis. What is $\tan\theta$? \textit{\small(after TMUA 2020 Paper 1 Q16)}
+\begin{itemize}[itemsep=5pt]
 \item[A)] $\dfrac12$
-\item[B)] $\dfrac{\sqrt2}{2}$
-\item[C)] $\sqrt2$
-\item[D)] $\dfrac{\sqrt3}{3}$
+\item[B)] $\dfrac{\sqrt3}{3}$
+\item[C)] $\sqrt3$
+\item[D)] $\dfrac{2\sqrt5}{5}$
 \end{itemize}
 
-\ans{B) $\dfrac{\sqrt2}{2}$}
-\method{Equal radii $\sqrt3$ at $(-2,1)$ and $(4,1)$. Transverse tangent passes through midpoint $(1,1)$: line $y-1=m(x-1)$, i.e.\ $mx-y+1-m=0$. Distance from $(-2,1)$ to line $=|{-}3m|/\sqrt{m^2+1}=\sqrt3\Rightarrow9m^2=3(m^2+1)\Rightarrow6m^2=3\Rightarrow m^2=1/2\Rightarrow m=\sqrt2/2$ (positive).}
-\inv{The transverse tangent crosses the centre line at the midpoint; the direct common tangents are horizontal ($m=0$). \textbf{Option C $\sqrt2$ inverts the fraction; option A $1/2$ squares the root.}}
+\ans{B) $\dfrac{\sqrt3}{3}$}
+\method{A tangent that crosses between the circles meets the line of centres at the point dividing it in the ratio of the radii, $2:1$: that is $(4,0)$. The tangent $y=m(x-4)$ is $2$ from the origin: $\tfrac{4m}{\sqrt{1+m^2}}=2$, so $16m^2=4+4m^2$, $m^2=\tfrac13$ and $\tan\theta=\tfrac{\sqrt3}{3}$ ($\theta=30^\circ$, since $\sin\theta=\tfrac24$). Option D uses the midpoint $(3,0)$, which is right only for equal radii; option A is $\sin\theta$; option C inverts.}
+\inv{Find the tangents that do not cross between the circles: where do they meet the $x$-axis, and at what angle?}
 
 %── C8 ──────────────────────────────────────────────────────────────────────────
-\item The three circles $C_1:x^2+y^2+4x-1=0$, $C_2:x^2+y^2-8y+11=0$, $C_3:x^2+y^2+2x-12y+13=0$ have pairwise radical axes concurrent at $R$. What are the coordinates of $R$? \textit{\small(adapted from Vantage Mock Paper 2 Q10 $/$ BMO1 2017 Q4)}
+\item The three circles $C_1:x^2+y^2+4x-1=0$, $C_2:x^2+y^2-8y+11=0$, $C_3:x^2+y^2+2x-12y+13=0$ have pairwise radical axes concurrent at $R$. What are the coordinates of $R$?
 \begin{itemize}
 \item[A)] $(1,1)$
 \item[B)] $(1,-1)$
@@ -338,20 +338,20 @@
 \inv{The two external tangents meet at a point $T$ on the line $O_1O_2$. Use similar triangles to show $TO_1=15$, and find the coordinates of $T$.}
 
 %── D2 ──────────────────────────────────────────────────────────────────────────
-\item The circles $(x+4)^2+(y+1)^2=64$ and $(x-8)^2+(y-4)^2=r^2$ ($r>0$) have exactly one point in common. What is the difference between the two possible values of $r$? \textit{\small(after TMUA 2019 Paper 1 Q6)}
+\item The circle $(x+4)^2+(y+1)^2=64$ and a circle of radius $5$ whose centre lies on the line $y=4$ have exactly one point in common. How many such circles of radius $5$ are there? \textit{\small(after TMUA 2019 Paper 1 Q6)}
 \begin{itemize}
-\item[A)] $8$
-\item[B)] $16$
-\item[C)] $26$
-\item[D)] $42$
+\item[A)] $1$
+\item[B)] $2$
+\item[C)] $3$
+\item[D)] $4$
 \end{itemize}
 
-\ans{B) $16$}
-\method{Centre distance $d=\sqrt{12^2+5^2}=13$, $r_1=8$. One point $\Rightarrow|r-8|=13$ (internal) or $r+8=13$ (external) $\Rightarrow r=21$ or $5$, difference $16$.}
-\inv{External tangency gives smaller $r=5$, internal gives larger $21$. \textbf{Option A $8$ is $r_1$ itself; option C $26$ is the sum of the two values, not the difference.}}
+\ans{B) $2$}
+\method{Let the centre be $(h,4)$. One common point means the centres are $8+5=13$ apart (touching externally) or $8-5=3$ apart (the small circle inside, touching). The line $y=4$ is $5$ from $(-4,-1)$, so no centre on it is $3$ away: the internal case is impossible. For $13$: $(h+4)^2+25=169$, $h=-4\pm12$, giving two circles. Option D counts both cases twice without checking.}
+\inv{For which radii $\rho$ does the internal case give circles too? How many circles are there when $\rho=3$?}
 
 %── D3 ──────────────────────────────────────────────────────────────────────────
-\item Three circles of radii $3$, $4$ and $5$ are pairwise externally tangent. What is the area of the triangle formed by joining their centres? \textit{\small(adapted from BMO1 2017 Q4)}
+\item Three circles of radii $3$, $4$ and $5$ are pairwise externally tangent. What is the area of the triangle formed by joining their centres?
 \begin{itemize}
 \item[A)] $12\sqrt5$
 \item[B)] $12$
@@ -378,7 +378,7 @@
 
 %── D5 ───────────────────────────────────────────────────────────────────────
 \item \begin{minipage}[t]{0.60\linewidth}
-The circles $x^2+y^2-8y=0$ and $x^2+y^2-24x-18y+144=0$ both touch the $x$-axis and touch each other. A third circle lies in the gap between them and the $x$-axis, and touches both circles and the $x$-axis. What is its radius?
+The circles $x^2+y^2-8y=0$ and $x^2+y^2-24x-18y+144=0$ both touch the $x$-axis and touch each other. A third circle lies in the gap between them and the $x$-axis, and touches both circles and the $x$-axis. What is its radius? \textit{\small(after Primer 1.4 P47)}
 \begin{itemize}[itemsep=5pt]
 \item[A)] $\dfrac65$
 \item[B)] $\dfrac{36}{13}$
@@ -419,7 +419,7 @@ The circles $x^2+y^2-8y=0$ and $x^2+y^2-24x-18y+144=0$ both touch the $x$-axis a
   \item \textbf{Testing only $d<r_1+r_2$.} That does not separate crossing circles from one circle inside the other, and the boundary cases $d=r_1+r_2$ and $d=|r_1-r_2|$ each change the count by one. \seealso{A1, A6, A10, B1, B6, C2, D2}
   \item \textbf{Matching coefficients as if a line's equation were unique.} $2x-y+5=0$ and $-4x+2y-10=0$ are the same line; find the scale factor from a known coefficient first. Likewise the sign of $\lambda$ in a family decides which circle you get. \seealso{B2, C5}
   \item \textbf{Using the midpoint of the centres as the midpoint of the chord.} That works only for equal radii; otherwise intersect the radical axis with the line of centres. \seealso{B5, B8, C1}
-  \item \textbf{Dropping a modulus or a root.} Distance conditions like $\tfrac{|7r-12|}{5}=r$ and tangency conditions like $|r-8|=13$ have two solutions, and the question may want both. \seealso{B4, B9, C4, D2}
+  \item \textbf{Dropping a modulus or a root.} Distance conditions like $\tfrac{|7r-12|}{5}=r$ have two solutions, and touching circles have two cases (centres $r_1+r_2$ or $|r_1-r_2|$ apart): check each one, since one may be impossible. \seealso{B4, B9, C4, D2}
   \item \textbf{Using the centre distance where a different length is needed.} The tangent length is $\sqrt{d^2-(r_1-r_2)^2}$, not $d$; the contact points of touching circles on a line are $2\sqrt{ab}$ apart, not $a+b$; and a half-chord is not the chord. \seealso{C3, D1, D4, D5}
 \end{enumerate}
 
