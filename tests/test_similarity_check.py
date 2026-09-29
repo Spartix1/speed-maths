@@ -25,7 +25,9 @@ def json_corpus(tmp_path):
 def _run(tex, json_dir, tmp_path):
     f = tmp_path / "sheet.tex"
     f.write_text(tex)
-    out = subprocess.run([sys.executable, str(Path(sc.__file__)), str(f), "--json-corpus", str(json_dir)],
+    # No research/txt, as in CI: the papers are copyright and never committed.
+    out = subprocess.run([sys.executable, str(Path(sc.__file__)), str(f), "--json-corpus", str(json_dir),
+                          "--txt-corpus", str(tmp_path / "no-txt")],
                          capture_output=True, text=True)
     return out.stdout
 

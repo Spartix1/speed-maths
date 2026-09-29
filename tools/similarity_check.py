@@ -143,12 +143,11 @@ def strip_boilerplate(text: str) -> str:
                      if not BOILERPLATE_RE.search(line))
 
 
-def load_corpus() -> dict[str, list[str]]:
-    if not CORPUS_DIR.exists():
-        print(f"No local corpus at {CORPUS_DIR} — nothing to check against.")
+def load_corpus(corpus_dir: Path = CORPUS_DIR) -> dict[str, list[str]]:
+    if not corpus_dir.exists():
         return {}
     corpus = {}
-    for f in sorted(CORPUS_DIR.glob("*.txt")):
+    for f in sorted(corpus_dir.glob("*.txt")):
         raw = f.read_text(encoding="utf-8", errors="ignore")
         corpus[f.name] = normalize_tokens(strip_boilerplate(raw))
     return corpus
@@ -229,12 +228,14 @@ def main():
                          "question at or above which it is reported as the same data "
                          "(default 0.65; needs at least --min-numbers numbers)")
     ap.add_argument("--min-numbers", type=int, default=6)
+    ap.add_argument("--txt-corpus", type=Path, default=CORPUS_DIR,
+                    help="directory of pdftotext paper extracts (default research/txt)")
     ap.add_argument("--json-corpus", type=Path, default=JSON_CORPUS_DIR,
                     help="directory of per-question JSON banks (default: the "
                          "variant retriever's materialised/ directory, if present)")
     args = ap.parse_args()
 
-    corpus = load_corpus()
+    corpus = load_corpus(args.txt_corpus)
     bank = load_json_corpus(args.json_corpus) if args.json_corpus.exists() else {}
     bank_words = {name: shingles(toks, args.bank_shingle) for name, toks in bank.items()}
     bank_numbers = {name: number_shingles(toks) for name, toks in bank.items()}
@@ -245,7 +246,9 @@ def main():
         for r in runs:
             df[r] = df.get(r, 0) + 1
     idf = lambda r: math.log((len(bank_numbers) + 1) / (df.get(r, 0) + 1))
-    if not corpus:
+    # Either corpus is enough to check against; with neither there is nothing to do.
+    if not corpus and not bank:
+        print(f"No local corpus at {args.txt_corpus} or {args.json_corpus} — nothing to check against.")
         raise SystemExit(1)
 
     text = args.file.read_text(encoding="utf-8")
