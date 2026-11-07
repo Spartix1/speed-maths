@@ -1,6 +1,6 @@
 # Calculus and Graphs Pillar — Mathematical Plan & Blueprint
 
-Status as of 2026-11-07 (revision 2.1, after maintainer review — see "Revision history" below):
+Status as of 2026-11-07 (revision 2.2, after maintainer review — see "Revision history" below):
 branch `feature/calculus-and-graphs` created off latest `origin/main` (HEAD `76f36dc`).
 **This file is a plan only. It contains no questions, no worked solutions, no LaTeX,
 no PDFs.** It exists to be the definitive blueprint for the pillar; another agent with
@@ -9,6 +9,17 @@ no access to the conversation that produced this file should be able to start wr
 
 **Revision history**
 - **v1 (2026-11-07 morning)** — initial blueprint.
+- **v2.2 (2026-11-07, final consistency corrections)** — (1) modulus-kink gradient
+  analysis classified BEYOND TMUA everywhere (reading/sketching a modulus graph remains
+  MM8.1 IN SPEC; gradient analysis at the kink is not); (2) Day 5's $e^x=x+k$ item pinned
+  as the single graded transcendental C-type exception, BEYOND TMUA; plain $f(ax)$
+  graphical transformations confirmed IN SPEC (MM8.2), only derivative-scaling classified
+  beyond; (3) Day 3 is now differentiation-only — recovery of $f$ from polynomial $f'$
+  moved to Day 4, where it belongs; (4) asymptote boundary split explicitly — reading a
+  given/recognised asymptote is MM8.1/8.5 IN SPEC; computing holes (cancellation) or
+  oblique asymptotes (division) and dominant-term limits are BEYOND TMUA; (5) global
+  consistency audit across §3.1/§3.2/§3.5/§8/§11/§18/§19/§21 to keep every reference in
+  agreement with the seven-day design.
 - **v2.1 (2026-11-07, targeted corrections)** — (A) the Day 3 beyond-spec implicit
   differentiation D-item removed outright (extension-tier pointer only, §3.3); (B) Day 7
   BMO1-adjacent examples re-tagged/removed — no differentiation-dependent item carries a
@@ -152,7 +163,9 @@ Integration: definite integral as (signed) area; FTC in both forms; range additi
 trapezium rule + error direction; $\int x^n\,dx$, $n\neq-1$; $\mathrm{d}y/\mathrm{d}x = f(x)$
 differential equations. Areas under/between curves (polynomial cases).
 Graphs: sketch & interpret quadratics, cubics, modulus functions, square roots,
-exponentials, logs, trig (shape level); transformations $y = af(x),\ f(x)+a,\ f(x+a),\
+exponentials, logs, trig (shape level); **reading a modulus graph, its transformations and
+recognising its kink/corner is IN-SPEC sketching (MM8.1) — gradient analysis at a kink is
+NOT** (see §3.2/§3.5); transformations $y = af(x),\ f(x)+a,\ f(x+a),\
 f(ax)$ and compositions; $f(g(x))$; axis intersections; geometric meaning of solutions;
 root counting of general polynomials; inequalities solved graphically.
 
@@ -164,6 +177,12 @@ January 2027** (see §3.5) and is labelled as such wherever it appears:
   beyond TMUA); **trigonometric differentiation does not appear anywhere in graded items**
   (trig, MM4, enters via graph shapes as pictures only; no trig-integration).
 - Differentiation under constructed roots (e.g. $\sqrt{u}$ chains).
+- **Differentiability analysis at a modulus kink or corner** — including one-sided
+  gradients, showing a $|f(x)|$-type curve fails to be differentiable at the kink, and
+  any gradient read through the fold. This is *not* "reading a modulus graph"
+  (MM8.1 sketching: in-spec, see §3.5); it is analysis of the function's local gradient
+  behaviour (MM6.2 requires $x^n$-only differentiation — no modulus calculus exists in
+  the specification). Every such item is labelled BEYOND TMUA, always.
 - Inverse functions by reciprocal-gradient geometry or implicit differentiation —
   **investigation tier only** (§3.3); no graded items.
 - Integration by **substitution** (chain-rule mirror — core to the pillar, zero TMUA coverage);
@@ -254,14 +273,15 @@ Anything not in this table is beyond spec and must be labelled "beyond TMUA" on 
 | Trapezium rule; over- vs under-estimate (via concavity — ties MM6.1(b) to MM7.5) | MM7.5 | IN SPEC |
 | Differential equations of the form $\mathrm{d}y/\mathrm{d}x = f(x)$ only | MM7.6 | IN SPEC |
 | Areas under and between polynomial curves (polynomial difference function; split at roots) | MM7.1 + MM7.4 | IN SPEC |
-| Sketching lines, quadratics, cubics, trig, log, exp, square roots, modulus | MM8.1 | IN SPEC |
-| Transformations $y = af(x)$, $y = f(x)+a$, $y = f(x+a)$, $y = f(ax)$, $a$ positive or negative; compositions | MM8.2 | IN SPEC |
+| Sketching and interpreting modulus functions — the shape, its transformations, recognising kinks/corners (no gradient analysis at the kink) | MM8.1 | IN SPEC (graph reading, not calculus) |
+| Transformations $y = af(x)$, $y = f(x)+a$, $y = f(x+a)$, $y = f(ax)$, $a$ positive or negative; compositions — *graphical reading and sketch-level work* | MM8.2 | IN SPEC |
+| Derivative-scaling analysis under $y=f(ax)$ (i.e. $y' = a f'(ax)$ and consequences) | BEYOND TMUA | NOT MM8.2; see beyond-spec table |
 | Notation $f(g(x))$; using transformation notation on compositions | MM8.2 | IN SPEC |
 | Lines $y = mx+c$; quadratics $y = a(x+b)^2+c$ — effects of $m,c$ / $a,b,c$ | MM8.3, MM8.4 | IN SPEC |
 | Using differentiation to determine graph shape: stationary points (excl. inflexions), increasing/decreasing | MM8.5(a)–(b) | IN SPEC |
 | Axis intersections; possible numbers of real roots of a general polynomial | MM8.6 | IN SPEC |
 | Geometric interpretation of solutions: intersections of graphs = roots of simultaneous equations | MM8.7 | IN SPEC |
-| Endpoint behaviour and asymptotes as *graph features* (ratio-of-leading-behaviour at extremes, sketched) | MM8.1 + MM8.5 shape reading | IN SPEC (graph-feature reading; no limit machinery required) |
+| Interpretation of endpoint behaviour and recognised/given asymptotes of the specified graph families as *graph features* (shape reading; e.g. ratio-of-leading behaviour sketched, not computed) | MM8.1 + MM8.5 shape reading | IN SPEC (graph-feature reading; no limit machinery or polynomial division required) |
 | Paper 2 reasoning skills used in D written items (conjecture, order statements, counterexample) | Section 2 (Prf1–Prf5, Arg1–Arg4) | IN SPEC (Paper 2 framing; no logic teaching in this pillar) |
 
 **Beyond-spec items introduced in this pillar (always labelled "beyond TMUA" in-sheet; never presented as examinable technique):**
@@ -273,18 +293,27 @@ Anything not in this table is beyond spec and must be labelled "beyond TMUA" on 
 | Trigonometric differentiation ($\sin kx$, $\cos kx$) | EXCLUDED ENTIRELY | Never appears in graded items; investigation tier at most (§3.3) |
 | Implicit differentiation | BEYOND TMUA | MAT legacy; investigation tier only (§3.3); no graded item in this pillar |
 | Inverse-function reciprocal gradients / $f^{-1}$ geometry as *gradient fact* | BEYOND TMUA | MAT legacy; investigation tier only (§3.3); no graded item |
+| Differentiability analysis at modulus kinks/corners (one-sided gradients; $\lvert f(x)\rvert$ non-differentiability; joint slope matching through $\pm$ branches) | BEYOND TMUA | MM6.2 requires $x^n$-only differentiation; modulus calculus is not examinable. Reading/sketching modulus graphs is MM8.1 IN SPEC — the BEYOND label applies **only** when the question requires gradient analysis at the kink; every such item labelled |
+| Derivative/gradient analysis under $f(ax)$ — the $a\,f'(ax)$ scaling, effects on turning-point $x$-positions and on $f'$ graphs | BEYOND TMUA | MM8.2 covers the *graphical transformation* $y=f(ax)$ (IN SPEC, see core table); the derivative-scaling fact itself needs chain rule (§3.2) and is not examinable. Ordinary transformation *sketching* of $f(ax)$ is always MM8.2 IN SPEC |
 | Integration by substitution (chain-rule mirror) | BEYOND TMUA | MM7.2 covers only $x^n$ |
 | Reverse-product / integration-by-parts recognition (one light form) | BEYOND TMUA | Not in spec |
-| Rational asymptotes (holes via cancellation; oblique via division) | BEYOND TMUA | MM8.1 non-exhaustive; division reasoning not listed |
-| End-behaviour "dominant-term arithmetic" limits, holes-arithmetic | BEYOND TMUA | MM7.x/MM8.x test areas and shapes, not limit evaluation |
+| Rational-function asymptote computation: holes (factor cancellation), horizontal ratio (by leading coefficients), oblique/slant asymptote (polynomial division) | BEYOND TMUA | MM8.1/8.5 cover shape-reading, not division or cancellation; TMUA does not demand polynomial division of rational functions |
+| End-behaviour "dominant-term arithmetic" limits, holes-arithmetic | BEYOND TMUA | MM7.x/MM8.x test areas and shapes, not limit evaluation. Reading a *given or recognised* asymptote line is MM8.1/8.5 IN SPEC (see core table) — the BEYOND label applies only to *computing* the asymptote, never to reading one |
 | Parametric curves (extension only) | BEYOND TMUA | Not in spec |
 | Volumes of revolution (one \inv pointer only) | BEYOND TMUA | Not in spec |
-| Transcendental root counting ($e^x = x+k$ graphically) | BEYOND TMUA | Not in spec; investigation tier |
+| Transcendental root counting ($e^x = x+k$) — **exactly one graded C-type exception item (Day 5)** | BEYOND TMUA — graded C-type exception | Not in spec; precisely one question in the week; every other transcendental content is investigation-tier (§3.5) |
 | Deeper inflection analysis (locating stationary inflexions; $f''$ sign changes; taxonomy) | BEYOND TMUA | MM6.3 expects qualitative understanding only |
 
 **Reading of the boundary.** "In spec" means examinable; "beyond TMUA" means exactly what
 it says — not examinable, taught for MAT/STEP/BMO1-aspiration depth and labelled so
-students (and reviewers) know the exam never bills them for it. Every sheet's Section
+students (and reviewers) know the exam never bills them for it. Two axes of distinction,
+both hard boundaries: (i) **graphs as pictures** — sketching, transforming, reading,
+recognising a supplied asymptote or endpoint behaviour are MM8.1/8.2/8.5 IN SPEC;
+(ii) **computing features by methods beyond the spec** — polynomial division (oblique
+asymptotes), factor cancellation (holes), dominance arithmetic (limits at infinity),
+substitution, parts, differentiation rules of any kind (product/quotient/chain) and modulus
+*gradient analysis at kinks* are BEYOND TMUA and always labelled; and no question ever
+presents a beyond-spec method as examinable technique. Every sheet's Section
 intro line flags the beyond-spec toolkit where relevant (Day 3 marker onwards — see
 §10 item 4).
 
@@ -402,7 +431,7 @@ Inspected by direct grep over all six live pillars' `.tex` files on 2026-11-07
 | Monotonicity & fixed points of sequences | **Sequences** (53 increas/decreas; fixed points device; Monotone Convergence) | **Not** re-taught for $a_{n+1}=f(a_n)$; sequences keep the name "fixed point" | Continuous vs discrete limits are different objects |
 | Limit concept | **Sequences** (34 limit references, $\varepsilon$-flavored teacher) | Limit **at infinity / at holes** for functions only, arithmetic-of-dominant-terms level; zero formal asymptotics | Boundary: sequences own "limit of a sequence", this pillar owns "end behaviour of a curve" |
 | Inequalities (graphical) | **Algebra** (inequality toolkit), **Logic** (necessity/sufficiency) | Read from graphs: where $f>g$ iff between roots; never symbolic inequality drills | Graphically-owned framing of the shared object |
-| Modulus functions: $\lvert x \rvert$, $\lvert f(x) \rvert$ | **Logic** (18 matches), **Sequences** (3), **Algebra** (1) | Central tool Day 3 (differentiability at kinks); sketch-level reading + graphical inequalities in Day 5 (detailed fold analysis is investigation-tier); logic content untouched | Function behaviour, not proposition logic |
+| Modulus functions: $\lvert x \rvert$, $\lvert f(x) \rvert$ | **Logic** (18 matches), **Sequences** (3), **Algebra** (1) | Reading/sketching (MM8.1, in-spec) vs gradient analysis at kinks (BEYOND TMUA, Day 3) vs graphical inequalities in Day 5 (in-spec) — detailed fold analysis is investigation-tier; logic content untouched | Function behaviour, not proposition logic |
 | Proof-flaw diagnosis / necessary-sufficient | **Logic** (the entire pillar; also Geometry Day 7) | Light use Day 7: "spot the flaw" in a *graph-reading* argument; never generic logic drills | The P2 flavour, calculus-flavoured |
 | Asymptotes | **Algebra** (1, in an \inv{}); never owned | **Calculus and Graphs owns asymptotes outright** (vertical/holes/horizontal/oblique) | Unowned territory — claim it |
 | Sketching curves | **Algebra** (9 "sketch"), **Logic** (2); no pillar owns it | **This pillar owns sketching** — polynomial/modulus/exp/log/trig/rational sketching & encoding axes | The other half of the pillar's name |
@@ -610,16 +639,19 @@ mechanism, not a tour of functions.
 
 (ii) Objectives: fluently differentiate $u\cdot v$, $u/v$, $f(g(x))$ (polynomials inside,
 roots/fractional powers inside); chain-rule reasoning about local slope scaling
-("steepness multiplies"); recognise non-differentiability at modulus kinks (and *why*);
-$e^{kx}$ and $\ln x$ as chain-rule fuel (cameos, ≤2 items each — beyond-spec labelled);
-*find $f$ from $f'$* on simple polynomial $f'$ (algebra-only antidifferentiation — a
-backdoor to Day 4). NO beyond-spec graded item beyond the cameos; the cameo itself is
-beyond-spec labelling, not new machinery.
+("steepness multiplies"); recognise non-differentiability at modulus kinks (and *why*) —
+**BEYOND TMUA**, labelled constantly, distinct from sketching a modulus graph (MM8.1, in-spec);
+$e^{kx}$ and $\ln x$ as chain-rule fuel (cameos, ≤2 items each — beyond-spec labelled).
+NO beyond-spec graded item beyond the cameos; the cameo itself is beyond-spec labelling,
+not new machinery. NO antidifferentiation of any kind — recovery of $f$ from $f'$
+appears here only as **investigation-tier** territory at best and lands in Day 4, where
+it belongs; nothing in Day 3 requires it.
 
 (iii) Prereqs: Days 1–2.
 
 (iv) Techniques: product rule; quotient rule; chain rule (inner polynomial/root/$x^{r}$);
-modulus differentiability (each side, $\pm x$, kink unequal slopes); $e^{kx}$ and $\ln x$
+modulus differentiability (each side, $\pm x$, kink unequal slopes) — (**BEYOND TMUA**);
+$e^{kx}$ and $\ln x$
 cameos only; NO implicit differentiation, NO inverse functions, NO trigonometric
 differentiation *or* integration of any kind; NO piecewise drills (piecewise differentiability
 is investigation-tier, see §3.3).
@@ -635,29 +667,29 @@ are chains — $f(ax)$ scaling); to Day 6 (holes/walls honoured in rational curv
 "is it differentiable here?" question re-asked there).
 
 (vii) Archetypes.
-- Differentiate messy $u v$, $u/v$ with polynomial and fractional-power content.
-- Differentiate $\sqrt{\text{quadratic}}$ and $\sqrt[3]{\text{cubic}}$ shapes.
-- Recognise $(uv)'$ pattern in an "unintegrated" area (preview integration by parts
-  without integration — just identify the antiderivative).
+- Differentiate messy $u v$, $u/v$ with polynomial and fractional-power content (BEYOND TMUA).
+- Differentiate $\sqrt{\text{quadratic}}$ and $\sqrt[3]{\text{cubic}}$ shapes (BEYOND TMUA).
+- Product-rule recognition in reverse: given a *derivative* like $3x^2(x+1) + (x^3+1)$,
+  name $u$ and $v$ without any integration (pure pattern work on the differentiated side).
 - $f(g(x))$ values from tables of $f'$, $g'$ — no formulae given (TMUA-flavoured!).
-- Derivative of $|x^2-1|$ on intervals avoiding ±1; what happens at ±1.
+- Derivative of $|x^2-1|$ on intervals avoiding ±1; what happens at ±1 (BEYOND TMUA —
+  gradient analysis at kinks; the sketch itself is MM8.1 in-spec).
 - $y=e^{2x}$ slope at $x=0$ compared with slope of $e^x$; $y=\ln(3x)$ vs $\ln x$ — same
   slope everywhere, shifted intercepts (graph-first logarithmic cameo, beyond TMUA).
 - $f(x)=x e^{-x}$ maximum location (product rule; anchor for Day 4 area work, beyond TMUA).
-- Reverse chain-rule: given $f'$, spot it as the derivative of (…)(…) and antidifferentiate.
 
 (viii) Sections. A: 10 items (0 MCQ) — instant machinery, mild simplification; one
-$|x-…|$ kink question. B: ~7–8 MCQ — product/quotient/chain mixed; one $e^{kx}$ or $\ln x$
-cameo. C: 8 MCQ, TMUA/SMC-hard — table-based chain rule; f(g(x)) composition puzzles;
+$|x-…|$ kink differentiability question (BEYOND TMUA). B: ~7–8 MCQ — product/quotient/chain mixed;
+one $e^{kx}$ or $\ln x$ cameo (BEYOND TMUA). C: 8 MCQ, TMUA/SMC-hard — table-based chain rule; f(g(x)) composition puzzles;
 which-curve matches chain pattern; $xe^{-x}$ maxima logic; "where is this not
 differentiable?" modulus traps. D: (TMUA / SMC difficulty) — "spot the composite" awkward
 cases; a construction: given only $(fg)'(1)$ and $(f/g)'(1)$, find $f'(1)$ and $g'(1)$;
 modulus kink classification closes the section. NO beyond-spec graded item beyond the
-labelled $e^{kx}$/$\ln x$ cameos elsewhere.
+two labelled families ($e^{kx}$/$\ln x$ cameos and kink-gradient analysis).
 
 (ix) Difficulty: peak ramp day for the mechanism itself; every item fluent-timed; the
-only beyond-spec content is the labelled $e^{kx}$/$\ln x$ cameos — never disguised as
-examinable technique.
+beyond-spec content is exactly two labelled families ($e^{kx}$/$\ln x$ cameos and
+kink-gradient analysis) — never disguised as examinable technique.
 
 (x) Common traps: product on sums; multiplying exponents; chain skipped on the inner
 polynomial; $\frac{u}{v}$ differentiated as $\tfrac{u'}{v'}$; modulus differentiated at
@@ -672,21 +704,22 @@ monotonic functions is not monotonic (counterexample construction).
 
 (xii) Why here (load-balanced deliberately): product/chain/quotient — the machinery
 Days 4–7 lean on — nothing else competes for attention today; withholding them forces
-Day 4+ to be "magic" instead of "history". **Load audit (v2.1):** v1 carried implicit
+Day 4+ to be "magic" instead of "history". **Load audit (v2.2):** v1 carried implicit
 differentiation, modular joint-matching, inverse functions, and a trig cameo; v2 reduced
-implicit differentiation to one flagged D-item; v2.1 removes implicit differentiation
-from graded items entirely (extension-tier pointer only, §3.3); inverse functions and
-piecewise joint-matching moved to investigations; trigonometric differentiation removed
-from all graded items. The day is now exactly its central mechanism plus the
-$e^{kx}$/$\ln x$ cameos. **Speed
+implicit differentiation to one flagged D-item; v2.1 removed implicit differentiation from
+graded items entirely (extension-tier pointer only, §3.3) and removed trig; v2.2 removes
+the remaining trace of integration — recovery of $f$ from polynomial $f'$ now first
+appears in Day 4, where the tool exists; Day 3 is exactly its central mechanism plus the
+$e^{kx}$/$\ln x$ cameos, differentiation-only. **Speed
 invariant:** *read the function as a recipe — outermost operation differentiates first,
 and its factor comes out in front of the inner derivative.*
 
-**Spec anchors (Oct 2026 / Jan 2027):** MM6.2 is the only *examinable* toolkit — but the
-day's items go deliberately beyond it; product/quotient/chain, $e^{kx}$ and $\ln x$ are
-all labelled **BEYOND TMUA** (§3.5); modulus-kink questions touch MM6.3 strictly
-*beyond* what the spec requires (spec: no modulus calculus) — labelled beyond as well.
-No implicit differentiation or trigonometric differentiation anywhere in graded items.
+**Spec anchors (Oct 2026 / Jan 2027):** MM6.2 is the only *examinable* differentiation
+toolkit. **Split for modulus items:** reading/sketching a modulus graph (MM8.1) is
+IN-SPEC; analysis of gradients at a kink (one-sided slopes, non-differentiability) is
+**BEYOND TMUA** (§3.5) and labelled on every item. product/quotient/chain, $e^{kx}$,
+$\ln x$ are likewise **BEYOND TMUA** throughout the day. No implicit differentiation or
+trigonometric differentiation anywhere in graded items.
 
 ### Day 4 — Areas and Integrals: Undoing Differentiation Geometrically
 
@@ -702,7 +735,9 @@ $\mathrm{d}y/\mathrm{d}x = f(x)$ with an initial condition; use $A(x) = \int_a^x
 
 (iii) Prereqs: Days 1–3.
 
-(iv) Techniques: antidifferentiation of sums/differences; FTC evaluation; signed vs
+(iv) Techniques: **recovering $f$ from a simple polynomial $f'$ — the pillar's first
+appearance of undoing differentiation** (moved out of Day 3 in v2.2); antidifferentiation
+of sums/differences; FTC evaluation; signed vs
 total area (split at crossings!); trapezium estimate and concavity sign; solving
 $y' = f(x)$ with $y(a) = b$ (constant absorbed into initial condition); area between
 curve and axis across roots (splitting integrals at sign changes).
@@ -719,6 +754,8 @@ curves); Day 7 (area comparisons in synthesis).
 
 (vii) Archetypes.
 - Evaluate polynomial definite integrals (clean fractions); sums/differences pre-algebra.
+- Find $f$ given $f'$ and one point $(a, f(a))$ (the pillar's first undoing-differentiation item —
+  moved here from Day 3; "reintegrate, then absorb the constant").
 - Find $F'(x)$ where $F(x)=\int_0^x (t^3-3t)\,dt$ (instant FTC form).
 - Area under $y=x^3-3x$ from $0$ to $2$ (signed or total?): split at $x=\sqrt3$.
 - Area between parabola and chord (difference-function route).
@@ -773,16 +810,21 @@ intersections with graphical inequalities — the spine is transformations, not 
 but they live in investigations, not this day's graded items.)
 
 (ii) Objectives: read off effects of $y\mapsto f(ax),\ a f(x),\ f(x)+b,\ f(x-c)$ on
-turning points and asymptotes; recognise $f'$ transformation ($y = a f'(ax)$);
+turning points and asymptotes — the plain $y = f(ax)$ transformation itself is MM8.2
+in-spec; the *derivative-scaling* analysis ($y = a f'(ax)$) is beyond TMUA and labelled;
 count real roots as a parameter moves (double-root / discriminant-of-$f'$ argument);
+**exactly one** graded beyond-spec transcendental C-type item ($e^x = x+k$), flagged —
+no other beyond-spec graded item;
 solve inequalities by graph comparison; sketch simple modulus graphs of quadratics at
 sketch level (detailed fold analysis is investigation-tier); tangency questions answered
 via discriminant of the quadratic difference function.
 
 (iii) Prereqs: Days 1–4.
 
-(iv) Techniques: transformation calculus (differentiate scaled composites; $f(ax)$ is a
-chain — Day 3 again); discriminant-of-$f'$ tracking as the parameter moves; double-tangency
+(iv) Techniques: transformation calculus (differentiate scaled composites — note the
+split: $y = f(ax)$ *sketching/reading* is MM8.2 in-spec; the chain-derived gradient
+$a f'(ax)$ is **BEYOND TMUA**, exercised only as a supporting echo of Day 3, flagged);
+discriminant-of-$f'$ tracking as the parameter moves; double-tangency
 via the discriminant of the quadratic difference function; modulus reading at sketch level
 ($|x^2-4|$ shape, roots at $\pm2$, one peak at $x=0$ — fold machinery stays investigation-tier);
 graphical inequality solving via intersection count and region reading.
@@ -800,9 +842,10 @@ leading-ratio test); Day 7 (family synthesis).
 (vii) Archetypes.
 - Given cubic with two turning points, for $k\geq0$ how many roots has $y=f(x)-k$ —
   read off graph + turning heights; all $k$ cases in 60 seconds.
-- Effect of $a$ in $f(ax)$ on turning-point positions and derivatives.
-- Number of roots of $e^x = x+k$-type graphically (BEYOND TMUA; one beyond-spec C-type
-  item, flagged — never presented as examinable technique).
+- Effect of $a$ in $f(ax)$ on turning-point positions (in-spec, MM8.2) and on the gradient scale at a named point (**BEYOND TMUA**, labelled).
+- Number of roots of $e^x = x+k$-type graphically (**BEYOND TMUA — graded C-type
+  exception**: precisely one question in this entire day, flagged; never presented as
+  examinable technique).
 - Inequality by graphs: solution set of $x^2 \leq x+2$-type comparisons read off a sketch.
 - How many turning points can the family have? $f(x) = x^3 - 3kx$ as $k$ varies.
 - Which $k$ makes a given line tangent to a cubic — discriminant of the difference
@@ -817,7 +860,7 @@ evaluations (definition-level, not fold analysis); roots of simple transformed c
 $f(ax)$ sliding a turning point. B: ~7–8 MCQ — roots-as-$k$-varies; line-vs-cubic
 tangency MCQs; transformed-graph sketch matching. C: 8 MCQ TMUA/SMC-hard —
 discriminant-of-$f'$ parameter counts; inequality solution sets; least $k$ for ≥2 roots;
-scaling straws; the one flagged transcendental MCQ where apt. D: (TMUA / SMC
+scaling straws; the one graded beyond-spec C-type exception ($e^x = x+k$), flagged. D: (TMUA / SMC
 difficulty, trending SMC) — "the tangent that can't exist" geometric exclusion argument;
 construct a quartic with exactly three turning points and given root structure; prove a
 parameter family can never have more than two turning points; the threshold-height
@@ -854,9 +897,11 @@ stays light. **Speed invariant:** *draw the threshold heights first — roots
 appear and disappear exactly when a horizontal line sweeps past a turning point.*
 
 **Spec anchors (Oct 2026 / Jan 2027):** MM8.1–MM8.7 (the MM8 strand — the in-spec
-spine); MM6.2 (base toolkit). Beyond-spec, labelled **BEYOND TMUA**: $f(ax)$ derivative
-effects, transcendental root counting, modulus *calculus*, joint differentiability and
-inverse-gradient facts (all investigation-tier).
+spine, including plain $f(ax)$, $af(x)$, $f(x)+b$, $f(x-c)$ transformations); MM6.2 (base
+toolkit). **BEYOND TMUA (labelled throughout):** $f(ax)$ *derivative-scaling analysis*
+($y' = a f'(ax)$), the **one graded C-type exception** ($e^x = x+k$), transcendental root
+counting beyond that single item (investigation-tier only), modulus *calculus* and joint
+differentiability (investigation-tier), inverse-gradient facts (investigation-tier).
 
 ### Day 6 — Rational Curves and the Integration Toolkit, Completed
 
@@ -876,10 +921,12 @@ $f$ — the MM7.6 boundary case.
 (iii) Prereqs: Days 1–5. (Algebra's partial fractions are a *dependency, not a lesson* —
 referenced once as toolkit heritage, one investigation pointer only, never a graded item.)
 
-(iv) Techniques: division + remainder (oblique asymptotes); factor/cancel (holes vs
-walls); leading-ratio end behaviour; substitution (reverse chain); reverse-product
-recognition; odd/even symmetry splitting; area between polynomial curves
-(reprise, no new machinery); ODEs $y' = f(x)$ with rational-algebraic $f$.
+(iv) Techniques (every computational tool beyond basic sketching is **BEYOND TMUA**, labelled):
+division + remainder for oblique asymptotes; factor/cancel for holes; leading-ratio
+end behaviour (sketch-level ratio reading is in-spec; *why it works* by division is beyond);
+substitution (reverse chain); reverse-product recognition; odd/even symmetry (algebra,
+in-spec-compatible); area between polynomial curves (reprise, in-spec); ODEs $y' = f(x)$
+with rational-algebraic $f$ — the MM7.6 boundary case.
 NO partial-fraction integration drilling; NO tangent-line-to-rational-curves special
 case machinery (a rational curve's tangent is just a tangent — Day 1 tools unchanged).
 
@@ -950,11 +997,15 @@ hard MCQs) with zero technique sprawl. **Speed invariant:** *divide before sketc
 vertical walls from the denominator's irreducible roots, holes from shared roots, the
 tail from the division.*
 
-**Spec anchors (Oct 2026 / Jan 2027):** asymptote/holes/oblique-asymptote, substitution,
-parts-recognition, transcendental cameos are all **BEYOND TMUA** (§3.5) — consistently
-flagged; the in-spec residue is MM8.1 sketching-as-shape-reading (lines/quadratics/
-modulus/like-included-families interplay), MM7.1–MM7.4 (area machinery exercised),
-MM7.6 at its rational-algebraic boundary. Everything else labelled beyond.
+**Spec anchors (Oct 2026 / Jan 2027) — explicit split, nothing grouped blindly:**
+IN SPEC: (i) reading a *given or recognised* asymptote of a rational graph — vertical at
+a shared-root exclusion point is marked, horizontal is the ratio of leading
+coefficients sketch; shape reading only (MM8.1/8.5 — like-included-families interplay); (ii) MM7.1–MM7.4 (area
+machinery exercised on polynomial difference functions); (iii) MM7.6 at its
+rational-algebraic boundary. **BEYOND TMUA (labelled):** substitution; parts-recognition;
+substitution limits split at roots; *computing* holes by factor cancellation, horizontal
+ratios by division, oblique asymptotes by polynomial division; dominant-term limits at
+infinity. The TMUA never demands asymptote computation by these methods.
 
 ### Day 7 — Capstone Synthesis: Everything about One Function
 
@@ -1061,6 +1112,15 @@ from repo-wide convention is noted and set aside *for this pillar* on the mainta
 instruction; every other repo MCQ convention (A never MCQ, B ~7-8, C fully MCQ,
 genuinely hard distractors) is unchanged.
 
+**Beyond-spec items per day (for reviewer visibility; every one labelled on-sheet):**
+Day 1 — none (fully in-spec). Day 2 — none. Day 3 — product/quotient/chain,
+$e^{kx}$, $\ln x$ cameos, modulus-kink gradient analysis (**all BEYOND TMUA**). Day 4 —
+none. Day 5 — $f(ax)$ derivative-scaling (beyond), the one graded transcendental C-type
+item ($e^x=x+k$, beyond, **graded C-type exception**); plain transformation sketching of
+$af(x), f(x)+b, f(x-c), f(ax)$ itself is MM8.2, **in-spec**. Day 6 — substitution,
+parts-recognition, division-derived asymptotes and holes, dominant-term reasoning
+(all beyond); given/recognised asymptote *reading* is in-spec. Day 7 — none new.
+
 MCQ quality law (every day, every option): each distractor names a real error state:
 converse error, sign misread, off-by-$-1/m$ normal flip, distribution-vs-sum, converse of
 chain rule, missing split at roots, modulus lobe forgetting, stationary-inflection misread,
@@ -1113,7 +1173,7 @@ Day 7 ← all six. The map:
 | 3 | One A-item: classify a stationary point from $f''$ sign (Day 2); one B-item: read the tangent slope off a drawn $f$-curve and pick the matching tangent line (Day 1 + Day 2 signs) |
 | 4 | One A-item: differentiate $\sqrt{x^3 - 1}$ at a point (Day 3); one B-item: chain-rule table problem with $f',g'$ entries (Day 3) |
 | 5 | One A-item: $\int_0^1 (3x^2 - 2)dx$ (Day 4); one B-item: accumulate slope question $A'(x)=f(x)$ (Day 4) |
-| 6 | One A-item: how many roots has $f(x) = x^3 - 3x - k$ for large vs small $k$ (Day 5); one B-item: parameter count of stationary points for $f(x) = x^3 - 3kx$ as $k$ varies (Day 5); one B-item: classify the differentiability of a modulus-of-quadratic at a joint (Day 3/Day 5) |
+| 6 | One A-item: how many roots has $f(x) = x^3 - 3x - k$ for large vs small $k$ (Day 5); one B-item: parameter count of stationary points for $f(x) = x^3 - 3kx$ as $k$ varies (Day 5); one B-item: classify the differentiability of a modulus-of-quadratic at a kink (Day 3 tool, BEYOND TMUA) |
 | 7 | Two A-items: one trapezium-direction (Day 4), one asymptote ratio (Day 6); one A-item: evaluate $f''(1)$ for a given quartic (Day 1); one B-item: modulus graph roots vs horizontal line (Day 5) |
 
 Additionally cross-day reuse is *load-bearing*, not decoration: the Day 4
@@ -1179,6 +1239,17 @@ A flat EASY all week is deliberate (recognition training); C/D carry the climb; 
 Proof-written share rises continuously, peaking at Day 7 (highest rigour, zero new
 content). This respects the playbook law: difficulty lives in C and D, Stage A trains
 reflexes.
+
+**Spec position per day (Oct 2026 / Jan 2027; see §3.5 for full mapping):**
+Day 1 — fully in-spec (MM6.1–6.3, MM8.4). Day 2 — fully in-spec (MM6.1(b)/(c),
+MM6.3, MM8.5–8.6). Day 3 — MM6.2 alone is examinable; product/quotient/chain, cameos and
+kink-gradient analysis are **BEYOND TMUA** (labelled). Day 4 — fully in-spec (MM7.1–7.6,
+MM8.6–8.7). Day 5 — the in-spec spine is MM8.1–8.7 (transformations, root counts);
+$f(ax)$ *derivative-scaling* and the **one** graded transcendental C-type item are
+**BEYOND TMUA** (labelled; the exception is exactly one question). Day 6 — in-spec
+= MM8.1 sketch-level asymptote/end-behaviour *reading* and MM7.1–7.4 machinery;
+*computation* of holes (cancellation), oblique asymptotes (division) and substitution is
+**BEYOND TMUA** (labelled). Day 7 — the in-spec spine recombined + Section 2 reasoning.
 
 ---
 
@@ -1497,12 +1568,27 @@ authoring (Annotate Edition = mandatory publication gate, §17 item 6; §19 item
 20. **BMO1-as-decoration**: tags creep upward under time pressure; every BMO1 label goes
     through the two-question test of §4.4 and is counted at review; any BMO1-tagged item
     using differentiation is removed on sight.
+21. **Modulus flat-reading vs modulus calculus conflation**: reading/sketching/transforming
+    a modulus graph is MM8.1 (IN SPEC); any gradient analysis at a kink — one-sided
+    slopes, non-differentiability, slope matching — is BEYOND TMUA (§3.5). If a graded
+    item needs the second, it is labelled, every time, or it does not ship.
+22. **Transcendental creep**: exactly one graded item ($e^x = x+k$, Day 5, C-type,
+    labelled BEYOND TMUA — graded C-type exception). Any further such item beyond one
+    re-opens the boundary the pillar drew deliberately; investigations may range further,
+    graded items may not.
 
 ---
 
 ## 19. Outstanding decisions requiring human approval
 
-**Settled by maintainer direction (v2, 2026-11-07) — recorded here for the ledger (§21):**
+**Settled by maintainer direction (v2 + v2.1 + v2.2, 2026-11-07) — recorded here for the ledger (§21):**
+- **Spec ledger (v2.2) — every beyond-spec item accounted for:** modulus-kink *gradient analysis* =
+  BEYOND TMUA; sketching/reading a modulus graph = MM8.1 IN SPEC; $f(ax)$ graphical
+  transformation = MM8.2 IN SPEC; $f(ax)$ derivative-scaling = BEYOND TMUA; the $e^x=x+k$
+  item = the single graded C-type exception (BEYOND TMUA); recovery of $f$ from $f'$
+  lives in Day 4 (never Day 3); computing asymptotes (holes by cancellation, oblique by
+  division) = BEYOND TMUA; *reading* a given/recognised asymptote = MM8.1/8.5 IN SPEC;
+  no other beyond-spec graded items exist this week.
 - **Spec edition**: TMUA references now cite the official UAT-UK Content Specification,
   assessment October 2026 and January 2027, © UAT-UK 2026 (MM6/MM7/MM8 text identical to
   May 2024; official PDF is citation of record; see §3.5/§4.1).
@@ -1517,10 +1603,11 @@ authoring (Annotate Edition = mandatory publication gate, §17 item 6; §19 item
 - **BMO1 label restriction**: (SMC / BMO1 difficulty) only per item passing the
   two-question olympiad test of §4.4 (never ornament, never on differentiated content,
   target ≤1 per pillar, justification line per tag).
-- **Day 3 / Day 6 load rebalance** as implemented in §7 (Day 3: product/chain/quotient
-  + kinks + ≤2 cameos, **no beyond-spec graded item at all** (implicit differentiation
-  removed by v2.1); Day 6: rational curves + substitution + symmetry,
-  by-parts recognition-only, partial fractions investigation-only).
+- **Day 3 / Day 6 load rebalance** as implemented in §7 (Day 3: product/chain/quotient,
+  modulus-kink gradient analysis, ≤2 cameos $e^{kx}$/$\ln x$ — **all beyond-spec, all
+  labelled**; differentiation-only since v2.2 (recovery of $f$ from $f'$ removed to
+  Day 4); Day 6: rational curves + substitution + symmetry, by-parts recognition-only,
+  partial fractions investigation-only).
 - **Every core topic mapped to the current spec** in §3.5; beyond-spec items flagged
   BEYOND TMUA everywhere they appear.
 - **Prerequisite order and interleaving re-audited** (§9): strictly back-referencing;
@@ -1586,6 +1673,19 @@ authoring (Annotate Edition = mandatory publication gate, §17 item 6; §19 item
 ---
 
 ## 21. Decisions taken vs deferred by this plan (quick ledger)
+
+Settled by maintainer direction (v2.2, final consistency corrections): modulus-kink
+gradient analysis classified BEYOND TMUA throughout the document (reading/sketching a
+modulus graph remains MM8.1 IN SPEC — the label applies only to gradient analysis at the
+kink); plain $af(x)$, $f(x)+b$, $f(x-c)$ and $f(ax)$ graphical transformations remain
+MM8.2 IN SPEC — only $f(ax)$ derivative-scaling is beyond; the single graded C-type
+exception ($e^x=x+k$, Day 5) pinned as BEYOND TMUA — and the only such graded item;
+Day 3 is differentiation-only (recovery of $f$ from $f'$ moved to Day 4, where it
+belongs); asymptote boundary explicit — reading a given/recognised asymptote is
+MM8.1/8.5 IN SPEC; computing holes by cancellation or oblique asymptotes by polynomial
+division and dominant-term limits are BEYOND TMUA (Day 6 preserved with its challenge);
+global consistency audit run over §3.1–§10, §14, §16, §18–§21 — no contradiction remains
+between day designs, summary tables, pitfalls and ledgers.
 
 Settled by maintainer direction (v2.1, targeted corrections): implicit differentiation
 removed from graded items entirely (extension-tier pointer, §3.3); Day 3 now exactly its
