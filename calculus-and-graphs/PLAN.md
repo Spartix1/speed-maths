@@ -1,10 +1,25 @@
 # Calculus and Graphs Pillar — Mathematical Plan & Blueprint
 
-Status as of 2026-11-07: branch `feature/calculus-and-graphs` created off latest
-`origin/main` (HEAD `76f36dc`). **This file is a plan only. It contains no questions,
-no worked solutions, no LaTeX, no PDFs.** It exists to be the definitive blueprint for
-the pillar; another agent with no access to the conversation that produced this file
-should be able to start writing `calculus-and-graphs/sheets/sheet01.tex` from it.
+Status as of 2026-11-07 (revision 2, after maintainer review — see "Revision history" below):
+branch `feature/calculus-and-graphs` created off latest `origin/main` (HEAD `76f36dc`).
+**This file is a plan only. It contains no questions, no worked solutions, no LaTeX,
+no PDFs.** It exists to be the definitive blueprint for the pillar; another agent with
+no access to the conversation that produced this file should be able to start writing
+`calculus-and-graphs/sheets/sheet01.tex` from it.
+
+**Revision history**
+- **v1 (2026-11-07 morning)** — initial blueprint.
+- **v2 (2026-11-07, maintainer review)** — (1) second-order derivatives moved into core
+  syllabus (calculation *and* interpretation); deeper concavity/inflection analysis stays
+  extension; (2) TMUA references updated to the official UAT-UK specification for
+  assessment in October 2026 and January 2027 (© UAT-UK 2026); (3) workloads of Days 3
+  and 6 rebalanced without losing depth (see §7 entries and §18); (4) per-day diagram
+  cap removed — graphs used wherever they materially improve a question; (5) Annotate
+  Edition now a mandatory publication gate for this pillar; (6) two-thirds MCQ ratio
+  explicitly rejected for this pillar — written challenges retained; (7) BMO1 difficulty
+  labels restricted to genuinely olympiad-character items; (8) every core topic mapped
+  to the current specification in §3.5, beyond-spec clearly flagged; (9) prerequisite
+  order and interleaving re-checked (strictly back-referencing; no forward dependencies).
 
 Sources read before writing this plan (direct inspection, 2026-11-07):
 `README.md`, `CONTRIBUTING.md`, `PILLAR-PLAYBOOK.md`, `sequences/PLAN.md`,
@@ -13,8 +28,9 @@ Sources read before writing this plan (direct inspection, 2026-11-07):
 `shared/preamble.tex`, `geometry/geometry-preamble.tex`, all six published pillars'
 sheet/answer files (spot-checked every pillar, read in full for algebra/ans01,
 sequences/ans05, geometry/ans07, logic/ans02/ans04), the live site
-`https://speedmaths.co.uk`, Issue #13, and the public TMUA/MAT/SMC/BMO1 reference
-documents fetched 2026-11-07 (see §4 and `research/` — gitignored, local only).
+`https://speedmaths.co.uk`, Issue #13, and the public UAT-UK TMUA Content Specification
+for assessment in October 2026 and January 2027 (© UAT-UK 2026; see §4), MAT/SMC/BMO1
+public documents fetched 2026-11-07.
 
 **Non-negotiable rules from the playbook and `CONTRIBUTING.md` all apply** (33 questions
 per day, `(after ...)` credits only for verified adaptations, `verify/` scripts that bind
@@ -53,11 +69,15 @@ Three things make this pillar different from "calculus worksheets":
 
 ### Deliverables the eventual build must produce
 
-7 days × 3 PDF editions = **21 PDFs**: `sheetNN.pdf` (Questions), `ansNN.pdf`
-(Worked Solutions & Investigations), and `sheetNN-ipad.pdf` (**Annotate Edition**,
-Issue #13 — see §17). Two of the three editions are the usual sheet/answer pair;
-the third is a new output compiled from the *same* answer files with `shared/ipad.tex`
-macro overrides — no duplicated sources, ever.
+7 days × 3 PDF editions = **21 PDFs — a mandatory requirement for this pillar's
+publication**: `sheetNN.pdf` (Questions), `ansNN.pdf` (Worked Solutions &
+Investigations), and `sheetNN-ipad.pdf` (**Annotate Edition**, Issue #13 —
+see §17). The Annotate Edition is **not optional** for this pillar: the pillar may
+not be tagged `live` until the Annotate Edition builds for all seven days. The
+repo-wide engineering work that builds `shared/ipad.tex`, the build step, CI and the
+website download option remains a separate track (Issue #13), but it is a
+**ship-blocker** for this pillar's publication, not an afterthought. All three
+editions compile from the same answer files — no duplicated question sources, ever.
 
 ### Positioning against the existing repo roadmap
 
@@ -105,12 +125,19 @@ differentiation, differential equations, concavity beyond "qualitative inflexion
 
 ## 3. Mathematical scope at a glance
 
-### 3.1 Core syllabus (all days)
+### 3.1 Core syllabus (all days; every item maps 1:1 to the current specification — see §3.5)
 Differentiation: $x^n$ for rational $n$; sums/differences; derivatives of polynomial,
 fractional-power and root expressions after simplification; notation
-($f'$, $\mathrm{d}^2y/\mathrm{d}x^2$); gradient of tangent; rate-of-change reading.
-Tangents and normals; stationary points (max/min); increasing/decreasing on intervals;
-second derivative test; qualitative inflexion on simple polynomial curves.
+($f'$, $\mathrm{d}y/\mathrm{d}x$, $f''$, $\mathrm{d}^2y/\mathrm{d}x^2$); gradient of tangent;
+rate-of-change reading.
+**Second-order derivatives (MM6.1b), calculation AND interpretation — CORE:**
+differentiating twice, evaluating $f''(a)$; reading $f''$ as the rate of change of the
+gradient; the second derivative test for classifying stationary points (max/min);
+the sign of $f''$ as the concavity verdict ("holds water vs sheds water" qualitative
+reading — in line with MM6.1b + MM6.3's expectation of qualitative inflexion
+understanding on simple polynomial curves). Notation fluency only for $f''$ — no
+inflection *location* algorithm is demanded (that is extension, see §3.3).
+Tangents and normals; stationary points (max/min); increasing/decreasing on intervals.
 Integration: definite integral as (signed) area; FTC in both forms; range additivity;
 trapezium rule + error direction; $\int x^n\,dx$, $n\neq-1$; $\mathrm{d}y/\mathrm{d}x = f(x)$
 differential equations. Areas under/between curves (polynomial cases).
@@ -119,23 +146,31 @@ exponentials, logs, trig (shape level); transformations $y = af(x),\ f(x)+a,\ f(
 f(ax)$ and compositions; $f(g(x))$; axis intersections; geometric meaning of solutions;
 root counting of general polynomials; inequalities solved graphically.
 
-### 3.2 Pillar-specific depth (beyond TMUA spec — labelled honestly on the sheet as
-"beyond TMUA; MAT/STEP-facing depth")
-- Product, quotient and **chain rules**; differentiating composites $f(g(x))$.
-- Differentiation of $e^{kx}$, $\ln x$, $\sin kx$, $\cos kx$ (limited doses; no trig-integration).
+### 3.2 Pillar-specific depth (BEYOND TMUA SPECIFICATION — labelled "beyond TMUA" on the sheet; MAT/STEP-facing)
+Every item in this subsection is **beyond the TMUA specification for October 2026 /
+January 2027** (see §3.5) and is labelled as such wherever it appears:
+- Product, quotient and **chain rules**; differentiating composites $f(g(x))$. *(MM6.2 covers only $x^n$, sums and differences — see §3.5.)*
+- Differentiation of $e^{kx}$, $\ln x$; **at most one** $\sin kx$/$\cos kx$ chain-rule
+  cameo in the week (trig, MM4, enters via graphs only; no trig-integration).
 - Differentiation under constructed roots (e.g. $\sqrt{u}$ chains).
-- **Implicit differentiation** to tangent/normal of simple curves defined implicitly.
+- **Implicit differentiation** — one Day 3 D-item and Day 6/7 investigations only;
+  no graded ab initio teaching elsewhere (workload kept manageable, depth preserved).
 - Inverse functions differentiated implicitly or by reciprocal-gradient geometry.
-- Integration by **substitution**; **by parts** (light); reduction of an integral to an
-  earlier power; area between general curves (both orders of integration not required).
+- Integration by **substitution** (chain-rule mirror — core to the pillar, zero TMUA coverage);
+  **by parts recognised** in one light form only (reverse-product; no drilling chains); reduction of an integral to an earlier power.
 - Rational functions: vertical asymptotes, **holes** (removable discontinuities),
   horizontal and oblique asymptotes, end-behaviour dominance arguments.
 - Symmetry in integration (odd/even over symmetric ranges); area under even/odd split
-  curves; "differentiate the area function" ($A'(x) = f(x)$ — the FTC's useful face).
+  curves; "differentiate the area function" ($A'(x) = f(x)$ — the FTC's useful face,
+  MM7.3b in disguise).
 
 ### 3.3 Extension syllabus (Investigate Further / D-depth; explicitly not routine)
 - Qualitative limit arithmetic as $x \to \infty$ and at holes (no epsilon-delta).
-- Points of inflection via change of sign of $f''$ (qualitative; TMUA excepts it).
+- **Deeper concavity and inflection-point analysis**: locating stationary inflexions via
+  change of sign of $f''$; the stationary-inflection taxonomy ($f'=0$, $f'$ never
+  changes sign, $f''$ touches zero); concavity-as-inequality proofs. (MM6.3 excepts
+  inflection computation from examination — qualitative understanding only is expected;
+  everything in this bullet is *deeper than the exam* and lives here deliberately.)
 - Parametric curves: $\mathrm{d}y/\mathrm{d}x = \dot{y}/\dot{x}$, gradient of parametric
   tangent; cycloid-shaped taste only — parametric integration excluded.
 - $f'''$ appearing in fixed-point/convexity arguments; Taylor linearisation
@@ -175,13 +210,82 @@ root counting of general polynomials; inequalities solved graphically.
 
 ---
 
+### 3.5 Core topic ↔ current TMUA specification map (official UAT-UK Content Specification, assessment October 2026 and January 2027, © UAT-UK 2026)
+
+The specification text for MM6/MM7/MM8 is identical in this edition to the previous one;
+the current document is the citation of record. Official PDF (public, lawful to view):
+`https://uat-wp.s3.eu-west-2.amazonaws.com/wp-content/uploads/2024/05/03165619/TMUA_Content_Specification.pdf`.
+If this table and the arising sheets ever disagree, the PDF is the authority.
+Every "core" topic in §3.1 — and only those topics — carries its spec code here.
+Anything not in this table is beyond spec and must be labelled "beyond TMUA" on sheets.
+
+| Core topic (this pillar) | Spec code | Spec status |
+|---|---|---|
+| Derivative as gradient of tangent; rate-of-change reading | MM6.1 | IN SPEC |
+| **Second-order derivatives — calculation** | MM6.1(b) | IN SPEC |
+| **Second-order derivatives — interpretation** (notation MM6.1(c); $f''$ as rate of change of slope; concavity verdict) | MM6.1(b)–(c) + MM6.3 expected understanding | IN SPEC |
+| Stationary points, classified via second derivative test (max/min only — exam never asks for inflexion computation) | MM6.1(b) applied via MM6.3 | IN SPEC (interpretation) |
+| Differentiation of $x^n$, rational $n$, sums and differences; simplification first | MM6.2 | IN SPEC |
+| Differentiation of expressions reducible to $x^n$ (e.g. $(x+1)^2$, $1/x^{2/3}$ after manipulation) | MM6.2 | IN SPEC |
+| Differentiation from first principles | MM6.1 exclusion | EXCLUDED from spec |
+| Tangents and normals | MM6.3 | IN SPEC |
+| Strictly increasing / strictly decreasing ($f'>0$, $f'<0$) | MM6.3 | IN SPEC |
+| Qualitative understanding of inflexions on simple polynomial curves (reading, not locating) | MM6.3 | IN SPEC (expected, not examined) |
+| Definite integral as (signed) area; area between curve and axis | MM7.1 | IN SPEC |
+| Definite and indefinite integrals of $x^n$, $n\neq-1$, sums/differences | MM7.2 | IN SPEC |
+| FTC form (a): $\int_a^b f(x)\,dx = F(b)-F(a)$ | MM7.3(a) | IN SPEC |
+| FTC form (b): $\frac{d}{dx}\int_a^x f(t)\,dt = f(x)$ | MM7.3(b) | IN SPEC |
+| Integrals over equal / contiguous ranges | MM7.4 | IN SPEC |
+| Trapezium rule; over- vs under-estimate (via concavity — ties MM6.1(b) to MM7.5) | MM7.5 | IN SPEC |
+| Differential equations of the form $\mathrm{d}y/\mathrm{d}x = f(x)$ only | MM7.6 | IN SPEC |
+| Areas under and between polynomial curves (polynomial difference function; split at roots) | MM7.1 + MM7.4 | IN SPEC |
+| Sketching lines, quadratics, cubics, trig, log, exp, square roots, modulus | MM8.1 | IN SPEC |
+| Transformations $y = af(x)$, $y = f(x)+a$, $y = f(x+a)$, $y = f(ax)$, $a$ positive or negative; compositions | MM8.2 | IN SPEC |
+| Notation $f(g(x))$; using transformation notation on compositions | MM8.2 | IN SPEC |
+| Lines $y = mx+c$; quadratics $y = a(x+b)^2+c$ — effects of $m,c$ / $a,b,c$ | MM8.3, MM8.4 | IN SPEC |
+| Using differentiation to determine graph shape: stationary points (excl. inflexions), increasing/decreasing | MM8.5(a)–(b) | IN SPEC |
+| Axis intersections; possible numbers of real roots of a general polynomial | MM8.6 | IN SPEC |
+| Geometric interpretation of solutions: intersections of graphs = roots of simultaneous equations | MM8.7 | IN SPEC |
+| Endpoint behaviour and asymptotes as *graph features* (ratio-of-leading-behaviour at extremes, sketched) | MM8.1 + MM8.5 shape reading | IN SPEC (graph-feature reading; no limit machinery required) |
+| Paper 2 reasoning skills used in D written items (conjecture, order statements, counterexample) | Section 2 (Prf1–Prf5, Arg1–Arg4) | IN SPEC (Paper 2 framing; no logic teaching in this pillar) |
+
+**Beyond-spec items introduced in this pillar (always labelled "beyond TMUA" in-sheet; never presented as examinable technique):**
+
+| Beyond-spec topic | Label | Notes |
+|---|---|---|
+| Product rule, quotient rule, chain rule | BEYOND TMUA | MM6.2 restricts differentiation to $x^n$, sums/differences |
+| Differentiation of $e^{kx}$, $\ln x$; at most one $\sin kx$/$\cos kx$ chain-rule cameo | BEYOND TMUA | MM6.2 exclusion |
+| Implicit differentiation (one Day 3 D-item; investigations only thereafter) | BEYOND TMUA | Not in spec; MAT legacy |
+| Inverse-function reciprocal gradients / $f^{-1}$ geometry as *gradient fact* | BEYOND TMUA | Reflection $y\leftrightarrow x$ is an MM8.2 composition-adjacent fact, but reciprocal-gradient is not listed |
+| Integration by substitution (chain-rule mirror) | BEYOND TMUA | MM7.2 covers only $x^n$ |
+| Reverse-product / integration-by-parts recognition (one light form) | BEYOND TMUA | Not in spec |
+| Rational asymptotes (holes via cancellation; oblique via division) | BEYOND TMUA | MM8.1 non-exhaustive; division reasoning not listed |
+| End-behaviour "dominant-term arithmetic" limits, holes-arithmetic | BEYOND TMUA | MM7.x/MM8.x test areas and shapes, not limit evaluation |
+| Parametric curves (extension only) | BEYOND TMUA | Not in spec |
+| Volumes of revolution (one \inv pointer only) | BEYOND TMUA | Not in spec |
+| Transcendental root counting ($e^x = x+k$ graphically) | BEYOND TMUA | Not in spec; investigation tier |
+| Deeper inflection analysis (locating stationary inflexions; $f''$ sign changes; taxonomy) | BEYOND TMUA | MM6.3 expects qualitative understanding only |
+
+**Reading of the boundary.** "In spec" means examinable; "beyond TMUA" means exactly what
+it says — not examinable, taught for MAT/STEP/BMO1-aspiration depth and labelled so
+students (and reviewers) know the exam never bills them for it. Every sheet's Section
+intro line flags the beyond-spec toolkit where relevant (Day 3 marker onwards — see
+§10 item 4).
+
+---
+
 ## 4. Past-paper research evidence (and its limits — read this first)
 
 ### 4.1 What is verified (public, lawful, current)
-- **TMUA Content Specification (May 2024, UAT-UK; fetched 2026-11-07)**, public PDF.
-  MM6/MM7/MM8 facts this pillar relies on (verbatim-ish, abridged):
-  - Derivative as gradient/rate of change; second-order derivatives and notation;
-    **first-principles differentiation excluded** (MM6.1).
+- **TMUA Content Specification, assessment October 2026 and January 2027 (© UAT-UK
+  2026)**; public UAT-UK PDF at the official URL given in §3.5 (fetched 2026-11-07;
+  the MM6/MM7/MM8 text is unchanged from the previous edition, reproduced via official
+  and mirror sources because local PDF tooling is absent — the official PDF is the
+  citation of record and must be consulted at drafting time). MM6/MM7/MM8 facts this
+  pillar relies on (verbatim-ish, abridged):
+  - Derivative as gradient/rate of change; **second-order derivatives and notation —
+    calculation and interpretation are examinable** (MM6.1(a)–(c)).
+    **First-principles differentiation excluded** (MM6.1).
   - Differentiation of $x^n$ for *rational* $n$, sums and differences, possibly after
     simplification (MM6.2). **No product/quotient/chain, no $e^x$, no trig in spec.**
   - Applications: gradients, tangents, normals, stationary points (maxima/minima only),
@@ -228,15 +332,25 @@ checked 2026-11-07). Consequently:
   vault) — second-hand confirmation TMUA tests calculus-flavoured material; unusable here.
 - `sequences/PLAN.md`, `geometry/PLAN.md` anchors — unverifiable on this machine.
 
-### 4.4 The BMO1 honesty clause
-BMO1 papers contain no calculus. This pillar therefore:
+### 4.4 The BMO1 honesty clause (labels restricted to genuinely olympiad-character items)
+BMO1 papers contain no calculus, and BMO1 difficulty is a *kind of problem*, not a rating
+of "how hard this calculus question is". This pillar therefore:
 - never writes the phrase "BMO1-style calculus";
 - never tags a question BMO1 whose solution requires differentiation;
-- expresses "BMO1 aspiration" exclusively as **proof standards in Section D**:
-  show-that constructions on polynomials/functions/inequalities where the mathematics is
-  honest school algebra — e.g., *prove this cubic changes sign exactly once*, *exhibit a
-  quartic with specified features*, *prove this inequality without derivatives* — and as
-  investigations pointing students to STEP/olympiad combinatorial inequalities when apt.
+- uses **(SMC / BMO1 difficulty) only when BOTH hold**:
+  (a) the problem is naturally at home in an olympiad training set — a *construction*,
+      an *invariant*, an *extremal/case* argument, a genuine show-that — not merely a
+      hard computation; and
+  (b) the demanded skill is the argument itself, not technique application.
+  Two-question test before any BMO1 tag ships: "Would an olympiad coach set this
+  unprompted?" and "Would the solution read as a proof with a clever opening move?" —
+  if either answer is no, the honest tag is (SMC difficulty) or (TMUA / SMC difficulty),
+  whichever describes the actual character, and that tag is used instead.
+- expresses BMO1 aspiration exclusively as **proof standards in Section D**, proof
+  character preserving even where differentiation is absent — e.g., *prove this cubic
+  changes sign exactly once*, *exhibit a quartic with specified features*, *prove this
+  inequality without derivatives* — and as investigations pointing to STEP/olympiad
+  inequality territory when apt.
 
 ### 4.5 Consequences locked into the design
 1. The **TMUA core stays TMUA-real**: until explicitly introduced (Day 3), nothing beyond
@@ -268,7 +382,7 @@ Inspected by direct grep over all six live pillars' `.tex` files on 2026-11-07
 | Monotonicity & fixed points of sequences | **Sequences** (53 increas/decreas; fixed points device; Monotone Convergence) | **Not** re-taught for $a_{n+1}=f(a_n)$; sequences keep the name "fixed point" | Continuous vs discrete limits are different objects |
 | Limit concept | **Sequences** (34 limit references, $\varepsilon$-flavored teacher) | Limit **at infinity / at holes** for functions only, arithmetic-of-dominant-terms level; zero formal asymptotics | Boundary: sequences own "limit of a sequence", this pillar owns "end behaviour of a curve" |
 | Inequalities (graphical) | **Algebra** (inequality toolkit), **Logic** (necessity/sufficiency) | Read from graphs: where $f>g$ iff between roots; never symbolic inequality drills | Graphically-owned framing of the shared object |
-| Modulus functions $|x|$, $|f(x)|$ | **Logic** (18 matches), **Sequences** (3), **Algebra** (1) | Central tool Day 3 (differentiability at kinks) and Day 5 (folded graphs & inequalities); logic content untouched | Function behaviour, not proposition logic |
+| Modulus functions: $\lvert x \rvert$, $\lvert f(x) \rvert$ | **Logic** (18 matches), **Sequences** (3), **Algebra** (1) | Central tool Day 3 (differentiability at kinks) and Day 5 (folded graphs & inequalities); logic content untouched | Function behaviour, not proposition logic |
 | Proof-flaw diagnosis / necessary-sufficient | **Logic** (the entire pillar; also Geometry Day 7) | Light use Day 7: "spot the flaw" in a *graph-reading* argument; never generic logic drills | The P2 flavour, calculus-flavoured |
 | Asymptotes | **Algebra** (1, in an \inv{}); never owned | **Calculus and Graphs owns asymptotes outright** (vertical/holes/horizontal/oblique) | Unowned territory — claim it |
 | Sketching curves | **Algebra** (9 "sketch"), **Logic** (2); no pillar owns it | **This pillar owns sketching** — polynomial/modulus/exp/log/trig/rational sketching & encoding axes | The other half of the pillar's name |
@@ -316,7 +430,7 @@ Notation: each day lists (i) central theme, (ii) objectives, (iii) prerequisites
 calculus↔graphs connection for the day), (vi) links to earlier days / later days,
 (vii) archetypes, (viii) sections A–D with purpose & content shape, (ix) difficulty
 & honest Section-D tag, (x) common traps, (xi) investigations, (xii) why here.
-Archetypes are descriptions of skill and content, never actual question text.
+Archetypes are descriptions of skill and content, never actual question text. Every day closes with a one-line **Spec anchors** reference into §3.5 (MM codes, Oct 2026 / January 2027) and an explicit flag on any beyond-spec content.
 
 ### Day 1 — The Derivative Itself: Gradient, Rate, and the Power Rule
 
@@ -325,16 +439,18 @@ formulae. Establish the two-symbol fluency ($f'(x)$ and $\mathrm{d}y/\mathrm{d}x
 readings (slope / rate of change) on curves the student can already sketch.
 
 (ii) Objectives: differentiate polynomials and rational-power sums/differences after
-simplification; evaluate $f'(a)$ and interpret it; write the equation of a tangent or
-normal; read gradients off simple graphs; understand the secant→tangent idea
-qualitatively; set up a cubic from root information and touch its graph.
+simplification; evaluate $f'(a)$ and $f''(a)$ and interpret them; write the equation of a
+tangent or normal; read gradients and slope-change off simple graphs; understand the
+secant→tangent idea qualitatively; set up a cubic from root information and touch its graph.
 
 (iii) Prereqs: linear coordinate geometry; polynomial factorisation; basic sketching.
 
 (iv) Techniques: power rule for rational $n$; sums/differences; simplification first
-(expanding awkward numerator forms, e.g. $(x+1)^2$); tangent & normal equations; normal
-as perpendicular to tangent ($m_1m_2=-1$ callback); gradient of a chord as average rate;
-NOTABLE: derivative of $e^x$, $\ln x$ are *not* Day 1.
+(expanding awkward numerator forms, e.g. $(x+1)^2$); **power rule applied twice — $f''$
+notation, evaluate $f''(a)$, interpret as "gradient is rising/flat/falling"** (core,
+MM6.1(b)–(c)); tangent & normal equations; normal as perpendicular to tangent
+($m_1m_2=-1$ callback); gradient of a chord as average rate; NOTABLE: derivative of
+$e^x$, $\ln x$ are *not* Day 1.
 
 (v) Graph concepts: tangent line at a point; local linearisation (the tangent as the
 line that "fits best"); chord sliding to tangent; gradient sign vs direction of travel;
@@ -356,9 +472,9 @@ lines); synthesis seed for Day 7.
 - "Student states derivative = 0 somewhere — locate the point(s)." (stationary preview
   without the word yet).
 
-(viii) Sections. A: pure rapid recognition — 10 items, zero MCQ: evaluate $f'(a)$;
-match derivative to function-form; tangent vs normal equation basic; simplification-first
-differentiation. B: 10 items, ~7–8 MCQ — tangents, normals, chord average rates,
+(viii) Sections. A: pure rapid recognition — 10 items, zero MCQ: evaluate $f'(a)$ and
+$f''(a)$; match derivative to function-form; tangent vs normal equation basic;
+simplification-first differentiation. B: 10 items, ~7–8 MCQ — tangents, normals, chord average rates,
 reverse-sketching matching, tangent suits. C: 8 items, 100% MCQ, TMUA-hard — disguised
 polynomial fits; tangents forming given triangles/areas; which-graph-has-which-derivative;
 derivative as parameter rider. D: 5 items (TMUA / SMC difficulty): unfamiliar tangent
@@ -387,16 +503,21 @@ the two readings are fluent; Day 1 is deliberately curve-dense so the pillar rea
 "graphing course with calculus", not "calculus with occasional graphs". **Speed
 invariant:** *simplify first, then differentiate — never the other way round.*
 
+**Spec anchors (Oct 2026 / Jan 2027):** MM6.1 (a–c) incl. second-order notation;
+MM6.2; MM6.3 (tangents, normals); MM8.4. No beyond-spec items this day.
+
 ### Day 2 — Monotonicity and Stationary Points: Sign Charts and the Shape of a Cubic
 
-(i) Theme: Turning derivative information into picture facts and picture facts into
-algebra — sign charts, max/min, cubic trichotomy, double root ⇔ tangency.
+(i) Theme: Turning derivative information — first and second — into picture facts and
+picture facts into algebra — sign charts, max/min via the second derivative test,
+cubic trichotomy, double root ⇔ tangency.
 
-(ii) Objectives: locate and classify stationary points (gradient test and second
-derivative test); build sign charts; prove/decide a function is increasing on an
-interval; determine number of real roots of a cubic from turning-point values;
-recognise double root ⇔ tangent-to-axis ⇔ common root of $f, f'$; perform graph-based
-in/decreasing reasoning on non-formula curves.
+(ii) Objectives: locate and classify stationary points — **second derivative test as
+core**, gradient test as backup; build sign charts; read $f''$ as the concavity verdict
+(holds water vs sheds water); prove/decide a function is increasing on an interval;
+determine number of real roots of a cubic from turning-point values; recognise double
+root ⇔ tangent-to-axis ⇔ common root of $f, f'$; perform graph-based in/decreasing
+reasoning on non-formula curves.
 
 (iii) Prereqs: Day 1 (notation, tangents, power rule); factor theorem; quadratics'
 discriminant.
@@ -445,7 +566,9 @@ double root assumed at every tangency (it is) but sufficient care with odd multi
 cubic real roots always come in ≤3 but sign chart misorders if leading coefficient negative.
 
 (xi) Investigation directions: merge/split turning points as parameters move (preview
-double root); stationary inflection definition $f'=0$, $f''=0$, no sign change of $f'$;
+double root); stationary inflection $f'=0$, $f''=0$, no sign change of $f'$ — **extension
+tier only**: *locating* stationary inflexions via change of sign of $f''$, the full
+taxonomy and converses are beyond the exam (see §3.3) and never appear as graded items;
 can $f'$ have a double root and $f$ still have three?; quartic $f$ with $f'$ having two
 roots — sketch all sign possibilities; Rolle's theorem in one line (between equal values
 there's a flat spot); tangent construction through two exterior points on cubics.
@@ -454,73 +577,93 @@ there's a flat spot); tangent construction through two exterior points on cubics
 later day. **Speed invariant:** *turning points of a cubic are the roots of a quadratic —
 do the quadratic immediately; the graph's fate is decided by two numbers' signs.*
 
-### Day 3 — Products, Quotients and Composites: Calculus of Non-Trivial Functions
+**Spec anchors (Oct 2026 / Jan 2027):** MM6.1(b)–(c) (second derivative, test-based
+classification); MM6.3 (SP max/min, increasing/decreasing); MM8.5; MM8.6. No beyond-spec
+items this day.
 
-(i) Theme: Differentiation machinery for the everyday functions — product, quotient,
-chain, implicit; what changes at a modulus kink; why $f(g(x))$ multiplies slopes.
+### Day 3 — Three Moves, One Machinery: The Product, the Chain and the Quotient
+
+(i) Theme: The everyday differentiation machinery as *one idea* — links multiply —
+drilling its three faces ($uv$, $u/v$, $f(g(x))$), with the modulus kink as the honest
+boundary of "differentiable everywhere". Deliberately narrow; the topic is the
+mechanism, not a tour of functions.
 
 (ii) Objectives: fluently differentiate $u\cdot v$, $u/v$, $f(g(x))$ (polynomials inside,
-roots/fractional powers inside, then exp/log/trig cameos); implicit differentiation for
-simple implicit curves; chain-rule reasoning about slope multiplication (“steepness
-multiplies”); recognise non-differentiability at modulus kinks; find $f$ from $f'$ on
-simple given graph of $f'$ (integration preview, algebra-only: antidifferentiate powers).
+roots/fractional powers inside); chain-rule reasoning about local slope scaling
+("steepness multiplies"); recognise non-differentiability at modulus kinks (and *why*);
+$e^{kx}$ and $\ln x$ as chain-rule fuel (cameos, ≤2 items each — beyond-spec labelled);
+*find $f$ from $f'$* on simple polynomial $f'$ (algebra-only antidifferentiation — a
+backdoor to Day 4); **one** beyond-spec D-item on implicit differentiation (§3.2,
+MAT-facing), clearly flagged on the sheet and in the answers.
 
 (iii) Prereqs: Days 1–2.
 
-(iv) Techniques: product/quotient rule; chain rule with inner polynomial/root/linear
-trig/exp/log; implicit differentiation; logarithmic cameos ($\ln$ differentiated once —
-$\tfrac1x$); exponential cameos ($e^{kx}$ and its eigenvalue charm $f'=kf$); modulus via
-definition (differentiate each side of $\pm x$).
+(iv) Techniques: product rule; quotient rule; chain rule (inner polynomial/root/$x^{r}$);
+modulus differentiability (each side, $\pm x$, kink unequal slopes); $e^{kx}$ and $\ln x$
+cameos only; NO implicit, NO inverse, NO standalone trig-derivative drilling (one flagged
+$\sin kx$ chain cameo at most — see §19 item 7); NO piecewise drills (those live at
+joints in Day 5, beside modulus folds).
 
 (v) Graph concepts: chain rule as local slope scaling ($f'(g)\cdot g'$ = outer slope ×
-inner stretch); kinks at $|x|$; steepening/softening under composition; stretching a
-$e^{-x}$ decay graph and its mirror; $e^{kx}$ independent of starting value ($f' \propto f$).
+inner stretch); kinks at $|x|$; scaling a decay graph ($e^{-x}$ family); mirror slope of
+$\ln x$ — flat where $e^x$ is steep (backwards intimacy, Day 5 builds inverse geometry).
 
-(vi) Connects: from Day 2 (sign charts apply unchanged); to Day 4 (integration tools
-need chain-rule pattern recognition); to Day 5 (transformation derivatives are chains);
-Day 6 (rational functions need quotient rule).
+(vi) Connects: from Day 2 (sign charts apply unchanged to composite outputs); to Day 4
+(chain recognition *is* substitution in reverse); to Day 5 (transformation derivatives
+are chains — $f(ax)$ scaling); to Day 6 (holes/walls honoured in rational curves — the
+"is it differentiable here?" question re-asked there).
 
 (vii) Archetypes.
 - Differentiate messy $u v$, $u/v$ with polynomial and fractional-power content.
 - Differentiate $\sqrt{\text{quadratic}}$ and $\sqrt[3]{\text{cubic}}$ shapes.
 - Recognise $(uv)'$ pattern in an "unintegrated" area (preview integration by parts
   without integration — just identify the antiderivative).
-- Implicit curves: gradient of simple implicit relation (circle-shaped but not circle —
-  e.g. $x^2+y^2+xy=1$? — careful: this drifts conics; use $y^3+x^2 y=4$ type) at a point.
 - $f(g(x))$ values from tables of $f'$, $g'$ — no formulae given (TMUA-flavoured!).
 - Derivative of $|x^2-1|$ on intervals avoiding ±1; what happens at ±1.
 - $y=e^{2x}$ slope at $x=0$ compared with slope of $e^x$; $y=\ln(3x)$ vs $\ln x$ — same
-  slope everywhere, shifted intercepts (graph-first logarithmic cameo).
-- $f(x)=x e^{-x}$ max location (uses product rule; anchor for Day 4 area work).
-- Reverse chain-rule: given $f'$, spot it as derivative of (…)(…) and antidifferentiate.
+  slope everywhere, shifted intercepts (graph-first logarithmic cameo, beyond TMUA).
+- $f(x)=x e^{-x}$ maximum location (product rule; anchor for Day 4 area work, beyond TMUA).
+- Reverse chain-rule: given $f'$, spot it as the derivative of (…)(…) and antidifferentiate.
 
 (viii) Sections. A: 10 items (0 MCQ) — instant machinery, mild simplification; one
-$|x-…|$ kink question. B: ~7–8 MCQ — product/quotient/chain mixed; e^x/ln cameos.
-C: 8 MCQ, TMUA/SMC-hard — implicit gradients at points; table-based chain rule;
-f(g(x)) composition puzzles; which-curve matches chain pattern; $xe^{-x}$ maxima logic.
-D: (TMUA / SMC difficulty) — "spot the composite" proof-ish MCQ where the function is
-$\sin(\ldots)$-free but awkward ($g(e^{x})$ etc.); a construction: given only
-$(fg)'(1)$ and $(f/g)'(1)$, find $f'(1)$ and $g'(1)$; modulus kink classification:
-find all $a$ for which $f(x)=|x^2-a^2|$ fails to be differentiable at given points and
-what the graph looks like there.
+$|x-…|$ kink question. B: ~7–8 MCQ — product/quotient/chain mixed; one $e^{kx}$ or $\ln x$
+cameo. C: 8 MCQ, TMUA/SMC-hard — table-based chain rule; f(g(x)) composition puzzles;
+which-curve matches chain pattern; $xe^{-x}$ maxima logic; "where is this not
+differentiable?" modulus traps. D: (TMUA / SMC difficulty) with **one** beyond-spec item
+(implicit differentiation, flagged "beyond TMUA") — "spot the composite" awkward cases;
+a construction: given only $(fg)'(1)$ and $(f/g)'(1)$, find $f'(1)$ and $g'(1)$; the
+implicit item: gradient at a point of a simple non-conic implicit curve (e.g.
+$y^3+x^2y = 4$ — NOT conics). Modulus kink classification closes the section.
 
-(ix) Difficulty: peak ramp day for pure technique; tag honest.
+(ix) Difficulty: peak ramp day for the mechanism itself; every item fluent-timed; the
+beyond-spec D-item is labelled on the sheet, never disguised as examinable technique.
 
 (x) Common traps: product on sums; multiplying exponents; chain skipped on the inner
 polynomial; $\frac{u}{v}$ differentiated as $\tfrac{u'}{v'}$; modulus differentiated at
-kink; $\ln x$ derivative $\tfrac{1}{x}$ vs $x\ln x$ confusion; sign loss in chained trig.
+kink; $\ln x$ derivative $\tfrac{1}{x}$ vs $x\ln x$ confusion; assuming $(uv)'=u'v'$.
 
 (xi) Investigation directions: why $(e^x)'=e^x$ is a definition ready-made for
-modelling; chain rule proved via limit of quotient of increments (one line, two
-readings); logarithmic differentiation as ritual for products of powers;
+modelling; chain rule as composite-of-quotients limit argument (one line, two readings);
+logarithmic differentiation as ritual for products of powers;
 $\frac{d}{dx} f(ax) = a f'(ax)$ as a **composition with scaling** — the bridge to Day 5;
 when does $f(g)$ have a stationary point given only local info on both; product of two
 monotonic functions is not monotonic (counterexample construction).
 
-(xii) Why here: product/quotient/chain are the machinery Days 4–7 lean on; withholding
-them forces Day 4+ integrations to be "magic" instead of "history". **Speed
+(xii) Why here (load-balanced deliberately): product/chain/quotient — the machinery
+Days 4–7 lean on — nothing else competes for attention today; withholding them forces
+Day 4+ to be "magic" instead of "history". **Load audit (v2):** v1 also tried to carry
+implicit differentiation, modular-inflection taxonomy, inverse functions, and a second
+log/exp cameo block; implicit differentiation is now exactly one beyond-spec D-item;
+inverse functions moved to Day 5 (where they belong — a graph reflection fact); trig
+cameos capped at one flagged item; modular joint-matching lives in Day 5. **Speed
 invariant:** *read the function as a recipe — outermost operation differentiates first,
 and its factor comes out in front of the inner derivative.*
+
+**Spec anchors (Oct 2026 / Jan 2027):** MM6.2 is the only *examinable* toolkit — but the
+day's items go deliberately beyond it; product/quotient/chain, $e^{kx}$, $\ln x$ and the
+implicit D-item are all labelled **BEYOND TMUA** (§3.5); modulus-kink questions touch
+MM6.3 strictly *beyond* what the spec requires (spec: no modulus calculus) — labelled
+beyond as well. No examinable technique assumed.
 
 ### Day 4 — Areas and Integrals: Undoing Differentiation Geometrically
 
@@ -594,6 +737,10 @@ fluency Days 1–3 build; after Day 4, integral becomes a *tool* for later days,
 syllabus island. **Speed invariant:** *definite integrals of odd powers over symmetric
 ranges vanish; split ranges at roots before integrating anything.*
 
+**Spec anchors (Oct 2026 / Jan 2027):** MM7.1–MM7.6 (the whole MM7 strand, incl.
+trapezium rule MM7.5 and dy/dx=f(x) MM7.6); MM7.3(b) accumulation face (used Day 4);
+MM8.6–MM8.7 where areas meet sign machinery. No beyond-spec items this day.
+
 ### Day 5 — The Parameter's Gaze: Transformations, Inverses and Graphs in Families
 
 (i) Theme: How graphs and derivatives behave as *families* and as *transformations* —
@@ -620,9 +767,9 @@ stretch factor $1/a$ with stationary points moving by $1/a$; modulus V-fold of a
 equal values, matching or kinked slopes.
 
 (vi) Connects: Day 3 chain rule (scaling is multiplication of slope); Day 4 (areas
-under shifted/stretched curves, scaling of areas by factors); Day 6 (asymptotes in
-families: $f(x) + c$ never changes asymptotes; $f(ax)$ does change roots but not
-horizontal asymptote ratio at infinity? — actually scale argument); Day 7 (family synthesis).
+under shifted/stretched curves, scaling of areas by factors); Day 6 (asymptotes are
+family-invariant under additive constants — and shift-insensitive enough for the
+leading-ratio test); Day 7 (family synthesis).
 
 (vii) Archetypes.
 - Given cubic with two turning points, for $k\geq0$ how many roots has $y=f(x)-k$ —
@@ -630,7 +777,8 @@ horizontal asymptote ratio at infinity? — actually scale argument); Day 7 (fam
 - Effect of $a$ in $f(ax)$ on turning-point positions and derivatives.
 - Inverse function gradient reciprocal at corresponding points ($\tfrac{dy}{dx}$ ↔ reciprocal).
 - Mirror-graph reasoning: sketch $f(x)=y$ given sketch $f^{-1}$.
-- Number of roots of $e^x = x+k$-type graphically (honest beyond-AS shape).
+- Number of roots of $e^x = x+k$-type graphically (BEYOND TMUA; investigation-flavoured
+  MCQ — never presented as examinable technique).
 - Modulus quadratic: sketch $|x^2 - 4|$; count roots against horizontal line heights.
 - Piecewise linear/quadratic joint: match values + slopes; which joint is
   differentiable.
@@ -664,71 +812,89 @@ stronger gym); why $f(g(x))$ curves can have slopes everywhere finite; derivativ
 inverse proved two ways (implicit + reflection).
 
 (xii) Why here: families of graphs are the *language* of exam parameter questions —
-Day 5 is the conceptual centrepiece of the graphs half. **Speed invariant:** *draw the
-threshold heights first — roots appear and disappear exactly when a horizontal line
-sweeps past a turning point.*
+Day 5 is the conceptual centrepiece of the graphs half. **Balance note (v2):** Day 5 is
+one concept family — "how does the family move?" — not six unrelated techniques;
+transformations, inverses, root counting, modulus folds, piecewise joints and graphical
+inequalities are all readings of the same picture, and computation stays light. **Speed
+invariant:** *draw the threshold heights first — roots appear and disappear exactly when
+a horizontal line sweeps past a turning point.*
 
-### Day 6 — Rational Functions and the Fine Structure: Asymptotes, Partial Fractions, and Full Integration
+**Spec anchors (Oct 2026 / Jan 2027):** MM8.1–MM8.7 (the MM8 strand); MM6.2 (base
+toolkit) — but the day is heavily beyond-spec: $f(ax)$ derivative effects, inverse-function
+gradient reciprocity, transcendental root counting are all labelled **BEYOND TMUA**
+(§3.5); modulus *calculus* and joint differentiability are likewise beyond-spec (labelled).
 
-(i) Theme: The third major graph type after polynomials and moduli — rational curves:
-vertical asymptotes, holes, horizontal behaviour; plus the completion of the integration
-toolkit (substitution, parts, partial fractions as a *dependency*) and area between curves.
+### Day 6 — Rational Curves and the Integration Toolkit, Completed
 
-(ii) Objectives: factor-cancellation holes vs asymptote walls; horizontal/oblique
-asymptotes by dominant-term division; evaluate $\int$ substitution (chain-rule mirror)
-and $\int$ parts (product-rule mirror); integrate via pre-known factorised differences
-(partial fractions from Algebra — dependency only); area between general curves; ODE
-moderate; signed symmetry arguments (odd/even over symmetric ranges).
+(i) Theme: The third graph family — rational curves: walls, holes and tails — alongside
+the *completion* of the integration toolkit: substitution (chain-rule mirror),
+reverse-product recognition (light by-parts), and odd/even symmetry. Tight scope on
+purpose; no new technique family beyond substitution is drilled.
 
-(iii) Prereqs: Days 1–5; Algebra's partial fractions (explicitly flagged as dependency,
-not re-taught).
+(ii) Objectives: sketch rational curves step-by-step — factor, cancel, holes vs walls,
+horizontal/oblique asymptote by division; evaluate substitution integrals
+($u = ax+b$, $u = x^2$, $u = f(x)$); recognise reverse-product patterns (one light
+by-parts form — recognition, never chains); exploit odd/even symmetry in integrals over
+symmetric ranges; recap area between general polynomial curves (Day 4 echo, the
+difference function); moderate $\mathrm{d}y/\mathrm{d}x = f(x)$ with rational-algebraic
+$f$ — the MM7.6 boundary case.
 
-(iv) Techniques: sketch rational curves step-by-step (factor, cancel, holes vs walls,
-leading-coefficient end behaviour); $\int (ax+b)^n dx$ via reverse chain; $\int P(x)e^{kx}
-dx$/$\int x\ln x dx$ light parts; partial-fraction integration (reserved: only when
-partial fractions were an Algebra Day x technique — no full redecomposition drills);
-area between general polynomial curves via difference functions (Day 4 echo);
-integration with odd/even symmetry; substitution targeting ($u = ax+b$, $u=x^2$, $u=f(x)$).
+(iii) Prereqs: Days 1–5. (Algebra's partial fractions are a *dependency, not a lesson* —
+referenced once as toolkit heritage, one investigation pointer only, never a graded item.)
+
+(iv) Techniques: division + remainder (oblique asymptotes); factor/cancel (holes vs
+walls); leading-ratio end behaviour; substitution (reverse chain); reverse-product
+recognition; odd/even symmetry splitting; area between polynomial curves
+(reprise, no new machinery); ODEs $y' = f(x)$ with rational-algebraic $f$.
+NO partial-fraction integration drilling; NO tangent-line-to-rational-curves special
+case machinery (a rational curve's tangent is just a tangent — Day 1 tools unchanged).
 
 (v) Graph concepts: holes vs asymptotes on drawn rational sketches; $y = 1/x^2$ vs
 $y = 1/x$ vs $y = x/(x^2+1)$ tails; horizontal asymptote ratio = leading coefficient
-ratio; oblique asymptote as "end behaviour plus slope" ($y=x+\dots$ sketching);
-symmetric areas (even part survives, odd part cancels).
+ratio; oblique asymptote as "end behaviour plus slope" ($y = x+\dots$ sketching);
+symmetric areas (odd part cancels, even part doubles); curves crossing their own
+asymptotes (happens!).
 
-(vi) Connects: Day 5 (families add constants — asymptotes shift); Day 4 (area
-machinery applies unchanged); Day 3 (quotient rule machinery completes here); Day 7
-(synthesis: rational target functions in capstone).
+(vi) Connects: Day 5 (families add constants — asymptotes are invariants, root counts
+survive the tail); Day 4 (area machinery applies unchanged); Day 3 (chain recognition is
+the substitution tool; quotient-rule insight powers hole/wall reading); Day 7 (synthesis:
+rational target functions in the capstone).
 
 (vii) Archetypes.
 - Sketch class: $f(x)=\frac{(x-1)(x+2)}{(x-1)(x-3)}$ (hole at 1; asymptote at 3).
 - Oblique asymptote: $f(x)=\frac{x^2}{x-1}$ — find it via polynomial division; sketch.
 - Integral $\int_0^1 \frac{x}{(1+x^2)^2}dx$ via $u=1+x^2$ (chain-rule echo).
-- Integral $\int_0^1 x e^{x}dx$ light parts or reverse product recognition.
-- Integration by partial fractions: $\int_0^1 \frac{2x+1}{x^2+x}dx$ — instant from
-  knowing $\ln$ comes out; clunky by any other method (dependency drill).
-- Area between $y=x^2$, $y=2x$ (polynomial); area between lines and cubic lobes.
+- Integral $\int_0^1 x e^{x}dx$ reverse-product recognition — one line if you spot
+  $(xe^x)' = e^x + xe^x$ (BEYOND TMUA, one item, labelled).
+- Reverse-chain substitution: $\int_{-1}^{1} \frac{2x}{(1+x^2)^{2}}dx$ — instant by symmetry
+  or by $u=1+x^2$ (odd integrand: vanishes!).
+- Area between $y=x^2$ and $y=2x$ (polynomial); area between line and cubic lobes (Day 4 echo).
 - Graph a rational function from its holes/asymptotes; match options (MCQ).
-- ODE: $y' = \frac{1}{1+x^2}$? — out of scope (atan); use $y' = \frac{x}{(1+x^2)^2}$ etc.
-- Demonstrate $\int_{-1}^1 f = 2\int_0^1 f$ when $f$ even — only when safe.
-- "How many times does $f_2$ hit the x-axis?" — rational root counting via sign changes.
+- ODE: $y' = x e^{x}$? — never examinable (its solution needs by-parts, which MM7.2
+  excludes); $f$ must be integrable by the spec's toolkit — use rational-algebraic or
+  immediate $x^n$-type $f$ only.
+- "How many times does $f$ hit the x-axis?" — rational root counting via sign changes.
+- Show $\int_{-1}^1 f = 2\int_0^1 f$ for even $f$ / $0$ for odd $f$ (proof by substitution).
+- Method selection MCQ: "which tool cracks this?" — substitution / symmetry / parts / area split.
 
 (viii) Sections. A: 10 items (0 MCQ) — holes vs walls classification; leading-ratio
-asymptote; instant substitution integrals; evaluate small rational-graph root counts.
-B: ~7–8 MCQ — division-remainder oblique asymptote; substitution integrals; parts-light;
-integration by parts recognition. C: 8 MCQ TMUA/SMC-hard — partial fraction reserves;
-area-between comparisons; oblique asymptote MCQs; "which graph matches the rational rule"
-with sketches. D: (SMC / BMO1-flavoured rigour on proof standards; calculus content still) —
-prove integral of odd $=0$ over symmetric range (one line, by substitution $u=-x$);
-construct a rational function with two holes and one asymptote, exhibit it (proof by
-construction!); show the rational curve crosses its asymptote exactly once/twice, find
-intersection; engineer $f(x)$ to produce signed area zero over $[0,1]$.
+asymptote; instant substitution integrals; odd-over-symmetric-range zero; small
+rational-graph root counts. B: ~7–8 MCQ — division-remainder oblique asymptote;
+substitution integrals; reverse-product recognition (one, flagged); symmetry counts.
+C: 8 MCQ TMUA/SMC-hard — area-between comparisons; oblique asymptote MCQs; sketch-match
+the rational rule; symmetry MCQs; method-selection MCQs. D: (SMC difficulty throughout —
+no BMO1 labels this day) — prove odd integrand $=0$ over symmetric range (substitution
+$u=-x$); construct a rational function with two holes and one asymptote, exhibit it
+(proof by construction); show the rational curve crosses its asymptote exactly
+once/twice; engineer $f(x)$ to produce signed area zero over $[0,1]$.
 
-(ix) Difficulty: biggest content day; tools-not-tricks; honest tag on proof items.
+(ix) Difficulty: dense but single-family — every path leads through factor/divide/substitute;
+honest tag (SMC difficulty) on written items; no BMO1 labels anywhere this day.
 
 (x) Common traps: hole marked as asymptote or vice versa; forgetting sign of leading
-term for oblique asymptote; substitution limits not flipped when $a<0$; parts on wrong
-candidate ($u$ should be polynomial); partial fractions on irreducible quadratic
-remainder misread as ratio; even/odd mismatch for split ranges; division remainder wrong.
+term for oblique asymptote; substitution limits not flipped when $a<0$; parts chains on
+wrong candidate; symmetry claimed on asymmetric ranges; division remainder misread as the
+asymptote; "the curve never crosses its asymptote" assumed.
 
 (xi) Investigation directions: asymptote as "graph of a tail function" concept;
 why $y=x+1/(x-1)$ and $y=x$ differ by a vanishing curve (one picture); integral of
@@ -736,12 +902,25 @@ $1/x$ glaring by its absence from $x^n$ rules (flag TMUA limit — logs handle i
 \inv{} must say this out loud); odd functions and symmetric areas; Gabriel's horn
 teaser (one line, STEP level, no computation); odd-power rational integrals simplify
 instantly by symmetry; $f(x) = x/(1+x^2)$ has point-symmetric graph through origin —
-prove it without plotting.
+prove it without plotting; **partial-fractions-as-algebra-heritage**: one pointer to
+Algebra's technique with an honest "beyond this exam — the Algebra pillar owns the split" line.
 
-(xii) Why here: rational curves are the final graph family a strong student needs and
-the final integration toolbox piece; after Day 6 every calculus object in the syllabus
-exists. **Speed invariant:** *divide before sketching — vertical walls from the
-denominator's irreducible roots, holes from shared roots, the tail from the division.*
+(xii) Why here (load-balanced deliberately): rational curves are the final graph family
+a strong student needs and the final integration tool — together they are *one* coherent
+day ("where the curve misbehaves" + "what area does the misbehaving curve trap"), not
+two half-days. **Load audit (v2):** v1 additionally carried drilled partial fractions,
+by-parts chains, general area-between-curves machinery, and ODE depth; now by-parts is
+recognition-only, partial fractions are investigation-only, area-between closed in Day 4;
+the day keeps its mathematical depth (division + substitution + symmetry are genuinely
+hard MCQs) with zero technique sprawl. **Speed invariant:** *divide before sketching —
+vertical walls from the denominator's irreducible roots, holes from shared roots, the
+tail from the division.*
+
+**Spec anchors (Oct 2026 / Jan 2027):** asymptote/holes/oblique-asymptote, substitution,
+parts-recognition, transcendental cameos are all **BEYOND TMUA** (§3.5) — consistently
+flagged; the in-spec residue is MM8.1 sketching-as-shape-reading (lines/quadratics/
+modulus/like-included-families interplay), MM7.1–MM7.4 (area machinery exercised),
+MM7.6 at its rational-algebraic boundary. Everything else labelled beyond.
 
 ### Day 7 — Capstone Synthesis: Everything about One Function
 
@@ -780,18 +959,22 @@ where honest, MCQ discrimination elsewhere.
 - Parameter-dependent sketch: how many turning points, how many roots, as $k$ varies.
 - "Find all $a$ such that inequality holds for all x": graph-reading the answer.
 - Spot the flaw: flawed sign-chart argument for an inequality (P2-flavoured, Logic-lite).
-- The capstone proof D5: e.g., prove every cubic with negative leading coefficient has
-  exactly two or infinitely many stationary points unless $f' \equiv 0$; or exhibit a
-  quartic whose second derivative has a unique positive root and argue extrema structure;
-  graded at (SMC / BMO1 difficulty) rigour, never invented machinery.
+- The capstone proof D5 (graded (SMC difficulty) by default; (SMC / BMO1 difficulty)
+  only if the two-question olympiad test of §4.4 passes for the specific item): e.g.,
+  show every cubic's curvature changes sign exactly once; classify all cubics by the
+  discriminant of $f'$ into 0 / 1 / 2 stationary points; prove the trapezium rule
+  error-direction claim for any concave-down quadratic on a given interval; construct a
+  quartic whose second derivative has a unique positive root and argue its extrema
+  structure. Always honest school algebra; never invented machinery; BMO1 tag only when
+  the argument, not the computation, is the whole point.
 
 (viii) Sections. A: 10 items — all-week rapid recognition mixed (notation, one-line
-differentiate, sign reads, trapezium direction, asymptotes). B: ~7–8 MCQ — mixed
+differentiate incl. $f''(a)$, sign reads, trapezium direction, asymptotes). B: ~7–8 MCQ — mixed
 week-set, no new tool, fair difficulty. C: 8 MCQ TMUA/SMC-hard — synthesis reasoning,
-structured distractors (all earlier traps armed). D: proof-heavy; tag (SMC / BMO1
-difficulty) for the proof items only — show-that cubic root counts; construction of
-function with given features; flaw spotting in a sketch argument. Honest tag split:
-MCQ items tagged (TMUA / SMC difficulty); written proof items tagged (SMC / BMO1 difficulty).
+structured distractors (all earlier traps armed). D: proof-heavy; tag split per item —
+MCQ items tagged (TMUA / SMC difficulty); written items tagged (SMC difficulty). **No
+BMO1 tag unless the specific item passes the two-question olympiad test (§4.4)** — in
+that case tag (SMC / BMO1 difficulty) and justify the tag in one line on the sheet.
 
 (ix) Difficulty: highest rigour-per-item of the week; still zero beyond-week content.
 
@@ -812,6 +995,10 @@ families); counterexample factory: name a function with $f'$ everywhere ≥ 0 th
 is fluency; without Day 7, Days 1–6 are a toolbox with no worksite. **Speed
 invariant:** *when stuck, draw it — the curve knows the answer before your algebra does.*
 
+**Spec anchors (Oct 2026 / Jan 2027):** MM6–MM8 strand end-to-end + Section 2 reasoning
+codes (Prf1–Prf5) for the proof items; no beyond-spec content introduced — the day
+only recombines the week.
+
 ---
 
 ## 8. Section protocol (all seven days — constants)
@@ -825,42 +1012,70 @@ invariant:** *when stuck, draw it — the curve knows the answer before your alg
 
 Estimated MCQ share per day (A0 + B7/8 + C8 + D): Days 1–3 ≈ 19–20/day (B=8, D=4 MCQ);
 Day 4–5 ≈ 18–19/day (B≈8, D=3 MCQ); Day 6 ≈ 17–18/day (B=8, D=2 MCQ); Day 7 ≈ 16–17/day
-(B=7, D=1–2 MCQ). Seven-day total ≈ 126–132/231 ≈ **55–57% MCQ**. This is below a
-mechanical "2/3 MCQ" reading (≈ 154/231). The playbook's hard constraint — no
-MCQ may be a softball — plus the requirement that Days 6–7 carry written proof makes a
-strict 2/3 unachievable without diluting either the C section or the proof standard;
-Sequences' locked plan operates at the same effective level. If the user wants a
-nearer 2/3, the only honest levers are B → 9/10 MCQ on Days 1–4 (never on proof days)
-and D4-gated MCQ on Days 4–5 (≈ +6–8 MCQ total ≈ 58–59%). This is flagged in §19.
+(B=7, D=1–2 MCQ). Seven-day total ≈ 126–132/231 ≈ **55–57% MCQ**, and this is a
+*deliberate feature* of the pillar (maintainer decision, v2): **no forced two-thirds
+MCQ ratio**. The playbook's hard constraint — no MCQ may be a softball — plus the
+mandate that Days 4–7 carry meaningful written challenges, makes a mechanical 2/3
+incompatible with mathematical quality. Written items in Days 4–7 are where this
+pillar asks for genuine argument; they are retained at full rigour by design, and the
+MCQ balance is an honest consequence, not a negotiation. The approximate 2/3 figure
+from repo-wide convention is noted and set aside *for this pillar* on the maintainer's
+instruction; every other repo MCQ convention (A never MCQ, B ~7-8, C fully MCQ,
+genuinely hard distractors) is unchanged.
 
 MCQ quality law (every day, every option): each distractor names a real error state:
 converse error, sign misread, off-by-$-1/m$ normal flip, distribution-vs-sum, converse of
 chain rule, missing split at roots, modulus lobe forgetting, stationary-inflection misread,
 trapezium direction. Never random number arithmetic.
 
-Honesty rules for Section D tags (asked by the playbook):
-- Days 1–3 ` (TMUA / SMC difficulty)` — no calculus content beyond Days 1–3 tools.
+Honesty rules for Section D tags (v2, maintainer direction — BMO1 labels restricted to
+genuinely olympiad-character items):
+- Days 1–3 ` (TMUA / SMC difficulty)`.
 - Day 4–5 ` (TMUA / SMC difficulty)` — area/family insight items.
-- Day 6 ` (TMUA / SMC difficulty)` for MCQ, ` (SMC / BMO1 difficulty)` for the written
-  proof/construction items (explicitly tagged per item).
-- Day 7 same split; the D5 capstone proof is always ` (SMC / BMO1 difficulty)`.
-- **No MCQ item is ever tagged BMO1**; no item using differentiation is tagged BMO1.
+- Day 6: MCQ items ` (TMUA / SMC difficulty)`; written items ` (SMC difficulty)`.
+  **No BMO1 tags this day.** (Rational-curves content is hard but not olympiad-character.)
+- Day 7: MCQ items ` (TMUA / SMC difficulty)`; written items ` (SMC difficulty)` by
+  default; the D5 capstone is ` (SMC / BMO1 difficulty)` **only if the specific item
+  passes the two-question olympiad test of §4.4** (would an olympiad coach set it
+  unprompted? / does the solution read as a proof with a clever opening move?), and any
+  BMO1 tag ships with an in-sheet one-line justification for reviewers.
+- **No MCQ item is ever tagged BMO1**; no item using differentiation is tagged BMO1;
+  BMO1 tags are never rubber-stamped as ornamentation and are counted and defended at
+  review (target: at most one BMO1-tagged item in the entire pillar).
 
 ---
 
-## 9. Interleaving strategy (full matrix)
+## 9. Interleaving strategy (full matrix) and prerequisite audit
 
 Rule (playbook §4): from Day N ≥ 2, Days' A/B include 1–2 genuine graded questions
-recycling earlier days *at speed*. The map:
+recycling earlier days *at speed*. **Strict back-referencing only:** interleaving items
+always pull from Days < N; no day item ever uses a technique introduced later in the
+pillar; Day 1 has no interleaving obligations. The dependency spine is
+
+```
+Day 1 (notation, f'') → Day 2 (sign charts, stationary points, trichotomy)
+   → Day 3 (product/chain/quotient, kinks) → Day 4 (areas, FTC, trapezium, ODE)
+   → Day 5 (families, inverses, parameter root counts) → Day 6 (rational curves,
+   substitution, symmetry) → Day 7 (synthesis — nothing new)
+```
+
+with load-bearing skip-links: Day 4 reuses Day 2's sign machinery (difference-function
+areas); Day 5 reuses Day 3's chain rule (transformation derivatives, $f(ax)$ scaling)
+and Day 3's modulus-kink boundary; Day 6 reuses Day 5's family-invariance (asymptotes)
+and Day 4's area machinery (reprise); Day 7 reuses everything. No forward references
+exist anywhere in the pillar — verified by re-reading every bolded technique claim in
+§7 against the day order (this audit, 2026-11-07). Each day's prerequisites:
+Day 2 ← Day 1; Day 3 ← Days 1–2; Day 4 ← Days 1–3; Day 5 ← Days 1–4; Day 6 ← Days 1–5;
+Day 7 ← all six. The map:
 
 | Day | A/B anchor items (graded, reused tools) |
 |---|---|
-| 2 | One A-item: evaluate $f'(2)$ for cubic incl. simplification-first (Day 1); one B-item: tangent equation at a named point (Day 1) |
+| 2 | One A-item: evaluate $f'(2)$ and $f''(2)$ for a cubic incl. simplification-first (Day 1); one B-item: tangent equation at a named point (Day 1) |
 | 3 | One A-item: classify a stationary point from $f''$ sign (Day 2); one B-item: read the tangent slope off a drawn $f$-curve and pick the matching tangent line (Day 1 + Day 2 signs) |
 | 4 | One A-item: differentiate $\sqrt{x^3 - 1}$ at a point (Day 3); one B-item: chain-rule table problem with $f',g'$ entries (Day 3) |
 | 5 | One A-item: $\int_0^1 (3x^2 - 2)dx$ (Day 4); one B-item: accumulate slope question $A'(x)=f(x)$ (Day 4) |
-| 6 | One A-item: how many roots has $f(x) = x^3 - 3x - k$ for large vs small $k$ (Day 5); one B-item: parameter count of stationary points for $f(x) = x^3 - 3kx$ as $k$ varies (Day 5) |
-| 7 | Two A-item: one trapezium-direction (Day 4), one asymptote ratio (Day 6); one B-item: modulus graph roots (Day 5) |
+| 6 | One A-item: how many roots has $f(x) = x^3 - 3x - k$ for large vs small $k$ (Day 5); one B-item: parameter count of stationary points for $f(x) = x^3 - 3kx$ as $k$ varies (Day 5); one B-item: classify the differentiability of a modulus-of-quadratic at a joint (Day 3/Day 5) |
+| 7 | Two A-items: one trapezium-direction (Day 4), one asymptote ratio (Day 6); one A-item: evaluate $f''(1)$ for a given quartic (Day 1); one B-item: modulus graph roots vs horizontal line (Day 5) |
 
 Additionally cross-day reuse is *load-bearing*, not decoration: the Day 4
 "area between two curves" = Day 2 sign machinery on the difference function; Day 5 root
@@ -879,9 +1094,9 @@ pattern appears, e.g. Day 5 C4 ↔ Day 2 B6's technique).
    a one-line topic for the website).
 2. **\SpeedMeta tool list** per day (examples; finalise on drafting): Day 1: derivative,
    tangent, power rule; Day 2: stationary points, sign charts, cubic trichotomy; Day 3:
-   product rule, chain rule, implicit differentiation; Day 4: definite integral, FTC,
-   trapezium rule; Day 5: graph families, inverse functions, root counting; Day 6:
-   asymptotes, partial fractions, areas; Day 7: synthesis, constructions, proof.
+   product rule, chain rule, quotient rule, modulus kinks; Day 4: definite integral,
+   FTC, trapezium rule; Day 5: graph families, inverse functions, root counting; Day 6:
+   asymptotes, substitution, symmetry; Day 7: synthesis, constructions, proof.
 3. **\SpeedHeader** value: `Calculus and Graphs` — consistent with combined slug.
 4. **Honesty labelling**: items requiring beyond-spec tools carry no special mark on
    earlier days (impossible then); Days 3+ may mark a *section intro line* e.g.
@@ -918,8 +1133,8 @@ pattern appears, e.g. Day 5 C4 ↔ Day 2 B6's technique).
 | 3 | EASY | recognise+ | TMUA/SMC | TMUA/SMC (1 written) | ~20% |
 | 4 | EASY | mid | TMUA/SMC-hard | TMUA/SMC (2 written) | ~25% |
 | 5 | EASY | mid | TMUA/SMC-hard | TMUA/SMC→SMC (2 written) | ~25% |
-| 6 | EASY | mid | TMUA/SMC-hard | SMC/BMO1-standards proofs | ~35% |
-| 7 | EASY | mid | TMUA/SMC-hard | SMC/BMO1 capstone proofs | ~45% |
+| 6 | EASY | mid | TMUA/SMC-hard | (SMC difficulty) proofs | ~35% |
+| 7 | EASY | mid | TMUA/SMC-hard | (SMC difficulty) proofs; rare (SMC / BMO1), justified per item (§4.4) | ~45% |
 
 A flat EASY all week is deliberate (recognition training); C/D carry the climb; the
 Proof-written share rises continuously, peaking at Day 7 (highest rigour, zero new
@@ -986,7 +1201,9 @@ claims); reviewers must re-derive any quantitative claim in every investigation
 
 Calculus and Graphs lives or dies by the quality of its figures — unlike any other
 pillar except Geometry, a misdrawn graph here is a *mathematical error*, not an
-unfortunate picture. The standard:
+unfortunate picture. **There is no per-day diagram cap.** Include a figure wherever it
+materially improves a question (see item 6 below); accuracy and visual quality are the
+only constraints, and economy-of-ink never outweighs a needed picture. The standard:
 
 1. **Technology**: `tikzpicture`/`pgfplots` only, via `calculus-and-graphs/cg-preamble.tex`
    input *after* `shared/preamble` and *before* `\SpeedHeader` (pattern from
@@ -1070,7 +1287,7 @@ floor:
 
 | Evidence strand | Status | Where recorded |
 |---|---|---|
-| TMUA public Content Specification (MM6/MM7/MM8 boundaries) | **verified, current (May 2024)** | §4.1; INDEX/NOTES in `research/` |
+| TMUA official Content Specification, assessment Oct 2026 / Jan 2027 (MM6/MM7/MM8 boundaries) | **verified against official URL + mirrors (Oct 2026 sitting); PDF is citation of record** | §3.5, §4.1; INDEX/NOTES in `research/` |
 | MAT retirement & Oxford's MAT legacy scope | verified (official page) | §4.1 |
 | SMC: no calculus (public consensus) | plausible, third-party sources only | §4.1, NOTES |
 | BMO1: no calculus (public consensus) | plausible, third-party sources only | §4.1, NOTES |
@@ -1086,12 +1303,16 @@ archetype tagging could re-weight the arc's integration-vs-graph balance (unoffi
 tabulations flagged in `research/` put MM7 and MM8 among the heaviest TMUA strands, but
 they are third-party and unverified) — the arc already double-books integration
 (Days 4 and 6) accordingly, but this is flagged as prior belief, not verified fact.
+Second-order derivative competency (MM6.1b) is explicitly in-spec, so f″ calculation and
+interpretation are examinable, not aspirational — the arc reflects this (core from
+Day 1 onwards).
 
 ---
 
 ## 17. Interaction with the Annotate Edition (Issue #13) — compatibility notes
 
-The permanent design constraint for this pillar from Day 1 of authoring:
+The permanent, non-optional design constraint for this pillar from Day 1 of
+authoring (Annotate Edition = mandatory publication gate, §17 item 6; §19 item 8 / §20):
 
 1. Architecture (per issue #13's prototype, decided by the user): one source,
    many outputs. `ans0N.tex` ⇒ `sheet0N-ipad.pdf` via `shared/ipad.tex` compiled with
@@ -1103,11 +1324,12 @@ The permanent design constraint for this pillar from Day 1 of authoring:
      heading-level `\Needspace` before every `\section*`.
    - `\method{}` and `\inv{}` ⇒ suppressed entirely.
    - "Top 5 Patterns" and "Common Traps" blocks (the two closing answer sections) ⇒
-     suppressed (issue #13 hides them; decide mechanism — see §19, item 5).
+     suppressed (issue #13 hides them; decide mechanism — see §19, item 3).
    - Per-section spacing via a `\SpeedSection` hook or a redefined `\section*` that
      captures A/B/C/D — not by rewriting sheet files.
-   - No `\SpeedClosing` decision recorded; see §19, item 6.
-3. What this pillar owes Issue #13:
+   - `\SpeedClosing` in the Annotate Edition: still maintainer's call — see §19, item 4
+     (recommend keep: edition identity + contribution URL).
+3. What this pillar owes Issue #13 (mandatory, not aspirational):
    - All diagrams inline and ≤ ~5cm (§14) so question+figure+working-box fits one page.
    - Every question self-contained in its answer source (already required by the repo's
      answer binding — unchanged).
@@ -1118,24 +1340,25 @@ The permanent design constraint for this pillar from Day 1 of authoring:
      it (answer text ≤ ~30 chars wherever possible so it fits the hidden working box).
    - Verified answers: the binding harness already re-derives every `\ans{}`; the
      Annotate Edition inherits correctness for free. Quality assurance (rendered-page
-     inspection, normal + 200% zoom checks, keep-together verification) is a separate
-     engineering pass tracked under issue #13 — out of scope for this planning task,
-     restated here so implementation remembers: **21 PDFs for this pillar from a clean
-     `main`-side build, including the Annotate Edition**.
-4. Naming: the user has decided the output is the **Annotate Edition**; the website
-   label per issue #13's open question should read "Annotate Edition" (not "iPad
-   Edition"); implementation decision belongs at issue #13 time.
+     inspection, normal + 200% zoom checks, keep-together verification) is part of the
+     mandatory publication gate — see §20.
+4. Naming: the maintainer has decided the output is the **Annotate Edition**; the
+   website label per issue #13's open question should read "Annotate Edition" (not
+   "iPad Edition").
 5. Build integration: future `tools/compile_pdfs.sh` must also build `-ipad.pdf`
-   variants; CI (`compile.yml`) must rebuild and diff-check them; `verify.yml` unchanged;
-   `sheets.json` gains `ipad_pdf` per sheet; website gains a third download link styled
-   like the existing two; delivery of all this is issue #13's scope, not this branch.
-6. Sequencing: the Annotate Edition implementation (repo engineering task) and this
-   pillar (maths authoring) are independent tracks; this pillar can be written,
-   verified, and shipped against the current two-edition system without blocking on
-   issue #13, and retrofitted to three editions trivially afterwards (no content change
-   needed) because all 33 questions per sheet already live in the answer files.
-7. Test-Matrix commitment: when issue #13 lands, regenerate the 21 PDFs; do not commit
-   Annotate Editions from ad-hoc local builds; CI is the source of truth for them.
+   variants; CI (`compile.yml`) must rebuild and diff-check them (21 PDFs for this
+   pillar); `verify.yml` unchanged; `sheets.json` gains `ipad_pdf` per sheet; website
+   gains a third download link styled like the existing two; delivery of all this is
+   issue #13's scope, not this branch's.
+6. **Publication gate (mandatory):** the Annotate Edition for all seven days of this
+   pillar — built from the committed answer sources, all 21 PDFs clean and reviewed —
+   is a **blocking requirement** for this pillar going `live`. The repo-wide engineering
+   work is tracked separately under issue #13, but *this pillar may not ship before it*:
+   publication = three editions, full stop. This supersedes any softer sequencing
+   language in earlier drafts.
+7. Test-matrix commitment: when issue #13 lands, regenerate the 21 PDFs from the
+   committed sources; do not commit Annotate Editions from ad-hoc local builds; CI is
+   the source of truth for them.
 
 ---
 
@@ -1144,9 +1367,9 @@ The permanent design constraint for this pillar from Day 1 of authoring:
 1. **Breadth collapse**: early draft listed "everything calculus". Cut hard: §3.4's
    exclusions are the survival list; the pillar's fingerprint is graphs-as-thinking,
    not syllabus-by-weekend.
-2. **Trig creep**: derivatives of sin/cos kept at cameo level (Day 3, Day 7); trig
-   integration banned. Reason: zero SMC evidence and TMUA MM4 integrates only as
-   graphs, not calculus.
+2. **Trig creep**: at most one flagged chain-rule cameo in Day 3 and at most one in
+   Day 7; trig integration banned outright. Reason: zero SMC evidence and TMUA MM4
+   integrates only as graphs, not calculus.
 3. **First principles relapse**: MAT required it; TMUA does not. Banned as graded
    technique; one investigation may mention the limit form in words.
 4. **"BMO1-flavoured calculus" error**: refused categorically (§4.4). BMO1 rigour enters
@@ -1156,9 +1379,11 @@ The permanent design constraint for this pillar from Day 1 of authoring:
    calculus-first only here, AM–GM only in investigations, labelled.
 6. **Partial fractions re-bowl**: used once (Day 6) as a *dependency*; Algebra owns the
    technique; flagged in the boundary table; never re-taught, cross-referenced instead.
-7. **Inflections false confidence**: TMUA expects qualitative understanding but never
-   computes one; this pillar computes them only in \inv{} (Day 2), never as graded core
-   — prevents exam-legal-but-useless drilling.
+7. **Inflections false confidence**: second-order derivatives are core (MM6.1(b)), so
+   f″ calculation and interpretation are examinable and stay in graded items (Day 1
+   evaluate, Day 2 classify); but *locating* stationary inflexions via change of sign of
+   f″, the taxonomy and converses are extension-tier only (§3.3) — TMUA MM6.3 never
+   examines an inflection computation; no graded item may exceed the exam on this point.
 8. **Sign-chart misordering**: roots of $f'$ must be listed in ascending order before
    sign assignment; authors trip constantly — Trap list, and reviewer checklist, both
    carry it.
@@ -1187,93 +1412,133 @@ The permanent design constraint for this pillar from Day 1 of authoring:
 17. **Difficulty-only-in-C drift**: C 100% MCQ forces clever-but-fair question writing;
     B items keep honest one-rule setups; A never sneaks difficulty; D always says the
     *honest* difficulty out loud.
-18. **Annotate Edition blind spot**: until issue #13 lands, this pillar's sheets must
-    not rely on floats/figure environments anywhere; authoring discipline enforces §17 now.
+18. **Annotate Edition blind spot**: the Annotate Edition is a mandatory publication
+    gate for this pillar (§17 item 6), so this pillar's sheets may not ship until it is
+    built and reviewed; meanwhile no floats/figure environments anywhere; authoring
+    discipline enforces §17 from Day 1 of drafting.
+19. **Compression temptation on Days 3 and 6**: the mechanical instinct is to cram more
+    techniques per day; the v2 design instead narrows each day to one concept family
+    ("the three moves" / "walls and holes") — never restore v1's sprawl; if a new tool
+    seems essential mid-drafting, it displaces an archetype, it does not get appended.
+20. **BMO1-as-decoration**: tags creep upward under time pressure; every BMO1 label goes
+    through the two-question test of §4.4 and is counted at review; any BMO1-tagged item
+    using differentiation is removed on sight.
 
 ---
 
 ## 19. Outstanding decisions requiring human approval
 
+**Settled by maintainer direction (v2, 2026-11-07) — recorded here for the ledger (§21):**
+- **Spec edition**: TMUA references now cite the official UAT-UK Content Specification,
+  assessment October 2026 and January 2027, © UAT-UK 2026 (MM6/MM7/MM8 text identical to
+  May 2024; official PDF is citation of record; see §3.5/§4.1).
+- **Second-order derivatives**: calculation AND interpretation moved into core (MM6.1(b));
+  deeper concavity/inflection-location analysis kept extension-tier (§3.3).
+- **Diagram cap removed**: no per-day graph-count limit; diagrams used wherever they
+  materially improve a question; mathematical accuracy and visual quality outrank counts.
+- **Two-thirds MCQ ratio rejected** for this pillar; written challenges in Days 4–7 are
+  retained deliberately (≈55–57% MCQ accepted, §8).
+- **Annotate Edition mandatory**: pre-publication gate for this pillar (§1, §17 item 6,
+  §20); repo-wide engineering remains a separate track (issue #13) but is blocking.
+- **BMO1 label restriction**: (SMC / BMO1 difficulty) only per item passing the
+  two-question olympiad test of §4.4 (never ornament, never on differentiated content,
+  target ≤1 per pillar, justification line per tag).
+- **Day 3 / Day 6 load rebalance** as implemented in §7 (Day 3: product/chain/quotient
+  + kinks + ≤2 cameos, one beyond-spec implicit D-item; Day 6: rational curves + substitution
+  + symmetry, by-parts recognition-only, partial fractions investigation-only).
+- **Every core topic mapped to the current spec** in §3.5; beyond-spec items flagged
+  BEYOND TMUA everywhere they appear.
+- **Prerequisite order and interleaving re-audited** (§9): strictly back-referencing;
+  no forward dependencies; dependency spine Day 1→…→Day 7 with skip-links only backward.
+
+**Decisions still required of you:**
+
 1. **Combined slug & identity**: approve retiring the two draft pillar entries
    (`calculus`, `graphs`) in favour of one `calculus-and-graphs` live pillar
-   (`calculus-and-graphs/` directory; sheets.json, `build_website.py` PILLARS, CI
-   verify matrix, README roadmap, sitemap, archive page updates — all deferred to
+   (`calculus-and-graphs/` directory; sheets.json, `build_website.py` PILLARS, CI verify
+   matrix, README roadmap, sitemap, archive page updates — all deferred to
    implementation; nothing modified now).
-2. **Inventory & sequencing of PDFs**: 21 PDFs (7 × Questions / Worked Solutions /
-   Annotate Edition) for this pillar — approve that the Annotate Edition is a hard
-   ship-blocker for the pillar (i.e., do not publish the pillar before issue #13 lands,
-   or publish three editions together).
-3. **B-day MCQ share** (§8): approve ≈55% overall MCQ (C fixed 8; B ≈ 7) — or direct
-   raising of B to 9/10 on Days 1–4 only (≈59%). Neither reaches a mechanical 2/3 without
-   softballs.
-4. **Section D honesty mapping** (§8): approve per-item tagging split Days 6–7
-   ((TMUA / SMC difficulty) for MCQ items; (SMC / BMO1 difficulty) for proof items),
-   instead of a single sheet-wide tag; playbook traditionally uses one tag per sheet —
-   decide which.
-5. **Annotate Edition suppression scope**: approve that the Annotate Edition suppresses
-   Top 5 Patterns + Common Traps sections entirely (issue #13's hidden list implies it)
-   — and decide the mechanism (a `\answersonly` environment bracketing the two sections
-   in `ansNN.tex`, recognised by `ipad.tex`; zero impact on existing sheets' sources since
-   it would be introduced with the new pillar only).
-6. **SpeedClosing in the Annotate Edition**: keep the branding/CTA footer (recommended —
-   it carries the contribution URL and identifies edition + worksheet) or strip it
-   (issue #13's "only the original question…" reading suggests strip)?
-7. **Worked space exactness**: approve issue #13's measured spaces as canonical
-   (A 3 / B 4.5 / C 6 / D 7 cm) for this pillar, visible through \SpeedMeta tags? No
-   change needed — listed only as a confirmation.
-8. **Corpus citation policy confirmation**: approve zero `(after ...)` tags for the
-   pillar's first full draft pass (until a lawful corpus is available, or user supplies
-   one), noting every citation would otherwise be unverifiable guesswork.
-9. **Trig cameo scope sign-off**: derivatives of sin/cos appear ≤ 2 graded items across
-   the week (Day 3 and Day 7) — confirm acceptable, or strip entirely.
-10. **Day 7 D5 proof difficulty**: confirm the capstone proof may be tagged
-    (SMC / BMO1 difficulty) though no calculus is involved in the argument itself
-    (proof rigour, not content).
-11. **Graph count budget**: approve ≤ ~2 diagrams per day by default (more in Day 7),
-    each ≤ 5cm tall; approve `cg-preamble.tex` pillar graphics file analogous to
-    `geometry-preamble.tex`.
-12. **Pillar publication bar**: confirm the pillar stays `draft` in sheets.json until
-    all 231 verify checks pass plus issue #13 build, human-reviewed, and the user
-    explicitly authorises `live` — same bar as Geometry.
-13. **Branch policy**: work lands on `feature/calculus-and-graphs` only; no direct
-    commits to `main`; PRs opened only after user approval of (a) this plan, (b) any
-    later implementation diff, (c) Annotate Edition builds.
-14. **Name on title block**: confirm author string in `\SpeedTitleBlock` argument 2 is
-    "David Akinyele-Aje" consistent with existing sheets, or supply an alternative for
-    this pillar (CONTRIBUTING.md demands contributor choice).
+2. **Day 6 proof tags**: approve (SMC difficulty) as the default for written items on
+   Day 6 (no BMO1 tags this day) and the per-item two-question-test use of BMO1 on
+   Day 7 only — or require a different rule.
+3. **Annotate Edition suppression mechanism**: approve a bracketed `\answersonly`
+   environment around the two closing sections in `ansNN.tex`, recognised by `ipad.tex`,
+   for this pillar only — or propose the alternative mechanism you prefer.
+4. **SpeedClosing in the Annotate Edition**: keep the branding/CTA footer (recommended —
+   edition identity + contribution URL) or strip it (literal reading of issue #13's
+   "only the original question…" suggests strip)?
+5. **Worked-space constants**: confirm issue #13's measured spaces as canonical for this
+   pillar (A 3cm / B 4.5cm / C 6cm / D 7cm) — expected yes; listed only for the record.
+6. **Corpus citation policy**: approve zero `(after …)` tags for the pillar's first full
+   draft pass (until a lawful corpus is present, or you supply one); every citation
+   would otherwise be unverifiable guesswork.
+7. **Trig cameo scope**: confirm ≤1 flagged cameo in Day 3 and ≤1 in Day 7, or strip
+   trig entirely.
+8. **Publication bar**: confirm the pillar stays `draft` until (a) all 231 verify checks
+   pass, (b) the Annotate Edition is built, reviewed and green for this pillar (21
+   PDFs — mandatory gate), (c) you explicitly authorise `live` — same bar as Geometry,
+   plus the three-edition requirement.
+9. **Branch policy**: work lands on `feature/calculus-and-graphs` only; no commits to
+   `main`; PRs opened only after your explicit approval of this plan, any later
+   implementation diff, and Annotate Edition builds.
+10. **Author string** in `\SpeedTitleBlock` argument 2: confirm "David Akinyele-Aje"
+    (consistent with existing sheets) or supply an alternative (CONTRIBUTING.md demands
+    contributor choice).
+11. **Day 3 D-item approval**: confirm the single beyond-TMUA D-item on implicit
+    differentiation (labelled on sheet and answers) — or strip it to zero beyond-spec
+    graded items this day.
 
 ---
 
 ## 20. Readiness checklist before Day 1 may be drafted
 
-- [ ] Human approval of this PLAN.md (blocking).
+- [ ] Human approval of this revision (blocking).
 - [ ] Decision §19 item 1 recorded (combined pillar slug) — or a different combined name.
-- [ ] Corpus available OR explicit approval of zero-citation drafting (§19 item 8).
-- [ ] If corpus available: §12 re-verification run; INDEX populated; anchors logged.
-- [ ] Decision §19 item 14 recorded (author string).
+- [ ] Decision §19 item 6 recorded (zero-citation policy) — or a corpus is supplied.
+- [ ] If corpus supplied/available: §12 re-verification run; INDEX populated; every
+      citation checked against the original PDF; anchors logged.
+- [ ] Decision §19 item 10 recorded (author string).
 - [ ] `cg-preamble.tex` created with pillar TikZ styles (§14).
 - [ ] `research/` remains untracked/gitignored; no research material committed.
 - [ ] Branch confirmed: only `calculus-and-graphs/` added; nothing else edited; clean tree.
-- [ ] Annotate Edition track (issue #13) scheduled; nothing here depends on it, nothing here blocks it.
+- [ ] Annotate Edition gate scheduled for publication: issue #13 must be built and green
+      (21 PDFs from committed sources) **before** the pillar is tagged `live` (§17
+      item 6, §19 item 8). Drafting v1 of the sheets may proceed in parallel — publication waits.
+- [ ] Re-check the TMUA spec edition for currency **before any sheet is declared
+      complete**; the next UAT-UK revision supersedes §3.5 citations automatically.
 
 ---
 
 ## 21. Decisions taken vs deferred by this plan (quick ledger)
 
-Settled by this plan: combined single pillar; graph-first identity; day structure
-(notation → sign → machinery → area → families → rational → synthesis); TMUA-honest
-core with labelled beyond-spec depth; BMO1 = proof standards only; zero citations by
-default; §14 diagram law; §17 issue-#13 compatibility; Sequences-style interleaving;
-A-section-EASY-all-week; C-100% MCQ; D proof-share rising 15→45%.
+Settled by maintainer direction (v2): unified `calculus-and-graphs` identity (§1);
+graph-first identity (§6); day structure (notation → sign → one-machinery → areas →
+families → rational curves → synthesis); TMUA-honest core with labelled beyond-spec
+depth (§3.2, §3.5); TMUA references to the assessment Oct 2026 / Jan 2027 specification
+(§3.5, §4.1); second-order derivatives in core (§3.1, Days 1–2); deeper inflection
+analysis extension-tier (§3.3); BMO1 = proof standards only, two-question test (§4.4);
+zero citations by default (§4.5, §19 item 6); diagram cap removed (§14 unchanged quality
+law, count-free placement); two-thirds MCQ explicitly rejected; ≈55–57% MCQ retained
+deliberately (§8); Day 3 one-machinery rebalance (§7 Day 3); Day 6 walls-and-holes +
+substitution rebalance (§7 Day 6); Annotate Edition mandatory publication gate (§1,
+§17 item 6, §20); Sequences-style strictly-back-referencing interleaving (§9);
+per-day spec-anchor lines (§7); pitfalls 19–20 (§18).
 
-Deferred to the user (see §19): slug unification, PDF bar (block vs retrofit), MCQ
-share tolerance, D-tag mechanics per sheet vs per item, Annotate-suppression mechanism,
-SpeedClosing fate, trig cameos, capstone proof tagging, graph budget, publication bar,
-author string, explicit corpus status.
+Settled by this plan (v1, carried): combined single pillar; A-section EASY-all-week;
+C-100% MCQ; D proof-share rising 15→45%; §14 diagram accuracy law; §16 honest evidence
+labelling; binding-friendly answer design (§10 item 8).
+
+Deferred to the maintainer (see §19): slug unification sign-off (item 1), Day 6/7 proof-
+tag rule (item 2), Annotate suppression mechanism (item 3), SpeedClosing disposition
+(item 4), worked-space confirmation (item 5), corpus citation policy (item 6), trig
+cameo confirmation (item 7), publication bar (item 8), branch policy (item 9), author
+string (item 10), Day 3 implicit D-item (item 11).
 
 Explicitly out of scope (this task): writing sheets, writing answers, verification
 scripts, PDFs, shared/ipad.tex, website, CI, any other pillar, any edit to
 PILLAR-PLAYBOOK.md (proposed rows only, §5).
+
+---
 
 ---
 
