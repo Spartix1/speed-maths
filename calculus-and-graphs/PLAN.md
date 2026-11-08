@@ -1,6 +1,6 @@
 # Calculus and Graphs Pillar — Mathematical Plan & Blueprint
 
-Status as of 2026-11-07 (revision 2.3, after maintainer review — see "Revision history" below):
+Status as of 2026-11-08 (revision 2.4, after maintainer review — plan freeze; see "Revision history" below):
 branch `feature/calculus-and-graphs` created off latest `origin/main` (HEAD `76f36dc`).
 **This file is a plan only. It contains no questions, no worked solutions, no LaTeX,
 no PDFs.** It exists to be the definitive blueprint for the pillar; another agent with
@@ -9,6 +9,18 @@ no access to the conversation that produced this file should be able to start wr
 
 **Revision history**
 - **v1 (2026-11-07 morning)** — initial blueprint.
+- **v2.4 (2026-11-08, FROZEN) — final mathematical specification corrections and plan freeze.**
+  (A) Graphical reading of $f(ax)$ is unambiguous IN SPEC (MM8.2: stretch/compression/reflection,
+  effects on roots/intersections/turning-point $x$-positions, e.g. turning point $t \mapsto t/a$);
+  derivative scaling under $y=f(ax)$ is **Investigate Further / extension-tier only**, never graded,
+  and never a prerequisite for a graded question. "Transformation calculus" wording removed — now
+  "graphical transformations and their effects on roots, intersections and turning-point positions".
+  (B) Second derivatives remain **core** (MM6.1(b)–(c)); the *second derivative test* is recorded as
+  a valid core technique for applying the specified content — not a separately named UAT-UK requirement;
+  it is inconclusive at $f''(a)=0$, and the **first derivative sign test** is the declared
+  alternative classification method throughout. The 2026/27 specification (MM6.1, MM6.3) is cited as
+  the citation of record. Plan **frozen** pending maintainer ratification; no decisions settled on the
+  maintainer's behalf (author credit and all remaining §19 items remain open).
 - **v2.3 (2026-11-07, specification-consistency patch)** — (A) derivative-scaling analysis
   under $y=f(ax)$ moved to Investigate Further/extension-tier everywhere; never graded,
   never a prerequisite; Day 5 keeps the single graded transcendental root-counting exception
@@ -164,11 +176,17 @@ fractional-power and root expressions after simplification; notation
 rate-of-change reading.
 **Second-order derivatives (MM6.1b), calculation AND interpretation — CORE:**
 differentiating twice, evaluating $f''(a)$; reading $f''$ as the rate of change of the
-gradient; the second derivative test for classifying stationary points (max/min);
-the sign of $f''$ as the concavity verdict ("holds water vs sheds water" qualitative
-reading — in line with MM6.1b + MM6.3's expectation of qualitative inflexion
-understanding on simple polynomial curves). Notation fluency only for $f''$ — no
-inflection *location* algorithm is demanded (that is extension, see §3.3).
+gradient; the sign of $f''$ as the concavity verdict ("holds water vs sheds water"
+qualitative reading — in line with MM6.1b + MM6.3's expectation of qualitative
+inflexion understanding on simple polynomial curves). The sign analysis of $f'$ and
+$f''$ directly supports classifying stationary points as maxima/minima (MM6.3): the
+**second derivative test** is a useful, valid technique for this — a method for the
+specified content, not a separate requirement named by UAT-UK; it is **inconclusive
+when $f''(a) = 0$**, so the **first derivative sign test** must remain available as an
+equivalent classification method, and every inconclusive case is resolved by it (or
+acknowledged as a stationary inflection, which the exam never asks to be located —
+extension tier, see §3.3). Notation fluency only for $f''$ — no inflection *location*
+algorithm is demanded.
 Tangents and normals; stationary points (max/min); increasing/decreasing on intervals.
 Integration: definite integral as (signed) area; FTC in both forms; range additivity;
 trapezium rule + error direction; $\int x^n\,dx$, $n\neq-1$; $\mathrm{d}y/\mathrm{d}x = f(x)$
@@ -188,6 +206,9 @@ January 2027** (see §3.5) and is labelled as such wherever it appears:
   beyond TMUA); **trigonometric differentiation does not appear anywhere in graded items**
   (trig, MM4, enters via graph shapes as pictures only; no trig-integration).
 - Differentiation under constructed roots (e.g. $\sqrt{u}$ chains).
+- Derivative scaling under $y = f(ax)$ (derive and apply $\mathrm{d}\,y/\mathrm{d}x = a f'(ax)$) —
+  **not** a graded beyond-spec item: extension tier (§3.3), never examined or graded in
+  this pillar; it does not encroach on Day 3's differentiation toolkit.
 - **Differentiability analysis at a modulus kink or corner** — including one-sided
   gradients, showing a $|f(x)|$-type curve fails to be differentiable at the kink, and
   any gradient read through the fold. This is *not* "reading a modulus graph"
@@ -209,6 +230,12 @@ January 2027** (see §3.5) and is labelled as such wherever it appears:
   FTC's useful face, MM7.3b in disguise).
 
 ### 3.3 Extension syllabus (Investigate Further / D-depth; explicitly not routine)
+- **Derivative scaling under $y=f(ax)$** — deriving $\mathrm{d}\,y/\mathrm{d}x = a f'(ax)$
+  from chain rule, reading how the $f'$-graph transforms under the same horizontal
+  scaling, and consequences for turning-point positions. **Investigate Further only;
+  never a graded item, never a prerequisite of any graded question.** (The plain
+  graphical transformation — $y=f(ax)$ and its effects on roots, intersections and
+  turning-point $x$-positions — is MM8.2 IN SPEC core, see §3.1 and Day 5.)
 - **Implicit differentiation** — Investigate Further pointer only (MAT legacy): gradient
   of a simple non-conic implicit curve at a named point; gradient comparisons at
   mirrored points of implicit even curves. No graded items, no ab initio teaching,
@@ -273,7 +300,7 @@ Anything not in this table is beyond spec and must be labelled "beyond TMUA" on 
 | Derivative as gradient of tangent; rate-of-change reading | MM6.1 | IN SPEC |
 | **Second-order derivatives — calculation** | MM6.1(b) | IN SPEC |
 | **Second-order derivatives — interpretation** (notation MM6.1(c); $f''$ as rate of change of slope; concavity verdict) | MM6.1(b)–(c) + MM6.3 expected understanding | IN SPEC |
-| Stationary points, classified via second derivative test (max/min only — exam never asks for inflexion computation) | MM6.1(b) applied via MM6.3 | IN SPEC (interpretation) |
+| Stationary points — maxima/minima only (inflexions excluded), classified by *a* valid technique; the second derivative test (or the first derivative sign test) applied to the specified differentiation content; the test is a **method**, not a separately named UAT-UK requirement; inconclusive at $f''(a)=0$ | MM6.3 applied via MM6.1(b)–(c) | IN SPEC (content; technique choice is ours) |
 | Differentiation of $x^n$, rational $n$, sums and differences; simplification first | MM6.2 | IN SPEC |
 | Differentiation of expressions reducible to $x^n$ (e.g. $(x+1)^2$, $1/x^{2/3}$ after manipulation) | MM6.2 | IN SPEC |
 | Differentiation from first principles | MM6.1 exclusion | EXCLUDED from spec |
@@ -289,7 +316,7 @@ Anything not in this table is beyond spec and must be labelled "beyond TMUA" on 
 | Differential equations of the form $\mathrm{d}y/\mathrm{d}x = f(x)$ only | MM7.6 | IN SPEC |
 | Areas under and between polynomial curves (polynomial difference function; split at roots) | MM7.1 + MM7.4 | IN SPEC |
 | Sketching and interpreting modulus functions — the shape, its transformations, recognising kinks/corners (no gradient analysis at the kink) | MM8.1 | IN SPEC (graph reading, not calculus) |
-| Transformations $y = af(x)$, $y = f(x)+a$, $y = f(x+a)$, $y = f(ax)$, $a$ positive or negative; compositions — *graphical reading and sketch-level work* | MM8.2 | IN SPEC |
+| Transformations $y = af(x)$, $y = f(x)+a$, $y = f(x+a)$, $y = f(ax)$, $a$ positive or negative; compositions — **graphical reading and sketch-level consequences only** (effects on roots, intersections, turning-point $x$-positions; no differentiation) | MM8.2 | IN SPEC |
 | Derivative-scaling analysis under $y=f(ax)$ (i.e. $y' = a f'(ax)$ and consequences) | BEYOND TMUA | NOT MM8.2; see beyond-spec table |
 | Notation $f(g(x))$; using transformation notation on compositions | MM8.2 | IN SPEC |
 | Lines $y = mx+c$; quadratics $y = a(x+b)^2+c$ — effects of $m,c$ / $a,b,c$ | MM8.3, MM8.4 | IN SPEC |
@@ -309,7 +336,7 @@ Anything not in this table is beyond spec and must be labelled "beyond TMUA" on 
 | Implicit differentiation | BEYOND TMUA | MAT legacy; investigation tier only (§3.3); no graded item in this pillar |
 | Inverse-function reciprocal gradients / $f^{-1}$ geometry as *gradient fact* | BEYOND TMUA | MAT legacy; investigation tier only (§3.3); no graded item |
 | Differentiability analysis at modulus kinks/corners (one-sided gradients; $\lvert f(x)\rvert$ non-differentiability; joint slope matching through $\pm$ branches) | BEYOND TMUA | MM6.2 requires $x^n$-only differentiation; modulus calculus is not examinable. Reading/sketching modulus graphs is MM8.1 IN SPEC — the BEYOND label applies **only** when the question requires gradient analysis at the kink; every such item labelled |
-| Derivative/gradient analysis under $f(ax)$ — the $a\,f'(ax)$ scaling, effects on turning-point $x$-positions and on $f'$ graphs | BEYOND TMUA | MM8.2 covers the *graphical transformation* $y=f(ax)$ (IN SPEC, see core table); the derivative-scaling fact itself needs chain rule (§3.2) and is not examinable. Ordinary transformation *sketching* of $f(ax)$ is always MM8.2 IN SPEC |
+| Derivative/gradient analysis under $f(ax)$ — deriving and applying $a\,f'(ax)$; reading how the $f'$-graph transforms under the same horizontal scaling | BEYOND TMUA — **and in this pillar kept investigation-tier (§3.3); never a graded item** | MM8.2 covers the *graphical transformation* $y=f(ax)$ (IN SPEC, see core table); the derivative-scaling fact itself needs chain rule (§3.2) and is not examinable. Ordinary transformation *sketching* — and turning-point $x$-positions read graphically — are always MM8.2 IN SPEC |
 | Integration by substitution (chain-rule mirror) | BEYOND TMUA | MM7.2 covers only $x^n$ |
 | Reverse-product / integration-by-parts recognition (one light form) | BEYOND TMUA | Not in spec |
 | Rational-function asymptote computation: holes (factor cancellation), horizontal ratio (by leading coefficients), oblique/slant asymptote (polynomial division) | BEYOND TMUA | MM8.1/8.5 cover shape-reading, not division or cancellation; TMUA does not demand polynomial division of rational functions |
@@ -573,12 +600,14 @@ MM6.2; MM6.3 (tangents, normals); MM8.4. No beyond-spec items this day.
 ### Day 2 — Monotonicity and Stationary Points: Sign Charts and the Shape of a Cubic
 
 (i) Theme: Turning derivative information — first and second — into picture facts and
-picture facts into algebra — sign charts, max/min via the second derivative test,
-cubic trichotomy, double root ⇔ tangency.
+picture facts into algebra — sign charts, max/min (second derivative test), first
+derivative sign test, cubic trichotomy, double root ⇔ tangency.
 
-(ii) Objectives: locate and classify stationary points — **second derivative test as
-core**, gradient test as backup; build sign charts; read $f''$ as the concavity verdict
-(holds water vs sheds water); prove/decide a function is increasing on an interval;
+(ii) Objectives: locate and classify stationary points — **both core techniques available**:
+the second derivative test (a valid technique, *not* separately named by UAT-UK) and the
+first derivative sign test (the fallback, and the resolution for the inconclusive
+$f''(a)=0$ case); read $f''$ as the concavity verdict
+(holds water vs sheds water); build sign charts; prove/decide a function is increasing on an interval;
 determine number of real roots of a cubic from turning-point values; recognise double
 root ⇔ tangent-to-axis ⇔ common root of $f, f'$; perform graph-based in/decreasing
 reasoning on non-formula curves.
@@ -586,7 +615,9 @@ reasoning on non-formula curves.
 (iii) Prereqs: Day 1 (notation, tangents, power rule); factor theorem; quadratics'
 discriminant.
 
-(iv) Techniques: sign chart construction; $f''$ test; discriminant of $f'$ (the
+(iv) Techniques: sign chart construction; the second derivative test (noting the inconclusive
+$f''(a)=0$ case — the first derivative sign test resolves it; either method is legitimate —
+pick the faster one); first derivative sign test; discriminant of $f'$ (the
 "$f'$ is a quadratic — how many times does it vanish?" move); comparing $f$ at turning
 points with zero (trichotomy); double-root detection via $\gcd(f,f')$-style comparison;
 rate-of-change comparison (rates increasing⇔ speeding up).
@@ -625,7 +656,9 @@ question where intersection multiplicity is asked.
 no computation grind.
 
 (x) Common traps: $f'(c)=0$ ⇒ extremum (false — stationary inflection); sign chart
-jump across roots (roots must be ordered); $f''<0$ everywhere misread as "decreasing";
+jump across roots (roots must be ordered); $f''(a)=0$ misread as "the test fails / is impossible" —
+it is *inconclusive*, not impossible: resolve with the first derivative sign test (or the point is
+a stationary inflection — never asked to be located); $f''<0$ everywhere misread as "decreasing";
 double root assumed at every tangency (it is) but sufficient care with odd multiplicity;
 cubic real roots always come in ≤3 but sign chart misorders if leading coefficient negative.
 
@@ -641,9 +674,11 @@ there's a flat spot); tangent construction through two exterior points on cubics
 later day. **Speed invariant:** *turning points of a cubic are the roots of a quadratic —
 do the quadratic immediately; the graph's fate is decided by two numbers' signs.*
 
-**Spec anchors (Oct 2026 / Jan 2027):** MM6.1(b)–(c) (second derivative, test-based
-classification); MM6.3 (SP max/min, increasing/decreasing); MM8.5; MM8.6. No beyond-spec
-items this day.
+**Spec anchors (Oct 2026 / Jan 2027):** MM6.1(b)–(c) (second derivatives: calculation
+and interpretation; the second derivative test is a valid technique to apply them, not a
+separately named UAT-UK requirement — the first derivative sign test is the declared
+alternative); MM6.3 (SP max/min, increasing/decreasing; inflexions excluded); MM8.5; MM8.6.
+No beyond-spec items this day.
 
 ### Day 3 — Three Moves, One Machinery: The Product, the Chain and the Quotient
 
@@ -826,10 +861,12 @@ intersections with graphical inequalities — the spine is transformations, not 
 but they live in investigations, not this day's graded items.)
 
 (ii) Objectives: read off effects of $y\mapsto f(ax),\ a f(x),\ f(x)+b,\ f(x-c)$ on
-turning points and asymptotes — graphical consequences only (turning-point $x$-positions,
-root counts, intersection shifts); the plain $y = f(ax)$ transformation itself is MM8.2
-in-spec; the *derivative-scaling* analysis ($y' = a f'(ax)$) is **Investigate Further
-(extension tier) only (§3.3)**, never a graded item on this day;
+turning points and asymptotes — graphical consequences only (turning-point $x$-positions —
+e.g. a turning point at $x = t$ maps to $x = t/a$ on $y = f(ax)$ — root counts, intersection shifts);
+interpreting these directly from a graph or transformation rule, never by differentiating;
+the plain $y = f(ax)$ transformation itself is MM8.2 in-spec; the *derivative-scaling*
+analysis ($y' = a f'(ax)$) is **Investigate Further (extension tier) only (§3.3)**, never
+a graded item on this day or any day;
 count real roots as a parameter moves (double-root / discriminant-of-$f'$ argument);
 **exactly one** graded beyond-spec transcendental C-type item ($e^x = x+k$), flagged —
 Day 5 contains the pillar's only graded **transcendental root-counting** exception.
@@ -840,9 +877,13 @@ via discriminant of the quadratic difference function.
 
 (iii) Prereqs: Days 1–4.
 
-(iv) Techniques: transformation calculus (differentiate scaled composites — note the
-split: $y = f(ax)$ *sketching/reading* is MM8.2 in-spec; the chain-derived gradient
-$y' = a f'(ax)$ is **BEYOND TMUA, Investigation-tier only (§3.3), never a graded item**);
+(iv) Techniques: **graphical transformations and their effects on roots, intersections
+and turning-point positions** ($y = f(ax)$: horizontal scaling by factor $|1/a|$ about the
+y-axis, including reflection for $a<0$; a turning point at $x = t$ maps to $x = t/a$;
+$y = af(x)$ vertical scaling; shifts), read from the graph or rule;
+**no differentiation of scaled composites anywhere in graded techniques** — the
+chain-derived gradient $y' = a f'(ax)$ remains **Investigate Further (§3.3, extension tier)
+only, never a graded item**;
 discriminant-of-$f'$ tracking as the parameter moves; double-tangency
 via the discriminant of the quadratic difference function; modulus reading at sketch level
 ($|x^2-4|$ shape, roots at $\pm2$, one peak at $x=0$ — fold machinery stays investigation-tier);
@@ -891,8 +932,9 @@ modulus-fold analysis in graded items — those are investigations.)
 (ix) Difficulty: deliberately *idea*-dense but computation-light; D tag honest. Sign rule:
 only concepts needed, never computation.
 
-(x) Common traps: shift/stretch mix-up for $f(ax)$ (it's $1/a$ not $a$); derivative of
-$f(ax)$ remembered as $f'(ax)$; modulus zero-points forgotten as differentiability
+(x) Common traps: shift/stretch mix-up for $f(ax)$ (it's $1/a$ not $a$ for the stretch
+factor; reflection sign for $a<0$); the "$f'(ax)$-only" scaling claim is an
+Investigation-tier misconception (§3.3) — never raised in Section A–D; modulus zero-points forgotten as differentiability
 failures; wrong double-root discriminant sign; treating $f(x)+c$ as moving turning
 *positions* (they move vertically only); lines compared to cubics without discussing the
 difference-cubic's discriminant.
@@ -919,7 +961,9 @@ appear and disappear exactly when a horizontal line sweeps past a turning point.
 
 **Spec anchors (Oct 2026 / Jan 2027):** MM8.1–MM8.7 (the MM8 strand — the in-spec
 spine, including plain $f(ax)$, $af(x)$, $f(x)+b$, $f(x-c)$ transformations and their
-graphical consequences); MM6.2 (base toolkit). **BEYOND TMUA (labelled):** the
+*graphical* consequences — horizontal stretch/compression, reflection, effects on roots,
+intersections, turning-point $x$-positions, e.g. turning point $t \mapsto t/a$); MM6.2
+(base toolkit). **BEYOND TMUA (labelled):** the
 $e^x = x+k$ transcendental item is the **only graded C-type exception** in the week
 (and the pillar's only graded transcendental root-counting exception); **all**
 derivative-scaling analysis under $y=f(ax)$ ($y' = a f'(ax)$) is **Investigation-tier only
@@ -1278,7 +1322,8 @@ reflexes.
 
 **Spec position per day (Oct 2026 / Jan 2027; see §3.5 for full mapping):**
 Day 1 — fully in-spec (MM6.1–6.3, MM8.4). Day 2 — fully in-spec (MM6.1(b)/(c),
-MM6.3, MM8.5–8.6). Day 3 — MM6.2 alone is examinable; product/quotient/chain, cameos and
+MM6.3, MM8.5–8.6); the available classification techniques are the second derivative
+test and the first derivative sign test — a core toolkit, not named spec requirements. Day 3 — MM6.2 alone is examinable; product/quotient/chain, cameos and
 kink-gradient analysis are **BEYOND TMUA** (labelled). Day 4 — fully in-spec (MM7.1–7.6,
 MM8.6–8.7). Day 5 — the in-spec spine is MM8.1–8.7 (transformations, root counts); the
 **one** graded transcendental C-type item ($e^x=x+k$) is **BEYOND TMUA** (labelled;
@@ -1487,7 +1532,9 @@ they are third-party and unverified) — the arc already double-books integratio
 (Days 4 and 6) accordingly, but this is flagged as prior belief, not verified fact.
 Second-order derivative competency (MM6.1b) is explicitly in-spec, so f″ calculation and
 interpretation are examinable, not aspirational — the arc reflects this (core from
-Day 1 onwards).
+Day 1 onwards). The second derivative test itself is a method, not a named UAT-UK
+requirement — the classic inconclusive case $f''(a)=0$ is resolved by the first derivative
+sign test in this pillar.
 
 ---
 
@@ -1565,9 +1612,12 @@ authoring (Annotate Edition = mandatory publication gate, §17 item 6; §19 item
    technique; flagged in the boundary table; never re-taught, cross-referenced instead.
 7. **Inflections false confidence**: second-order derivatives are core (MM6.1(b)), so
    f″ calculation and interpretation are examinable and stay in graded items (Day 1
-   evaluate, Day 2 classify); but *locating* stationary inflexions via change of sign of
-   f″, the taxonomy and converses are extension-tier only (§3.3) — TMUA MM6.3 never
-   examines an inflection computation; no graded item may exceed the exam on this point.
+   evaluate, Day 2 classify); the second derivative test is *any* classification technique
+   in service of the specified content — not a named UAT-UK requirement; at $f''(a)=0$
+   it is inconclusive only, and the first derivative sign test settles it (or the point
+   is a stationary inflection — never to be located, extension tier). *Locating*
+   stationary inflexions remains extension-tier only (§3.3); TMUA MM6.3 never examines
+   an inflection computation; no graded item may exceed the exam on this point.
 8. **Sign-chart misordering**: roots of $f'$ must be listed in ascending order before
    sign assignment; authors trip constantly — Trap list, and reviewer checklist, both
    carry it.
@@ -1630,7 +1680,10 @@ authoring (Annotate Edition = mandatory publication gate, §17 item 6; §19 item
 
 ## 19. Outstanding decisions requiring human approval
 
-**Settled by maintainer direction (v2 + v2.1 + v2.2 + v2.3, 2026-11-07) — recorded here for the ledger (§21):**
+**Settled by maintainer direction (v2 + v2.1 + v2.2 + v2.3 + v2.4, 2026-11-08) — recorded here for the ledger (§21):**
+- **Plan freeze (v2.4)**: adjustments (A) graphical-only $f(ax)$ core + investigation-tier derivative
+  scaling; (B) second derivative test = valid core technique, not named UAT-UK requirement; first
+  derivative sign test explicitly retained; inconclusive at $f''(a)=0$.
 - **Spec ledger (v2.2/v2.3) — every beyond-spec item accounted for:** modulus-kink *gradient analysis* =
   BEYOND TMUA; sketching/reading a modulus graph = MM8.1 IN SPEC; $f(ax)$ graphical
   transformation = MM8.2 IN SPEC; $f(ax)$ derivative-scaling = BEYOND TMUA,
@@ -1727,6 +1780,16 @@ authoring (Annotate Edition = mandatory publication gate, §17 item 6; §19 item
 
 ## 21. Decisions taken vs deferred by this plan (quick ledger)
 
+Settled by maintainer direction (v2.4, final specification corrections and plan **freeze**):
+f(ax) graphical reading made unambiguously IN SPEC (effects on roots, intersections,
+turning-point $x$-positions — $t \mapsto t/a$); derivative scaling under $y=f(ax)$ moved to
+Investigate Further/extension-tier everywhere and never graded; "transformation calculus"
+wording eliminated; second derivatives stay CORE (MM6.1(b)–(c)); the second derivative
+test is recorded as a valid core technique for the specified content — not a separately
+named UAT-UK requirement; inconclusive at $f''(a)=0$; the first derivative sign test is the
+declared equivalent and remains available everywhere (Day 2 techniques, traps, anchors);
+§16 honest-evidence line updated; no existing decision reopened. **Plan frozen.**
+
 Settled by maintainer direction (v2.3, specification-consistency patch): derivative-scaling
 under $y=f(ax)$ is **investigation-tier only, never graded** — all $y'=af'(ax)$ occurrences
 re-labelled, including the one graded archetype that previously exercised it; plain
@@ -1796,5 +1859,5 @@ PILLAR-PLAYBOOK.md (proposed rows only, §5).
 
 ---
 
-*End of plan. This document is the mathematical blueprint for the Calculus and Graphs
-pillar. Ratification (§19/§20) precedes all drafting.*
+*End of plan — FROZEN (v2.4). This document is the agreed mathematical blueprint for the
+Calculus and Graphs pillar. Ratification (§19/§20) precedes all drafting.*
