@@ -1,6 +1,6 @@
 # Calculus and Graphs Pillar — Mathematical Plan & Blueprint
 
-Status as of 2026-11-08 (revision 2.4, after maintainer review — plan freeze; see "Revision history" below):
+Status as of 2026-11-08 (revision 2.5, after maintainer review — planning-phase closure; see "Revision history" below):
 branch `feature/calculus-and-graphs` created off latest `origin/main` (HEAD `76f36dc`).
 **This file is a plan only. It contains no questions, no worked solutions, no LaTeX,
 no PDFs.** It exists to be the definitive blueprint for the pillar; another agent with
@@ -9,6 +9,16 @@ no access to the conversation that produced this file should be able to start wr
 
 **Revision history**
 - **v1 (2026-11-07 morning)** — initial blueprint.
+- **v2.5 (2026-11-08, FINAL) — final numerical reconciliation and planning-phase closure.**
+  v2.4's mathematical specification is frozen and remains in force. v2.5 performs only a
+  numerical audit and its report: the MCQ distribution is now stated as exact arithmetic
+  (§8 table) — 127 MCQs / 231 = 55.0% MCQ / 45.0% written; the per-section-per-day format
+  is pinned to Section A 0 MCQ, B 7 MCQ ×10 ×7 days, C 8 MCQ ×8 ×7 days, D as tabulated
+  (Days 1–3: 4 MCQ + 1 written; Days 4–5: 3 MCQ + 2 written; Day 6: 2 MCQ + 3 written;
+  Day 7: 2 MCQ + 3 written); §11 table replaced with the exact distribution; §19/§21
+  ledgers updated to the exact figures; stale indicative percentages removed. Planning
+  phase complete; document awaits explicit maintainer ratification (§19/§20); **no
+  implementation is authorised until then**.
 - **v2.4 (2026-11-08, FROZEN) — final mathematical specification corrections and plan freeze.**
   (A) Graphical reading of $f(ax)$ is unambiguous IN SPEC (MM8.2: stretch/compression/reflection,
   effects on roots/intersections/turning-point $x$-positions, e.g. turning point $t \mapsto t/a$);
@@ -1172,18 +1182,37 @@ only recombines the week.
 | C — Substitution & Structure | the week's new tool | 8 | 10:00 | 100% MCQ (A–E options) |
 | D — Challenge | insight ramp | 5 | 15:00 | Days 1–3 MCQ-leaning (≤1 written); Day 4 ~3 MCQ/2 written; Day 5 ~3/2; Day 6 ~2/3; Day 7 ~1–2/3–4 |
 
-Estimated MCQ share per day (A0 + B7/8 + C8 + D): Days 1–3 ≈ 19–20/day (B=8, D=4 MCQ);
-Day 4–5 ≈ 18–19/day (B≈8, D=3 MCQ); Day 6 ≈ 17–18/day (B=8, D=2 MCQ); Day 7 ≈ 16–17/day
-(B=7, D=1–2 MCQ). Seven-day total ≈ 126–132/231 ≈ **55–57% MCQ**, and this is a
-*deliberate feature* of the pillar (maintainer decision, v2): **no forced two-thirds
-MCQ ratio**. The playbook's hard constraint — no MCQ may be a softball — plus the
-mandate that Days 4–7 carry meaningful written challenges, makes a mechanical 2/3
-incompatible with mathematical quality. Written items in Days 4–7 are where this
-pillar asks for genuine argument; they are retained at full rigour by design, and the
-MCQ balance is an honest consequence, not a negotiation. The approximate 2/3 figure
-from repo-wide convention is noted and set aside *for this pillar* on the maintainer's
-instruction; every other repo MCQ convention (A never MCQ, B ~7-8, C fully MCQ,
-genuinely hard distractors) is unchanged.
+**MCQ distribution — exact arithmetic (this paragraph is the authoritative computation; everything else in the plan reads from it).**
+
+| Day | A MCQ | B MCQ | C MCQ | D MCQ | Total MCQ | Written | MCQ % | Written % |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 0 | 7 | 8 | 4 | 19 | 14 | 57.6 | 42.4 |
+| 2 | 0 | 7 | 8 | 4 | 19 | 14 | 57.6 | 42.4 |
+| 3 | 0 | 7 | 8 | 4 | 19 | 14 | 57.6 | 42.4 |
+| 4 | 0 | 7 | 8 | 3 | 18 | 15 | 54.5 | 45.5 |
+| 5 | 0 | 7 | 8 | 3 | 18 | 15 | 54.5 | 45.5 |
+| 6 | 0 | 7 | 8 | 2 | 17 | 16 | 51.5 | 48.5 |
+| 7 | 0 | 7 | 8 | 2 | 17 | 16 | 51.5 | 48.5 |
+| **Total** | **0** | **49** | **56** | **22** | **127** | **104** | **55.0** | **45.0** |
+
+Checks: 231 = 7 × 33 ✓; per day $19+14 = 18+15 = 17+16 = 33$ ✓; overall $127 + 104 = 231$ ✓; $127/231 = 54.97\% ≈$ **55.0% MCQ**, $104/231 = 45.02\% ≈$ **45.0% written**.
+
+Reading of the format table above, carried through exactly: Section A is 100% non-MCQ;
+Section B is 7 MCQ of 10 each day (the literal lower reading of "~7/10 MCQ" chosen for
+uniformity — no format distribution is invented that is not implied by the table);
+Section C is 100% MCQ (56 MCQs); Section D splits as stated in the table: Days 1–3 = 4 MCQ
++ 1 written (MCQ-leaning, ≤1 written ✓); Days 4 and 5 = 3 MCQ + 2 written ("~3/2" ✓); Day 6
+= 2 MCQ + 3 written ("~2/3" ✓); Day 7 = 2 MCQ + 3 written (upper half of "1–2 MCQ / 3–4
+written" ✓). Nothing outside these splits is claimed.
+
+This is a *deliberate feature* of the pillar (maintainer decision): **no forced
+two-thirds MCQ ratio**. The playbook's hard constraint — no MCQ may be a softball — plus
+the mandate that Days 4–7 carry meaningful written challenges, makes a mechanical 2/3
+incompatible with mathematical quality. Written items in Days 4–7 retain full rigour by
+design; Day 6 and Day 7 are written-leaning by construction, not by accident. The
+approximate 2/3 figure from repo-wide convention is noted and set aside *for this pillar*
+on the maintainer's instruction; every other repo MCQ convention (A never MCQ, B ~7,
+C fully MCQ, genuinely hard distractors) is unchanged.
 
 **Beyond-spec items per day (for reviewer visibility; every one labelled on-sheet):**
 Day 1 — none (fully in-spec). Day 2 — none. Day 3 — product/quotient/chain,
@@ -1305,20 +1334,21 @@ pattern appears, e.g. Day 5 C4 ↔ Day 2 B6's technique).
 
 ## 11. Difficulty curve across the seven days
 
-| Day | A | B | C | D | Written share of 33 items |
-|---|---|---|---|---|---|
-| 1 | EASY | recognise+ | TMUA/SMC | TMUA/SMC (≤1 written) | ~15% |
-| 2 | EASY | recognise+ | TMUA/SMC | TMUA/SMC (≤1 written) | ~15% |
-| 3 | EASY | recognise+ | TMUA/SMC | TMUA/SMC (1 written) | ~20% |
-| 4 | EASY | mid | TMUA/SMC-hard | TMUA/SMC (2 written) | ~25% |
-| 5 | EASY | mid | TMUA/SMC-hard | TMUA/SMC→SMC (2 written) | ~25% |
-| 6 | EASY | mid | TMUA/SMC-hard | (SMC difficulty) proofs | ~35% |
-| 7 | EASY | mid | TMUA/SMC-hard | (SMC difficulty) proofs; (SMC / BMO1) only if an item genuinely passes §4.4 — none currently planned | ~45% |
+| Day | A | B | C | D | MCQ | Written | MCQ % | Written % |
+|---|---|---|---|---|---:|---:|---:|---:|
+| 1 | EASY | recognise+ | TMUA/SMC | TMUA/SMC — 4 MCQ + 1 written | 19 | 14 | 57.6 | 42.4 |
+| 2 | EASY | recognise+ | TMUA/SMC | TMUA/SMC — 4 MCQ + 1 written | 19 | 14 | 57.6 | 42.4 |
+| 3 | EASY | recognise+ | TMUA/SMC | TMUA/SMC — 4 MCQ + 1 written | 19 | 14 | 57.6 | 42.4 |
+| 4 | EASY | mid | TMUA/SMC-hard | TMUA/SMC — 3 MCQ + 2 written | 18 | 15 | 54.5 | 45.5 |
+| 5 | EASY | mid | TMUA/SMC-hard | TMUA/SMC→SMC — 3 MCQ + 2 written | 18 | 15 | 54.5 | 45.5 |
+| 6 | EASY | mid | TMUA/SMC-hard | (SMC difficulty) proofs — 2 MCQ + 3 written | 17 | 16 | 51.5 | 48.5 |
+| 7 | EASY | mid | TMUA/SMC-hard | (SMC difficulty) proofs — 2 MCQ + 3 written; (SMC / BMO1) only if an item genuinely passes §4.4 — none currently planned | 17 | 16 | 51.5 | 48.5 |
+| **Total** | | | | | **127** | **104** | **55.0** | **45.0** |
 
-A flat EASY all week is deliberate (recognition training); C/D carry the climb; the
-Proof-written share rises continuously, peaking at Day 7 (highest rigour, zero new
-content). This respects the playbook law: difficulty lives in C and D, Stage A trains
-reflexes.
+Checks: every day totals 33 items; 231 = 7 × 33; MCQ count falls monotonically
+19 → 18 → 17 through the week as Days 4–7 ramp the written-proof share; overall 55.0%
+MCQ / 45.0% written. This respects the playbook law: difficulty lives in C and D,
+Stage A trains reflexes.
 
 **Spec position per day (Oct 2026 / Jan 2027; see §3.5 for full mapping):**
 Day 1 — fully in-spec (MM6.1–6.3, MM8.4). Day 2 — fully in-spec (MM6.1(b)/(c),
@@ -1703,7 +1733,7 @@ authoring (Annotate Edition = mandatory publication gate, §17 item 6; §19 item
 - **Diagram cap removed**: no per-day graph-count limit; diagrams used wherever they
   materially improve a question; mathematical accuracy and visual quality outrank counts.
 - **Two-thirds MCQ ratio rejected** for this pillar; written challenges in Days 4–7 are
-  retained deliberately (≈55–57% MCQ accepted, §8).
+  retained deliberately (exact accounting: 127 MCQs / 231 = 55.0% MCQ; §8/§11).
 - **Annotate Edition mandatory**: pre-publication gate for this pillar (§1, §17 item 6,
   §20); repo-wide engineering remains a separate track (issue #13) but is blocking.
 - **BMO1 label restriction**: (SMC / BMO1 difficulty) only per item passing the
@@ -1838,14 +1868,14 @@ depth (§3.2, §3.5); TMUA references to the assessment Oct 2026 / Jan 2027 spec
 (§3.5, §4.1); second-order derivatives in core (§3.1, Days 1–2); deeper inflection
 analysis extension-tier (§3.3); BMO1 = proof standards only, two-question test (§4.4);
 zero citations by default (§4.5, §19 item 6); diagram cap removed (§14 unchanged quality
-law, count-free placement); two-thirds MCQ explicitly rejected; ≈55–57% MCQ retained
-deliberately (§8); Day 3 one-machinery rebalance (§7 Day 3); Day 6 walls-and-holes +
+law, count-free placement); two-thirds MCQ explicitly rejected; ≈55% MCQ retained
+deliberately (exact accounting: 127 MCQs / 231 = 55.0%; §8/§11); Day 3 one-machinery rebalance (§7 Day 3); Day 6 walls-and-holes +
 substitution rebalance (§7 Day 6); Annotate Edition mandatory publication gate (§1,
 §17 item 6, §20); Sequences-style strictly-back-referencing interleaving (§9);
 per-day spec-anchor lines (§7); pitfalls 19–20 (§18).
 
 Settled by this plan (v1, carried): combined single pillar; A-section EASY-all-week;
-C-100% MCQ; D proof-share rising 15→45%; §14 diagram accuracy law; §16 honest evidence
+C-100% MCQ; D written share rising 1→3 across Days 1–7; §14 diagram accuracy law; §16 honest evidence
 labelling; binding-friendly answer design (§10 item 8).
 
 Deferred to the maintainer (see §19): slug unification (item 1), Day 6/7 proof-tag rule
@@ -1859,5 +1889,6 @@ PILLAR-PLAYBOOK.md (proposed rows only, §5).
 
 ---
 
-*End of plan — FROZEN (v2.4). This document is the agreed mathematical blueprint for the
-Calculus and Graphs pillar. Ratification (§19/§20) precedes all drafting.*
+*End of plan — FROZEN (v2.4 mathematics) · FINAL PLAN (v2.5 numerical reconciliation).
+Planning phase complete. Ratification (§19/§20) precedes all drafting; no implementation
+is authorised until the maintainer approves it explicitly.*
