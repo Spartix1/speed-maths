@@ -1,0 +1,483 @@
+% ─────────────────────────────────────────────────────────────────────────────
+% LOCAL, UNCOMMITTED ANNOTATE-EDITION PREVIEW — do not commit this file.
+% Generated from answers/ans01.tex for Issue #13 prototype review only.
+% The committed implementation will live in shared/ipad.tex (Issue #13); this
+% file exists so the layout can be inspected before that macro is written.
+% ─────────────────────────────────────────────────────────────────────────────
+\documentclass[11pt,a4paper]{article}
+\input{../../shared/preamble}
+\input{../cg-preamble}
+\SpeedHeader{Calculus and Graphs}{1}
+
+% ── Issue #13 prototype macros (local copy) ──────────────────────────────────
+% Working space per section: A 3cm, B 4.5cm, C 6cm, D 7cm.
+\newlength{\ipadheight}
+\setlength{\ipadheight}{3cm}
+\def\ipadA{A}\def\ipadB{B}\def\ipadC{C}\def\ipadD{D}
+\newcommand{\SpeedSection}[1]{%
+  \def\ipadcurrent{#1}%
+  \setlength{\ipadheight}{3cm}%
+  \ifx\ipadcurrent\ipadB \setlength{\ipadheight}{4.5cm}\fi
+  \ifx\ipadcurrent\ipadC \setlength{\ipadheight}{6cm}\fi
+  \ifx\ipadcurrent\ipadD \setlength{\ipadheight}{7cm}\fi
+  \needspace{5\baselineskip}}
+% The answer is hidden at the bottom-right of the working box, upside down,
+% 4pt, 22% grey, prefixed "Ans: ". \method and \inv are suppressed entirely.
+\renewcommand{\ans}[1]{%
+  \par\noindent
+  \begin{minipage}[t][\ipadheight][t]{\linewidth}%
+    \raggedleft\vspace*{\fill}%
+    {\fontsize{4}{5}\selectfont\color{black!22}\rotatebox{180}{Ans:~#1}}%
+  \end{minipage}%
+  \par\vspace{4pt}}
+\renewcommand{\method}[1]{}
+\renewcommand{\inv}[1]{}
+
+\begin{document}
+
+
+\SpeedTitleBlock{Daily Calculus \& Graphs Drill \#1 --- Annotate Edition}{Henry Koduthore}
+\noindent\textit{New toolkit today: Derivative Notation $\cdot$ The Power Rule $\cdot$ Tangents \& Normals $\cdot$ The Second Derivative.}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section A \quad Rapid Recognition}
+\SpeedSection{A}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── A1 ──────────────────────────────────────────────────────────────────────────
+\needspace{5cm}
+\item Find the gradient of the tangent to $y=x^2-3x$ at $x=2$.
+
+\ans{$1$}
+\method{$y'=2x-3$, so at $x=2$ the gradient is $4-3=1$.}
+\inv{That tangent is $y=x-4$. Solve $x^2-3x=x-4$ to find where the tangent meets the curve again. Why is the intersection a double root, and why can a tangent to a quadratic never cross it at two distinct points?}
+
+%── A2 ──────────────────────────────────────────────────────────────────────────
+\needspace{5cm}
+\item $f(x)=(x+1)(x-3)$. Find $f'(x)$.
+
+\ans{$2x-2$}
+\method{Expand first: $(x+1)(x-3)=x^2-2x-3$, so $f'(x)=2x-2$.}
+\inv{Expand-first is a habit worth testing. Differentiate $f(x)=(x+1)(x-3)$ after expanding, then try $f(x)=(x+1)(x-3)(x-5)$. How many terms does the expanded cubic have, and which term disappears when you differentiate? What does that tell you about the information $f'$ keeps?}
+
+%── A3 ──────────────────────────────────────────────────────────────────────────
+\needspace{5cm}
+\item $f(x)=\sqrt{x}$. Find $f'(4)$.
+
+\ans{$\frac14$}
+\method{Write $f(x)=x^{1/2}$, so $f'(x)=\frac12x^{-1/2}$ and $f'(4)=\frac{1}{2\cdot 2}=\frac14$.}
+\inv{Find the secant gradient of $y=\sqrt{x}$ between $0$ and $h$. What happens as $h\to0^+$, and what does that say about the tangent at the origin? Does the secant gradient approach a finite number?}
+
+%── A4 ──────────────────────────────────────────────────────────────────────────
+\needspace{5cm}
+\item $f(x)=\dfrac{1}{x^2}$. Find $f'(x)$.
+
+\ans{$-\frac{2}{x^3}$}
+\method{Write $f(x)=x^{-2}$, so $f'(x)=-2x^{-3}=-\frac{2}{x^3}$.}
+\inv{State where $f'(x)=-\frac{2}{x^3}$ is positive and where it is negative. Now compare $f(x)=\frac{1}{x}$: there $f'(x)=-\frac{1}{x^2}<0$ everywhere, yet $f(-1)<f(1)$. What does ``decreasing'' mean when the domain is not an interval?}
+
+%── A5 ──────────────────────────────────────────────────────────────────────────
+\needspace{5cm}
+\item $f(x)=x^4-2x^2$. Find $f''(1)$.
+
+\ans{$8$}
+\method{$f'(x)=4x^3-4x$, then $f''(x)=12x^2-4$, so $f''(1)=12-4=8$.}
+\inv{Here $f''(x)=12x^2-4$, so $f''(0)=-4$ but $f''(2)=44$. What does the sign of $f''$ say about the gradient as $x$ increases? Find where $f''(x)=0$ and describe how the curvature changes either side.}
+
+%── A6 ──────────────────────────────────────────────────────────────────────────
+\needspace{5cm}
+\item $f(x)=x^3-3x^2+4x$. Find $f''(2)$.
+
+\ans{$6$}
+\method{$f'(x)=3x^2-6x+4$, so $f''(x)=6x-6$ and $f''(2)=12-6=6$.}
+\inv{$f''(x)=6x-6$ changes sign at $x=1$, so the gradient stops falling and starts rising there. Does that make $x=1$ a maximum or minimum of $f$? Evaluate $f'(1)$ and the sign of $f'$ either side before answering.}
+
+%── A7 ──────────────────────────────────────────────────────────────────────────
+\needspace{5cm}
+\item A particle moves along a line with displacement $s=t^3-6t^2+9t$ metres at time $t$ seconds. Find its velocity at $t=2$ and state what the sign tells you.
+
+\ans{$-3$ m/s; moving in the negative direction}
+\method{$v=\frac{ds}{dt}=3t^2-12t+9$, so $v(2)=12-24+9=-3$ m/s. The negative sign means the particle is moving in the negative direction.}
+\inv{Solve $v=0$: the particle is momentarily at rest at $t=1$ and $t=3$. Evaluate $s$ at both times and the sign of $v$ between them. Describe the motion in words: where does it turn around, and in which direction does it travel on each interval?}
+
+%── A8 ──────────────────────────────────────────────────────────────────────────
+\needspace{5cm}
+\item Find the equation of the normal to $y=x^2$ at $x=1$.
+
+\ans{$y=-\frac{1}{2}x+\frac{3}{2}$}
+\method{At $x=1$, $y=1$ and the tangent gradient is $2$; the normal gradient is $-\frac12$. So $y-1=-\frac12(x-1)$, i.e. $y=-\frac12x+\frac32$.}
+\inv{The normal at $x=1$ is $y=-\frac12x+\frac32$. Where does it meet the parabola again? Now find every $a$ for which the normal to $y=x^2$ at $x=a$ passes through the origin; how many such normals are there?}
+
+%── A9 ──────────────────────────────────────────────────────────────────────────
+\needspace{5cm}
+\item $f(x)=\dfrac{x^2+4}{\sqrt{x}}$. Find $f'(4)$.
+
+\ans{$\frac{11}{4}$}
+\method{Split first: $f(x)=x^{3/2}+4x^{-1/2}$, so $f'(x)=\frac32x^{1/2}-2x^{-3/2}$. At $x=4$: $\frac32\cdot 2-\frac{2}{8}=3-\frac14=\frac{11}{4}$.}
+\inv{For $f(x)=\frac{x^2+k}{\sqrt{x}}$, find the value of $k$ for which $f'(4)=0$. Then evaluate $f'$ at $x=3$ and $x=5$ for that $k$: what does the sign pattern say about the gradient near $x=4$?}
+
+%── A10 ─────────────────────────────────────────────────────────────────────────
+\needspace{5cm}
+\item $f(x)=ax^3+bx$, where $f'(1)=5$ and $f''(1)=12$. Find $a$ and $b$.
+
+\ans{$a=2,\ b=-1$}
+\method{$f'(x)=3ax^2+b$, so $3a+b=5$. Also $f''(x)=6ax$, so $6a=12$, giving $a=2$ and then $b=5-6=-1$.}
+\inv{For $f(x)=ax^3+bx$, show that $f'(-1)=f'(1)$ and $f''(-1)=-f''(1)$ for every $a,b$. So $f'(1)$ and $f''(1)$ can be chosen freely, but $f'(1)$ and $f'(-1)$ cannot. Which pairs of conditions at $x=1$ and $x=-1$ determine $a$ and $b$ uniquely?}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section B \quad Manipulation Drills}
+\SpeedSection{B}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── B1 ──────────────────────────────────────────────────────────────────────────
+\needspace{10cm}
+\item Find the equation of the tangent to $y=x^2-4x+5$ at $x=3$.
+\begin{itemize}
+\item[A)] $y=2x+8$
+\item[B)] $y=-\dfrac{1}{2}x+\dfrac{7}{2}$
+\item[C)] $y=2x-4$
+\item[D)] $y=6x-16$
+\item[E)] $y=2x+5$
+\end{itemize}
+
+\ans{C) $y=2x-4$}
+\method{At $x=3$, $y=9-12+5=2$ and $y'=2x-4$, so the gradient is $2$. Then $y-2=2(x-3)$, i.e.\ $y=2x-4$. Decoys: A comes from the bracket slip $y-2=2(x+3)$; B is the normal; D evaluates $y'$ as $2x$ and forgets the $-4$; E reads the constant term $5$ as the $y$-intercept.}
+\inv{Find the point where the tangent to $y=x^2-4x+5$ is perpendicular to $y=2x-4$ ($x=\frac74$). Show that the two tangents meet at a point with $y=\frac34$. Try another pair of perpendicular tangents to this parabola: what do you notice?}
+
+%── B2 ──────────────────────────────────────────────────────────────────────────
+\needspace{10cm}
+\item Find the equation of the normal to $y=x^2-2x$ at $x=3$.
+\begin{itemize}
+\item[A)] $y=4x-9$
+\item[B)] $y=\dfrac{1}{4}x+\dfrac{9}{4}$
+\item[C)] $y=-4x+15$
+\item[D)] $y=-\dfrac{1}{4}x-\dfrac{9}{4}$
+\item[E)] $y=-\dfrac{1}{4}x+\dfrac{15}{4}$
+\end{itemize}
+
+\ans{E) $y=-\frac{1}{4}x+\frac{15}{4}$}
+\method{At $x=3$, $y=9-6=3$ and the tangent gradient is $2x-2=4$, so the normal gradient is $-\frac14$. Then $y-3=-\frac14(x-3)$, i.e.\ $y=-\frac14x+\frac{15}{4}$. Decoys: A is the tangent; B drops the minus; C negates the gradient without taking the reciprocal; D uses $+3$ instead of $-3$ for the point's $y$-coordinate.}
+\inv{Show that the normal meets the parabola again at $x=-\frac54$. For a general $a$, show that the normal at $x=a$ meets $y=x^2-2x$ again at $x=2-a-\frac{1}{2a-2}$. Why must $a=1$ be excluded?}
+
+%── B3 ──────────────────────────────────────────────────────────────────────────
+\needspace{10cm}
+\item For $y=x^2+2x$, what is the average rate of change between $x=1$ and $x=4$?
+\begin{itemize}
+\item[A)] $21$
+\item[B)] $7$
+\item[C)] $4$
+\item[D)] $10$
+\item[E)] $\dfrac{21}{4}$
+\end{itemize}
+
+\ans{B) $7$}
+\method{$f(1)=3$ and $f(4)=24$, so the average rate is $\frac{24-3}{4-1}=\frac{21}{3}=7$. Decoys: A stops at the total change $21$; C uses the instantaneous rate $f'(1)=4$; D uses $f'(4)=10$; E divides by the upper limit $4$ instead of the interval width $3$.}
+\inv{Show that the average rate of change of $y=x^2+2x$ between $x=p$ and $x=q$ is $p+q+2$. Which different intervals give the same average rate?}
+
+%── B4 ──────────────────────────────────────────────────────────────────────────
+\needspace{14.5cm}
+\item The derivative of $f$ satisfies $f'(x)>0$ for $x<-1$, $f'(-1)=0$, $f'(x)<0$ for $-1<x<2$, $f'(2)=0$, and $f'(x)>0$ for $x>2$. Which sketch could be $y=f(x)$?
+
+\begin{center}
+\begin{tabular}{ccc}
+\cgBfourA & \cgBfourB & \cgBfourC \\[2pt]
+\textbf{A} & \textbf{B} & \textbf{C} \\[10pt]
+\cgBfourD & \cgBfourE & \\[2pt]
+\textbf{D} & \textbf{E} &
+\end{tabular}
+\end{center}
+
+\ans{D}
+\method{The sign pattern is $+$, $0$, $-$, $0$, $+$: $f$ rises to a high at $x=-1$, falls to a low at $x=2$, then rises. Only panel D does this. Decoys: A swaps the high and the low; B puts the flat points at $-2$ and $1$; C has a flat point at $-1$ where the curve does not turn and only a minimum at $2$; E has a maximum at $-1$, then a flat point at $2$ where the curve does not turn and keeps falling.}
+\inv{The correct panel has $f'(x)=(x+1)(x-2)$. Confirm the sign pattern, then explain why a maximum sits where $f'$ changes from $+$ to $-$ and a minimum where it changes from $-$ to $+$. (Day 2 preview: the formal sign chart.)}
+
+%── B5 ──────────────────────────────────────────────────────────────────────────
+\needspace{10cm}
+\item The tangent to $y=x^2$ at $x=a$ passes through $(3,0)$. Find every possible value of $a$.
+\begin{itemize}
+\item[A)] $a=0$ or $a=6$
+\item[B)] $a=6$ only
+\item[C)] $a=0$ only
+\item[D)] $a=3$
+\item[E)] $a=-6$ or $a=0$
+\end{itemize}
+
+\ans{A) $a=0$ or $a=6$}
+\method{The tangent at $x=a$ is $y=2ax-a^2$. Put $(3,0)$ on it: $0=6a-a^2=a(6-a)$, so $a=0$ or $a=6$. Decoys: B discards $a=0$; C discards $a=6$; D takes the external point's $x$-coordinate as $a$; E comes from the sign slip $0=-6a-a^2$.}
+\inv{For a general point $(p,0)$, solve $0=2ap-a^2$. How many tangents to $y=x^2$ pass through $(p,0)$ when $p\neq0$, and what happens when $p=0$?}
+
+%── B6 ──────────────────────────────────────────────────────────────────────────
+\needspace{10cm}
+\item The normal to $y=x^2$ at $x=a$ is parallel to $y=-\dfrac{x}{4}+1$. Find $a$.
+\begin{itemize}
+\item[A)] $a=-2$
+\item[B)] $a=2$
+\item[C)] $a=4$
+\item[D)] $a=\dfrac{1}{2}$
+\item[E)] $a=\dfrac{1}{8}$
+\end{itemize}
+
+\ans{B) $a=2$}
+\method{The tangent gradient at $x=a$ is $2a$, so the normal gradient is $-\frac{1}{2a}$. Parallel to $y=-\frac{x}{4}+1$ means $-\frac{1}{2a}=-\frac14$, so $2a=4$ and $a=2$. Decoys: A drops the minus; C forgets the factor $2$; D reciprocates the answer; E multiplies by $2$ instead of dividing.}
+\inv{Show that the normal to $y=x^2$ at $x=a$ is parallel to the tangent at $x=b$ exactly when $ab=-\frac14$. What does that say about the tangents at $a$ and $b$?}
+
+%── B7 ──────────────────────────────────────────────────────────────────────────
+\needspace{10cm}
+\item The tangent to $y=\sqrt{x}$ at $x=4$ meets the $x$-axis at
+\begin{itemize}
+\item[A)] $x=4$
+\item[B)] $x=1$
+\item[C)] $x=-12$
+\item[D)] $x=-4$
+\item[E)] $x=\dfrac{9}{2}$
+\end{itemize}
+
+\ans{D) $x=-4$}
+\method{At $x=4$, $y=\sqrt4=2$ and $y'=\frac{1}{2\sqrt{x}}=\frac14$. The tangent is $y-2=\frac14(x-4)$, i.e.\ $y=\frac14x+1$. Setting $y=0$ gives $x=-4$. Decoys: A solves $\frac14x=1$ instead of $\frac14x=-1$; B reports the $y$-intercept; C uses $y(4)=4$ instead of $2$; E uses the normal gradient $-4$ instead of the tangent gradient.}
+\inv{Show that the tangent to $y=\sqrt{x}$ at $x=a$ always meets the $x$-axis at $x=-a$. Where does it meet the $y$-axis?}
+
+%── B8 ──────────────────────────────────────────────────────────────────────────
+\needspace{10cm}
+\item For $y=x^3$, find the average rate of change between $x=1$ and $x=1+h$. Simplify your answer, then deduce the instantaneous rate of change at $x=1$.
+
+\ans{average rate $=3+3h+h^2$; instantaneous rate $=3$}
+\method{$f(1)=1$ and $f(1+h)=1+3h+3h^2+h^3$. The change is $3h+3h^2+h^3$, so the average rate is $3+3h+h^2$. As $h\to0^+$, this tends to $3$, which is $f'(1)=3$.}
+\inv{Repeat from $x=a$ to $x=a+h$. Show that the average rate is $3a^2+3ah+h^2$, then deduce $f'(a)$.}
+
+%── B9 ──────────────────────────────────────────────────────────────────────────
+\needspace{10cm}
+\item Find the equation of the tangent to $y=x^3-3x$ at $x=2$, and find where that tangent meets the curve again.
+
+\ans{$y=9x-16$; again at $(-4,-52)$}
+\method{At $x=2$, $y=8-6=2$ and $y'=3x^2-3=9$. The tangent is $y-2=9(x-2)$, i.e.\ $y=9x-16$. Solve $x^3-3x=9x-16$: $x^3-12x+16=(x-2)^2(x+4)=0$, so the other point is $x=-4$, $y=-52$.}
+\inv{The tangent at $x=2$ meets the curve again at $x=-4$. Find the tangent at $x=-4$ and check whether it passes through $(2,2)$. What does that show about tangency as a relation between points?}
+
+%── B10 ─────────────────────────────────────────────────────────────────────────
+\needspace{10cm}
+\item The tangent to $y=x^2-2x$ at $P$ is parallel to $y=2x+5$. Find the coordinates of $P$, and the equation of the normal at $P$.
+
+\ans{$P=(2,0)$; normal $y=-\frac{1}{2}x+1$}
+\method{$y'=2x-2$. Parallel to $y=2x+5$ means $2x-2=2$, so $x=2$ and $y=4-4=0$. Thus $P=(2,0)$. The normal gradient is $-\frac12$, so $y-0=-\frac12(x-2)$, i.e.\ $y=-\frac12x+1$.}
+\inv{Now find the point on $y=x^2-2x$ where the normal is parallel to $y=2x+5$ instead. Solve $-\frac{1}{2x-2}=2$ and interpret the result.}
+
+\end{enumerate}
+
+%═══════════════════════════════════════════════════════════════════════════════
+\SpeedSection{C}
+\needspace{12cm}
+\section*{Section C \quad Substitution \& Structure}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── C1 ──────────────────────────────────────────────────────────────────────────
+\needspace{11cm}
+\item $f(x)=\dfrac{x^3-8}{x-2}$ for $x\neq 2$. Find $f'(3)$.
+\begin{itemize}
+\item[A)] $27$
+\item[B)] $8$
+\item[C)] $4$
+\item[D)] $6$
+\item[E)] $19$
+\end{itemize}
+
+\ans{B) $8$}
+\method{Factor the difference of cubes: $x^3-8=(x-2)(x^2+2x+4)$, so $f(x)=x^2+2x+4$ for $x\neq 2$. Then $f'(x)=2x+2$ and $f'(3)=8$. Decoys: A differentiates numerator and denominator separately ($27/1$); C uses the wrong factor $x^2-2x+4$, giving $2x-2$ and $4$; D uses $x^2+4$ (the error $a^3-b^3=(a-b)(a^2+b^2)$), giving $2x$ and $6$; E gives $f(3)=19$.}
+\inv{$f(x)$ is the chord gradient of $y=x^3$ between $2$ and $x$. Show that $f(x)\to 12$ as $x\to2$, and explain why that is the derivative of $x^3$ at $2$. Generalise to $\dfrac{x^n-a^n}{x-a}$.}
+
+%── C2 ──────────────────────────────────────────────────────────────────────────
+\needspace{11cm}
+\item The graph of $y=f'(x)$ is a straight line with positive gradient passing through $(1,0)$. Which could be $f(x)$?
+\begin{itemize}
+\item[A)] $x^2+2x-3$
+\item[B)] $-x^2+2x$
+\item[C)] $x^3-3x$
+\item[D)] $x^2-2x+5$
+\item[E)] $2x-2$
+\end{itemize}
+
+\ans{D) $x^2-2x+5$}
+\method{$f'$ is a straight line $y=m(x-1)$ with $m>0$, so $f$ is a quadratic with $f'(1)=0$ and positive leading coefficient. Only D has $f'=2x-2=2(x-1)$. Decoys: A has $f(1)=0$, confusing a root of $f$ with a root of $f'$ (and $f'(1)=4$); B has $f'=-2(x-1)$, the right line with negative gradient; C has $f'(1)=0$ but $f'=3x^2-3$ is a parabola, not a line; E is $f'$ itself, not $f$.}
+\inv{Every $x^2-2x+c$ works. Why can't the graph of $f'$ tell you $c$, and what single extra fact would?}
+
+%── C3 ──────────────────────────────────────────────────────────────────────────
+\needspace{11cm}
+\item A cubic $y=f(x)$ has roots $x=-1$, $2$ and $4$, and $y$-intercept $-16$. Find $f'(0)$.
+\begin{itemize}
+\item[A)] $-4$
+\item[B)] $2$
+\item[C)] $4$
+\item[D)] $-10$
+\item[E)] $-16$
+\end{itemize}
+
+\ans{A) $-4$}
+\method{Let $f=k(x+1)(x-2)(x-4)$. Then $f(0)=k(1)(-2)(-4)=8k=-16$, so $k=-2$ and $f=-2x^3+10x^2-4x-16$. Hence $f'(x)=-6x^2+20x-4$ and $f'(0)=-4$. Decoys: B assumes $k=1$, giving $f'(0)=2$; C uses the factors $(x-1)(x+2)(x+4)$, which force $k=2$ and $f'(0)=4$; D takes $k$ times the sum of the roots, $-2(5)=-10$; E gives $f(0)=-16$.}
+\inv{Show that $f'(-1)=k(-1-2)(-1-4)=-30$ without expanding, by taking the chord gradient $\dfrac{f(x)-f(-1)}{x+1}$ and letting $x\to-1$. Generalise to $f'(p)$ at any root $p$.}
+
+%── C4 ──────────────────────────────────────────────────────────────────────────
+\needspace{11cm}
+\item For $f(x)=x^3-6x^2+9x$, for which $x$ are \textbf{both} $f'(x)<0$ and $f''(x)>0$?
+\begin{itemize}
+\item[A)] $1<x<3$
+\item[B)] $1<x<2$
+\item[C)] $x>2$
+\item[D)] $x>3$
+\item[E)] $2<x<3$
+\end{itemize}
+
+\ans{E) $2<x<3$}
+\method{$f'=3x^2-12x+9=3(x-1)(x-3)<0$ exactly on $1<x<3$, and $f''=6x-12>0$ exactly for $x>2$. Both hold on $2<x<3$. Decoys: A ignores $f''$; B reverses the sign of $f''$, giving $1<x<2$; C ignores $f'$; D reverses the sign of $f'$, giving $x>3$.}
+\inv{On $(2,3)$ the curve is falling but its gradient is increasing. Where is the gradient most negative, and what is that value?}
+
+%── C5 ──────────────────────────────────────────────────────────────────────────
+\needspace{11cm}
+\item The tangents to $y=x^3+kx^2$ at $x=1$ and $x=3$ are parallel. Find $k$.
+\begin{itemize}
+\item[A)] $6$
+\item[B)] $-12$
+\item[C)] $-6$
+\item[D)] $-\dfrac{13}{4}$
+\item[E)] No such $k$ exists
+\end{itemize}
+
+\ans{C) $-6$}
+\method{$f'=3x^2+2kx$. Parallel tangents at $x=1$ and $x=3$ give $3+2k=27+6k$, so $4k=-24$ and $k=-6$. Decoys: A comes from the sign slip $27-3=6k-2k$; B differentiates $kx^2$ as $kx$, giving $3+k=27+3k$ and $k=-12$; D equates the $y$-values, $1+k=27+9k$, giving $k=-\frac{13}{4}$; E differentiates $kx^2$ as $2k$, so the $k$ terms cancel and no solution exists.}
+\inv{Prove that the tangents at $x=p$ and $x=q$ ($p\neq q$) are parallel exactly when $p+q=-\dfrac{2k}{3}$. So parallel tangents pair up symmetrically about $x=-\dfrac{k}{3}$.}
+
+%── C6 ──────────────────────────────────────────────────────────────────────────
+\needspace{11cm}
+\item The line $y=4x+c$ is a tangent to $y=x^3+x$. Find all possible values of $c$.
+\begin{itemize}
+\item[A)] $c=\pm 1$
+\item[B)] $c=\pm 2$
+\item[C)] $c=-2$ only
+\item[D)] $c=\pm 3$
+\item[E)] $c=\pm\dfrac{10\sqrt{3}}{9}$
+\end{itemize}
+
+\ans{B) $c=\pm 2$}
+\method{$f'=3x^2+1$. A tangent of gradient $4$ needs $3x^2+1=4$, so $x=\pm1$. The contact points are $(1,2)$ and $(-1,-2)$. For $y=4x+c$: $2=4+c$ gives $c=-2$, and $-2=-4+c$ gives $c=2$. Thus $c=\pm2$. Decoys: A reports the $x$-coordinates $\pm1$; C keeps only $x=1$; D takes the contact $y$-values from $y=x^3$ (forgetting the $+x$), giving $\pm1-4(\pm1)=\mp3$; E differentiates $x$ as $0$, so $3x^2=4$, giving $x=\pm\frac{2}{\sqrt3}$ and $c=\mp\frac{10\sqrt3}{9}$.}
+\inv{For which gradients $m$ does $y=x^3+x$ have exactly one tangent of gradient $m$? Exactly two? None?}
+
+%── C7 ──────────────────────────────────────────────────────────────────────────
+\needspace{11cm}
+\item The tangent to $y=\dfrac{4}{x}$ at $x=3$ meets the axes at $P$ and $Q$. Find the area of triangle $OPQ$.
+\begin{itemize}
+\item[A)] $16$
+\item[B)] $0$
+\item[C)] $4$
+\item[D)] $8$
+\item[E)] $\dfrac{25}{2}$
+\end{itemize}
+
+\ans{D) $8$}
+\method{At $x=3$, $y=\frac43$ and $y'=-\frac{4}{x^2}=-\frac49$. The tangent is $y-\frac43=-\frac49(x-3)$, i.e.\ $y=-\frac49x+\frac83$. It meets the axes at $(6,0)$ and $(0,\frac83)$, so the area is $\frac12\cdot6\cdot\frac83=8$. Decoys: A forgets the $\frac12$; B uses $+\frac49$, which sends the tangent through $O$ and gives area $0$; C gives $xy=3\cdot\frac43=4$ at the contact point; E differentiates $\frac4x$ as $-\frac{1}{x^2}$, giving intercepts $15$ and $\frac53$ and area $\frac{25}{2}$.}
+\inv{Show that the area is $8$ wherever the point of contact is, and that the contact point is always the midpoint of $PQ$. What is the area for $y=\dfrac{k}{x}$?}
+
+%── C8 ──────────────────────────────────────────────────────────────────────────
+\needspace{11cm}
+\item A cubic $f(x)=ax^3+bx^2+cx+d$ has tangent $y=2x+1$ at $x=1$, with $f''(1)=4$ and $f''(0)=-2$. Find $f(2)$.
+\begin{itemize}
+\item[A)] $8$
+\item[B)] $5$
+\item[C)] $6$
+\item[D)] $7$
+\item[E)] Cannot be determined
+\end{itemize}
+
+\ans{A) $8$}
+\method{$f''=6ax+2b$. From $f''(0)=-2$, $b=-1$. From $f''(1)=4$, $6a-2=4$, so $a=1$. The tangent at $x=1$ gives both $f'(1)=2$ and $f(1)=3$. Now $f'=3x^2-2x+c$, so $3-2+c=2$ and $c=1$; and $f(1)=1-1+1+d=3$, so $d=2$. Thus $f=x^3-x^2+x+2$ and $f(2)=8-4+2+2=8$. Decoys: B reads $f(2)$ off the tangent ($5$); C ignores $f(1)=3$ and takes $d=0$ ($6$); D writes $f''=6ax+b$, giving $b=-2$, $a=1$, $c=3$, $d=1$ and $f(2)=7$; E treats the tangent as one condition instead of two, leaving $d$ undetermined.}
+\inv{The tangent predicts $5$ but the true value is $8$. Show that $f(1+h)-(3+2h)=h^2(2+h)$, and note that the coefficient of $h^2$ is $\frac{f''(1)}{2}$. Is that true for every cubic?}
+
+\end{enumerate}
+
+\SpeedSection{D}
+\needspace{14cm}
+%═══════════════════════════════════════════════════════════════════════════════
+\section*{Section D \quad Challenge}
+%═══════════════════════════════════════════════════════════════════════════════
+\begin{enumerate}
+
+%── D1 ──────────────────────────────────────────────────────────────────────────
+\needspace{12cm}
+\item The chord of $y=x^3$ from $x=-1$ to $x=2$ is parallel to the tangent at $x=c$, where $-1<c<2$. Find all such $c$.
+\begin{itemize}
+\item[A)] $c=\dfrac12$
+\item[B)] $c=-1$ and $c=1$
+\item[C)] $c=\sqrt3$
+\item[D)] $c=1$ only
+\item[E)] $c=\dfrac{2}{\sqrt3}$
+\end{itemize}
+
+\ans{D) $c=1$ only}
+\method{Chord gradient: $\dfrac{8-(-1)}{2-(-1)}=\dfrac93=3$. A tangent of gradient $3$ needs $3c^2=3$, so $c=\pm1$. The condition $-1<c<2$ is strict, so $c=-1$ is excluded and $c=1$ is the only value. Decoys: A uses the midpoint $\frac12$, which is valid only for quadratics; B ignores the strict inequality; C forgets to divide the rise $9$ by the run $3$, solving $3c^2=9$; E uses the chord from $x=0$, whose gradient is $4$, giving $c=\frac{2}{\sqrt3}$.}
+\inv{The value $c=-1$ also gives gradient $3$. Show the chord's line $y=3x+2$ is actually the tangent at $x=-1$, since $x^3-3x-2=(x+1)^2(x-2)$. Prove that for any quadratic the parallel tangent is always at the midpoint, then find where it is for $y=x^3$ on $[0,h]$.}
+
+%── D2 ──────────────────────────────────────────────────────────────────────────
+\needspace{12cm}
+\item The curves $y=x^2$ and $y=-(x-2)^2$ have $y=0$ as a common tangent. Find all their other common tangents.
+\begin{itemize}
+\item[A)] $y=4x-4$ only
+\item[B)] $y=-4x-4$ only
+\item[C)] $y=4x-4$ and $y=-4x-4$
+\item[D)] $y=2x-1$
+\item[E)] There are no others
+\end{itemize}
+
+\ans{A) $y=4x-4$ only}
+\method{The tangent to $y=x^2$ at $x=a$ is $y=2ax-a^2$. The tangent to $y=-(x-2)^2$ at $x=b$ is $y=-2(b-2)x+b^2-4$. Matching gradients and intercepts gives $a=2-b$ and $-(2-b)^2=b^2-4$, so $2b^2-4b=0$ and $b=0$ or $2$. The root $b=2$ gives $a=0$ and the common tangent $y=0$; the other root $b=0$ gives $a=2$ and $y=4x-4$. Decoys: B takes the second gradient as $+2(b-2)$, giving $y=-4x-4$; C assumes mirror symmetry and keeps both; D forces both points of contact to have the same $x$-coordinate, $2a=-2(a-2)$, giving $a=1$ and $y=2x-1$; E writes the first tangent as $y=2ax+a^2$, which leaves only $y=0$.}
+\inv{For $y=x^2$ and $y=-(x-k)^2$, show the common tangents are $y=0$ and $y=2kx-k^2$, touching at $x=k$ and $x=0$ respectively. What happens as $k\to0$? What if the second curve is shifted to $y=-(x-k)^2+m$?}
+
+%── D3 ──────────────────────────────────────────────────────────────────────────
+\needspace{12cm}
+\item The curve $y=f(x)=x^3+bx^2+cx+d$ has horizontal tangents at $x=-1$ and $x=3$. Find $f(-1)-f(3)$.
+\begin{itemize}
+\item[A)] $-8$
+\item[B)] $64$
+\item[C)] $-32$
+\item[D)] Cannot be determined without $d$
+\item[E)] $32$
+\end{itemize}
+
+\ans{E) $32$}
+\method{Write $f'=3x^2+2bx+c$. Horizontal tangents at $x=-1$ and $x=3$ give $f'=3(x+1)(x-3)=3x^2-6x-9$, so $b=-3$, $c=-9$. Then $f(-1)=5+d$ and $f(3)=-27+d$, so $f(-1)-f(3)=32$ for every $d$. Decoys: A forgets the factor $3$, using $f'=(x+1)(x-3)$, so $b=-1$, $c=-3$; with the cubic still monic this gives $f(-1)-f(3)=-8$; B assumes the gap is $(3-(-1))^3=64$; C computes $f(3)-f(-1)=-32$; D does not notice that $d$ cancels.}
+\inv{Show that for $y=x^3+bx^2+cx+d$ with horizontal tangents a distance $D$ apart, the vertical gap is always $\dfrac{D^3}{2}$. Do NOT use integration (that is Day 4): translate so the horizontal tangents are at $x=\pm h$, giving $y=x^3-3h^2x+\text{const}$. What changes if the leading coefficient is $k$?}
+
+%── D4 ──────────────────────────────────────────────────────────────────────────
+\needspace{12cm}
+\item Several tangents to $y=x^3-3x$ pass through the point $(2,-2)$. Find the sum of the $x$-coordinates of all their points of contact.
+\begin{itemize}
+\item[A)] $1$
+\item[B)] $3$
+\item[C)] $2$
+\item[D)] $2+\sqrt3$
+\item[E)] $-3$
+\end{itemize}
+
+\ans{B) $3$}
+\method{The tangent at $x=a$ is $y=(3a^2-3)x-2a^3$. Passing through $(2,-2)$ gives $-2=2(3a^2-3)-2a^3$, so $a^3-3a^2+2=0$. Since $a=1$ is a root, $(a-1)(a^2-2a-2)=0$, giving $a=1$ and $a=1\pm\sqrt3$. The sum of the three contact $x$-coordinates is $3$. Decoys: A finds only the horizontal tangent $a=1$; C keeps only the two roots of the quadratic factor, whose sum is $2$; D discards the negative root $1-\sqrt3$ but keeps $a=1$ and $1+\sqrt3$, giving $2+\sqrt3$; E makes a sign error in the sum of the roots, giving $-3$.}
+\inv{$(2,2)$ lies on the curve. Show the equation for $a$ becomes $(a+1)(a-2)^2=0$. How many distinct tangents pass through $(2,2)$, and why is $a=2$ a double root? (Day 2 preview.) For which points are there exactly three tangents?}
+
+%── D5 ──────────────────────────────────────────────────────────────────────────
+\newpage
+\item Let $a\neq0$.
+\begin{enumerate}
+\item[(a)] Show that the tangent to $y=x^3$ at $x=a$ meets the curve again at $x=-2a$.
+\item[(b)] Show that the gradient of the curve at $x=-2a$ is four times the gradient at $x=a$.
+\item[(c)] The tangent at $x=-2a$ meets the curve again at $x=b$. Find $b$, and the gradient there in terms of $a$.
+\item[(d)] Explain why the condition $a\neq0$ is needed.
+\end{enumerate}
+
+\method{(a) The tangent at $x=a$ is $y=3a^2x-2a^3$. Subtracting from $y=x^3$ gives $x^3-3a^2x+2a^3$. Factor and expand to verify: $(x-a)^2(x+2a)=(x^2-2ax+a^2)(x+2a)=x^3-3a^2x+2a^3$. Since $a\neq0$, the factor $x+2a$ gives a second intersection at $x=-2a$. (b) The gradient at $x=-2a$ is $3(-2a)^2=12a^2=4\cdot3a^2$, four times the gradient at $x=a$. (c) Replacing $a$ by $-2a$ in part (a), the tangent at $x=-2a$ meets the curve again at $x=-2(-2a)=4a$, so $b=4a$; the gradient there is $3(4a)^2=48a^2$. (d) If $a=0$, the tangent is $y=0$, and $x^3=0$ has only the triple root $x=0$; there is no second point.}
+\inv{For $y=x^3+px^2+qx+r$, show the tangent at $x=a$ meets the curve again at $x=-2a-p$. For which $a$ does it not meet the curve again, and what is special about that point?}
+
+\end{enumerate}
+
+\vspace*{\fill}
+{\raggedleft\fontsize{4}{5}\selectfont\color{black!22}\rotatebox{180}{Ans:~$b=4a$; gradient $48a^2$}\par}
+
+\end{document}
